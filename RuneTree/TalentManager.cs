@@ -48,6 +48,45 @@ public sealed class TalentManager
         //####################################################
         //Build out the Ice Tree
         //####################################################
+        //build out Ice Shard branch
+        var iceshard = new IceShard();
+        var shardSize = new IceShardSize();
+        iceshard.ConnectNode(shardSize);
+        
+        //build out Ice Block branch
+        var iceblock = new IceBlock();
+        var blockDuration = new IceBlockDuration();
+        iceblock.ConnectNode(blockDuration);
+        
+        //build out Ice Bridge branch
+        var icebridge = new IceBridge();
+        var bridgeDuration = new IceBridgeDuration();
+        icebridge.ConnectNode(bridgeDuration);
+        
+        //build out Ice Patch branch
+        var icepatch = new IcePatch();
+        var patchSize = new IcePatchSize();
+        icepatch.ConnectNode(patchSize);
+        
+        //add branches to base node
+        IceTree.ConnectNode(iceshard);
+        IceTree.ConnectNode(iceblock);
+        IceTree.ConnectNode(icebridge);
+        IceTree.ConnectNode(icepatch);
+        
+        //####################################################
+        //Build out the Lightning Tree
+        //####################################################
+        //build out Lightning tree
+        var lightningDamage = new LightningDamage();
+        var lightningLink = new LightningLinkCount();
+        lightningDamage.ConnectNode(lightningLink);
+        var lightningDuration = new LightningLinkDuration();
+        lightningLink.ConnectNode(lightningDuration);
+        var lightningAOE = new LightningAOE();
+        lightningDuration.ConnectNode(lightningAOE);
+        
+        LightningTree.ConnectNode(lightningDamage);
         
     }
 }
