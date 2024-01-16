@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c3lkw8rasxn0x"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FireRune" type="Panel" parent="."]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+offset_right = 320.0
+offset_bottom = 540.0
+
+[node name="FireRune2" type="Panel" parent="."]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+offset_left = 320.0
+offset_right = 640.0
+offset_bottom = 540.0
+
+[node name="FireRune3" type="Panel" parent="."]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+offset_left = 640.0
+offset_right = 960.0
+offset_bottom = 540.0
