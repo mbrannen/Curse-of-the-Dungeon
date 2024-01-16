@@ -126,6 +126,7 @@ offset_right = 640.0
 offset_bottom = 540.0
 
 [node name="BaseRune" type="TextureRect" parent="IceRune"]
+layout_mode = 0
 offset_left = 137.0
 offset_top = 227.0
 offset_right = 177.0
@@ -146,6 +147,7 @@ points = PackedVector2Array(18, 20, 91, -26)
 points = PackedVector2Array(18, 20, -50, -25)
 
 [node name="IceBlock" type="TextureRect" parent="IceRune"]
+layout_mode = 0
 offset_left = 63.0
 offset_top = 287.0
 offset_right = 103.0
@@ -157,6 +159,7 @@ expand_mode = 1
 points = PackedVector2Array(17, 19, 69, 68)
 
 [node name="IceBlock_1" type="TextureRect" parent="IceRune"]
+layout_mode = 0
 offset_left = 113.0
 offset_top = 339.0
 offset_right = 153.0
@@ -165,6 +168,7 @@ texture = ExtResource("1_rljw2")
 expand_mode = 1
 
 [node name="IceShard" type="TextureRect" parent="IceRune"]
+layout_mode = 0
 offset_left = 213.0
 offset_top = 284.0
 offset_right = 253.0
@@ -176,6 +180,7 @@ expand_mode = 1
 points = PackedVector2Array(21, 24, -22, 79)
 
 [node name="IceShard_1" type="TextureRect" parent="IceRune"]
+layout_mode = 0
 offset_left = 170.0
 offset_top = 345.0
 offset_right = 210.0
@@ -184,6 +189,7 @@ texture = ExtResource("1_rljw2")
 expand_mode = 1
 
 [node name="IcePatch" type="TextureRect" parent="IceRune"]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 178.0
 offset_right = 104.0
@@ -195,6 +201,7 @@ expand_mode = 1
 points = PackedVector2Array(15, 20, 61, -54)
 
 [node name="IcePatch_1" type="TextureRect" parent="IceRune"]
+layout_mode = 0
 offset_left = 107.0
 offset_top = 103.0
 offset_right = 147.0
@@ -203,6 +210,7 @@ texture = ExtResource("1_rljw2")
 expand_mode = 1
 
 [node name="IceBridge" type="TextureRect" parent="IceRune"]
+layout_mode = 0
 offset_left = 209.0
 offset_top = 178.0
 offset_right = 249.0
@@ -214,6 +222,7 @@ expand_mode = 1
 points = PackedVector2Array(21, 19, -28, -58)
 
 [node name="IceBridge_1" type="TextureRect" parent="IceRune"]
+layout_mode = 0
 offset_left = 163.0
 offset_top = 107.0
 offset_right = 203.0
