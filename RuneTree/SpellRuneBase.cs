@@ -13,6 +13,8 @@ public abstract class SpellRuneBase : IRuneNode
 
     public abstract string Name { get; }
     public abstract string Description { get; }
+    
+    public event IRuneNode.NodeBecameCorruptedDelegate NodeBecameCorrupted;
     public void ConnectNode(IRuneNode child)
     {
         Children.Add(child);
@@ -36,5 +38,11 @@ public abstract class SpellRuneBase : IRuneNode
             }
         }
         return null;
+    }
+
+    public void CorruptNode()
+    {
+        Corrupted = true;
+        NodeBecameCorrupted?.Invoke(this);
     }
 }

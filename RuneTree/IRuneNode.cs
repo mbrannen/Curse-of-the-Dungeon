@@ -9,11 +9,15 @@ public interface IRuneNode
     public List<IRuneNode> Children { get; set; }
     
     public bool IsActive { get; set; }
-    public bool Corrupted { get; set; }
     
     public string Name { get; }
     public string Description { get; }
 
     public void ConnectNode(IRuneNode child);
     public IRuneNode GetSpecificNode(string name);
+    
+    public bool Corrupted { get; set; }
+    public delegate void NodeBecameCorruptedDelegate(IRuneNode node);
+    public event NodeBecameCorruptedDelegate NodeBecameCorrupted;
+    public void CorruptNode();
 }

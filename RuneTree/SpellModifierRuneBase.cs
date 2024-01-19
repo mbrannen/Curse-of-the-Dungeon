@@ -10,7 +10,13 @@ public abstract class SpellModifierRuneBase : IRuneNode
     
     public bool IsActive { get; set; }
     public bool Corrupted { get; set; }
-    
+    public event IRuneNode.NodeBecameCorruptedDelegate NodeBecameCorrupted;
+    public void CorruptNode()
+    {
+        Corrupted = true;
+        NodeBecameCorrupted?.Invoke(this);
+    }
+
     public abstract string Name { get; }
     public abstract string Description { get; }
     public void ConnectNode(IRuneNode child)

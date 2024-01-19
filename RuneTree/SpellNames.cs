@@ -17,7 +17,7 @@ public struct SpellNames
     public const string ICE_BLOCK = "Ice Block";
     public const string ICE_BLOCK_DURATION = "Ice Block Duration";
     public const string ICE_BRIDGE = "Ice Bridge";
-    public const string ICE_BRIDGE_DURATION = "Ice Block Duration";
+    public const string ICE_BRIDGE_DURATION = "Ice Bridge Duration";
     public const string ICE_PATCH = "Ice Patch";
     public const string ICE_PATCH_SIZE = "Ice Patch Size";
     public const string ICE_SHARD = "Ice Shard";
