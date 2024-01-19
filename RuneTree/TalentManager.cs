@@ -9,6 +9,8 @@ public partial class TalentManager : Node
 {
     public static TalentManager Instance { get; } = new();
 
+    public IRuneNode TalentTree;
+
     public IRuneNode FireTree;
 
     public IRuneNode IceTree;
@@ -17,6 +19,8 @@ public partial class TalentManager : Node
     //private constructor
     private TalentManager()
     {
+        //A BASE TREE FOR WHICH TO BRANCH OUT ALL OTHER TREES.  HELPFUL FOR SEARCHING
+        TalentTree = new TalentTree();
         
         //instantiate the base runes of each tree
         FireTree = new FireRune();
@@ -90,7 +94,11 @@ public partial class TalentManager : Node
         
         LightningTree.ConnectNode(lightningDamage);
         
-        var test = IceTree.GetSpecificNode(SpellNames.FIREBALL_COUNT);
+        TalentTree.ConnectNode(FireTree);
+        TalentTree.ConnectNode(IceTree);
+        TalentTree.ConnectNode(LightningTree);
+        
+        var test = TalentTree.GetSpecificNode(SpellNames.ICE_PATCH_SIZE);
 
     }
     
