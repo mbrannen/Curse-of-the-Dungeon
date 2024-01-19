@@ -1,10 +1,11 @@
 using GameJam2024.RuneTree.FireRunes;
 using GameJam2024.RuneTree.IceRunes;
 using GameJam2024.RuneTree.LightningRunes;
+using Godot;
 
 namespace GameJam2024.RuneTree;
 
-public sealed class TalentManager
+public partial class TalentManager : Node
 {
     public static TalentManager Instance { get; } = new();
 
@@ -16,6 +17,7 @@ public sealed class TalentManager
     //private constructor
     private TalentManager()
     {
+        
         //instantiate the base runes of each tree
         FireTree = new FireRune();
         IceTree = new IceRune();
@@ -88,5 +90,9 @@ public sealed class TalentManager
         
         LightningTree.ConnectNode(lightningDamage);
         
+        var test = IceTree.GetSpecificNode(SpellNames.FIREBALL_COUNT);
+
     }
+    
+    //TODO: create a function that will corrupt nodes on a trigger (ie artifact being picked up)
 }

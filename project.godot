@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Game Jam 2024"
+run/main_scene="res://RuneTree/RuneTree.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+TalentManager="*res://RuneTree/TalentManager.cs"
 
 [display]
 

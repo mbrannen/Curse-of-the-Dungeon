@@ -15,4 +15,5 @@ public interface IRuneNode
     public string Description { get; }
 
     public void ConnectNode(IRuneNode child);
+    public IRuneNode GetSpecificNode(string name);
 }
