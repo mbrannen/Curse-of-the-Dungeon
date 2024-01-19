@@ -5,7 +5,7 @@ using Godot;
 
 namespace GameJam2024.RuneTree;
 
-public partial class TalentManager : Node
+public sealed class TalentManager
 {
     public static TalentManager Instance { get; } = new();
 
@@ -16,6 +16,10 @@ public partial class TalentManager : Node
     public IRuneNode IceTree;
 
     public IRuneNode LightningTree;
+
+    public delegate void NotifyHUDOfCorruptionDelegate(string name);
+
+    public event NotifyHUDOfCorruptionDelegate NotifyHUDOfCorruption;
     //private constructor
     private TalentManager()
     {
@@ -26,6 +30,7 @@ public partial class TalentManager : Node
         FireTree = new FireRune();
         IceTree = new IceRune();
         LightningTree = new LightningRune();
+        
         //####################################################
         //Build out the fire tree
         //####################################################
@@ -98,9 +103,35 @@ public partial class TalentManager : Node
         TalentTree.ConnectNode(IceTree);
         TalentTree.ConnectNode(LightningTree);
         
-        var test = TalentTree.GetSpecificNode(SpellNames.ICE_PATCH_SIZE);
-
+        //now that the tree is set up, subscribe to all the various events
+        SubscribeToAllTalentTreeEvents(TalentTree);
+        
     }
     
-    //TODO: create a function that will corrupt nodes on a trigger (ie artifact being picked up)
+
+    //this function listens to the NodeBecameCorrupted event on nodes
+    private void OnNodeBecameCorrupted(IRuneNode node)
+    {
+        NotifyHUDOfCorruption?.Invoke(node.Name);
+    }
+    
+    //function does as it says, will find a node and corrupt it
+    public void CorruptSpecificNode(string name)
+    {
+        TalentTree.GetSpecificNode(name).CorruptNode();
+    }
+    
+    //This is a recursive function to traverse the entire talent tree and subscribe to the events on each node
+    public void SubscribeToAllTalentTreeEvents(IRuneNode nodeTree)
+    {
+        if (nodeTree.Children.Count != 0)
+        {
+            foreach (var child in nodeTree.Children)
+            {
+                //can add all the events you want here
+                child.NodeBecameCorrupted += OnNodeBecameCorrupted;
+                SubscribeToAllTalentTreeEvents(child);
+            }
+        }
+    }
 }

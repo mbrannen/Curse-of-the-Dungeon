@@ -1,14 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3lkw8rasxn0x"]
+[gd_scene load_steps=15 format=3 uid="uid://7llvmmihkn65"]
 
-[ext_resource type="Texture2D" uid="uid://dwq13g23jnql8" path="res://icon.svg" id="1_rljw2"]
+[ext_resource type="Script" path="res://RuneTree/TalentHUDManager.cs" id="1_usdws"]
+[ext_resource type="Texture2D" uid="uid://dc1avyfgf1yqa" path="res://RuneTree/Images/BaseFireRune.png" id="2_cil1o"]
+[ext_resource type="Texture2D" uid="uid://bcoqag7137r37" path="res://RuneTree/Images/FireblastRune.png" id="3_y2qjg"]
+[ext_resource type="Texture2D" uid="uid://cc0kxbe1uhem7" path="res://RuneTree/Images/BaseIceRune.png" id="4_7kstk"]
+[ext_resource type="Texture2D" uid="uid://cvk2fffgohybu" path="res://RuneTree/Images/FireballRune.png" id="4_y44rq"]
+[ext_resource type="Texture2D" uid="uid://twotsq3gsoh1" path="res://RuneTree/Images/BaseLightningRune.png" id="5_aucrj"]
+[ext_resource type="Texture2D" uid="uid://cm5c60xeicnax" path="res://RuneTree/Images/FireModifierRune.png" id="5_p83d3"]
+[ext_resource type="Texture2D" uid="uid://b21ac132eqhda" path="res://RuneTree/Images/FirewallRune.png" id="6_2m4xs"]
+[ext_resource type="Texture2D" uid="uid://b6dj2flj27pb" path="res://RuneTree/Images/IceBlockRune.png" id="8_3i7eq"]
+[ext_resource type="Texture2D" uid="uid://bu3xl17kfj55w" path="res://RuneTree/Images/IceModifierRune.png" id="9_5pqfk"]
+[ext_resource type="Texture2D" uid="uid://dq6r6b8fmputg" path="res://RuneTree/Images/IceShardRune.png" id="10_s2dfb"]
+[ext_resource type="Texture2D" uid="uid://qmu0bweepbfw" path="res://RuneTree/Images/IcePatchRune.png" id="11_tmsk1"]
+[ext_resource type="Texture2D" uid="uid://cxo1tc0qu1x5v" path="res://RuneTree/Images/IceBridgeRune.png" id="12_hbhi2"]
+[ext_resource type="Texture2D" uid="uid://dds3lkedvk4dq" path="res://RuneTree/Images/LightningModifierRune.png" id="14_v6g6a"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" node_paths=PackedStringArray("BaseFireRune", "BaseIceRune", "BaseLightningRune", "FireballRune", "FireballCountRune", "FireballSizeRune", "FireblastRune", "FirewallRune", "FirewallDurationRune", "FirewallLengthRune", "IceShardRune", "IceShardSizeRune", "IceBlockRune", "IceBlockDurationRune", "IcePatchRune", "IcePatchSizeRune", "IceBridgeRune", "IceBridgeDurationRune", "LightningDamageRune", "LightningAOERune", "LightningLinkCountRune", "LightningLinkDurationRune")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_usdws")
+CorruptionColor = Color(0.215686, 0.0784314, 0.470588, 1)
+BaseFireRune = NodePath("FireRune/BaseRune")
+BaseIceRune = NodePath("IceRune/BaseRune")
+BaseLightningRune = NodePath("LightningRune/BaseRune")
+FireballRune = NodePath("FireRune/Fireball")
+FireballCountRune = NodePath("FireRune/Fireball_1")
+FireballSizeRune = NodePath("FireRune/Fireball_2")
+FireblastRune = NodePath("FireRune/Fireblast")
+FirewallRune = NodePath("FireRune/Firewall")
+FirewallDurationRune = NodePath("FireRune/Firewall_1")
+FirewallLengthRune = NodePath("FireRune/Firewall_2")
+IceShardRune = NodePath("IceRune/IceShard")
+IceShardSizeRune = NodePath("IceRune/IceShard_1")
+IceBlockRune = NodePath("IceRune/IceBlock")
+IceBlockDurationRune = NodePath("IceRune/IceBlock_1")
+IcePatchRune = NodePath("IceRune/IcePatch")
+IcePatchSizeRune = NodePath("IceRune/IcePatch_1")
+IceBridgeRune = NodePath("IceRune/IceBridge")
+IceBridgeDurationRune = NodePath("IceRune/IceBridge_1")
+LightningDamageRune = NodePath("LightningRune/BaseRune_1")
+LightningAOERune = NodePath("LightningRune/BaseRune_4")
+LightningLinkCountRune = NodePath("LightningRune/BaseRune_2")
+LightningLinkDurationRune = NodePath("LightningRune/BaseRune_3")
 
 [node name="FireRune" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -23,20 +60,23 @@ offset_left = 127.0
 offset_top = 417.0
 offset_right = 167.0
 offset_bottom = 457.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("2_cil1o")
 expand_mode = 1
 
 [node name="Line2D" type="Line2D" parent="FireRune/BaseRune"]
 position = Vector2(-127, -417)
-points = PackedVector2Array(148, 443, 54, 310)
+points = PackedVector2Array(130, 419, 69, 329)
+default_color = Color(0, 0, 0, 1)
 
 [node name="Line2D2" type="Line2D" parent="FireRune/BaseRune"]
 position = Vector2(-127, -417)
-points = PackedVector2Array(148, 443, 145, 310)
+points = PackedVector2Array(148, 415, 147, 331)
+default_color = Color(0, 0, 0, 1)
 
 [node name="Line2D3" type="Line2D" parent="FireRune/BaseRune"]
 position = Vector2(-127, -417)
-points = PackedVector2Array(148, 443, 254, 307)
+points = PackedVector2Array(168, 416, 235, 329)
+default_color = Color(0, 0, 0, 1)
 
 [node name="Fireblast" type="TextureRect" parent="FireRune"]
 layout_mode = 0
@@ -44,7 +84,7 @@ offset_left = 127.0
 offset_top = 287.0
 offset_right = 167.0
 offset_bottom = 327.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("3_y2qjg")
 expand_mode = 1
 
 [node name="Fireball" type="TextureRect" parent="FireRune"]
@@ -53,16 +93,18 @@ offset_left = 34.0
 offset_top = 287.0
 offset_right = 74.0
 offset_bottom = 327.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("4_y44rq")
 expand_mode = 1
 
 [node name="Line2D4" type="Line2D" parent="FireRune/Fireball"]
 position = Vector2(-34, -287)
-points = PackedVector2Array(54, 309, 30, 175)
+points = PackedVector2Array(46, 285, 34, 196)
+default_color = Color(0, 0, 0, 1)
 
 [node name="Line2D5" type="Line2D" parent="FireRune/Fireball"]
 position = Vector2(-34, -287)
-points = PackedVector2Array(54, 309, 92, 98)
+points = PackedVector2Array(61, 285, 92, 119)
+default_color = Color(0, 0, 0, 1)
 
 [node name="Fireball_1" type="TextureRect" parent="FireRune"]
 layout_mode = 0
@@ -70,7 +112,7 @@ offset_left = 74.0
 offset_top = 75.0
 offset_right = 114.0
 offset_bottom = 115.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("5_p83d3")
 expand_mode = 1
 
 [node name="Fireball_2" type="TextureRect" parent="FireRune"]
@@ -79,7 +121,7 @@ offset_left = 12.0
 offset_top = 153.0
 offset_right = 52.0
 offset_bottom = 193.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("5_p83d3")
 expand_mode = 1
 
 [node name="Firewall" type="TextureRect" parent="FireRune"]
@@ -88,16 +130,18 @@ offset_left = 233.0
 offset_top = 287.0
 offset_right = 273.0
 offset_bottom = 327.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("6_2m4xs")
 expand_mode = 1
 
 [node name="Line2D6" type="Line2D" parent="FireRune/Firewall"]
 position = Vector2(-233, -287)
-points = PackedVector2Array(254, 306, 212, 98)
+points = PackedVector2Array(244, 286, 217, 118)
+default_color = Color(0, 0, 0, 1)
 
 [node name="Line2D7" type="Line2D" parent="FireRune/Firewall"]
 position = Vector2(-233, -287)
-points = PackedVector2Array(254, 306, 276, 173)
+points = PackedVector2Array(260, 285, 274, 193)
+default_color = Color(0, 0, 0, 1)
 
 [node name="Firewall_1" type="TextureRect" parent="FireRune"]
 layout_mode = 0
@@ -105,7 +149,7 @@ offset_left = 257.0
 offset_top = 153.0
 offset_right = 297.0
 offset_bottom = 193.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("5_p83d3")
 expand_mode = 1
 
 [node name="Firewall_2" type="TextureRect" parent="FireRune"]
@@ -114,7 +158,7 @@ offset_left = 195.0
 offset_top = 75.0
 offset_right = 235.0
 offset_bottom = 115.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("5_p83d3")
 expand_mode = 1
 
 [node name="IceRune" type="Panel" parent="."]
@@ -131,20 +175,24 @@ offset_left = 137.0
 offset_top = 227.0
 offset_right = 177.0
 offset_bottom = 267.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("4_7kstk")
 expand_mode = 1
 
 [node name="Line2D" type="Line2D" parent="IceRune/BaseRune"]
-points = PackedVector2Array(18, 20, -57, 82)
+points = PackedVector2Array(1, 36, -57, 82)
+default_color = Color(0, 0, 0, 1)
 
 [node name="Line2D2" type="Line2D" parent="IceRune/BaseRune"]
-points = PackedVector2Array(18, 20, 99, 81)
+points = PackedVector2Array(41, 39, 79, 62)
+default_color = Color(0, 0, 0, 1)
 
 [node name="Line2D3" type="Line2D" parent="IceRune/BaseRune"]
-points = PackedVector2Array(18, 20, 91, -26)
+points = PackedVector2Array(39, 3, 91, -26)
+default_color = Color(0, 0, 0, 1)
 
 [node name="Line2D4" type="Line2D" parent="IceRune/BaseRune"]
-points = PackedVector2Array(18, 20, -50, -25)
+points = PackedVector2Array(-1, 4, -31, -10)
+default_color = Color(0, 0, 0, 1)
 
 [node name="IceBlock" type="TextureRect" parent="IceRune"]
 layout_mode = 0
@@ -152,11 +200,12 @@ offset_left = 63.0
 offset_top = 287.0
 offset_right = 103.0
 offset_bottom = 327.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("8_3i7eq")
 expand_mode = 1
 
 [node name="Line2D" type="Line2D" parent="IceRune/IceBlock"]
-points = PackedVector2Array(17, 19, 69, 68)
+points = PackedVector2Array(38, 40, 69, 68)
+default_color = Color(0, 0, 0, 1)
 
 [node name="IceBlock_1" type="TextureRect" parent="IceRune"]
 layout_mode = 0
@@ -164,7 +213,7 @@ offset_left = 113.0
 offset_top = 339.0
 offset_right = 153.0
 offset_bottom = 379.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("9_5pqfk")
 expand_mode = 1
 
 [node name="IceShard" type="TextureRect" parent="IceRune"]
@@ -173,11 +222,12 @@ offset_left = 213.0
 offset_top = 284.0
 offset_right = 253.0
 offset_bottom = 324.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("10_s2dfb")
 expand_mode = 1
 
 [node name="Line2D" type="Line2D" parent="IceRune/IceShard"]
-points = PackedVector2Array(21, 24, -22, 79)
+points = PackedVector2Array(6, 35, -8, 64)
+default_color = Color(0, 0, 0, 1)
 
 [node name="IceShard_1" type="TextureRect" parent="IceRune"]
 layout_mode = 0
@@ -185,7 +235,7 @@ offset_left = 170.0
 offset_top = 345.0
 offset_right = 210.0
 offset_bottom = 385.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("9_5pqfk")
 expand_mode = 1
 
 [node name="IcePatch" type="TextureRect" parent="IceRune"]
@@ -194,11 +244,12 @@ offset_left = 64.0
 offset_top = 178.0
 offset_right = 104.0
 offset_bottom = 218.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("11_tmsk1")
 expand_mode = 1
 
 [node name="Line2D" type="Line2D" parent="IceRune/IcePatch"]
-points = PackedVector2Array(15, 20, 61, -54)
+points = PackedVector2Array(36, 0, 48, -34)
+default_color = Color(0, 0, 0, 1)
 
 [node name="IcePatch_1" type="TextureRect" parent="IceRune"]
 layout_mode = 0
@@ -206,7 +257,7 @@ offset_left = 107.0
 offset_top = 103.0
 offset_right = 147.0
 offset_bottom = 143.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("9_5pqfk")
 expand_mode = 1
 
 [node name="IceBridge" type="TextureRect" parent="IceRune"]
@@ -215,11 +266,12 @@ offset_left = 209.0
 offset_top = 178.0
 offset_right = 249.0
 offset_bottom = 218.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("12_hbhi2")
 expand_mode = 1
 
 [node name="Line2D" type="Line2D" parent="IceRune/IceBridge"]
-points = PackedVector2Array(21, 19, -28, -58)
+points = PackedVector2Array(3, 1, -11, -30)
+default_color = Color(0, 0, 0, 1)
 
 [node name="IceBridge_1" type="TextureRect" parent="IceRune"]
 layout_mode = 0
@@ -227,7 +279,7 @@ offset_left = 163.0
 offset_top = 107.0
 offset_right = 203.0
 offset_bottom = 147.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("9_5pqfk")
 expand_mode = 1
 
 [node name="LightningRune" type="Panel" parent="."]
@@ -244,11 +296,12 @@ offset_left = 121.0
 offset_top = 458.0
 offset_right = 161.0
 offset_bottom = 498.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("5_aucrj")
 expand_mode = 1
 
 [node name="Line2D" type="Line2D" parent="LightningRune/BaseRune"]
-points = PackedVector2Array(18, 20, 93, -73)
+points = PackedVector2Array(39, 1, 77, -55)
+default_color = Color(0, 0, 0, 1)
 
 [node name="BaseRune_1" type="TextureRect" parent="LightningRune"]
 layout_mode = 0
@@ -256,11 +309,12 @@ offset_left = 195.0
 offset_top = 361.0
 offset_right = 235.0
 offset_bottom = 401.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("14_v6g6a")
 expand_mode = 1
 
 [node name="Line2D" type="Line2D" parent="LightningRune/BaseRune_1"]
-points = PackedVector2Array(19, 19, -48, -58)
+points = PackedVector2Array(2, 2, -32, -39)
+default_color = Color(0, 0, 0, 1)
 
 [node name="BaseRune_2" type="TextureRect" parent="LightningRune"]
 layout_mode = 0
@@ -268,11 +322,12 @@ offset_left = 125.0
 offset_top = 282.0
 offset_right = 165.0
 offset_bottom = 322.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("14_v6g6a")
 expand_mode = 1
 
 [node name="Line2D" type="Line2D" parent="LightningRune/BaseRune_2"]
-points = PackedVector2Array(19, 21, 103, -63)
+points = PackedVector2Array(40, 1, 89, -48)
+default_color = Color(0, 0, 0, 1)
 
 [node name="BaseRune_3" type="TextureRect" parent="LightningRune"]
 layout_mode = 0
@@ -280,11 +335,12 @@ offset_left = 210.0
 offset_top = 195.0
 offset_right = 250.0
 offset_bottom = 235.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("14_v6g6a")
 expand_mode = 1
 
 [node name="Line2D" type="Line2D" parent="LightningRune/BaseRune_3"]
-points = PackedVector2Array(17, 23, -71, -80)
+points = PackedVector2Array(0, 2, -54, -59)
+default_color = Color(0, 0, 0, 1)
 
 [node name="BaseRune_4" type="TextureRect" parent="LightningRune"]
 layout_mode = 0
@@ -292,5 +348,5 @@ offset_left = 118.0
 offset_top = 99.0
 offset_right = 158.0
 offset_bottom = 139.0
-texture = ExtResource("1_rljw2")
+texture = ExtResource("14_v6g6a")
 expand_mode = 1
