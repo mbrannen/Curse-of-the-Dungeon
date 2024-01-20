@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2vhhetl6w0ip"]
+
+[ext_resource type="Script" path="res://MainMenu/MainMenu.cs" id="1_0qxbf"]
+[ext_resource type="Texture2D" uid="uid://b5tsdrrhuwa32" path="res://MainMenu/BG.png" id="1_1orda"]
+[ext_resource type="Theme" uid="uid://clwjpsq8eh1ds" path="res://gamejame_2024_theme.tres" id="2_5tobs"]
+[ext_resource type="PackedScene" uid="uid://bgfdtj2ry60c5" path="res://MainMenu/Credits.tscn" id="4_u7cr8"]
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "MainMenuPanel", "CreditsScene")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0qxbf")
+StartButton = NodePath("MainMenuPanel/VBoxContainer/StartButton")
+OptionsButton = NodePath("MainMenuPanel/VBoxContainer/Options")
+CreditsButton = NodePath("MainMenuPanel/VBoxContainer/CreditsButton")
+MainMenuPanel = NodePath("MainMenuPanel")
+CreditsScene = NodePath("Credits")
+metadata/_edit_horizontal_guides_ = [270.0]
+metadata/_edit_vertical_guides_ = [480.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1orda")
+
+[node name="MainMenuPanel" type="Panel" parent="."]
+self_modulate = Color(1, 0.368627, 0.117647, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -135.0
+offset_right = 160.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuPanel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 17.0
+offset_right = 272.0
+offset_bottom = 257.0
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="StartButton" type="Button" parent="MainMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tobs")
+text = "Start"
+
+[node name="Options" type="Button" parent="MainMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tobs")
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="MainMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tobs")
+text = "Credits"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MainMenuPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Credits" parent="." instance=ExtResource("4_u7cr8")]
+visible = false
+layout_mode = 1
