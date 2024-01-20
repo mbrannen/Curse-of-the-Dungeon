@@ -7,13 +7,28 @@ public sealed class MainMenuManager
     public delegate void CreditsPressedDelegate();
     public event CreditsPressedDelegate CreditsPressed;
     
-    public delegate void CreditsBackButtonPressedDelegate();
-    public event CreditsBackButtonPressedDelegate CreditsBackButtonPressed;
+    public delegate void BackButtonPressedDelegate();
+    public event BackButtonPressedDelegate CreditsBackButtonPressed;
+    public event BackButtonPressedDelegate OptionsBackButtonPressed;
+    
+    public delegate void FontChangedDelegate(long index);
+
+    public event FontChangedDelegate FontChanged;
     
     private MainMenuManager(){}
 
     public void CreditsBackButtonPress()
     {
         CreditsBackButtonPressed?.Invoke();
+    }
+
+    public void OptionsBackButtonPress()
+    {
+        OptionsBackButtonPressed?.Invoke();
+    }
+
+    public void FontDropdownItemChanged(long index)
+    {
+        FontChanged?.Invoke(index);
     }
 }

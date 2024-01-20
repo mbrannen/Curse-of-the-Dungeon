@@ -1,9 +1,10 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://clwjpsq8eh1ds"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://clwjpsq8eh1ds"]
 
 [ext_resource type="FontFile" uid="uid://bayopgm4cvg2o" path="res://Macondo-Regular.ttf" id="1_y0b4t"]
 [ext_resource type="StyleBox" uid="uid://dpkpbe8q8yqcf" path="res://style_box_flat_hover.tres" id="2_q1b8d"]
 [ext_resource type="StyleBox" uid="uid://s34oh3pdc3go" path="res://style_box_flat.tres" id="3_t850i"]
 [ext_resource type="StyleBox" uid="uid://bx6hp6y5tm16q" path="res://style_box_flat_pressed.tres" id="4_wkoft"]
+[ext_resource type="FontFile" uid="uid://dp2p5chmqvhdp" path="res://Roboto-Regular.ttf" id="5_0ay54"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nibqb"]
 bg_color = Color(0.352941, 0.180392, 0.109804, 0.862745)
@@ -20,9 +21,10 @@ default_font_size = 24
 Button/colors/font_color = Color(0.85098, 0.85098, 0.694118, 1)
 Button/constants/h_separation = 4
 Button/font_sizes/font_size = 24
-Button/fonts/font = ExtResource("1_y0b4t")
 Button/styles/hover = ExtResource("2_q1b8d")
 Button/styles/normal = ExtResource("3_t850i")
 Button/styles/pressed = ExtResource("4_wkoft")
+Fonts/fonts/Macondo = ExtResource("1_y0b4t")
+Fonts/fonts/Roboto = ExtResource("5_0ay54")
 HSeparator/colors/color = Color(1, 1, 1, 1)
 Panel/styles/panel = SubResource("StyleBoxFlat_nibqb")

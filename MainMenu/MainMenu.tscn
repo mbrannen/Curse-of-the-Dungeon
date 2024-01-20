@@ -1,23 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2vhhetl6w0ip"]
+[gd_scene load_steps=8 format=3 uid="uid://b2vhhetl6w0ip"]
 
 [ext_resource type="Script" path="res://MainMenu/MainMenu.cs" id="1_0qxbf"]
 [ext_resource type="Texture2D" uid="uid://b5tsdrrhuwa32" path="res://MainMenu/BG.png" id="1_1orda"]
 [ext_resource type="Theme" uid="uid://clwjpsq8eh1ds" path="res://gamejame_2024_theme.tres" id="2_5tobs"]
+[ext_resource type="FontFile" uid="uid://bayopgm4cvg2o" path="res://Macondo-Regular.ttf" id="3_fvpl3"]
+[ext_resource type="FontFile" uid="uid://dp2p5chmqvhdp" path="res://Roboto-Regular.ttf" id="4_6ogdn"]
 [ext_resource type="PackedScene" uid="uid://bgfdtj2ry60c5" path="res://MainMenu/Credits.tscn" id="4_u7cr8"]
+[ext_resource type="PackedScene" uid="uid://dhwgxa1uyk1mp" path="res://MainMenu/Options.tscn" id="5_v8wv2"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "MainMenuPanel", "CreditsScene")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "MainMenuPanel", "CreditsScene", "OptionsScene")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_5tobs")
 script = ExtResource("1_0qxbf")
 StartButton = NodePath("MainMenuPanel/VBoxContainer/StartButton")
 OptionsButton = NodePath("MainMenuPanel/VBoxContainer/Options")
 CreditsButton = NodePath("MainMenuPanel/VBoxContainer/CreditsButton")
 MainMenuPanel = NodePath("MainMenuPanel")
 CreditsScene = NodePath("Credits")
+OptionsScene = NodePath("Options")
+Theme = ExtResource("2_5tobs")
+DefaultFont = ExtResource("3_fvpl3")
+AccessbilityFont = ExtResource("4_6ogdn")
 metadata/_edit_horizontal_guides_ = [270.0]
 metadata/_edit_vertical_guides_ = [480.0]
 
@@ -75,5 +83,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Credits" parent="." instance=ExtResource("4_u7cr8")]
+visible = false
+layout_mode = 1
+
+[node name="Options" parent="." instance=ExtResource("5_v8wv2")]
 visible = false
 layout_mode = 1
