@@ -1,14 +1,145 @@
-[gd_scene load_steps=2 format=3 uid="uid://b371v1ekyxwr4"]
+[gd_scene load_steps=7 format=3 uid="uid://b371v1ekyxwr4"]
 
 [ext_resource type="PackedScene" uid="uid://b3coc670j5u0y" path="res://Wizard/Wizard.tscn" id="1_487yp"]
+[ext_resource type="Texture2D" uid="uid://d38nqomjqpbm3" path="res://testing/levelzerolayout.png" id="2_joavc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ew21l"]
+size = Vector2(200, 1354)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvb2d"]
+size = Vector2(234, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_656as"]
+size = Vector2(208, 34)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_spu8c"]
+radius = 25.02
 
 [node name="TestScene" type="Node"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Levelzerolayout" type="Sprite2D" parent="."]
+position = Vector2(2882, 876)
+texture = ExtResource("2_joavc")
+metadata/_edit_lock_ = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(3, 2, 4, 536, 957, 535, 954, 3, 886, 3, 888, 495, 752, 497, 753, 481, 672, 481, 673, 496, 591, 496, 591, 519, 566, 519, 565, 493, 468, 493, 404, 449, 323, 489, 269, 437, 204, 483, 44, 481, 36, 2)
+[node name="Platforms" type="Node" parent="."]
+
+[node name="TestFloor2" type="StaticBody2D" parent="Platforms"]
+position = Vector2(19, 1740)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/TestFloor2"]
+position = Vector2(99, -677)
+shape = SubResource("RectangleShape2D_ew21l")
+
+[node name="TestPlatform" type="StaticBody2D" parent="Platforms"]
+position = Vector2(226, 922)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/TestPlatform"]
+position = Vector2(115, 17)
+shape = SubResource("RectangleShape2D_cvb2d")
+
+[node name="TestPlatform2" type="StaticBody2D" parent="Platforms"]
+position = Vector2(550, 994)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/TestPlatform2"]
+position = Vector2(102, 17)
+shape = SubResource("RectangleShape2D_656as")
+
+[node name="TestPlatform3" type="StaticBody2D" parent="Platforms"]
+position = Vector2(870, 824)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/TestPlatform3"]
+position = Vector2(102, 17)
+shape = SubResource("RectangleShape2D_656as")
+
+[node name="TestPlatform4" type="StaticBody2D" parent="Platforms"]
+position = Vector2(859, 1073)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/TestPlatform4"]
+position = Vector2(102, 17)
+shape = SubResource("RectangleShape2D_656as")
+
+[node name="TestPlatform5" type="StaticBody2D" parent="Platforms"]
+position = Vector2(1181, 1150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/TestPlatform5"]
+position = Vector2(102, 17)
+shape = SubResource("RectangleShape2D_656as")
+
+[node name="TestPlatform6" type="StaticBody2D" parent="Platforms"]
+position = Vector2(1500, 1235)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/TestPlatform6"]
+position = Vector2(102, 17)
+shape = SubResource("RectangleShape2D_656as")
+
+[node name="TestPlatform7" type="StaticBody2D" parent="Platforms"]
+position = Vector2(1842, 1312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/TestPlatform7"]
+position = Vector2(102, 17)
+shape = SubResource("RectangleShape2D_656as")
+
+[node name="TestPlatform8" type="StaticBody2D" parent="Platforms"]
+position = Vector2(930, 1428)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/TestPlatform8"]
+position = Vector2(102, 17)
+shape = SubResource("RectangleShape2D_656as")
 
 [node name="Wizard" parent="." instance=ExtResource("1_487yp")]
-position = Vector2(81, 119)
-JumpStrength = -1000.0
+position = Vector2(4816, 1486)
+
+[node name="Test Wall" type="StaticBody2D" parent="."]
+position = Vector2(223, 1543)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Test Wall"]
+polygon = PackedVector2Array(0, -3, 1933, -1, 1933, -133, 3923, -132, 3923, 62, 1935, 65, 1935, 198, -5, 193)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(376, 1521)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_spu8c")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(347, 1480)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("CircleShape2D_spu8c")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(299, 1458)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("CircleShape2D_spu8c")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(247, 1445)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("CircleShape2D_spu8c")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(4667, 1531)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D5"]
+polygon = PackedVector2Array(0, -1, 979, -1, 979, -870, -510, -871, -509, -671, -2563, -671, -2562, -1150, -4650, -1151, -4650, -1353, -2196, -1352, -2196, -869, -583, -865, -583, -1073, 1083, -1072, 1080, 86, 1, 82)
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(4480, 1485)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D6"]
+polygon = PackedVector2Array(-1, 0, 59, 0, 59, 11, 49, 11, 49, 59, 8, 59, 9, 10, -1, 10)
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+position = Vector2(4328, 1440)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D7"]
+polygon = PackedVector2Array(-1, 0, 59, 0, 59, 11, 49, 11, 49, 59, 8, 59, 9, 10, -1, 10)
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+position = Vector2(4158, 1418)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D8"]
+polygon = PackedVector2Array(-1, 0, 59, 0, 59, 11, 49, 11, 49, 59, 8, 59, 9, 10, -1, 10)

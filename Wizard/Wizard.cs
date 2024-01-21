@@ -16,82 +16,89 @@ public partial class Wizard : CharacterBody2D
         base._Ready();
     }
 
+    //Non-Physics related calls should go here. Called every frame.
     public override void _Process(double delta)
     {
-        //Handle animations
+        //Call Animation Handler
 
-        base._Process(delta);
+        //Call Gravity Handler
+        GravityHandler(delta);
+
+        //Call Velocity Handler
+        VeloctiyHandler(delta);
+        
+        //Call Jump Handler
+        JumpHandler();
     }
 
+    //Physics related calls should go here. Called every frame at 60 frames per second.
     public override void _PhysicsProcess(double delta)
     {
-        GravityHandler();
-
-        VeloctiyHandler();
-        
-        JumpHandler();
-
+        //Call Move and Slide.
         MoveAndSlide();
-
-        base._PhysicsProcess(delta);
     }
 
-    void GravityHandler()
+    //Function to handle gravity and apply downwards force when not on the floor.
+    void GravityHandler(double delta)
     {
         //Return out of the function if already on the floor.
         if (IsOnFloor()) return;
 
-        //Set velocity to the current X velocity, and move Y velocity towards fallspeed
+        //Set velocity to the current X velocity, and move Y velocity towards fallspeed (terminal velocity)
         Velocity = new Vector2(
             Velocity.X,
-            Mathf.MoveToward(Velocity.Y, Gravity, FallSpeed)
+            Mathf.MoveToward(Velocity.Y, FallSpeed, Gravity * (float)delta)
         ).Floor();
     }
 
     float InputHandler()
     {
-        float playerInput = 0;
-
         if ((Input.IsActionPressed("MoveLeft") && Input.IsActionPressed("MoveRight")) || (!Input.IsActionPressed("MoveLeft") && !Input.IsActionPressed("MoveRight")))
         {
-            playerInput = 0;
+            return 0;
         } else if (Input.IsActionPressed("MoveLeft"))
         {
-            playerInput = -1;
+            return -1;
         } else if (Input.IsActionPressed("MoveRight"))
         {
-            playerInput = 1;
+            return 1;
+        } else {
+            return 0;
         }
-        return playerInput;
+        
     }
 
-    void VeloctiyHandler()
+    void VeloctiyHandler(double delta)
     {
         float inputDirection = InputHandler();
 
         if (inputDirection != 0)
         {
             Velocity = new Vector2(
-                Mathf.MoveToward(Velocity.X, inputDirection * Speed, Acceleration),
+                Mathf.MoveToward(Velocity.X, inputDirection * Speed, Acceleration * (float)delta),
                 Velocity.Y
-            );
+            ).Floor();
         } else {
             Velocity = new Vector2(
-                Mathf.MoveToward(Velocity.X, 0, Friction),
+                Mathf.MoveToward(Velocity.X, 0, Friction * (float)delta),
                 Velocity.Y
-            );
+            ).Floor();
         }
     }
 
     void JumpHandler()
     {
+        var velocity = Velocity;
+
         if (Input.IsActionJustPressed("Jump") && IsOnFloor())
         {
-            Velocity = new Vector2(
-                Velocity.X,
-                Velocity.Y + JumpStrength
-            );
+            velocity.Y = JumpStrength;
+        } else if (Input.IsActionJustReleased("Jump") && Velocity.Y < JumpStrength / 2)
+        {
+            velocity.Y = JumpStrength / 2;
         }
+
+        Velocity = velocity;
     }
 
     void AnimationHandler()

@@ -1,25 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3coc670j5u0y"]
+[gd_scene load_steps=4 format=3 uid="uid://b3coc670j5u0y"]
 
 [ext_resource type="Script" path="res://Wizard/Wizard.cs" id="1_j82hd"]
+[ext_resource type="Texture2D" uid="uid://bijr4lcyff6cn" path="res://testing/wizardtestsprite.png" id="2_had2t"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o3m4g"]
-radius = 18.0
-height = 122.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_slh5g"]
+radius = 5.0
+height = 36.0
 
 [node name="Wizard" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_j82hd")
-Gravity = 500.0
-Speed = 500.0
+Gravity = 1500.0
+Speed = 250.0
 Acceleration = 500.0
-Friction = 500.0
-FallSpeed = 500.0
-JumpStrength = -500.0
+Friction = 1000.0
+FallSpeed = 1000.0
+JumpStrength = -600.0
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -20.0
-offset_top = -124.0
-offset_right = 20.0
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.84217e-14, -71)
+scale = Vector2(0.0504948, 0.0504948)
+texture = ExtResource("2_had2t")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -61)
-shape = SubResource("CapsuleShape2D_o3m4g")
+position = Vector2(0, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_slh5g")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, 1)
+polygon = PackedVector2Array(-16, -11, -10, -18, -6, -34, -3, -83, -1, -86, 2, -86, 4, -84, 9, -34, 12, -18, 17, -11)
