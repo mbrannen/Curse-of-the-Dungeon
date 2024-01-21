@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2vhhetl6w0ip"]
+[gd_scene load_steps=12 format=3 uid="uid://b2vhhetl6w0ip"]
 
 [ext_resource type="Script" path="res://MainMenu/MainMenu.cs" id="1_0qxbf"]
 [ext_resource type="Texture2D" uid="uid://b5tsdrrhuwa32" path="res://MainMenu/BG.png" id="1_1orda"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bgfdtj2ry60c5" path="res://MainMenu/Credits.tscn" id="4_u7cr8"]
 [ext_resource type="PackedScene" uid="uid://dhwgxa1uyk1mp" path="res://MainMenu/Options.tscn" id="5_v8wv2"]
 [ext_resource type="PackedScene" uid="uid://bl2fesc7epab1" path="res://UI/IntroCutscene.tscn" id="8_jam5c"]
+[ext_resource type="PackedScene" uid="uid://b7mhrtmw1bpu7" path="res://Levels/Level1.tscn" id="9_xi5so"]
+[ext_resource type="PackedScene" uid="uid://bq3lwsnvmy8mc" path="res://Levels/Level2.tscn" id="10_oaxb3"]
+[ext_resource type="PackedScene" uid="uid://b4f0j0gpgn2u1" path="res://Levels/Level3.tscn" id="11_utxig"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "MainMenuPanel", "CreditsScene", "OptionsScene", "IntroCutscene")]
 layout_mode = 3
@@ -93,4 +96,19 @@ visible = false
 layout_mode = 1
 
 [node name="IntroCutscene" parent="." instance=ExtResource("8_jam5c")]
+visible = false
+
+[node name="UI" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Level1" parent="." instance=ExtResource("9_xi5so")]
+visible = false
+
+[node name="Level2" parent="." instance=ExtResource("10_oaxb3")]
+visible = false
+
+[node name="Level3" parent="." instance=ExtResource("11_utxig")]
 visible = false

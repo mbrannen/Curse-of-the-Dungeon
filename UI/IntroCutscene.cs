@@ -25,8 +25,8 @@ public partial class IntroCutscene : Control
     private void OnAnimationFinished(StringName animname)
     {
         if (animname == AnimationNames.INTRO_CUTSCENE)
-            //load level 1
-            return;
+        {
+        }
     }
 
     private void OnPlayIntroCutscene()
