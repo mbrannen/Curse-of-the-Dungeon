@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl2fesc7epab1"]
+[gd_scene load_steps=6 format=3 uid="uid://bl2fesc7epab1"]
 
+[ext_resource type="Theme" uid="uid://clwjpsq8eh1ds" path="res://gamejame_2024_theme.tres" id="1_2rmv5"]
 [ext_resource type="Script" path="res://UI/IntroCutscene.cs" id="1_ugev4"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_hsced"]
 
 [sub_resource type="Animation" id="Animation_k33s8"]
-resource_name = "Play"
+resource_name = "IntroPlay"
 length = 60.0
 step = 1.0
 tracks/0/type = "value"
@@ -83,16 +84,18 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1nyna"]
 _data = {
-"Play": SubResource("Animation_k33s8")
+"IntroPlay": SubResource("Animation_k33s8")
 }
 
-[node name="IntroCutscene" type="Control" node_paths=PackedStringArray("AnimationPlayer")]
+[node name="IntroCutscene" type="Control" node_paths=PackedStringArray("AnimationPlayer", "SkipButton")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("1_2rmv5")
 script = ExtResource("1_ugev4")
 AnimationPlayer = NodePath("AnimationPlayer")
+SkipButton = NodePath("Button")
 
 [node name="Panel7" type="TextureRect" parent="."]
 self_modulate = Color(0, 0, 0, 1)
@@ -221,3 +224,16 @@ autowrap_mode = 2
 libraries = {
 "": SubResource("AnimationLibrary_1nyna")
 }
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 24.0
+anchor_top = 13.5
+anchor_right = 24.0
+anchor_bottom = 13.5
+offset_left = -77.0001
+offset_top = -53.0001
+offset_right = -18.0001
+offset_bottom = -19.0001
+text = " skip "
