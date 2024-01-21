@@ -46,4 +46,34 @@ public partial class RuneNode : PanelContainer
             _coruptionAnimationFinished = true;
     }
     
+    public override Variant _GetDragData(Vector2 atPosition)
+    {
+        if (Rune.IsDraggable && !Rune.Corrupted)
+        {
+            var previewTexture = new TextureRect();
+            previewTexture.Texture = Icon;
+            previewTexture.Size = new Vector2(30, 30);
+
+            var preview = new Control();
+            preview.AddChild(previewTexture);
+        
+            SetDragPreview(preview);
+            TalentManager.Instance.SpellDragged(Rune);
+            return IconRect.Texture;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    public override bool _CanDropData(Vector2 atPosition, Variant data)
+    {
+        return base._CanDropData(atPosition, data);
+    }
+
+    public override void _DropData(Vector2 atPosition, Variant data)
+    {
+        base._DropData(atPosition, data);
+    }
 }

@@ -13,6 +13,9 @@ public interface IRuneNode
     
     public string Name { get; }
     public string Description { get; }
+    
+    //UI
+    public bool IsDraggable { get; }
 
     public void ConnectNode(IRuneNode child);
     public IRuneNode GetSpecificNode(string name);

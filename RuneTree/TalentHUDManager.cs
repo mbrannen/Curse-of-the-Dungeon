@@ -118,6 +118,5 @@ public partial class TalentHUDManager : Node
     private void ModulateColorForCorruption(Control node)
     {
         var nodeAsScript = node as RuneNode;
-        
     }
 }

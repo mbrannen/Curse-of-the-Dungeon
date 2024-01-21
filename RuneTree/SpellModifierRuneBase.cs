@@ -20,6 +20,8 @@ public abstract class SpellModifierRuneBase : IRuneNode
 
     public abstract string Name { get; }
     public abstract string Description { get; }
+    public bool IsDraggable { get; } = false;
+
     public void ConnectNode(IRuneNode child)
     {
         Children.Add(child);

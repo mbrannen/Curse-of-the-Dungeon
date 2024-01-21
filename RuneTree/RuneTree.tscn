@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://7llvmmihkn65"]
+[gd_scene load_steps=18 format=3 uid="uid://7llvmmihkn65"]
 
 [ext_resource type="Theme" uid="uid://clwjpsq8eh1ds" path="res://gamejame_2024_theme.tres" id="1_5ymhf"]
 [ext_resource type="Script" path="res://RuneTree/TalentHUDManager.cs" id="1_usdws"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://qmu0bweepbfw" path="res://RuneTree/Images/IcePatchRune.png" id="11_tmsk1"]
 [ext_resource type="Texture2D" uid="uid://cxo1tc0qu1x5v" path="res://RuneTree/Images/IceBridgeRune.png" id="12_hbhi2"]
 [ext_resource type="Texture2D" uid="uid://dds3lkedvk4dq" path="res://RuneTree/Images/LightningModifierRune.png" id="14_v6g6a"]
+[ext_resource type="PackedScene" uid="uid://bvnu52km43va4" path="res://RuneTree/spell_slot.tscn" id="17_nkoun"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("BaseFireRune", "BaseIceRune", "BaseLightningRune", "FireballRune", "FireballCountRune", "FireballSizeRune", "FireblastRune", "FirewallRune", "FirewallDurationRune", "FirewallLengthRune", "IceShardRune", "IceShardSizeRune", "IceBlockRune", "IceBlockDurationRune", "IcePatchRune", "IcePatchSizeRune", "IceBridgeRune", "IceBridgeDurationRune", "LightningDamageRune", "LightningAOERune", "LightningLinkCountRune", "LightningLinkDurationRune")]
 layout_mode = 3
@@ -287,7 +288,7 @@ offset_bottom = 139.0
 Icon = ExtResource("14_v6g6a")
 SpellName = 18
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="SpellslotContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -300,14 +301,14 @@ offset_right = 103.0
 offset_bottom = -17.0
 alignment = 1
 
-[node name="SpellSlot1" parent="HBoxContainer" instance=ExtResource("3_ppvx4")]
+[node name="Spellslot1" parent="SpellslotContainer" instance=ExtResource("17_nkoun")]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 
-[node name="SpellSlot2" parent="HBoxContainer" instance=ExtResource("3_ppvx4")]
+[node name="Spellslot2" parent="SpellslotContainer" instance=ExtResource("17_nkoun")]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 
-[node name="SpellSlot3" parent="HBoxContainer" instance=ExtResource("3_ppvx4")]
+[node name="spellslot3" parent="SpellslotContainer" instance=ExtResource("17_nkoun")]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2

@@ -21,6 +21,10 @@ public sealed class TalentManager
     public delegate void NotifyHUDOfCorruptionDelegate(string name);
 
     public event NotifyHUDOfCorruptionDelegate NotifyHUDOfCorruption;
+    
+    //SpellSlotting
+    private IRuneNode DraggedSpell;
+    
     //private constructor
     private TalentManager()
     {
@@ -167,7 +171,18 @@ public sealed class TalentManager
             Rune.LightningLinkCount => TalentTree.GetSpecificNode(Rune.LightningLinkCount),
             Rune.LightningLinkDuration => TalentTree.GetSpecificNode(Rune.LightningLinkDuration),
             Rune.LightningRune => TalentTree.GetSpecificNode(Rune.LightningRune),
-            _ => throw new ArgumentOutOfRangeException(nameof(runeType), runeType, null)
+            _ => TalentTree
         };
+    }
+
+    //hold the spell that was dragged as a state
+    public void SpellDragged(IRuneNode node)
+    {
+        DraggedSpell = node;
+    }
+
+    public IRuneNode GetSpellDragged()
+    {
+        return DraggedSpell;
     }
 }
