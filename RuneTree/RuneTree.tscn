@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://7llvmmihkn65"]
+[gd_scene load_steps=17 format=3 uid="uid://7llvmmihkn65"]
 
+[ext_resource type="Theme" uid="uid://clwjpsq8eh1ds" path="res://gamejame_2024_theme.tres" id="1_5ymhf"]
 [ext_resource type="Script" path="res://RuneTree/TalentHUDManager.cs" id="1_usdws"]
 [ext_resource type="Texture2D" uid="uid://dc1avyfgf1yqa" path="res://RuneTree/Images/BaseFireRune.png" id="2_cil1o"]
 [ext_resource type="PackedScene" uid="uid://d36dqav7hxuhg" path="res://RuneTree/rune_node.tscn" id="3_ppvx4"]
@@ -23,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_5ymhf")
 script = ExtResource("1_usdws")
 CorruptionColor = Color(0.215686, 0.0784314, 0.470588, 1)
 BaseFireRune = NodePath("FireRune/BaseRune")
@@ -47,6 +49,15 @@ LightningDamageRune = NodePath("LightningRune/LightningDamage")
 LightningAOERune = NodePath("LightningRune/LightningAOE")
 LightningLinkCountRune = NodePath("LightningRune/LightningLinkCount")
 LightningLinkDurationRune = NodePath("LightningRune/LightningLinkDuration")
+metadata/_edit_vertical_guides_ = [480.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="FireRune" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -101,6 +112,7 @@ offset_top = 95.0
 offset_right = 67.0
 offset_bottom = 135.0
 Icon = ExtResource("5_p83d3")
+SpellName = 3
 
 [node name="FireballCount" parent="FireRune" instance=ExtResource("3_ppvx4")]
 layout_mode = 0
@@ -250,10 +262,10 @@ SpellName = 19
 
 [node name="LightningLinkCount" parent="LightningRune" instance=ExtResource("3_ppvx4")]
 layout_mode = 0
-offset_left = 125.0
-offset_top = 282.0
-offset_right = 165.0
-offset_bottom = 322.0
+offset_left = 129.0
+offset_top = 272.0
+offset_right = 169.0
+offset_bottom = 312.0
 Icon = ExtResource("14_v6g6a")
 SpellName = 20
 
@@ -274,3 +286,28 @@ offset_right = 159.0
 offset_bottom = 139.0
 Icon = ExtResource("14_v6g6a")
 SpellName = 18
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -57.0
+offset_right = 103.0
+offset_bottom = -17.0
+alignment = 1
+
+[node name="SpellSlot1" parent="HBoxContainer" instance=ExtResource("3_ppvx4")]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="SpellSlot2" parent="HBoxContainer" instance=ExtResource("3_ppvx4")]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="SpellSlot3" parent="HBoxContainer" instance=ExtResource("3_ppvx4")]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2

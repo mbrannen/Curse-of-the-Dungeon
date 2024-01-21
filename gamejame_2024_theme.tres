@@ -1,11 +1,10 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://clwjpsq8eh1ds"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://clwjpsq8eh1ds"]
 
 [ext_resource type="FontFile" uid="uid://bayopgm4cvg2o" path="res://Macondo-Regular.ttf" id="1_y0b4t"]
 [ext_resource type="StyleBox" uid="uid://dpkpbe8q8yqcf" path="res://style_box_flat_hover.tres" id="2_q1b8d"]
 [ext_resource type="StyleBox" uid="uid://s34oh3pdc3go" path="res://style_box_flat.tres" id="3_t850i"]
 [ext_resource type="StyleBox" uid="uid://bx6hp6y5tm16q" path="res://style_box_flat_pressed.tres" id="4_wkoft"]
 [ext_resource type="FontFile" uid="uid://dp2p5chmqvhdp" path="res://Roboto-Regular.ttf" id="5_0ay54"]
-[ext_resource type="Texture2D" uid="uid://c7wnmompt0uv2" path="res://UI/PanelTexture.png" id="6_4jkkt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nibqb"]
 bg_color = Color(0.352941, 0.180392, 0.109804, 0.862745)
@@ -16,8 +15,13 @@ corner_radius_bottom_left = 8
 corner_detail = 16
 shadow_size = 4
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bf6fu"]
-texture = ExtResource("6_4jkkt")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vdwj"]
+bg_color = Color(0, 0, 0, 0.901961)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 0.901961)
 
 [resource]
 default_font = ExtResource("1_y0b4t")
@@ -31,4 +35,4 @@ Fonts/fonts/Macondo = ExtResource("1_y0b4t")
 Fonts/fonts/Roboto = ExtResource("5_0ay54")
 HSeparator/colors/color = Color(1, 1, 1, 1)
 Panel/styles/panel = SubResource("StyleBoxFlat_nibqb")
-TooltipPanel/styles/textured_panel = SubResource("StyleBoxTexture_bf6fu")
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_5vdwj")
