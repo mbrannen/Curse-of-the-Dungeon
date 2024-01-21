@@ -22,6 +22,7 @@ window/size/viewport_height=540
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+
 [dotnet]
 
 project/assembly_name="Game Jam 2024"
@@ -60,6 +61,12 @@ Jump={
 }
 
 timers/tooltip_delay_sec=0.1
+
+[layer_names]
+2d_physics/layer_1="Environment"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="MoveableObjects"
+
 
 
 
