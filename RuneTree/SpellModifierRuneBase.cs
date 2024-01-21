@@ -5,6 +5,7 @@ namespace GameJam2024.RuneTree;
 public abstract class SpellModifierRuneBase : IRuneNode
 {
     public abstract MagicClass MagicClass { get; }
+    public abstract Rune RuneType { get; }
     public IRuneNode Parent { get; set; }
     public List<IRuneNode> Children { get; set; } = new ();
     
@@ -19,6 +20,8 @@ public abstract class SpellModifierRuneBase : IRuneNode
 
     public abstract string Name { get; }
     public abstract string Description { get; }
+    public bool IsDraggable { get; } = false;
+
     public void ConnectNode(IRuneNode child)
     {
         Children.Add(child);
@@ -37,6 +40,25 @@ public abstract class SpellModifierRuneBase : IRuneNode
             foreach (var child in Children)
             {
                 var node = child.GetSpecificNode(name);
+                if (node is not null)
+                    return node;
+            }
+        }
+        return null;
+    }
+    
+    public IRuneNode GetSpecificNode(Rune runeType)
+    {
+        if (runeType == RuneType)
+        {
+            return this;
+        }
+
+        if (Children.Count != 0)
+        {
+            foreach (var child in Children)
+            {
+                var node = child.GetSpecificNode(runeType);
                 if (node is not null)
                     return node;
             }

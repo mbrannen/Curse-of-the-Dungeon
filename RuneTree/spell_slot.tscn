@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://bvnu52km43va4"]
+
+[ext_resource type="Theme" uid="uid://clwjpsq8eh1ds" path="res://gamejame_2024_theme.tres" id="1_wycg2"]
+[ext_resource type="Script" path="res://RuneTree/SpellSlot.cs" id="2_3rglr"]
+[ext_resource type="Shader" path="res://RuneTree/corrupted_node2.gdshader" id="3_bxb5s"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ah58m"]
+noise_type = 2
+seed = 9
+frequency = 0.001
+fractal_octaves = 9
+cellular_distance_function = 3
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uusem"]
+seamless = true
+noise = SubResource("FastNoiseLite_ah58m")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mm7tl"]
+noise_type = 2
+seed = 27
+frequency = 0.0104
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xa3vg"]
+seamless = true
+noise = SubResource("FastNoiseLite_mm7tl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4pcxi"]
+shader = ExtResource("3_bxb5s")
+shader_parameter/current_mana = 0.0
+shader_parameter/max_mana = 1.0
+shader_parameter/rank_advance_mana = 1.0
+shader_parameter/total_opacity = 0.0
+shader_parameter/inset = 0.4
+shader_parameter/groove_opacity = 0.7
+shader_parameter/groove_speed = 0.2
+shader_parameter/groove_width = 0.4
+shader_parameter/groove_distance = 0.8
+shader_parameter/border_color = Color(0.321569, 0.133333, 0.227451, 1)
+shader_parameter/border_width = 0.5
+shader_parameter/border_speed = 0.01
+shader_parameter/noise = SubResource("NoiseTexture2D_xa3vg")
+shader_parameter/groovy_noise = SubResource("NoiseTexture2D_uusem")
+shader_parameter/glow_strength = 1.0
+shader_parameter/mana_color = Color(0.321569, 0.133333, 0.227451, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2ysne"]
+
+[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("IconRect")]
+offset_right = 40.0
+offset_bottom = 40.0
+tooltip_text = "No spell slotted!"
+mouse_filter = 1
+theme = ExtResource("1_wycg2")
+script = ExtResource("2_3rglr")
+IconRect = NodePath("IconTexture")
+
+[node name="IconTexture" type="TextureRect" parent="."]
+layout_mode = 2
+expand_mode = 1
+
+[node name="CorruptedTexture" type="TextureRect" parent="IconTexture"]
+material = SubResource("ShaderMaterial_4pcxi")
+layout_mode = 2
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 54.0
+offset_bottom = 54.0
+mouse_filter = 2
+texture = SubResource("CanvasTexture_2ysne")
+expand_mode = 1

@@ -7,31 +7,31 @@ public partial class TalentHUDManager : Node
     [Export] public Color CorruptionColor;
     //this is maybe the hardcoding way to go about it
     //don't really like how this is handled but gonna do it this way anyway
-    [Export] public TextureRect BaseFireRune;
-    [Export] public TextureRect BaseIceRune;
-    [Export] public TextureRect BaseLightningRune;
+    [Export] public Control BaseFireRune;
+    [Export] public Control BaseIceRune;
+    [Export] public Control BaseLightningRune;
     
-    [Export] public TextureRect FireballRune;
-    [Export] public TextureRect FireballCountRune;
-    [Export] public TextureRect FireballSizeRune;
-    [Export] public TextureRect FireblastRune;
-    [Export] public TextureRect FirewallRune;
-    [Export] public TextureRect FirewallDurationRune;
-    [Export] public TextureRect FirewallLengthRune;
+    [Export] public Control FireballRune;
+    [Export] public Control FireballCountRune;
+    [Export] public Control FireballSizeRune;
+    [Export] public Control FireblastRune;
+    [Export] public Control FirewallRune;
+    [Export] public Control FirewallDurationRune;
+    [Export] public Control FirewallLengthRune;
     
-    [Export] public TextureRect IceShardRune;
-    [Export] public TextureRect IceShardSizeRune;
-    [Export] public TextureRect IceBlockRune;
-    [Export] public TextureRect IceBlockDurationRune;
-    [Export] public TextureRect IcePatchRune;
-    [Export] public TextureRect IcePatchSizeRune;
-    [Export] public TextureRect IceBridgeRune;
-    [Export] public TextureRect IceBridgeDurationRune;
+    [Export] public Control IceShardRune;
+    [Export] public Control IceShardSizeRune;
+    [Export] public Control IceBlockRune;
+    [Export] public Control IceBlockDurationRune;
+    [Export] public Control IcePatchRune;
+    [Export] public Control IcePatchSizeRune;
+    [Export] public Control IceBridgeRune;
+    [Export] public Control IceBridgeDurationRune;
     
-    [Export] public TextureRect LightningDamageRune;
-    [Export] public TextureRect LightningAOERune;
-    [Export] public TextureRect LightningLinkCountRune;
-    [Export] public TextureRect LightningLinkDurationRune;
+    [Export] public Control LightningDamageRune;
+    [Export] public Control LightningAOERune;
+    [Export] public Control LightningLinkCountRune;
+    [Export] public Control LightningLinkDurationRune;
 
     public override void _EnterTree()
     {
@@ -115,8 +115,8 @@ public partial class TalentHUDManager : Node
         }
     }
 
-    private void ModulateColorForCorruption(TextureRect node)
+    private void ModulateColorForCorruption(Control node)
     {
-        node.Modulate = CorruptionColor;
+        var nodeAsScript = node as RuneNode;
     }
 }

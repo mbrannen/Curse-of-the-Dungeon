@@ -1,3 +1,4 @@
+using System;
 using GameJam2024.RuneTree.FireRunes;
 using GameJam2024.RuneTree.IceRunes;
 using GameJam2024.RuneTree.LightningRunes;
@@ -20,6 +21,10 @@ public sealed class TalentManager
     public delegate void NotifyHUDOfCorruptionDelegate(string name);
 
     public event NotifyHUDOfCorruptionDelegate NotifyHUDOfCorruption;
+    
+    //SpellSlotting
+    private IRuneNode DraggedSpell;
+    
     //private constructor
     private TalentManager()
     {
@@ -133,5 +138,51 @@ public sealed class TalentManager
                 SubscribeToAllTalentTreeEvents(child);
             }
         }
+    }
+    /// <summary>
+    /// A function for getting the spell information to attach to the RuneNode scene
+    /// </summary>
+    /// <param name="runeType"></param>
+    /// <returns>An IRuneNode class related to the specified enum </returns>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
+    public IRuneNode GetSpell(Rune runeType)
+    {
+        return runeType switch
+        {
+            Rune.Fireball => TalentTree.GetSpecificNode(Rune.Fireball),
+            Rune.FireballCount => TalentTree.GetSpecificNode(Rune.FireballCount),
+            Rune.FireballSize => TalentTree.GetSpecificNode(Rune.FireballSize),
+            Rune.Fireblast => TalentTree.GetSpecificNode(Rune.Fireblast),
+            Rune.FireRune => TalentTree.GetSpecificNode(Rune.FireRune),
+            Rune.Firewall => TalentTree.GetSpecificNode(Rune.Firewall),
+            Rune.FirewallDuration => TalentTree.GetSpecificNode(Rune.FirewallDuration),
+            Rune.FirewallLength => TalentTree.GetSpecificNode(Rune.FirewallLength),
+            Rune.IceBlock => TalentTree.GetSpecificNode(Rune.IceBlock),
+            Rune.IceBlockDuration => TalentTree.GetSpecificNode(Rune.IceBlockDuration),
+            Rune.IceBridge => TalentTree.GetSpecificNode(Rune.IceBridge),
+            Rune.IceBridgeDuration => TalentTree.GetSpecificNode(Rune.IceBridgeDuration),
+            Rune.IcePatch => TalentTree.GetSpecificNode(Rune.IcePatch),
+            Rune.IcePatchSize => TalentTree.GetSpecificNode(Rune.IcePatchSize),
+            Rune.IceRune => TalentTree.GetSpecificNode(Rune.IceRune),
+            Rune.IceShard => TalentTree.GetSpecificNode(Rune.IceShard),
+            Rune.IceShardSize => TalentTree.GetSpecificNode(Rune.IceShardSize),
+            Rune.LightningAOE => TalentTree.GetSpecificNode(Rune.LightningAOE),
+            Rune.LightningDamage => TalentTree.GetSpecificNode(Rune.LightningDamage),
+            Rune.LightningLinkCount => TalentTree.GetSpecificNode(Rune.LightningLinkCount),
+            Rune.LightningLinkDuration => TalentTree.GetSpecificNode(Rune.LightningLinkDuration),
+            Rune.LightningRune => TalentTree.GetSpecificNode(Rune.LightningRune),
+            _ => TalentTree
+        };
+    }
+
+    //hold the spell that was dragged as a state
+    public void SpellDragged(IRuneNode node)
+    {
+        DraggedSpell = node;
+    }
+
+    public IRuneNode GetSpellDragged()
+    {
+        return DraggedSpell;
     }
 }

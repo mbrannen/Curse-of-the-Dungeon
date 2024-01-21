@@ -5,6 +5,7 @@ namespace GameJam2024.RuneTree;
 public interface IRuneNode
 {
     public MagicClass MagicClass { get; }
+    public Rune RuneType { get; }
     public IRuneNode Parent { get; set; }
     public List<IRuneNode> Children { get; set; }
     
@@ -12,9 +13,13 @@ public interface IRuneNode
     
     public string Name { get; }
     public string Description { get; }
+    
+    //UI
+    public bool IsDraggable { get; }
 
     public void ConnectNode(IRuneNode child);
     public IRuneNode GetSpecificNode(string name);
+    public IRuneNode GetSpecificNode(Rune runeType);
     
     public bool Corrupted { get; set; }
     public delegate void NodeBecameCorruptedDelegate(IRuneNode node);
