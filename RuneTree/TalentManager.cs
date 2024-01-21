@@ -1,3 +1,4 @@
+using System;
 using GameJam2024.RuneTree.FireRunes;
 using GameJam2024.RuneTree.IceRunes;
 using GameJam2024.RuneTree.LightningRunes;
@@ -133,5 +134,40 @@ public sealed class TalentManager
                 SubscribeToAllTalentTreeEvents(child);
             }
         }
+    }
+    /// <summary>
+    /// A function for getting the spell information to attach to the RuneNode scene
+    /// </summary>
+    /// <param name="runeType"></param>
+    /// <returns>An IRuneNode class related to the specified enum </returns>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
+    public IRuneNode GetSpell(Rune runeType)
+    {
+        return runeType switch
+        {
+            Rune.Fireball => new Fireball(),
+            Rune.FireballCount => new FireballCount(),
+            Rune.FireballSize => new FireBallSize(),
+            Rune.Fireblast => new Fireblast(),
+            Rune.FireRune => new FireRune(),
+            Rune.Firewall => new Firewall(),
+            Rune.FirewallDuration => new FirewallDuration(),
+            Rune.FirewallLength => new FirewallLength(),
+            Rune.IceBlock => new IceBlock(),
+            Rune.IceBlockDuration => new IceBlockDuration(),
+            Rune.IceBridge => new IceBridge(),
+            Rune.IceBridgeDuration => new IceBridgeDuration(),
+            Rune.IcePatch => new IcePatch(),
+            Rune.IcePatchSize => new IcePatchSize(),
+            Rune.IceRune => new IceRune(),
+            Rune.IceShard => new IceShard(),
+            Rune.IceShardSize => new IceShardSize(),
+            Rune.LightningAOE => new LightningAOE(),
+            Rune.LightningDamage => new LightningDamage(),
+            Rune.LightningLinkCount => new LightningLinkCount(),
+            Rune.LightningLinkDuration => new LightningLinkDuration(),
+            Rune.LightningRune => new LightningRune(),
+            _ => throw new ArgumentOutOfRangeException(nameof(runeType), runeType, null)
+        };
     }
 }

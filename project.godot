@@ -29,3 +29,4 @@ project/assembly_name="Game Jam 2024"
 [gui]
 
 theme/custom="res://gamejame_2024_theme.tres"
+timers/tooltip_delay_sec=0.1

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn4dn6to2wpau"]
+
+[ext_resource type="Theme" uid="uid://clwjpsq8eh1ds" path="res://gamejame_2024_theme.tres" id="1_2ttn4"]
+[ext_resource type="Script" path="res://RuneTree/RuneNode.cs" id="2_bvrun"]
+
+[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("IconRect")]
+offset_right = 40.0
+offset_bottom = 40.0
+tooltip_text = "A TEST WITH SOME INFORMATION"
+theme = ExtResource("1_2ttn4")
+script = ExtResource("2_bvrun")
+IconRect = NodePath("IconRecTexture")
+SpellName = 3
+
+[node name="IconRecTexture" type="TextureRect" parent="."]
+layout_mode = 2
+expand_mode = 1

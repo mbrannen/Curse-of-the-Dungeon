@@ -16,7 +16,7 @@ public enum Rune
     IceBridgeDuration,
     IcePatch,
     IcePatchSize,
-    IceRun,
+    IceRune,
     IceShard,
     IceShardSize,
     LightningAOE,
