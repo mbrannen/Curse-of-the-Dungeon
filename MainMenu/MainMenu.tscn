@@ -89,3 +89,21 @@ layout_mode = 1
 [node name="Options" parent="." instance=ExtResource("5_v8wv2")]
 visible = false
 layout_mode = 1
+
+[node name="Listener" type="AkListener2D" parent="."]
+
+[node name="SoundBank Init" type="AkBank" parent="."]
+bank = {
+"id": 1355168291,
+"name": "Init"
+}
+load_on = 1
+
+[node name="SoundBank Main" type="AkBank" parent="."]
+bank = {
+"id": 3161908922,
+"name": "Main"
+}
+load_on = 1
+
+[node name="ButtonPressedEvent" type="AkEvent2D" parent="."]

@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3697970726	Player_Fireball_Shoot			\Default Work Unit\Player_Fireball_Shoot	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	365846925	Fire_Spell_Shoot	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Linux\SFX\SFX_Done\Fire_Spell_Shoot_2DF753F9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fire_Spell_Shoot		141756
+
