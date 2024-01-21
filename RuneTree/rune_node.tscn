@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bn4dn6to2wpau"]
+[gd_scene load_steps=3 format=3 uid="uid://d36dqav7hxuhg"]
 
 [ext_resource type="Theme" uid="uid://clwjpsq8eh1ds" path="res://gamejame_2024_theme.tres" id="1_2ttn4"]
 [ext_resource type="Script" path="res://RuneTree/RuneNode.cs" id="2_bvrun"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://RuneTree/TalentHUDManager.cs" id="1_usdws"]
 [ext_resource type="Texture2D" uid="uid://dc1avyfgf1yqa" path="res://RuneTree/Images/BaseFireRune.png" id="2_cil1o"]
-[ext_resource type="PackedScene" uid="uid://bn4dn6to2wpau" path="res://RuneTree/rune_node.tscn" id="3_ppvx4"]
+[ext_resource type="PackedScene" uid="uid://d36dqav7hxuhg" path="res://RuneTree/rune_node.tscn" id="3_ppvx4"]
 [ext_resource type="Texture2D" uid="uid://bcoqag7137r37" path="res://RuneTree/Images/FireblastRune.png" id="3_y2qjg"]
 [ext_resource type="Texture2D" uid="uid://cc0kxbe1uhem7" path="res://RuneTree/Images/BaseIceRune.png" id="4_7kstk"]
 [ext_resource type="Texture2D" uid="uid://cvk2fffgohybu" path="res://RuneTree/Images/FireballRune.png" id="4_y44rq"]
@@ -36,13 +36,13 @@ FirewallRune = NodePath("FireRune/Firewall")
 FirewallDurationRune = NodePath("FireRune/FirewallDuration")
 FirewallLengthRune = NodePath("FireRune/FirewallLength")
 IceShardRune = NodePath("IceRune/IceShard")
-IceShardSizeRune = NodePath("IceRune/IceShard_1")
+IceShardSizeRune = NodePath("IceRune/IceShardSize")
 IceBlockRune = NodePath("IceRune/IceBlock")
-IceBlockDurationRune = NodePath("IceRune/IceBlock_1")
+IceBlockDurationRune = NodePath("IceRune/IceBlockDuration")
 IcePatchRune = NodePath("IceRune/IcePatch")
-IcePatchSizeRune = NodePath("IceRune/IcePatch_1")
+IcePatchSizeRune = NodePath("IceRune/IcePatchSize")
 IceBridgeRune = NodePath("IceRune/IceBridge")
-IceBridgeDurationRune = NodePath("IceRune/IceBridge_1")
+IceBridgeDurationRune = NodePath("IceRune/IceBridgeDuration")
 LightningDamageRune = NodePath("LightningRune/BaseRune_1")
 LightningAOERune = NodePath("LightningRune/BaseRune_4")
 LightningLinkCountRune = NodePath("LightningRune/BaseRune_2")
@@ -62,7 +62,7 @@ offset_top = 399.0
 offset_right = 167.0
 offset_bottom = 439.0
 Icon = ExtResource("2_cil1o")
-SpellName = 4
+SpellName = 5
 
 [node name="Fireblast" parent="FireRune" instance=ExtResource("3_ppvx4")]
 layout_mode = 0
@@ -71,6 +71,7 @@ offset_top = 289.0
 offset_right = 167.0
 offset_bottom = 329.0
 Icon = ExtResource("3_y2qjg")
+SpellName = 4
 
 [node name="Fireball" parent="FireRune" instance=ExtResource("3_ppvx4")]
 layout_mode = 0
@@ -79,7 +80,7 @@ offset_top = 282.0
 offset_right = 97.0
 offset_bottom = 322.0
 Icon = ExtResource("4_y44rq")
-SpellName = 0
+SpellName = 1
 
 [node name="Firewall" parent="FireRune" instance=ExtResource("3_ppvx4")]
 layout_mode = 0
@@ -88,7 +89,7 @@ offset_top = 278.0
 offset_right = 237.0
 offset_bottom = 318.0
 Icon = ExtResource("6_2m4xs")
-SpellName = 5
+SpellName = 6
 
 [node name="FireballSize" parent="FireRune" instance=ExtResource("3_ppvx4")]
 layout_mode = 0
@@ -97,7 +98,6 @@ offset_top = 144.0
 offset_right = 129.0
 offset_bottom = 184.0
 Icon = ExtResource("5_p83d3")
-SpellName = 2
 
 [node name="FireballCount" parent="FireRune" node_paths=PackedStringArray("IconRect") instance=ExtResource("3_ppvx4")]
 layout_mode = 0
@@ -107,7 +107,7 @@ offset_right = 65.0
 offset_bottom = 109.0
 IconRect = NodePath("../FireballSize/IconRecTexture")
 Icon = ExtResource("5_p83d3")
-SpellName = 1
+SpellName = 2
 
 [node name="FirewallLength" parent="FireRune" instance=ExtResource("3_ppvx4")]
 layout_mode = 0
@@ -116,7 +116,7 @@ offset_top = 62.0
 offset_right = 270.0
 offset_bottom = 102.0
 Icon = ExtResource("5_p83d3")
-SpellName = 7
+SpellName = 8
 
 [node name="FirewallDuration" parent="FireRune" node_paths=PackedStringArray("IconRect") instance=ExtResource("3_ppvx4")]
 layout_mode = 0
@@ -126,7 +126,7 @@ offset_right = 206.0
 offset_bottom = 180.0
 IconRect = NodePath("../FirewallLength/IconRecTexture")
 Icon = ExtResource("5_p83d3")
-SpellName = 6
+SpellName = 7
 
 [node name="IceRune" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -136,118 +136,86 @@ offset_left = 320.0
 offset_right = 640.0
 offset_bottom = 540.0
 
-[node name="BaseRune" type="TextureRect" parent="IceRune"]
+[node name="BaseRune" parent="IceRune" instance=ExtResource("3_ppvx4")]
 layout_mode = 0
-offset_left = 137.0
-offset_top = 227.0
-offset_right = 177.0
-offset_bottom = 267.0
-texture = ExtResource("4_7kstk")
-expand_mode = 1
+offset_left = 140.0
+offset_top = 235.0
+offset_right = 180.0
+offset_bottom = 275.0
+Icon = ExtResource("4_7kstk")
+SpellName = 15
 
-[node name="Line2D" type="Line2D" parent="IceRune/BaseRune"]
-points = PackedVector2Array(1, 36, -57, 82)
-default_color = Color(0, 0, 0, 1)
-
-[node name="Line2D2" type="Line2D" parent="IceRune/BaseRune"]
-points = PackedVector2Array(41, 39, 79, 62)
-default_color = Color(0, 0, 0, 1)
-
-[node name="Line2D3" type="Line2D" parent="IceRune/BaseRune"]
-points = PackedVector2Array(39, 3, 91, -26)
-default_color = Color(0, 0, 0, 1)
-
-[node name="Line2D4" type="Line2D" parent="IceRune/BaseRune"]
-points = PackedVector2Array(-1, 4, -31, -10)
-default_color = Color(0, 0, 0, 1)
-
-[node name="IceBlock" type="TextureRect" parent="IceRune"]
+[node name="IceBlock" parent="IceRune" instance=ExtResource("3_ppvx4")]
 layout_mode = 0
-offset_left = 63.0
-offset_top = 287.0
-offset_right = 103.0
-offset_bottom = 327.0
-texture = ExtResource("8_3i7eq")
-expand_mode = 1
+offset_left = 73.0
+offset_top = 288.0
+offset_right = 113.0
+offset_bottom = 328.0
+Icon = ExtResource("8_3i7eq")
+SpellName = 9
 
-[node name="Line2D" type="Line2D" parent="IceRune/IceBlock"]
-points = PackedVector2Array(38, 40, 69, 68)
-default_color = Color(0, 0, 0, 1)
-
-[node name="IceBlock_1" type="TextureRect" parent="IceRune"]
+[node name="IceBlockDuration" parent="IceRune" instance=ExtResource("3_ppvx4")]
 layout_mode = 0
-offset_left = 113.0
-offset_top = 339.0
-offset_right = 153.0
-offset_bottom = 379.0
-texture = ExtResource("9_5pqfk")
-expand_mode = 1
+offset_left = 111.0
+offset_top = 346.0
+offset_right = 151.0
+offset_bottom = 386.0
+Icon = ExtResource("9_5pqfk")
+SpellName = 10
 
-[node name="IceShard" type="TextureRect" parent="IceRune"]
+[node name="IceShard" parent="IceRune" instance=ExtResource("3_ppvx4")]
 layout_mode = 0
 offset_left = 213.0
 offset_top = 284.0
 offset_right = 253.0
 offset_bottom = 324.0
-texture = ExtResource("10_s2dfb")
-expand_mode = 1
+Icon = ExtResource("10_s2dfb")
+SpellName = 16
 
-[node name="Line2D" type="Line2D" parent="IceRune/IceShard"]
-points = PackedVector2Array(6, 35, -8, 64)
-default_color = Color(0, 0, 0, 1)
-
-[node name="IceShard_1" type="TextureRect" parent="IceRune"]
+[node name="IceShardSize" parent="IceRune" instance=ExtResource("3_ppvx4")]
 layout_mode = 0
-offset_left = 170.0
-offset_top = 345.0
-offset_right = 210.0
-offset_bottom = 385.0
-texture = ExtResource("9_5pqfk")
-expand_mode = 1
+offset_left = 179.0
+offset_top = 348.0
+offset_right = 219.0
+offset_bottom = 388.0
+Icon = ExtResource("9_5pqfk")
+SpellName = 17
 
-[node name="IcePatch" type="TextureRect" parent="IceRune"]
+[node name="IcePatch" parent="IceRune" instance=ExtResource("3_ppvx4")]
 layout_mode = 0
-offset_left = 64.0
+offset_left = 74.0
 offset_top = 178.0
-offset_right = 104.0
+offset_right = 114.0
 offset_bottom = 218.0
-texture = ExtResource("11_tmsk1")
-expand_mode = 1
+Icon = ExtResource("11_tmsk1")
+SpellName = 13
 
-[node name="Line2D" type="Line2D" parent="IceRune/IcePatch"]
-points = PackedVector2Array(36, 0, 48, -34)
-default_color = Color(0, 0, 0, 1)
-
-[node name="IcePatch_1" type="TextureRect" parent="IceRune"]
+[node name="IcePatchSize" parent="IceRune" instance=ExtResource("3_ppvx4")]
 layout_mode = 0
-offset_left = 107.0
-offset_top = 103.0
-offset_right = 147.0
-offset_bottom = 143.0
-texture = ExtResource("9_5pqfk")
-expand_mode = 1
+offset_left = 114.0
+offset_top = 115.0
+offset_right = 154.0
+offset_bottom = 155.0
+Icon = ExtResource("9_5pqfk")
+SpellName = 14
 
-[node name="IceBridge" type="TextureRect" parent="IceRune"]
+[node name="IceBridge" parent="IceRune" instance=ExtResource("3_ppvx4")]
 layout_mode = 0
-offset_left = 209.0
+offset_left = 216.0
 offset_top = 178.0
-offset_right = 249.0
+offset_right = 256.0
 offset_bottom = 218.0
-texture = ExtResource("12_hbhi2")
-expand_mode = 1
+Icon = ExtResource("12_hbhi2")
+SpellName = 11
 
-[node name="Line2D" type="Line2D" parent="IceRune/IceBridge"]
-points = PackedVector2Array(3, 1, -11, -30)
-default_color = Color(0, 0, 0, 1)
-
-[node name="IceBridge_1" type="TextureRect" parent="IceRune"]
+[node name="IceBridgeDuration" parent="IceRune" instance=ExtResource("3_ppvx4")]
 layout_mode = 0
-offset_left = 163.0
-offset_top = 107.0
-offset_right = 203.0
-offset_bottom = 147.0
-texture = ExtResource("9_5pqfk")
-expand_mode = 1
+offset_left = 177.0
+offset_top = 117.0
+offset_right = 217.0
+offset_bottom = 157.0
+Icon = ExtResource("9_5pqfk")
+SpellName = 12
 
 [node name="LightningRune" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)

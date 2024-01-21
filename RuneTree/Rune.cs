@@ -2,6 +2,7 @@ namespace GameJam2024.RuneTree;
 
 public enum Rune
 {
+    Base,
     Fireball,
     FireballCount,
     FireballSize,
