@@ -2,6 +2,7 @@ namespace GameJam2024.RuneTree;
 
 public enum Rune
 {
+    Base,
     Fireball,
     FireballCount,
     FireballSize,
@@ -16,7 +17,7 @@ public enum Rune
     IceBridgeDuration,
     IcePatch,
     IcePatchSize,
-    IceRun,
+    IceRune,
     IceShard,
     IceShardSize,
     LightningAOE,
