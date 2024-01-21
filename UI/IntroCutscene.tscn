@@ -1,0 +1,223 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl2fesc7epab1"]
+
+[ext_resource type="Script" path="res://UI/IntroCutscene.cs" id="1_ugev4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hsced"]
+
+[sub_resource type="Animation" id="Animation_k33s8"]
+resource_name = "Play"
+length = 60.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 8.9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10, 11, 19, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 20, 21, 29, 30),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel4:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 29.9, 30.9, 39, 40),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel5:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 40, 41, 49, 50),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel6:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 50, 51, 59, 60),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1nyna"]
+_data = {
+"Play": SubResource("Animation_k33s8")
+}
+
+[node name="IntroCutscene" type="Control" node_paths=PackedStringArray("AnimationPlayer")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ugev4")
+AnimationPlayer = NodePath("AnimationPlayer")
+
+[node name="Panel7" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 540.0
+texture = SubResource("CanvasTexture_hsced")
+
+[node name="Panel1" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("CanvasTexture_hsced")
+
+[node name="Panel1_text" type="Label" parent="Panel1"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 457.0
+offset_right = 765.0
+offset_bottom = 487.0
+text = "On your Wizardly journeys you finally found the cave you've been looking for..."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Panel2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("CanvasTexture_hsced")
+
+[node name="Panel2_text" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 457.0
+offset_right = 765.0
+offset_bottom = 487.0
+text = "...you fought your way through, slaying all inhabitants that stood in your way..."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Panel3" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("CanvasTexture_hsced")
+
+[node name="Panel3_text" type="Label" parent="Panel3"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 457.0
+offset_right = 765.0
+offset_bottom = 487.0
+text = "...and you spared no one and showed no mercy..."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Panel4" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("CanvasTexture_hsced")
+
+[node name="Panel4_text" type="Label" parent="Panel4"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 457.0
+offset_right = 765.0
+offset_bottom = 487.0
+text = "...the protector of the artifact you 
+sought posed no challenge..."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Panel5" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("CanvasTexture_hsced")
+
+[node name="Panel5_text" type="Label" parent="Panel5"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 457.0
+offset_right = 765.0
+offset_bottom = 487.0
+text = "...at last! You possessed the the most powerful of artifacts...but all was not what it seemed..."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Panel6" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("CanvasTexture_hsced")
+
+[node name="Panel5_text" type="Label" parent="Panel6"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 457.0
+offset_right = 824.0
+offset_bottom = 520.0
+text = "...it's energy coursed through your veins, corrupting your knowledge!  You feel this is a test, can you make it out ALIVE?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1nyna")
+}

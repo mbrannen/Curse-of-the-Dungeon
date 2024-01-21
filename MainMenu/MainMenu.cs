@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using GameJam2024.GameManagement;
 using GameJam2024.MainMenu;
 
 public partial class MainMenu : Control
@@ -14,8 +15,11 @@ public partial class MainMenu : Control
     [Export] public Font DefaultFont;
     [Export] public Font AccessbilityFont;
 
+    [Export] public Control IntroCutscene;
+
     public override void _EnterTree()
     {
+        MainMenuManager.Instance.InitState();
         MainMenuManager.Instance.FontChanged += OnFontChanged;
         MainMenuManager.Instance.CreditsBackButtonPressed += OnCreditsBackButtonPressed;
         MainMenuManager.Instance.OptionsBackButtonPressed += OnOptionsBackButtonPressed;
@@ -67,7 +71,8 @@ public partial class MainMenu : Control
 
     private void StartButtonOnPressed()
     {
-        //TODO: Create function to start game
-        GD.Print("Start button pressed!");
+        IntroCutscene.Visible = true;
+        MainMenuPanel.Visible = false;
+        GameManager.Instance.SetState(GameState.IntroCutscene);
     }
 }
