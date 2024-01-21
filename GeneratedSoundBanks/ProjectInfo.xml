@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo>
+	<Project Name="Jan2024GameJam" GUID="{65A5B0CE-6132-418D-B73D-9A41E7AEB98A}" Generator="2023.1.0.8367"/>
+	<CacheRoot>../../../Wwise/Jan2024GameJam/.cache</CacheRoot>
+	<Platforms>
+		<Platform Name="Linux" GUID="{4C3993DB-D03F-4A6F-9D40-77DF74CCD67F}" BasePlatform="Linux" BasePlatformGUID="{BD0BDF13-3125-454F-8BFD-319537169F81}" Path="../../../Wwise/Jan2024GameJam/GeneratedSoundBanks/Linux"/>
+		<Platform Name="Mac" GUID="{6FBFE895-7E46-4771-8574-D7477882751E}" BasePlatform="Mac" BasePlatformGUID="{9C6217D5-DD11-4795-87C1-6CE02853C540}" Path="../../../Wwise/Jan2024GameJam/GeneratedSoundBanks/Mac"/>
+		<Platform Name="Windows" GUID="{45901793-FB60-4806-A555-24A6D6913AD1}" BasePlatform="Windows" BasePlatformGUID="{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}" Path="../../../Wwise/Jan2024GameJam/GeneratedSoundBanks/Windows"/>
+	</Platforms>
+	<Languages>
+		<Language Name="English(US)" Id="684519430" GUID="{739861C9-4681-45C3-A893-44D788865B44}" Default="true" UseAsStandIn="true"/>
+	</Languages>
+	<FileHash>{57DCEE13-BFDD-2B98-58AE-BA643F5FC5C8}</FileHash>
+</ProjectInfo>

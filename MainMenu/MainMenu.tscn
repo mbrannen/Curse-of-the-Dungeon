@@ -89,3 +89,45 @@ layout_mode = 1
 [node name="Options" parent="." instance=ExtResource("5_v8wv2")]
 visible = false
 layout_mode = 1
+
+[node name="Listener" type="AkListener2D" parent="."]
+
+[node name="Wwise" type="Node" parent="."]
+
+[node name="SoundBank Init" type="AkBank" parent="Wwise"]
+bank = {
+"id": 1355168291,
+"name": "Init"
+}
+load_on = 1
+
+[node name="SoundBank Main" type="AkBank" parent="Wwise"]
+bank = {
+"id": 3161908922,
+"name": "Main"
+}
+load_on = 1
+
+[node name="State" type="Node" parent="Wwise"]
+
+[node name="SceneState_MainMenu" type="AkState" parent="Wwise/State"]
+state_group = {
+"id": 1926883983,
+"name": "Scene"
+}
+state_value = {
+"id": 3604647259,
+"name": "MainMenu"
+}
+trigger_on = 2
+
+[node name="Events" type="Node" parent="Wwise"]
+
+[node name="ButtonPressedEvent" type="AkEvent2D" parent="Wwise/Events"]
+
+[node name="MusicPlayEvent" type="AkEvent2D" parent="Wwise/Events"]
+event = {
+"id": 202194903,
+"name": "Music_Play"
+}
+trigger_on = 2
