@@ -49,7 +49,7 @@ shader_parameter/mana_color = Color(0.321569, 0.133333, 0.227451, 1)
 [node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("IconRect")]
 offset_right = 40.0
 offset_bottom = 40.0
-tooltip_text = "A TEST WITH SOME INFORMATION"
+tooltip_text = "No spell slotted!"
 mouse_filter = 1
 theme = ExtResource("1_wycg2")
 script = ExtResource("2_3rglr")
