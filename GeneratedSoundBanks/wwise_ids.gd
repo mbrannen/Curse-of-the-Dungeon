@@ -3,14 +3,35 @@ class_name AK
 class EVENTS:
 
 	const PLAYER_FIREBALL_SHOOT = 3697970726
+	const AMBIENT_SFX_PLAY = 2210022288
+	const MUSIC_PLAY = 202194903
 
 	const _dict = {
-		"Player_Fireball_Shoot": PLAYER_FIREBALL_SHOOT
+		"Player_Fireball_Shoot": PLAYER_FIREBALL_SHOOT,
+		"Ambient_SFX_Play": AMBIENT_SFX_PLAY,
+		"Music_Play": MUSIC_PLAY
 	}
 
 class STATES:
 
-	const _dict = {}
+	class SCENE:
+		const GROUP = 1926883983
+
+		class STATE:
+			const CAVES = 749373321
+			const NONE = 748895195
+			const MAINMENU = 3604647259
+
+	const _dict = {
+		"Scene": {
+			"GROUP": 1926883983,
+			"STATE": {
+				"Caves": 749373321,
+				"None": 748895195,
+				"MainMenu": 3604647259
+			}
+		}
+	}
 
 class SWITCHES:
 

@@ -71,6 +71,6 @@ public partial class MainMenu : Control
 		GD.Print("Start button pressed!");
 		
 		//TODO [SOUND]: Add Wwise button press event
-		GetNode("ButtonPressedEvent").Call("post_event");
+		//GetNode("Wwise/ButtonPressedEvent").Call("post_event");
 	}
 }

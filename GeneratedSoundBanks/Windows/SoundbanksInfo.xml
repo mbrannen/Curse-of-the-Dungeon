@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{AB9F0343-CD85-AB9E-58D8-B63D74A50185}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{00D0D088-D7A7-EE15-6D16-01B511315FEE}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -33,6 +33,15 @@
 				<GameParameter Id="3847924954" Name="SS_Air_Presence"/>
 				<GameParameter Id="4160247818" Name="SS_Air_Turbulence"/>
 			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="1926883983" Name="Scene">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="749373321" Name="Caves"/>
+						<State Id="3604647259" Name="MainMenu"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 			<AcousticTextures>
 				<AcousticTexture Id="504532776" Name="Brick">
 					<Properties>
@@ -162,23 +171,65 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{12492523-2733-0463-F8CE-F29A0C5135BF}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{FB0D7B98-3D94-EEDD-8A13-C9C4A44D081D}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
+				<File Id="7115842" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>untitled.wav</ShortName>
+					<CachePath>SFX/untitled_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="100698467" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Cave_Ambience.wav</ShortName>
+					<CachePath>SFX/Cave_Ambience_25A71BB2.wem</CachePath>
+				</File>
+				<File Id="227094282" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ambient_Music_1.wav</ShortName>
+					<CachePath>SFX/Ambient_Music_1_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="365846925" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX_Done\Fire_Spell_Shoot.wav</ShortName>
 					<CachePath>SFX/SFX_Done/Fire_Spell_Shoot_2DF753F9.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
+				<Event Id="2210022288" Name="Ambient_SFX_Play">
+					<MediaRefs>
+						<MediaRef Id="100698467"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="202194903" Name="Music_Play">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1926883983" Id="749373321"/>
+							<MediaRefs>
+								<MediaRef Id="227094282"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1926883983" Id="3604647259"/>
+							<MediaRefs>
+								<MediaRef Id="7115842"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
 				<Event Id="3697970726" Name="Player_Fireball_Shoot">
 					<MediaRefs>
 						<MediaRef Id="365846925"/>
 					</MediaRefs>
 				</Event>
 			</Events>
+			<StateGroups>
+				<StateGroup Id="1926883983" Name="Scene">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="749373321" Name="Caves"/>
+						<State Id="3604647259" Name="MainMenu"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{35D6D610-9783-EE95-A743-E58B8C50BA89}</FileHash>
+	<FileHash>{54343AD3-F776-58CD-39D5-337140AA3A07}</FileHash>
 </SoundBanksInfo>
