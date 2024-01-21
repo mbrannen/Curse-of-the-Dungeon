@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b371v1ekyxwr4"]
+
+[ext_resource type="PackedScene" uid="uid://b3coc670j5u0y" path="res://Wizard/Wizard.tscn" id="1_487yp"]
+
+[node name="TestScene" type="Node"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(3, 2, 4, 536, 957, 535, 954, 3, 886, 3, 888, 495, 752, 497, 753, 481, 672, 481, 673, 496, 591, 496, 591, 519, 566, 519, 565, 493, 468, 493, 404, 449, 323, 489, 269, 437, 204, 483, 44, 481, 36, 2)
+
+[node name="Wizard" parent="." instance=ExtResource("1_487yp")]
+position = Vector2(81, 119)
+JumpStrength = -1000.0
