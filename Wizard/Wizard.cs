@@ -35,7 +35,11 @@ public partial class Wizard : CharacterBody2D
         //Call Jump Handler
         JumpHandler();
 
-        CastSpell();
+        if (Input.IsActionJustPressed("Cast"))
+        {
+            CastSpell();
+        }
+
     }
 
     //Physics related calls should go here. Called every frame at 60 frames per second.
@@ -111,12 +115,9 @@ public partial class Wizard : CharacterBody2D
     void CastSpell()
     {
         var Fireball = Projectile.Instantiate() as Node2D;
-        if (Input.IsActionJustPressed("Cast"))
-        {
-            Fireball.Rotation = Rotation;
-            Fireball.GlobalPosition = SpellOrigin.GlobalPosition;
-            GetTree().CurrentScene.AddChild(Fireball);
-        }
+        Fireball.Rotation = SpellOrigin.Rotation;
+        Fireball.GlobalPosition = SpellOrigin.GlobalPosition;
+        GetTree().CurrentScene.AddChild(Fireball);
     }
 
     void AnimationHandler()
