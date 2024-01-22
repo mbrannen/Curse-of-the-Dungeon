@@ -14,7 +14,6 @@ public sealed class MainMenuManager
     public event BackButtonPressedDelegate OptionsBackButtonPressed;
     
     public delegate void FontChangedDelegate(long index);
-
     public event FontChangedDelegate FontChanged;
     
     private MainMenuManager(){}

@@ -26,6 +26,7 @@ public partial class IntroCutscene : Control
     {
         if (animname == AnimationNames.INTRO_CUTSCENE)
         {
+            GameManager.Instance.SetState(GameState.Level1);
         }
     }
 

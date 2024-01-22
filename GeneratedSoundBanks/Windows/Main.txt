@@ -1,0 +1,19 @@
+Event	ID	Name			Wwise Object Path	Notes
+	202194903	Music_Play			\Default Work Unit\Music_Play	
+	2210022288	Ambient_SFX_Play			\Default Work Unit\Ambient_SFX_Play	
+	3697970726	Player_Fireball_Shoot			\Default Work Unit\Player_Fireball_Shoot	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	1926883983	Scene			\Default Work Unit\Scene	
+
+State	ID	Name	State Group			Notes
+	748895195	None	Scene			
+	749373321	Caves	Scene			
+	3604647259	MainMenu	Scene			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	7115842	untitled	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Windows\SFX\untitled_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Main_Menu\untitled\untitled		8972084
+	100698467	Cave_Ambience	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Windows\SFX\Cave_Ambience_25A71BB2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Cave_Ambience		14817744
+	227094282	Ambient_Music_1	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Windows\SFX\Ambient_Music_1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Caves\Ambient_Music_1\Ambient_Music_1		21852944
+	365846925	Fire_Spell_Shoot	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Windows\SFX\SFX_Done\Fire_Spell_Shoot_2DF753F9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Fire_Spell_Shoot		141756
+
