@@ -1,3 +1,5 @@
+using GameJam2024.GameManagement;
+
 namespace GameJam2024.MainMenu;
 
 public sealed class MainMenuManager
@@ -12,7 +14,6 @@ public sealed class MainMenuManager
     public event BackButtonPressedDelegate OptionsBackButtonPressed;
     
     public delegate void FontChangedDelegate(long index);
-
     public event FontChangedDelegate FontChanged;
     
     private MainMenuManager(){}
@@ -30,5 +31,10 @@ public sealed class MainMenuManager
     public void FontDropdownItemChanged(long index)
     {
         FontChanged?.Invoke(index);
+    }
+
+    public void InitState()
+    {
+        GameManager.Instance.SetState(GameState.MainMenu);
     }
 }
