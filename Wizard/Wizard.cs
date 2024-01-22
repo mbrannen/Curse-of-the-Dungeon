@@ -10,16 +10,21 @@ public partial class Wizard : CharacterBody2D
     [Export] private float FallSpeed { get; set; }
     [Export] private float JumpStrength { get; set; }
 
+    [Export] PackedScene Projectile { get; set; }
+
+    Marker2D SpellOrigin;
+
     public override void _Ready()
     {
         //Assign nodes to variables.
-        base._Ready();
+        SpellOrigin = GetNode<Marker2D>("Marker2D");
     }
 
     //Non-Physics related calls should go here. Called every frame.
     public override void _Process(double delta)
     {
         //Call Animation Handler
+        GetNode<Node2D>("Marker2D").Rotation = GetLocalMousePosition().Angle();
 
         //Call Gravity Handler
         GravityHandler(delta);
@@ -29,6 +34,8 @@ public partial class Wizard : CharacterBody2D
         
         //Call Jump Handler
         JumpHandler();
+
+        CastSpell();
     }
 
     //Physics related calls should go here. Called every frame at 60 frames per second.
@@ -99,6 +106,17 @@ public partial class Wizard : CharacterBody2D
         }
 
         Velocity = velocity;
+    }
+
+    void CastSpell()
+    {
+        var Fireball = Projectile.Instantiate() as Node2D;
+        if (Input.IsActionJustPressed("Cast"))
+        {
+            Fireball.Rotation = Rotation;
+            Fireball.GlobalPosition = SpellOrigin.GlobalPosition;
+            GetTree().CurrentScene.AddChild(Fireball);
+        }
     }
 
     void AnimationHandler()
