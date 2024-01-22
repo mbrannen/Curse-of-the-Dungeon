@@ -17,6 +17,7 @@ public partial class MainMenu : Control
 
     [Export] public Control IntroCutscene;
     [Export] public Control GameUI;
+    [Export] public Control RuneTree;
 
     [Export] public Node2D Level1;
 
@@ -32,6 +33,14 @@ public partial class MainMenu : Control
         StartButton.Pressed += StartButtonOnPressed;
         OptionsButton.Pressed += OptionsButtonOnPressed;
         CreditsButton.Pressed += CreditsButtonOnPressed;
+    }
+
+    public override void _Process(double delta)
+    {
+        if(Input.IsActionJustPressed("Talents") || Input.IsActionJustReleased("Talents"))
+        {
+            RuneTree.Visible = !RuneTree.Visible;
+        }
     }
 
     private void OnLevelOneStart()
