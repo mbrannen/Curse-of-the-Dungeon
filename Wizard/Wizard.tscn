@@ -26,6 +26,7 @@ scale = Vector2(0.0504948, 0.0504948)
 texture = ExtResource("2_had2t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -150)
 zoom = Vector2(0.75, 0.75)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
