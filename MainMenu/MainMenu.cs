@@ -16,6 +16,7 @@ public partial class MainMenu : Control
     [Export] public Font AccessbilityFont;
 
     [Export] public Control IntroCutscene;
+    [Export] public Control GameUI;
 
     [Export] public Node2D Level1;
 
@@ -38,6 +39,7 @@ public partial class MainMenu : Control
         MainMenuPanel.Visible = false;
         IntroCutscene.Visible = false;
         Level1.Visible = true;
+        GameUI.Visible = true;
     }
 
     private void OnFontChanged(long index)

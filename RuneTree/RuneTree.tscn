@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://7llvmmihkn65"]
+[gd_scene load_steps=17 format=3 uid="uid://7llvmmihkn65"]
 
 [ext_resource type="Theme" uid="uid://clwjpsq8eh1ds" path="res://gamejame_2024_theme.tres" id="1_5ymhf"]
 [ext_resource type="Script" path="res://RuneTree/TalentHUDManager.cs" id="1_usdws"]
@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://qmu0bweepbfw" path="res://RuneTree/Images/IcePatchRune.png" id="11_tmsk1"]
 [ext_resource type="Texture2D" uid="uid://cxo1tc0qu1x5v" path="res://RuneTree/Images/IceBridgeRune.png" id="12_hbhi2"]
 [ext_resource type="Texture2D" uid="uid://dds3lkedvk4dq" path="res://RuneTree/Images/LightningModifierRune.png" id="14_v6g6a"]
-[ext_resource type="PackedScene" uid="uid://c48hoql70qq01" path="res://UI/SpellslotContainer.tscn" id="17_7vwdb"]
 
 [node name="Control" type="Control" node_paths=PackedStringArray("BaseFireRune", "BaseIceRune", "BaseLightningRune", "FireballRune", "FireballCountRune", "FireballSizeRune", "FireblastRune", "FirewallRune", "FirewallDurationRune", "FirewallLengthRune", "IceShardRune", "IceShardSizeRune", "IceBlockRune", "IceBlockDurationRune", "IcePatchRune", "IcePatchSizeRune", "IceBridgeRune", "IceBridgeDurationRune", "LightningDamageRune", "LightningAOERune", "LightningLinkCountRune", "LightningLinkDurationRune")]
 layout_mode = 3
@@ -53,6 +52,7 @@ LightningLinkDurationRune = NodePath("LightningRune/LightningLinkDuration")
 metadata/_edit_vertical_guides_ = [480.0]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -287,9 +287,3 @@ offset_right = 159.0
 offset_bottom = 139.0
 Icon = ExtResource("14_v6g6a")
 SpellName = 18
-
-[node name="SpellslotContainer" parent="." instance=ExtResource("17_7vwdb")]
-layout_mode = 1
-anchors_preset = -1
-offset_top = -59.0
-offset_bottom = -19.0

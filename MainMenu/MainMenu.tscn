@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b2vhhetl6w0ip"]
+[gd_scene load_steps=14 format=3 uid="uid://b2vhhetl6w0ip"]
 
 [ext_resource type="Script" path="res://MainMenu/MainMenu.cs" id="1_0qxbf"]
 [ext_resource type="Texture2D" uid="uid://b5tsdrrhuwa32" path="res://MainMenu/BG.png" id="1_1orda"]
@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://b7mhrtmw1bpu7" path="res://Levels/Level1.tscn" id="9_xi5so"]
 [ext_resource type="PackedScene" uid="uid://bq3lwsnvmy8mc" path="res://Levels/Level2.tscn" id="10_oaxb3"]
 [ext_resource type="PackedScene" uid="uid://b4f0j0gpgn2u1" path="res://Levels/Level3.tscn" id="11_utxig"]
+[ext_resource type="PackedScene" uid="uid://7llvmmihkn65" path="res://RuneTree/RuneTree.tscn" id="12_fcwdn"]
+[ext_resource type="PackedScene" uid="uid://c48hoql70qq01" path="res://UI/SpellslotContainer.tscn" id="13_com5w"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "MainMenuPanel", "CreditsScene", "OptionsScene", "IntroCutscene", "Level1")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "MainMenuPanel", "CreditsScene", "OptionsScene", "IntroCutscene", "GameUI", "Level1")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,6 +33,7 @@ Theme = ExtResource("2_5tobs")
 DefaultFont = ExtResource("3_fvpl3")
 AccessbilityFont = ExtResource("4_6ogdn")
 IntroCutscene = NodePath("IntroCutscene")
+GameUI = NodePath("UI")
 Level1 = NodePath("Level1")
 metadata/_edit_horizontal_guides_ = [270.0]
 metadata/_edit_vertical_guides_ = [480.0]
@@ -111,12 +114,6 @@ offset_right = 480.0
 offset_bottom = 540.0
 grow_vertical = 1
 
-[node name="UI" type="Control" parent="."]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Level1" parent="." instance=ExtResource("9_xi5so")]
 visible = false
 
@@ -125,3 +122,23 @@ visible = false
 
 [node name="Level3" parent="." instance=ExtResource("11_utxig")]
 visible = false
+
+[node name="UI" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RuneTree" parent="UI" instance=ExtResource("12_fcwdn")]
+layout_mode = 1
+
+[node name="SpellslotContainer" parent="UI" instance=ExtResource("13_com5w")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0
+anchor_right = 1.0
+offset_left = 377.0
+offset_right = -377.0
