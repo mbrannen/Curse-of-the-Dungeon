@@ -17,6 +17,8 @@ public partial class MainMenu : Control
 
     [Export] public Control IntroCutscene;
 
+    [Export] public Node2D Level1;
+
     public override void _EnterTree()
     {
         MainMenuManager.Instance.InitState();
@@ -24,9 +26,18 @@ public partial class MainMenu : Control
         MainMenuManager.Instance.CreditsBackButtonPressed += OnCreditsBackButtonPressed;
         MainMenuManager.Instance.OptionsBackButtonPressed += OnOptionsBackButtonPressed;
         
+        GameManager.Instance.LevelOneStart += OnLevelOneStart;
+        
         StartButton.Pressed += StartButtonOnPressed;
         OptionsButton.Pressed += OptionsButtonOnPressed;
         CreditsButton.Pressed += CreditsButtonOnPressed;
+    }
+
+    private void OnLevelOneStart()
+    {
+        MainMenuPanel.Visible = false;
+        IntroCutscene.Visible = false;
+        Level1.Visible = true;
     }
 
     private void OnFontChanged(long index)

@@ -10,8 +10,11 @@ public sealed class GameManager
     private GameState State { get; set; }
     
     public delegate void PlayIntroCutsceneDelegate();
-
     public event PlayIntroCutsceneDelegate PlayIntroCutscene;
+    
+    public delegate void LevelOneStartDelegate();
+    public event LevelOneStartDelegate LevelOneStart;
+    
 
     private GameManager()
     {
@@ -31,6 +34,7 @@ public sealed class GameManager
             case GameState.Paused:
                 break;
             case GameState.Level1:
+                LevelOneStart?.Invoke();
                 break;
             case GameState.Level2:
                 break;
