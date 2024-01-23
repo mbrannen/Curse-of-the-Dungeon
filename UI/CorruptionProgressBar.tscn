@@ -2,6 +2,8 @@
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_pew04"]
 noise_type = 2
+seed = 4
+frequency = 0.0048
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ikbxw"]
 width = 124
@@ -18,4 +20,4 @@ offset_bottom = 47.0
 fill_mode = 4
 nine_patch_stretch = true
 texture_progress = SubResource("CanvasTexture_314nw")
-tint_progress = Color(0.321569, 0.133333, 0.227451, 0.678431)
+tint_progress = Color(0.321569, 0.133333, 0.227451, 0.905882)
