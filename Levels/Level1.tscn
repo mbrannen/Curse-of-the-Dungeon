@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7mhrtmw1bpu7"]
+[gd_scene load_steps=14 format=3 uid="uid://b7mhrtmw1bpu7"]
 
 [ext_resource type="Texture2D" uid="uid://d13qop4lljufr" path="res://Levels/Art/sprite-sheets/sprite-sheet-environment-stone.png" id="1_1yyn2"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_cn5fg"]
 [ext_resource type="Texture2D" uid="uid://b2t3doe8807vw" path="res://Levels/Art/sprite-sheets/sprite-sheet-environment-special.png" id="2_bf23h"]
+[ext_resource type="PackedScene" uid="uid://b4hww2ims6bri" path="res://UI/GameOverMenu/GameOverMenu.tscn" id="2_mvuat"]
 [ext_resource type="Texture2D" uid="uid://uafpxpuu3w01" path="res://Levels/Art/levelzerolayout.png" id="3_l87kb"]
 [ext_resource type="PackedScene" uid="uid://b3coc670j5u0y" path="res://Wizard/Wizard.tscn" id="4_6aqcm"]
 [ext_resource type="Texture2D" uid="uid://n2bgxif4x0qw" path="res://RuneTree/art/runes/rune-lightning-main.png" id="5_icpvd"]
+[ext_resource type="Script" path="res://Levels/WaterZone.cs" id="8_mk8ev"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fqkrr"]
 texture = ExtResource("1_1yyn2")
@@ -238,8 +240,12 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.1
 scale_max = 0.2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04v1k"]
+size = Vector2(447, 156)
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_cn5fg")
+GameOverMenu = ExtResource("2_mvuat")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(877, 447)
@@ -264,3 +270,15 @@ texture = ExtResource("5_icpvd")
 speed_scale = 0.6
 randomness = 0.59
 fixed_fps = 5
+
+[node name="WaterZone" type="Area2D" parent="." groups=["deathzone"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("8_mk8ev")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterZone"]
+position = Vector2(-283.5, 617)
+shape = SubResource("RectangleShape2D_04v1k")
+
+[node name="GameOverMenu" parent="." instance=ExtResource("2_mvuat")]
+visible = false
