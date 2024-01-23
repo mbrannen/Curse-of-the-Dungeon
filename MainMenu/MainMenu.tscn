@@ -11,10 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://b7mhrtmw1bpu7" path="res://Levels/Level1.tscn" id="9_xi5so"]
 [ext_resource type="PackedScene" uid="uid://bq3lwsnvmy8mc" path="res://Levels/Level2.tscn" id="10_oaxb3"]
 [ext_resource type="PackedScene" uid="uid://b4f0j0gpgn2u1" path="res://Levels/Level3.tscn" id="11_utxig"]
-
-
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "MainMenuPanel", "CreditsScene", "OptionsScene", "IntroCutscene")]
-
 [ext_resource type="PackedScene" uid="uid://7llvmmihkn65" path="res://RuneTree/RuneTree.tscn" id="12_fcwdn"]
 [ext_resource type="PackedScene" uid="uid://c48hoql70qq01" path="res://UI/SpellslotContainer.tscn" id="13_com5w"]
 
