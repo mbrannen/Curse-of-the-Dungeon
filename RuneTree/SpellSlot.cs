@@ -10,6 +10,8 @@ public partial class SpellSlot : PanelContainer
 	[Export] public Texture2D Icon;
 	[Export] public Rune SpellName;
 	[Export] public TextureProgressBar Corruption;
+    [Export] public int SpellIndex = 0;
+    [Export] public TextureRect Outline;
 
 	public IRuneNode Rune;
 
@@ -22,7 +24,21 @@ public partial class SpellSlot : PanelContainer
 	{
 		Rune = TalentManager.Instance.GetSpell(SpellName);
 		GameManager.Instance.CorruptionChanged += OnCorruptionChanged;
-	}
+        GameManager.Instance.SpellIndexChanged += OnSpellIndexChanged;
+    }
+
+    private void OnSpellIndexChanged(int index)
+    {
+        if (index == SpellIndex)
+        {
+            Outline.Modulate = new Color(1, 1, 1, 1);
+            GameManager.Instance.SetSelectedSpell(Rune);
+        }
+        else
+        {
+            Outline.Modulate = new Color(1, 1, 1, 0.5f);
+        }
+    }
 
 	private void OnCorruptionChanged(MagicClass magicclass, int value)
 	{

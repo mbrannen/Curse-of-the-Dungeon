@@ -46,7 +46,12 @@ public partial class MainMenu : Control
 		{
 			RuneTree.Visible = !RuneTree.Visible;
 		}
-	}
+        
+        if(Input.IsActionJustPressed("Spell Select Right"))
+            GameManager.Instance.IncreaseSpellIndex();
+        if(Input.IsActionJustPressed("Spell Select Left"))
+            GameManager.Instance.DecreaseSpellIndex();
+    }
 
 	private void OnLevelOneStart()
 	{
