@@ -1,16 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3coc670j5u0y"]
 
 [ext_resource type="Script" path="res://Wizard/Wizard.cs" id="1_j82hd"]
-[ext_resource type="PackedScene" path="res://Wizard/BaseSpellProjectile.tscn" id="2_6u321"]
+[ext_resource type="PackedScene" uid="uid://3gmlsm78p7jx" path="res://Wizard/BaseSpellProjectile.tscn" id="2_6u321"]
 [ext_resource type="Texture2D" uid="uid://bijr4lcyff6cn" path="res://testing/wizardtestsprite.png" id="2_had2t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_slh5g"]
 radius = 5.0
 height = 36.0
 
-[node name="Wizard" type="CharacterBody2D" groups=["player"]]
-collision_layer = 6
-collision_mask = 7
+[node name="Wizard" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_j82hd")
 Gravity = 1500.0
 Speed = 250.0
@@ -42,3 +42,5 @@ offset_left = -10.0
 offset_top = -10.0
 offset_right = 10.0
 offset_bottom = 10.0
+
+[node name="WwiseListener" type="AkListener2D" parent="."]
