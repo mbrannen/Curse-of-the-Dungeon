@@ -1,6 +1,4 @@
-
 [gd_scene load_steps=13 format=3 uid="uid://b2vhhetl6w0ip"]
-
 
 [ext_resource type="Script" path="res://MainMenu/MainMenu.cs" id="1_0qxbf"]
 [ext_resource type="Texture2D" uid="uid://b5tsdrrhuwa32" path="res://MainMenu/BG.png" id="1_1orda"]
@@ -12,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bl2fesc7epab1" path="res://UI/IntroCutscene.tscn" id="8_jam5c"]
 [ext_resource type="PackedScene" uid="uid://b7mhrtmw1bpu7" path="res://Levels/Level1.tscn" id="9_xi5so"]
 [ext_resource type="PackedScene" uid="uid://7llvmmihkn65" path="res://RuneTree/RuneTree.tscn" id="12_fcwdn"]
-[ext_resource type="PackedScene" uid="uid://c48hoql70qq01" path="res://UI/SpellslotContainer.tscn" id="13_com5w"]
+[ext_resource type="PackedScene" path="res://UI/SpellslotContainer.tscn" id="13_com5w"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wkmvc"]
 
