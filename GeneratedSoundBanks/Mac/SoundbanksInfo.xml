@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{A5602626-EFC0-2E0E-382E-23E669BF119D}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{C030B95B-7451-30C0-D170-61EA591E64A0}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -39,6 +39,22 @@
 						<State Id="748895195" Name="None"/>
 						<State Id="749373321" Name="Caves"/>
 						<State Id="3604647259" Name="MainMenu"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="2817994306" Name="Step_Type">
+					<States>
+						<State Id="344481046" Name="Ice"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="1216965916" Name="Stone"/>
+						<State Id="2185786256" Name="Gravel"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="3830273964" Name="Spell_Type">
+					<States>
+						<State Id="344481046" Name="Ice"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="2678880713" Name="Fire"/>
+						<State Id="3334464137" Name="Lightning"/>
 					</States>
 				</StateGroup>
 			</StateGroups>
@@ -171,7 +187,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{FB0D7B98-3D94-EEDD-8A13-C9C4A44D081D}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{89DF6E74-23FC-E859-74D0-9624FA71A3E1}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -179,23 +195,260 @@
 					<ShortName>untitled.wav</ShortName>
 					<CachePath>SFX/untitled_FBC78EF0.wem</CachePath>
 				</File>
+				<File Id="18980383" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SpellPickup.wav</ShortName>
+					<CachePath>SFX/SpellPickup_8735131D.wem</CachePath>
+				</File>
+				<File Id="71207881" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepStone3.wav</ShortName>
+					<CachePath>SFX/FootstepStone3_D3E4F0C7.wem</CachePath>
+				</File>
+				<File Id="80780820" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Done\Ice_Spell_Impact.wav</ShortName>
+					<CachePath>SFX/SFX_Done/Ice_Spell_Impact_818F3B66.wem</CachePath>
+				</File>
 				<File Id="100698467" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cave_Ambience.wav</ShortName>
 					<CachePath>SFX/Cave_Ambience_25A71BB2.wem</CachePath>
+				</File>
+				<File Id="113926128" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Bridge_Creaking.wav</ShortName>
+					<CachePath>SFX/Bridge_Creaking_27A3B9EB.wem</CachePath>
+				</File>
+				<File Id="130218539" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Done\Fire_Spell_Charge.wav</ShortName>
+					<CachePath>SFX/SFX_Done/Fire_Spell_Charge_495BC1DA.wem</CachePath>
+				</File>
+				<File Id="134756599" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepIce1.wav</ShortName>
+					<CachePath>SFX/FootstepIce1_32BC9824.wem</CachePath>
+				</File>
+				<File Id="150843323" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepGravel1.wav</ShortName>
+					<CachePath>SFX/FootstepGravel1_5660F05F.wem</CachePath>
+				</File>
+				<File Id="159672539" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepGravel3.wav</ShortName>
+					<CachePath>SFX/FootstepGravel3_B6F6CFF7.wem</CachePath>
+				</File>
+				<File Id="182154221" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ghost_Ambience.wav</ShortName>
+					<CachePath>SFX/Ghost_Ambience_1358296D.wem</CachePath>
+				</File>
+				<File Id="191518466" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Ghost_Scream.wav</ShortName>
+					<CachePath>SFX/Ghost_Scream_AEE53731.wem</CachePath>
+				</File>
+				<File Id="215882423" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Done\Electricity.wav</ShortName>
+					<CachePath>SFX/SFX_Done/Electricity_825D8407.wem</CachePath>
 				</File>
 				<File Id="227094282" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Ambient_Music_1.wav</ShortName>
 					<CachePath>SFX/Ambient_Music_1_FBC78EF0.wem</CachePath>
 				</File>
+				<File Id="240409872" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Done\Stone_Impact.wav</ShortName>
+					<CachePath>SFX/SFX_Done/Stone_Impact_C3EFB5A7.wem</CachePath>
+				</File>
+				<File Id="320303137" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>CorruptionImpact.wav</ShortName>
+					<CachePath>SFX/CorruptionImpact_AFD423B4.wem</CachePath>
+				</File>
+				<File Id="329631798" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ButtonMouseover.wav</ShortName>
+					<CachePath>SFX/ButtonMouseover_929F40C1.wem</CachePath>
+				</File>
 				<File Id="365846925" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX_Done\Fire_Spell_Shoot.wav</ShortName>
-					<CachePath>SFX/SFX_Done/Fire_Spell_Shoot_2DF753F9.wem</CachePath>
+					<CachePath>SFX/SFX_Done/Fire_Spell_Shoot_B7FBAB51.wem</CachePath>
+				</File>
+				<File Id="367365418" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepStone2.wav</ShortName>
+					<CachePath>SFX/FootstepStone2_323794BA.wem</CachePath>
+				</File>
+				<File Id="385111629" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Done\Freezing.wav</ShortName>
+					<CachePath>SFX/SFX_Done/Freezing_818F3B66.wem</CachePath>
+				</File>
+				<File Id="464612256" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepIce3.wav</ShortName>
+					<CachePath>SFX/FootstepIce3_4E24367E.wem</CachePath>
+				</File>
+				<File Id="510063564" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Done\Fire_Spell_Impact.wav</ShortName>
+					<CachePath>SFX/SFX_Done/Fire_Spell_Impact_1FACD1CD.wem</CachePath>
+				</File>
+				<File Id="542705063" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepIce2.wav</ShortName>
+					<CachePath>SFX/FootstepIce2_EF323ECE.wem</CachePath>
+				</File>
+				<File Id="568315850" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Corruption_Soft.wav</ShortName>
+					<CachePath>SFX/Corruption_Soft_818F3B66.wem</CachePath>
+				</File>
+				<File Id="574476303" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Done\Stone_Platform.wav</ShortName>
+					<CachePath>SFX/SFX_Done/Stone_Platform_77727F5E.wem</CachePath>
+				</File>
+				<File Id="590136567" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepGravel2.wav</ShortName>
+					<CachePath>SFX/FootstepGravel2_9DBC8274.wem</CachePath>
+				</File>
+				<File Id="614305136" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Done\Lightning_Spell_Shoot.wav</ShortName>
+					<CachePath>SFX/SFX_Done/Lightning_Spell_Shoot_3C276989.wem</CachePath>
+				</File>
+				<File Id="650914056" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>FootstepStone1.wav</ShortName>
+					<CachePath>SFX/FootstepStone1_15BEF8DD.wem</CachePath>
+				</File>
+				<File Id="670321208" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Done\Stone_Explosion.wav</ShortName>
+					<CachePath>SFX/SFX_Done/Stone_Explosion_E2C2D701.wem</CachePath>
+				</File>
+				<File Id="710562661" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Done\Ice_Spell_Shoot.wav</ShortName>
+					<CachePath>SFX/SFX_Done/Ice_Spell_Shoot_818F3B66.wem</CachePath>
+				</File>
+				<File Id="737637567" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Throw.wav</ShortName>
+					<CachePath>SFX/Throw_E40BDD54.wem</CachePath>
+				</File>
+				<File Id="781790722" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UIError.wav</ShortName>
+					<CachePath>SFX/UIError_E510E728.wem</CachePath>
+				</File>
+				<File Id="849863555" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Done\Lightning_Spell_Charge.wav</ShortName>
+					<CachePath>SFX/SFX_Done/Lightning_Spell_Charge_23481707.wem</CachePath>
+				</File>
+				<File Id="862073125" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ButtonPress.wav</ShortName>
+					<CachePath>SFX/ButtonPress_CCD50299.wem</CachePath>
+				</File>
+				<File Id="921613012" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX_Done\Ice_Spell_Charge.wav</ShortName>
+					<CachePath>SFX/SFX_Done/Ice_Spell_Charge_C4085A1D.wem</CachePath>
+				</File>
+				<File Id="944632407" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SpellDrop.wav</ShortName>
+					<CachePath>SFX/SpellDrop_87B165C4.wem</CachePath>
 				</File>
 			</Media>
+			<Plugins>
+				<Custom>
+					<Plugin Id="423557383" Name="Gain (Custom)" LibName="Wwise Gain" LibId="9109507"/>
+				</Custom>
+			</Plugins>
 			<Events>
 				<Event Id="2210022288" Name="Ambient_SFX_Play">
 					<MediaRefs>
 						<MediaRef Id="100698467"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="558607410" Name="Ambient_SFX_Stop"/>
+				<Event Id="52860350" Name="Bridge_Creaking_Play">
+					<MediaRefs>
+						<MediaRef Id="113926128"/>
+					</MediaRefs>
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="423557383"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="1049176448" Name="Bridge_Creaking_Stop"/>
+				<Event Id="673585283" Name="Button_Mouseover">
+					<MediaRefs>
+						<MediaRef Id="329631798"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2698747613" Name="Button_Press">
+					<MediaRefs>
+						<MediaRef Id="862073125"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1738147771" Name="Corruption_Impact">
+					<MediaRefs>
+						<MediaRef Id="320303137"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2166756653" Name="Corruption_Soft">
+					<MediaRefs>
+						<MediaRef Id="568315850"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2917121896" Name="Electricity">
+					<MediaRefs>
+						<MediaRef Id="215882423"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1804917506" Name="Enemy_Throw">
+					<MediaRefs>
+						<MediaRef Id="737637567"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1866025847" Name="Footstep">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="2817994306" Id="2185786256"/>
+							<MediaRefs>
+								<MediaRef Id="150843323"/>
+								<MediaRef Id="159672539"/>
+								<MediaRef Id="590136567"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="2817994306" Id="344481046"/>
+							<MediaRefs>
+								<MediaRef Id="134756599"/>
+								<MediaRef Id="464612256"/>
+								<MediaRef Id="542705063"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="2817994306" Id="1216965916"/>
+							<MediaRefs>
+								<MediaRef Id="71207881"/>
+								<MediaRef Id="367365418"/>
+								<MediaRef Id="650914056"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="2817994306" Id="748895195" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="150843323"/>
+								<MediaRef Id="159672539"/>
+								<MediaRef Id="590136567"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="3285814624" Name="Freeze">
+					<MediaRefs>
+						<MediaRef Id="385111629"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="429240274" Name="Ghost_Ambience_Play">
+					<MediaRefs>
+						<MediaRef Id="182154221"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2099324236" Name="Ghost_Ambience_Stop"/>
+				<Event Id="1536175086" Name="Ghost_Scream">
+					<MediaRefs>
+						<MediaRef Id="191518466"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3520695494" Name="Impact_Fire">
+					<MediaRefs>
+						<MediaRef Id="510063564"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="744817815" Name="Impact_Ice">
+					<MediaRefs>
+						<MediaRef Id="80780820"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="202194903" Name="Music_Play">
@@ -214,9 +467,83 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
-				<Event Id="3697970726" Name="Player_Fireball_Shoot">
+				<Event Id="3227181061" Name="Music_Stop"/>
+				<Event Id="2823384552" Name="Player_Charge_Start">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="3830273964" Id="3334464137"/>
+							<MediaRefs>
+								<MediaRef Id="849863555"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="3830273964" Id="2678880713"/>
+							<MediaRefs>
+								<MediaRef Id="130218539"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="3830273964" Id="344481046"/>
+							<MediaRefs>
+								<MediaRef Id="921613012"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="2258820276" Name="Player_Charge_Stop"/>
+				<Event Id="3599838629" Name="Player_Spell_Shoot">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="3830273964" Id="3334464137"/>
+							<MediaRefs>
+								<MediaRef Id="614305136"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="3830273964" Id="2678880713"/>
+							<MediaRefs>
+								<MediaRef Id="365846925"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="3830273964" Id="344481046"/>
+							<MediaRefs>
+								<MediaRef Id="710562661"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+					<ActionPostEvent>
+						<ActionPostEventEntry Id="2258820276" Name="Player_Charge_Stop"/>
+					</ActionPostEvent>
+				</Event>
+				<Event Id="3655901332" Name="Stone_Explosion">
 					<MediaRefs>
-						<MediaRef Id="365846925"/>
+						<MediaRef Id="670321208"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1069050017" Name="Stone_Impact">
+					<MediaRefs>
+						<MediaRef Id="240409872"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1398573350" Name="Stone_Platform_Emerge">
+					<MediaRefs>
+						<MediaRef Id="574476303"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1009189048" Name="UI_Error">
+					<MediaRefs>
+						<MediaRef Id="781790722"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2589123588" Name="UI_Spell_Drop">
+					<MediaRefs>
+						<MediaRef Id="944632407"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2097876167" Name="UI_Spell_Pickup">
+					<MediaRefs>
+						<MediaRef Id="18980383"/>
 					</MediaRefs>
 				</Event>
 			</Events>
@@ -228,8 +555,24 @@
 						<State Id="3604647259" Name="MainMenu"/>
 					</States>
 				</StateGroup>
+				<StateGroup Id="2817994306" Name="Step_Type">
+					<States>
+						<State Id="344481046" Name="Ice"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="1216965916" Name="Stone"/>
+						<State Id="2185786256" Name="Gravel"/>
+					</States>
+				</StateGroup>
+				<StateGroup Id="3830273964" Name="Spell_Type">
+					<States>
+						<State Id="344481046" Name="Ice"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="2678880713" Name="Fire"/>
+						<State Id="3334464137" Name="Lightning"/>
+					</States>
+				</StateGroup>
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{627E805B-4B98-18A9-B1D2-44F865AD7958}</FileHash>
+	<FileHash>{5A0BF1FE-E17A-8A1D-CE7F-9547EE8CEA5B}</FileHash>
 </SoundBanksInfo>

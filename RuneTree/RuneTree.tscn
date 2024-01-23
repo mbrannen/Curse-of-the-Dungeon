@@ -287,3 +287,18 @@ offset_right = 159.0
 offset_bottom = 139.0
 Icon = ExtResource("16_dm2kp")
 SpellName = 18
+
+[node name="Wwise" type="Node" parent="."]
+
+[node name="EventRuneLift" type="AkEvent2D" parent="Wwise"]
+event = {
+"id": 2097876167,
+"name": "UI_Spell_Pickup"
+}
+
+[node name="EventUIError" type="AkEvent2D" parent="Wwise"]
+event = {
+"id": 1009189048,
+"name": "UI_Error"
+}
+position = Vector2(377, 483)
