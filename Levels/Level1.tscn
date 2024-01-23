@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7mhrtmw1bpu7"]
+[gd_scene load_steps=11 format=3 uid="uid://b7mhrtmw1bpu7"]
 
 [ext_resource type="Texture2D" uid="uid://d13qop4lljufr" path="res://Levels/Art/sprite-sheets/sprite-sheet-environment-stone.png" id="1_1yyn2"]
+[ext_resource type="Script" path="res://Levels/Level1.cs" id="1_cn5fg"]
 [ext_resource type="Texture2D" uid="uid://b2t3doe8807vw" path="res://Levels/Art/sprite-sheets/sprite-sheet-environment-special.png" id="2_bf23h"]
 [ext_resource type="Texture2D" uid="uid://uafpxpuu3w01" path="res://Levels/Art/levelzerolayout.png" id="3_l87kb"]
+[ext_resource type="PackedScene" uid="uid://b3coc670j5u0y" path="res://Wizard/Wizard.tscn" id="4_6aqcm"]
+[ext_resource type="Texture2D" uid="uid://n2bgxif4x0qw" path="res://RuneTree/art/runes/rune-lightning-main.png" id="5_icpvd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fqkrr"]
 texture = ExtResource("1_1yyn2")
@@ -221,15 +224,22 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_fqkrr")
 sources/1 = SubResource("TileSetAtlasSource_kl2um")
 
-[node name="Level1" type="Node2D"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8u4at"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+inherit_velocity_ratio = 0.153
+spread = 173.678
+initial_velocity_min = 16.53
+initial_velocity_max = 16.53
+orbit_velocity_min = -0.694
+orbit_velocity_max = 0.978
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.2
 
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_left = 465.0
-offset_top = 240.0
-offset_right = 547.0
-offset_bottom = 270.0
-text = "LEVEL 1 "
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_cn5fg")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(877, 447)
@@ -241,3 +251,15 @@ layer_0/tile_data = PackedInt32Array(327683, 1310720, 8, 393215, 1310720, 8, 393
 modulate = Color(1, 1, 1, 0.145098)
 position = Vector2(-1804, -151)
 texture = ExtResource("3_l87kb")
+
+[node name="Wizard" parent="." instance=ExtResource("4_6aqcm")]
+position = Vector2(840, 497)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0.717647, 0.529412, 0.392157, 0.670588)
+position = Vector2(-570, 292)
+process_material = SubResource("ParticleProcessMaterial_8u4at")
+texture = ExtResource("5_icpvd")
+speed_scale = 0.6
+randomness = 0.59
+fixed_fps = 5

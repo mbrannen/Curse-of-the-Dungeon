@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://clwjpsq8eh1ds"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://clwjpsq8eh1ds"]
 
 [ext_resource type="FontFile" uid="uid://bayopgm4cvg2o" path="res://Macondo-Regular.ttf" id="1_y0b4t"]
 [ext_resource type="StyleBox" uid="uid://dpkpbe8q8yqcf" path="res://style_box_flat_hover.tres" id="2_q1b8d"]
@@ -14,6 +14,8 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 16
 shadow_size = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_geuxt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vdwj"]
 bg_color = Color(0, 0, 0, 0.901961)
@@ -35,4 +37,5 @@ Fonts/fonts/Macondo = ExtResource("1_y0b4t")
 Fonts/fonts/Roboto = ExtResource("5_0ay54")
 HSeparator/colors/color = Color(1, 1, 1, 1)
 Panel/styles/panel = SubResource("StyleBoxFlat_nibqb")
+PanelContainer/styles/panel = SubResource("StyleBoxEmpty_geuxt")
 TooltipPanel/styles/panel = SubResource("StyleBoxFlat_5vdwj")

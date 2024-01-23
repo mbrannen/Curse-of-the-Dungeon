@@ -35,11 +35,19 @@ public partial class Wizard : CharacterBody2D
         //Call Jump Handler
         JumpHandler();
 
+        CameraHandler();
+
         if (Input.IsActionJustPressed("Cast"))
         {
             CastSpell();
         }
 
+    }
+
+    private void CameraHandler()
+    {
+        var camera = GetViewport().GetCamera2D();
+        camera.Position = new Vector2(Position.X, Position.Y-125);
     }
 
     //Physics related calls should go here. Called every frame at 60 frames per second.
