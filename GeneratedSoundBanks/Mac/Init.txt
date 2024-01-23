@@ -1,10 +1,20 @@
 State Group	ID	Name			Wwise Object Path	Notes
 	1926883983	Scene			\Default Work Unit\Scene	
+	2817994306	Step_Type			\Default Work Unit\Step_Type	
+	3830273964	Spell_Type			\Default Work Unit\Spell_Type	
 
 State	ID	Name	State Group			Notes
 	748895195	None	Scene			
 	749373321	Caves	Scene			
 	3604647259	MainMenu	Scene			
+	344481046	Ice	Step_Type			
+	748895195	None	Step_Type			
+	1216965916	Stone	Step_Type			
+	2185786256	Gravel	Step_Type			
+	344481046	Ice	Spell_Type			
+	748895195	None	Spell_Type			
+	2678880713	Fire	Spell_Type			
+	3334464137	Lightning	Spell_Type			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	504532776	Brick			\Factory Acoustic Textures\Textures\Brick	

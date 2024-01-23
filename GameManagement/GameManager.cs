@@ -2,6 +2,7 @@
 
 using System;
 using GameJam2024.RuneTree;
+using Godot;
 
 namespace GameJam2024.GameManagement;
 
@@ -21,6 +22,10 @@ public sealed class GameManager
     public delegate void CorruptionChangedDelegate(MagicClass magicClass, int value);
 
     public event CorruptionChangedDelegate CorruptionChanged;
+
+    public delegate void SpellIndexChangedDelegate(int index);
+
+    public event SpellIndexChangedDelegate SpellIndexChanged;
     
     #endregion
 
@@ -29,6 +34,9 @@ public sealed class GameManager
     public int FireCorruption = 78;
     public int IceCorruption = 10;
     public int LightningCorruption = 40;
+
+    public int SelectedSpellIndex = 0;
+    public IRuneNode SelectedSpell;
 
     #endregion
     private GameManager()
@@ -98,6 +106,28 @@ public sealed class GameManager
             default:
                 throw new ArgumentOutOfRangeException(nameof(magicClass), magicClass, null);
         }
+    }
+
+    public void IncreaseSpellIndex()
+    {
+        SelectedSpellIndex = Mathf.Clamp(SelectedSpellIndex+1, 0, 2);
+        SpellIndexChanged?.Invoke(SelectedSpellIndex);
+    }
+
+    public void DecreaseSpellIndex()
+    {
+       SelectedSpellIndex = Mathf.Clamp(SelectedSpellIndex-1, 0,2);
+       SpellIndexChanged?.Invoke(SelectedSpellIndex);
+    }
+
+    public void SetSelectedSpell(IRuneNode node)
+    {
+        SelectedSpell = node;
+    }
+
+    public IRuneNode GetSelectedSpell()
+    {
+        return SelectedSpell;
     }
 
 

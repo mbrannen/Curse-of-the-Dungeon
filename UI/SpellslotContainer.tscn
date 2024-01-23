@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c48hoql70qq01"]
+[gd_scene load_steps=2 format=3 uid="uid://c48hoql70qq01"]
 
 [ext_resource type="PackedScene" uid="uid://bvnu52km43va4" path="res://RuneTree/spell_slot.tscn" id="1_qsw2v"]
-[ext_resource type="Texture2D" uid="uid://b6lfdsma8n3wx" path="res://RuneTree/art/runes/rune-ice-block.png" id="2_38ui0"]
-[ext_resource type="PackedScene" uid="uid://pa5ac4oih0j7" path="res://UI/CorruptionProgressBar.tscn" id="2_i6u8o"]
 
 [node name="SpellslotContainer" type="HBoxContainer"]
 anchors_preset = 7
@@ -10,60 +8,37 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -103.0
-offset_top = -57.0
-offset_right = 103.0
-offset_bottom = -17.0
+offset_left = -118.0
+offset_top = -117.0
+offset_right = 119.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
 alignment = 1
+metadata/_edit_vertical_guides_ = [480.0]
 
-[node name="Spellslot1" parent="." node_paths=PackedStringArray("Corruption") instance=ExtResource("1_qsw2v")]
+[node name="Spellslot1" parent="." instance=ExtResource("1_qsw2v")]
 clip_contents = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-Corruption = NodePath("CorruptionProgressBar")
 
-[node name="TextureRect" type="TextureRect" parent="Spellslot1"]
-clip_contents = true
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("2_38ui0")
-expand_mode = 1
-stretch_mode = 3
-
-[node name="CorruptionProgressBar" parent="Spellslot1" instance=ExtResource("2_i6u8o")]
-layout_mode = 2
-
-[node name="Spellslot2" parent="." node_paths=PackedStringArray("Corruption") instance=ExtResource("1_qsw2v")]
+[node name="Spellslot2" parent="." instance=ExtResource("1_qsw2v")]
 clip_contents = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-Corruption = NodePath("CorruptionProgressBar")
+SpellIndex = 1
 
-[node name="TextureRect" type="TextureRect" parent="Spellslot2"]
-clip_contents = true
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("2_38ui0")
-expand_mode = 1
-stretch_mode = 3
-
-[node name="CorruptionProgressBar" parent="Spellslot2" instance=ExtResource("2_i6u8o")]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-
-[node name="spellslot3" parent="." node_paths=PackedStringArray("Corruption") instance=ExtResource("1_qsw2v")]
+[node name="spellslot3" parent="." instance=ExtResource("1_qsw2v")]
 clip_contents = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-Corruption = NodePath("CorruptionProgressBar")
+SpellIndex = 2
 
-[node name="TextureRect2" type="TextureRect" parent="spellslot3"]
-clip_contents = true
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("2_38ui0")
-expand_mode = 1
-stretch_mode = 3
+[node name="Wwise" type="Node" parent="."]
 
-[node name="CorruptionProgressBar" parent="spellslot3" instance=ExtResource("2_i6u8o")]
-layout_mode = 2
+[node name="EventRuneDrop" type="AkEvent2D" parent="Wwise"]
+event = {
+"id": 2589123588,
+"name": "UI_Spell_Drop"
+}
+position = Vector2(377, 483)
