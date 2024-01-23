@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Security.Cryptography.X509Certificates;
 
 public partial class Wizard : CharacterBody2D
 {
@@ -18,6 +19,7 @@ public partial class Wizard : CharacterBody2D
     {
         //Assign nodes to variables.
         SpellOrigin = GetNode<Marker2D>("Marker2D");
+         
     }
 
     //Non-Physics related calls should go here. Called every frame.
