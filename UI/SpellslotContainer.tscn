@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://c48hoql70qq01"]
+
+[ext_resource type="PackedScene" uid="uid://bvnu52km43va4" path="res://RuneTree/spell_slot.tscn" id="1_qsw2v"]
+[ext_resource type="PackedScene" uid="uid://pa5ac4oih0j7" path="res://UI/CorruptionProgressBar.tscn" id="2_i6u8o"]
+
+[node name="SpellslotContainer" type="HBoxContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -57.0
+offset_right = 103.0
+offset_bottom = -17.0
+alignment = 1
+
+[node name="Spellslot1" parent="." node_paths=PackedStringArray("Corruption") instance=ExtResource("1_qsw2v")]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+Corruption = NodePath("CorruptionProgressBar")
+
+[node name="CorruptionProgressBar" parent="Spellslot1" instance=ExtResource("2_i6u8o")]
+layout_mode = 2
+
+[node name="Spellslot2" parent="." node_paths=PackedStringArray("Corruption") instance=ExtResource("1_qsw2v")]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+Corruption = NodePath("CorruptionProgressBar")
+
+[node name="CorruptionProgressBar" parent="Spellslot2" instance=ExtResource("2_i6u8o")]
+layout_mode = 2
+
+[node name="spellslot3" parent="." node_paths=PackedStringArray("Corruption") instance=ExtResource("1_qsw2v")]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+Corruption = NodePath("CorruptionProgressBar")
+
+[node name="CorruptionProgressBar" parent="spellslot3" instance=ExtResource("2_i6u8o")]
+layout_mode = 2

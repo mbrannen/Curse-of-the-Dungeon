@@ -2,7 +2,7 @@ using Godot;
 
 namespace GameJam2024.RuneTree;
 
-public partial class TalentHUDManager : Node
+public partial class TalentHUDManager : Control
 {
     [Export] public Color CorruptionColor;
     //this is maybe the hardcoding way to go about it

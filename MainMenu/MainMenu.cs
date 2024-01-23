@@ -16,6 +16,8 @@ public partial class MainMenu : Control
     [Export] public Font AccessbilityFont;
 
     [Export] public Control IntroCutscene;
+    [Export] public Control GameUI;
+    [Export] public Control RuneTree;
 
     [Export] public Node2D Level1;
 
@@ -33,11 +35,20 @@ public partial class MainMenu : Control
         CreditsButton.Pressed += CreditsButtonOnPressed;
     }
 
+    public override void _Process(double delta)
+    {
+        if(Input.IsActionJustPressed("Talents") || Input.IsActionJustReleased("Talents"))
+        {
+            RuneTree.Visible = !RuneTree.Visible;
+        }
+    }
+
     private void OnLevelOneStart()
     {
         MainMenuPanel.Visible = false;
         IntroCutscene.Visible = false;
         Level1.Visible = true;
+        GameUI.Visible = true;
     }
 
     private void OnFontChanged(long index)

@@ -1,6 +1,7 @@
 
 
 using System;
+using GameJam2024.RuneTree;
 
 namespace GameJam2024.GameManagement;
 
@@ -8,14 +9,28 @@ public sealed class GameManager
 {
     public static GameManager Instance { get; } = new();
     private GameState State { get; set; }
-    
+
+    #region STATE MANAGEMENT EVENTS
+
     public delegate void PlayIntroCutsceneDelegate();
     public event PlayIntroCutsceneDelegate PlayIntroCutscene;
     
     public delegate void LevelOneStartDelegate();
     public event LevelOneStartDelegate LevelOneStart;
-    
 
+    public delegate void CorruptionChangedDelegate(MagicClass magicClass, int value);
+
+    public event CorruptionChangedDelegate CorruptionChanged;
+    
+    #endregion
+
+    #region VARIABLES
+
+    public int FireCorruption = 78;
+    public int IceCorruption = 10;
+    public int LightningCorruption = 40;
+
+    #endregion
     private GameManager()
     {
         
@@ -49,4 +64,41 @@ public sealed class GameManager
     {
         return State;
     }
+
+    public int GetTreeCorruptionValue(MagicClass magicClass)
+    {
+        return magicClass switch
+        {
+            MagicClass.Base => 0,
+            MagicClass.Fire => FireCorruption,
+            MagicClass.Ice => IceCorruption,
+            MagicClass.Lightning => LightningCorruption,
+            _ => throw new ArgumentOutOfRangeException(nameof(magicClass), magicClass, null)
+        };
+    }
+
+    public void ChangeCorruptionValue(MagicClass magicClass, int valueToAdd)
+    {
+        switch(magicClass)
+        {
+            case MagicClass.Base:
+                break;
+            case MagicClass.Fire:
+                FireCorruption += valueToAdd;
+                CorruptionChanged?.Invoke(MagicClass.Fire, FireCorruption);
+                break;
+            case MagicClass.Ice:
+                IceCorruption += valueToAdd;
+                CorruptionChanged?.Invoke(MagicClass.Ice, IceCorruption);
+                break;
+            case MagicClass.Lightning:
+                LightningCorruption += valueToAdd;
+                CorruptionChanged?.Invoke(MagicClass.Lightning, LightningCorruption);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(magicClass), magicClass, null);
+        }
+    }
+
+
 }
