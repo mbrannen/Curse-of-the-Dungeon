@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bvnu52km43va4" path="res://RuneTree/spell_slot.tscn" id="1_qsw2v"]
 [ext_resource type="Texture2D" uid="uid://b6lfdsma8n3wx" path="res://RuneTree/art/runes/rune-ice-block.png" id="2_38ui0"]
-[ext_resource type="PackedScene" uid="uid://pa5ac4oih0j7" path="res://UI/CorruptionProgressBar.tscn" id="2_i6u8o"]
+[ext_resource type="PackedScene" path="res://UI/CorruptionProgressBar.tscn" id="2_i6u8o"]
 
 [node name="SpellslotContainer" type="HBoxContainer"]
 anchors_preset = 7
@@ -67,3 +67,12 @@ stretch_mode = 3
 
 [node name="CorruptionProgressBar" parent="spellslot3" instance=ExtResource("2_i6u8o")]
 layout_mode = 2
+
+[node name="Wwise" type="Node" parent="."]
+
+[node name="EventRuneDrop" type="AkEvent2D" parent="Wwise"]
+event = {
+"id": 2589123588,
+"name": "UI_Spell_Drop"
+}
+position = Vector2(377, 483)
