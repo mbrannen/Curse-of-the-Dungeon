@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3coc670j5u0y"]
 
 [ext_resource type="Script" path="res://Wizard/Wizard.cs" id="1_j82hd"]
-[ext_resource type="PackedScene" uid="uid://3gmlsm78p7jx" path="res://Wizard/BaseSpellProjectile.tscn" id="2_6u321"]
+[ext_resource type="PackedScene" path="res://Wizard/BaseSpellProjectile.tscn" id="2_6u321"]
 [ext_resource type="Texture2D" uid="uid://bijr4lcyff6cn" path="res://testing/wizardtestsprite.png" id="2_had2t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_slh5g"]
