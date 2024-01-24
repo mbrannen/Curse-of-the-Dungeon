@@ -15,7 +15,7 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wkmvc"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "MainMenuPanel", "CreditsScene", "OptionsScene", "IntroCutscene", "GameUI", "RuneTree")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "MainMenuPanel", "RestartButton", "OptionsButton_GOM", "CreditsButton_GOM", "ExitGameButton_GOM", "GameOverPanel", "CreditsScene", "OptionsScene", "IntroCutscene", "GameUI", "RuneTree")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,12 +24,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_5tobs")
 script = ExtResource("1_0qxbf")
-StartButton = NodePath("MainMenuPanel/VBoxContainer/StartButton")
-OptionsButton = NodePath("MainMenuPanel/VBoxContainer/Options")
-CreditsButton = NodePath("MainMenuPanel/VBoxContainer/CreditsButton")
-MainMenuPanel = NodePath("MainMenuPanel")
-CreditsScene = NodePath("Credits")
-OptionsScene = NodePath("Options")
+StartButton = NodePath("CanvasLayer/MainMenuPanel/VBoxContainer/StartButton")
+OptionsButton = NodePath("CanvasLayer/MainMenuPanel/VBoxContainer/Options")
+CreditsButton = NodePath("CanvasLayer/MainMenuPanel/VBoxContainer/CreditsButton")
+MainMenuPanel = NodePath("CanvasLayer/MainMenuPanel")
+RestartButton = NodePath("CanvasLayer/GameOverMenuPanel/VBoxContainer/RestartGameButton")
+OptionsButton_GOM = NodePath("CanvasLayer/GameOverMenuPanel/VBoxContainer/Options")
+CreditsButton_GOM = NodePath("CanvasLayer/GameOverMenuPanel/VBoxContainer/CreditsButton")
+ExitGameButton_GOM = NodePath("CanvasLayer/GameOverMenuPanel/VBoxContainer/ExitGameButton")
+GameOverPanel = NodePath("CanvasLayer/GameOverMenuPanel")
+CreditsScene = NodePath("CanvasLayer/Credits")
+OptionsScene = NodePath("CanvasLayer/Options")
 Theme = ExtResource("2_5tobs")
 DefaultFont = ExtResource("3_fvpl3")
 AccessbilityFont = ExtResource("4_6ogdn")
@@ -43,134 +48,6 @@ metadata/_edit_vertical_guides_ = [480.0]
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(480, 270)
 position_smoothing_enabled = true
-
-[node name="MainMenuPanel" type="Panel" parent="."]
-self_modulate = Color(1, 0.368627, 0.117647, 0)
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.25
-anchor_bottom = 0.25
-offset_left = 320.0
-offset_right = 640.0
-offset_bottom = 270.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BG" type="TextureRect" parent="MainMenuPanel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -1.0
-anchor_top = -0.5
-anchor_right = 2.0
-anchor_bottom = 1.5
-offset_bottom = -3.05176e-05
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_1orda")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuPanel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -1.0
-anchor_top = -0.5
-anchor_right = 2.0
-anchor_bottom = 1.5
-offset_left = 368.0
-offset_top = 152.0
-offset_right = -368.0
-offset_bottom = -148.0
-theme_override_constants/separation = 12
-alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="StartButton" type="Button" parent="MainMenuPanel/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_5tobs")
-text = "Start"
-
-[node name="Options" type="Button" parent="MainMenuPanel/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_5tobs")
-text = "Options"
-
-[node name="CreditsButton" type="Button" parent="MainMenuPanel/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_5tobs")
-text = "Credits"
-
-[node name="GameOverMenuPanel" type="Panel" parent="."]
-visible = false
-self_modulate = Color(1, 0.368627, 0.117647, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -135.0
-offset_right = 160.0
-offset_bottom = 135.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="GameOverMenuPanel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -1.0
-anchor_top = -0.5
-anchor_right = 2.0
-anchor_bottom = 1.5
-offset_bottom = -3.05176e-05
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_1orda")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GameOverMenuPanel"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 131.0
-offset_right = 272.0
-offset_bottom = 371.0
-theme_override_constants/separation = 12
-alignment = 1
-
-[node name="GameOverTitle" type="Sprite2D" parent="GameOverMenuPanel/VBoxContainer"]
-position = Vector2(105, -97)
-scale = Vector2(0.42, 0.42)
-texture = ExtResource("7_iwrpq")
-
-[node name="RestartGameButton" type="Button" parent="GameOverMenuPanel/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_5tobs")
-text = "Restart Game"
-
-[node name="Options" type="Button" parent="GameOverMenuPanel/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_5tobs")
-text = "Options"
-
-[node name="CreditsButton" type="Button" parent="GameOverMenuPanel/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_5tobs")
-text = "Credits"
-
-[node name="ExitGameButton" type="Button" parent="GameOverMenuPanel/VBoxContainer"]
-layout_mode = 2
-text = "Exit Game"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="GameOverMenuPanel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Credits" parent="." instance=ExtResource("4_u7cr8")]
-visible = false
-layout_mode = 1
-
-[node name="Options" parent="." instance=ExtResource("5_v8wv2")]
-visible = false
-layout_mode = 1
 
 [node name="IntroCutscene" parent="." instance=ExtResource("8_jam5c")]
 visible = false
@@ -213,6 +90,134 @@ offset_left = 376.0
 offset_top = -86.0
 offset_right = -378.0
 offset_bottom = -22.0
+
+[node name="GameOverMenuPanel" type="Panel" parent="CanvasLayer"]
+visible = false
+self_modulate = Color(1, 0.368627, 0.117647, 0)
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 135.0
+offset_right = -320.0
+offset_bottom = -135.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GameOverMenuPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.0
+anchor_top = -0.5
+anchor_right = 2.0
+anchor_bottom = 1.5
+offset_bottom = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1orda")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/GameOverMenuPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.485
+anchor_right = 0.5
+anchor_bottom = 0.485
+offset_left = -112.0
+offset_top = 0.0500031
+offset_right = 112.0
+offset_bottom = 240.05
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="GameOverTitle" type="Sprite2D" parent="CanvasLayer/GameOverMenuPanel/VBoxContainer"]
+position = Vector2(105, -97)
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("7_iwrpq")
+
+[node name="RestartGameButton" type="Button" parent="CanvasLayer/GameOverMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tobs")
+text = "Restart Game"
+
+[node name="Options" type="Button" parent="CanvasLayer/GameOverMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tobs")
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="CanvasLayer/GameOverMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tobs")
+text = "Credits"
+
+[node name="ExitGameButton" type="Button" parent="CanvasLayer/GameOverMenuPanel/VBoxContainer"]
+layout_mode = 2
+text = "Exit Game"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/GameOverMenuPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainMenuPanel" type="Panel" parent="CanvasLayer"]
+self_modulate = Color(1, 0.368627, 0.117647, 0)
+anchors_preset = -1
+anchor_top = 0.25
+anchor_bottom = 0.25
+offset_left = 320.0
+offset_right = 640.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="CanvasLayer/MainMenuPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.0
+anchor_top = -0.5
+anchor_right = 2.0
+anchor_bottom = 1.5
+offset_bottom = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1orda")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenuPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.0
+anchor_top = -0.5
+anchor_right = 2.0
+anchor_bottom = 1.5
+offset_left = 368.0
+offset_top = 152.0
+offset_right = -368.0
+offset_bottom = -148.0
+theme_override_constants/separation = 12
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StartButton" type="Button" parent="CanvasLayer/MainMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tobs")
+text = "Start"
+
+[node name="Options" type="Button" parent="CanvasLayer/MainMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tobs")
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="CanvasLayer/MainMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tobs")
+text = "Credits"
+
+[node name="Options" parent="CanvasLayer" instance=ExtResource("5_v8wv2")]
+visible = false
+
+[node name="Credits" parent="CanvasLayer" instance=ExtResource("4_u7cr8")]
+visible = false
 
 [node name="WwiseListener" type="AkListener2D" parent="."]
 

@@ -10,14 +10,14 @@ public sealed class GameManager
 {
     public static GameManager Instance { get; } = new();
     private GameState State { get; set; }
+    private GameState LastLevel { get; set; }
 
     #region STATE MANAGEMENT EVENTS
-
-    public delegate void PlayIntroCutsceneDelegate();
-    public event PlayIntroCutsceneDelegate PlayIntroCutscene;
-    
-    public delegate void LevelOneStartDelegate();
-    public event LevelOneStartDelegate LevelOneStart;
+    public delegate void StateChangedDelegate();
+    public event StateChangedDelegate PlayIntroCutscene;
+    public event StateChangedDelegate LevelOneStart;
+    public event StateChangedDelegate GameOverNotify;
+    public event StateChangedDelegate LevelRestart;
 
     public delegate void CorruptionChangedDelegate(MagicClass magicClass, int value);
 
@@ -57,11 +57,15 @@ public sealed class GameManager
             case GameState.Paused:
                 break;
             case GameState.Level1:
+                LastLevel = GameState.Level1;
                 LevelOneStart?.Invoke();
                 break;
             case GameState.Level2:
                 break;
             case GameState.Level3:
+                break;
+            case GameState.GameOver:
+                GameOverNotify?.Invoke();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
@@ -71,6 +75,28 @@ public sealed class GameManager
     public GameState GetState()
     {
         return State;
+    }
+
+    public GameState GetLastLevel()
+    {
+        return LastLevel;
+    }
+
+    public void RestartLevel()
+    {
+        LevelRestart?.Invoke();
+        switch (LastLevel)
+        {
+            case GameState.Level1:
+                LevelOneStart?.Invoke();
+                break;
+            case GameState.Level2:
+                break;
+            case GameState.Level3:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
     public int GetTreeCorruptionValue(MagicClass magicClass)

@@ -5,21 +5,34 @@ using GameJam2024.MainMenu;
 
 public partial class MainMenu : Control
 {
+	[ExportGroup("MainMenu")]
 	[Export] public Button StartButton;
 	[Export] public Button OptionsButton;
 	[Export] public Button CreditsButton;
 	[Export] public Panel MainMenuPanel;
+	
+	[ExportGroup("GameOverMenu")]
+	[Export] public Button RestartButton;
+	[Export] public Button OptionsButton_GOM;
+	[Export] public Button CreditsButton_GOM;
+	[Export] public Button ExitGameButton_GOM;
+	[Export] public Panel GameOverPanel;
+	
+
+	[ExportGroup("MenuScenes")]
 	[Export] public Control CreditsScene;
 	[Export] public Control OptionsScene;
+	
+	[ExportGroup("Theme")]
 	[Export] public Theme Theme;
 	[Export] public Font DefaultFont;
 	[Export] public Font AccessbilityFont;
-
+	
 	[Export] public Control IntroCutscene;
 	[Export] public Control GameUI;
 	[Export] public Control RuneTree;
-
-  [Export] public PackedScene Level1;
+	[ExportGroup("Levels")]
+	[Export] public PackedScene Level1;
 
 	public override void _EnterTree()
 	{
@@ -29,6 +42,7 @@ public partial class MainMenu : Control
 		MainMenuManager.Instance.OptionsBackButtonPressed += OnOptionsBackButtonPressed;
 		
 		GameManager.Instance.LevelOneStart += OnLevelOneStart;
+		GameManager.Instance.GameOverNotify += OnGameOverNotify;
 		
 		StartButton.Pressed += StartButtonOnPressed;
 		StartButton.MouseEntered += ButtonOnMouseover;
@@ -37,7 +51,35 @@ public partial class MainMenu : Control
 		CreditsButton.Pressed += CreditsButtonOnPressed;
 		CreditsButton.MouseEntered += ButtonOnMouseover;
 		
+		RestartButton.Pressed += RestartButtonOnPressed;
+		OptionsButton_GOM.Pressed += OptionsButton_GOMOnPressed;
+		CreditsButton_GOM.Pressed += CreditsButton_GOMOnPressed;
+		ExitGameButton_GOM.Pressed += ExitGameButton_GOMOnPressed;
+		
+		
 		GetNode("Wwise/SceneMainMenu").Call("set_state");
+	}
+
+	private void CreditsButton_GOMOnPressed()
+	{
+		GameOverPanel.Visible = false;
+		CreditsScene.Visible = true;
+	}
+
+	private void OptionsButton_GOMOnPressed()
+	{
+		GameOverPanel.Visible = false;
+		OptionsScene.Visible = true;
+	}
+
+	private void RestartButtonOnPressed()
+	{
+		GameManager.Instance.RestartLevel();
+	}
+
+	private void ExitGameButton_GOMOnPressed()
+	{
+		GetTree().Quit();
 	}
 
 	public override void _Process(double delta)
@@ -56,14 +98,22 @@ public partial class MainMenu : Control
 	private void OnLevelOneStart()
 	{
 		MainMenuPanel.Visible = false;
+		GameOverPanel.Visible = false;
 		IntroCutscene.Visible = false;
 		GameUI.Visible = true;
 
-		var level1 = Level1.Instantiate();
+		var level1 = Level1.Instantiate() as Level1;
 		AddChild(level1);
 
 		GetNode("Wwise/SceneLevelOne").Call("set_state");
 		GetNode("Wwise/EventCaveSFX").Call("post_event");
+	}
+	
+	private void OnGameOverNotify()
+	{
+		GameUI.Visible = false;
+		MainMenuPanel.Visible = false;
+		GameOverPanel.Visible = true;
 	}
 
 	private void OnFontChanged(long index)
@@ -86,14 +136,20 @@ public partial class MainMenu : Control
 	{
 		GetNode("Wwise/EventButtonPress").Call("post_event");
 		OptionsScene.Visible = false;
-		MainMenuPanel.Visible = true;
+		if(GameManager.Instance.GetState() == GameState.MainMenu)
+			MainMenuPanel.Visible = true;
+		else if (GameManager.Instance.GetState() == GameState.GameOver)
+			GameOverPanel.Visible = true;
 	}
 
 	private void OnCreditsBackButtonPressed()
 	{
 		GetNode("Wwise/EventButtonPress").Call("post_event");
 		CreditsScene.Visible = false;
-		MainMenuPanel.Visible = true;
+		if(GameManager.Instance.GetState() == GameState.MainMenu)
+			MainMenuPanel.Visible = true;
+		else if (GameManager.Instance.GetState() == GameState.GameOver)
+			GameOverPanel.Visible = true;
 	}
 
 	private void CreditsButtonOnPressed()

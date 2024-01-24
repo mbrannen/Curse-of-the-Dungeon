@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using GameJam2024.GameManagement;
 
 public partial class DeathZone : Area2D
 {
@@ -10,11 +11,10 @@ public partial class DeathZone : Area2D
     }
     private void WaterZoneBodyEntered(Node2D body)
     {
-        GD.Print($"something collided:{body.Name}");
         if (body.IsInGroup("player"))
         {
-            //todo: send event to game manager that player died
-            GD.Print("Player Died");
+	        //TODO:Maybe some animation or something also?
+            GameManager.Instance.SetState(GameState.GameOver);
         };
     }
 
