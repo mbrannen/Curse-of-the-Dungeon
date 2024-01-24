@@ -151,7 +151,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_hsced")
-expand_mode = 1
+expand_mode = 2
 
 [node name="Panel1" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -165,8 +165,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="IntroScene1" type="Sprite2D" parent="Panel1"]
-position = Vector2(480.55, 267)
-scale = Vector2(1.095, 1.095)
+position = Vector2(480, 270)
+scale = Vector2(1, 1)
 texture = ExtResource("3_weq36")
 
 [node name="Panel1_text" type="Label" parent="Panel1"]
@@ -198,8 +198,8 @@ grow_vertical = 2
 texture = SubResource("CanvasTexture_hsced")
 
 [node name="IntroScene2" type="Sprite2D" parent="Panel2"]
-position = Vector2(480.55, 267)
-scale = Vector2(1.095, 1.095)
+position = Vector2(480, 270)
+scale = Vector2(1, 1)
 texture = ExtResource("4_3w8mm")
 
 [node name="Panel2_text" type="Label" parent="Panel2"]
@@ -233,8 +233,7 @@ grow_vertical = 2
 texture = SubResource("CanvasTexture_hsced")
 
 [node name="IntroScene3" type="Sprite2D" parent="Panel3"]
-position = Vector2(480.55, 267)
-scale = Vector2(1.095, 1.095)
+position = Vector2(480, 270)
 texture = ExtResource("5_let2o")
 
 [node name="Panel3_text" type="Label" parent="Panel3"]
@@ -268,8 +267,8 @@ grow_vertical = 2
 texture = SubResource("CanvasTexture_hsced")
 
 [node name="IntroScene4" type="Sprite2D" parent="Panel4"]
-position = Vector2(480.55, 267)
-scale = Vector2(1.095, 1.095)
+position = Vector2(480, 270)
+scale = Vector2(1, 1)
 texture = ExtResource("6_xo5qn")
 
 [node name="Panel4_text" type="Label" parent="Panel4"]
@@ -282,7 +281,7 @@ anchor_bottom = 1.0
 offset_left = -284.0
 offset_top = -83.0
 offset_right = 285.0
-offset_bottom = -53.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "...the protector of the artifact you 
@@ -304,8 +303,8 @@ grow_vertical = 2
 texture = SubResource("CanvasTexture_hsced")
 
 [node name="IntroScene5" type="Sprite2D" parent="Panel5"]
-position = Vector2(480.55, 267)
-scale = Vector2(1.095, 1.095)
+position = Vector2(480, 270)
+scale = Vector2(1, 1)
 texture = ExtResource("7_3kxlc")
 
 [node name="Panel5_text" type="Label" parent="Panel5"]
@@ -318,7 +317,7 @@ anchor_bottom = 1.0
 offset_left = -284.0
 offset_top = -83.0
 offset_right = 285.0
-offset_bottom = -53.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "...at last! You possessed the the most powerful of artifacts...but all was not what it seemed..."
@@ -327,6 +326,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Panel6" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
 self_modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(960, 540)
 layout_mode = 1
@@ -338,8 +338,8 @@ grow_vertical = 2
 texture = SubResource("CanvasTexture_hsced")
 
 [node name="IntroScene6" type="Sprite2D" parent="Panel6"]
-position = Vector2(480.55, 267)
-scale = Vector2(1.095, 1.095)
+position = Vector2(480, 270)
+scale = Vector2(1, 1)
 texture = ExtResource("8_4jebh")
 
 [node name="Panel5_text" type="Label" parent="Panel6"]

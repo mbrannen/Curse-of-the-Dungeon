@@ -228,7 +228,7 @@ offset_bottom = 252.0
 text = "Level 3 "
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.427451)
+self_modulate = Color(1, 1, 1, 0.686275)
 position = Vector2(-2233, 562)
 scale = Vector2(3.44688, 1.87407)
 texture = ExtResource("1_di270")
