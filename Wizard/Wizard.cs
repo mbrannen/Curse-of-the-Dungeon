@@ -34,10 +34,7 @@ public partial class Wizard : CharacterBody2D
 
 		CameraHandler();
 
-		if (Input.IsActionJustPressed("Cast") 
-		    && !GameManager.Instance.IsTalentsOpen 
-		    && (GameManager.Instance.GetSelectedSpell() is not null
-					&& GameManager.Instance.GetSelectedSpell()?.RuneType != Rune.Base ))
+		if (Input.IsActionJustPressed("Cast"))
 		{
 			CastSpell();
 		}
@@ -122,11 +119,25 @@ public partial class Wizard : CharacterBody2D
 
 	void CastSpell()
 	{
-		var mouseCoords = GetViewport().GetMousePosition();
-		var spell = SpellManager.GetSpell().Instantiate() as Spell;
-		spell.Rotation = SpellOrigin.Rotation;
-		spell.GlobalPosition = SpellOrigin.GlobalPosition;
-		GetTree().CurrentScene.AddChild(spell);
+		if (!GameManager.Instance.IsTalentsOpen
+		    && GameManager.Instance.GetSelectedSpell() is not null
+		    && GameManager.Instance.GetSelectedSpell()?.RuneType != Rune.Base
+		    && SpellManager.CanCast())
+		{
+			var mouseCoords = GetGlobalMousePosition();
+			var spell = SpellManager.GetSpell().Instantiate() as Spell;
+			spell.Rune = GameManager.Instance.GetSelectedSpell();
+			if(spell.Rune.MovesWhenCast)
+				spell.Rotation = SpellOrigin.Rotation;
+			if (spell.Rune.IsPlaceable)
+				spell.GlobalPosition = mouseCoords;
+			else
+				spell.GlobalPosition = SpellOrigin.GlobalPosition;
+			GetTree().CurrentScene.AddChild(spell);
+			
+			GameManager.Instance.ChangeCorruptionValue(spell.Rune.MagicClass, spell.Rune.CorruptionCost);
+		}
+
 	}
 
 	void AnimationHandler()

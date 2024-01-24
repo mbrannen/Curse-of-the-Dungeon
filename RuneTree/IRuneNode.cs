@@ -16,12 +16,17 @@ public interface IRuneNode
     
     //UI
     public bool IsDraggable { get; }
+    
+    //SpellAnimations
+    public bool MovesWhenCast { get; }
+    public bool IsPlaceable { get; }
 
     public void ConnectNode(IRuneNode child);
     public IRuneNode GetSpecificNode(string name);
     public IRuneNode GetSpecificNode(Rune runeType);
     
     public bool Corrupted { get; set; }
+    public int CorruptionCost { get; }
     public delegate void NodeBecameCorruptedDelegate(IRuneNode node);
     public event NodeBecameCorruptedDelegate NodeBecameCorrupted;
     public void CorruptNode();

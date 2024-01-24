@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b7mhrtmw1bpu7"]
+[gd_scene load_steps=30 format=3 uid="uid://b7mhrtmw1bpu7"]
 
 [ext_resource type="Texture2D" uid="uid://d13qop4lljufr" path="res://Levels/Art/sprite-sheets/sprite-sheet-environment-stone.png" id="1_1yyn2"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_cn5fg"]
@@ -415,7 +415,7 @@ shape = SubResource("RectangleShape2D_auk0h")
 
 [node name="LightningRod" type="Area2D" parent="."]
 collision_layer = 8
-collision_mask = 8
+collision_mask = 16
 script = ExtResource("11_xjhn5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightningRod"]

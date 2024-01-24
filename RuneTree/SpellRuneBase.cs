@@ -11,10 +11,14 @@ public abstract class SpellRuneBase : IRuneNode
     
     public bool IsActive { get; set; }
     public bool Corrupted { get; set; }
+    public abstract int CorruptionCost { get; }
 
     public abstract string Name { get; }
     public abstract string Description { get; }
     public bool IsDraggable { get; } = true;
+    public abstract bool MovesWhenCast { get; }
+    public abstract bool IsPlaceable { get; }
+
 
     public event IRuneNode.NodeBecameCorruptedDelegate NodeBecameCorrupted;
     public void ConnectNode(IRuneNode child)

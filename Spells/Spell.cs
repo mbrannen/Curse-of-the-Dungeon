@@ -9,14 +9,17 @@ public partial class Spell : Node2D
 
     [Export] public Rune RuneType;
 
-    private IRuneNode Rune;
+    public IRuneNode Rune;
     public override void _Ready()
     {
-        Rune = GameManager.Instance.GetSelectedSpell();
+        
     }
 
     public override void _Process(double delta)
     {
-        GlobalPosition += Speed * new Vector2(1, 0).Rotated(Rotation) * (float)delta;
+        var direction = new Vector2(1, 0).Rotated(Rotation);
+        if (Rune.IsPlaceable)
+            Speed = 0;
+        GlobalPosition += Speed * direction * (float)delta;
     }
 }

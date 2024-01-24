@@ -11,6 +11,7 @@ public abstract class SpellModifierRuneBase : IRuneNode
     
     public bool IsActive { get; set; }
     public bool Corrupted { get; set; }
+    public int CorruptionCost { get; }
     public event IRuneNode.NodeBecameCorruptedDelegate NodeBecameCorrupted;
     public void CorruptNode()
     {
@@ -21,6 +22,8 @@ public abstract class SpellModifierRuneBase : IRuneNode
     public abstract string Name { get; }
     public abstract string Description { get; }
     public bool IsDraggable { get; } = false;
+    public bool MovesWhenCast { get; } = false;
+    public bool IsPlaceable { get; } = false;
 
     public void ConnectNode(IRuneNode child)
     {

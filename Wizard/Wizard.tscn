@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3coc670j5u0y"]
+[gd_scene load_steps=9 format=3 uid="uid://b3coc670j5u0y"]
 
 [ext_resource type="Script" path="res://Wizard/Wizard.cs" id="1_j82hd"]
 [ext_resource type="PackedScene" uid="uid://cvu6ofg1r3jan" path="res://Spells/Lightning.tscn" id="2_8byeu"]
 [ext_resource type="PackedScene" uid="uid://dwulyrxfxtxg0" path="res://Spells/Fireball.tscn" id="2_a5fuu"]
 [ext_resource type="Texture2D" uid="uid://bijr4lcyff6cn" path="res://testing/wizardtestsprite.png" id="2_had2t"]
 [ext_resource type="Script" path="res://Wizard/SpellManager.cs" id="4_ew43q"]
+[ext_resource type="PackedScene" uid="uid://bfrlmgim0p2so" path="res://Spells/IceShard.tscn" id="6_fgkfi"]
+[ext_resource type="PackedScene" uid="uid://dfcu17x0kr6wh" path="res://Spells/IceBridge.tscn" id="7_fy076"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_slh5g"]
 radius = 5.0
@@ -36,16 +38,23 @@ shape = SubResource("CapsuleShape2D_slh5g")
 position = Vector2(0, 1)
 polygon = PackedVector2Array(-16, -11, -10, -18, -6, -34, -3, -83, -1, -86, 2, -86, 4, -84, 9, -34, 12, -18, 17, -11)
 
-[node name="SpellManager" type="Marker2D" parent="."]
+[node name="SpellManager" type="Marker2D" parent="." node_paths=PackedStringArray("CastTimer")]
 position = Vector2(0, -121)
 script = ExtResource("4_ew43q")
 Fireball = ExtResource("2_a5fuu")
 Lightning = ExtResource("2_8byeu")
+IceShard = ExtResource("6_fgkfi")
+IceBridge = ExtResource("7_fy076")
+CastTimer = NodePath("Timer")
 
 [node name="ColorRect" type="ColorRect" parent="SpellManager"]
+visible = false
 offset_left = -10.0
 offset_top = -10.0
 offset_right = 10.0
 offset_bottom = 10.0
+
+[node name="Timer" type="Timer" parent="SpellManager"]
+one_shot = true
 
 [node name="WwiseListener" type="AkListener2D" parent="."]

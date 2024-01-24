@@ -13,6 +13,7 @@ public partial class SpellManager : Marker2D
     [Export] public PackedScene IceBlock;
     [Export] public PackedScene IcePatch;
     [Export] public PackedScene IceBridge;
+    [Export] public Timer CastTimer;
 
     public PackedScene GetSpell()
     {
@@ -31,5 +32,16 @@ public partial class SpellManager : Marker2D
             Rune.LightningRune => Lightning,
             _ => throw new ArgumentOutOfRangeException()
         };
+    }
+
+    public bool CanCast()
+    {
+        if (CastTimer.TimeLeft == 0)
+        {
+            CastTimer.Start();
+            return true;
+        }
+
+        return false;
     }
 }

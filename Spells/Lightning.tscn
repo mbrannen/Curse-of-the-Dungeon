@@ -30,7 +30,7 @@ shader_parameter/inside = false
 shader_parameter/add_margins = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jlynl"]
-radius = 33.541
+radius = 23.3334
 
 [sub_resource type="Animation" id="Animation_27x7w"]
 resource_name = "Rotate"
@@ -59,6 +59,7 @@ _data = {
 rotation = 6.28319
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_nxi2f")
+RuneType = 22
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(8, 4)
@@ -78,6 +79,7 @@ texture = ExtResource("3_p77re")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-165, -1.66593)
 shape = SubResource("CircleShape2D_jlynl")
 debug_color = Color(0.992157, 0, 0.27451, 0.419608)
 

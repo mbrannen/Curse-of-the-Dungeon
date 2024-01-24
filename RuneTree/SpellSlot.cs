@@ -71,6 +71,7 @@ public partial class SpellSlot : PanelContainer
 		Rune = TalentManager.Instance.GetSpellDragged();
 		Corruption.Value = GameManager.Instance.GetTreeCorruptionValue(Rune.MagicClass);
 		IconRect.Texture = data.Obj as Texture2D;
+		
 		GetNode("../Wwise/EventRuneDrop").Call("post_event");
 		UpdateTooltip();
 	}
@@ -78,7 +79,8 @@ public partial class SpellSlot : PanelContainer
 	private void UpdateTooltip()
 	{
 		TooltipText =  $"{Rune.Name.ToUpper()}\n" +
-					   $"'{Rune.Description}'";
+		               $"Corruption Cost: {Rune.CorruptionCost}\n" +
+		               $"'{Rune.Description}'";
 	}
 	
 }

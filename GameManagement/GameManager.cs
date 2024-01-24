@@ -20,8 +20,9 @@ public sealed class GameManager
     public event StateChangedDelegate LevelRestart;
 
     public delegate void CorruptionChangedDelegate(MagicClass magicClass, int value);
-
     public event CorruptionChangedDelegate CorruptionChanged;
+    public delegate void CorruptionMaxedDelegate(MagicClass magicClass);
+    public event CorruptionMaxedDelegate CorruptionMaxed;
 
     public delegate void SpellIndexChangedDelegate(int index);
 
@@ -31,9 +32,9 @@ public sealed class GameManager
 
     #region VARIABLES
 
-    public int FireCorruption = 78;
-    public int IceCorruption = 10;
-    public int LightningCorruption = 40;
+    public int FireCorruption = 0;
+    public int IceCorruption = 0;
+    public int LightningCorruption = 0;
 
     public int SelectedSpellIndex = 0;
     public IRuneNode SelectedSpell;
@@ -122,15 +123,36 @@ public sealed class GameManager
                 break;
             case MagicClass.Fire:
                 FireCorruption += valueToAdd;
-                CorruptionChanged?.Invoke(MagicClass.Fire, FireCorruption);
+                if (IsFullCorruption(MagicClass.Fire))
+                {
+                    CorruptionMaxed?.Invoke(MagicClass.Fire);
+                    FireCorruption = 0;
+                    CorruptionChanged?.Invoke(MagicClass.Fire, FireCorruption);
+                }
+                else
+                    CorruptionChanged?.Invoke(MagicClass.Fire, FireCorruption);
                 break;
             case MagicClass.Ice:
                 IceCorruption += valueToAdd;
-                CorruptionChanged?.Invoke(MagicClass.Ice, IceCorruption);
+                if (IsFullCorruption(MagicClass.Ice))
+                {
+                    CorruptionMaxed?.Invoke(MagicClass.Ice);
+                    IceCorruption = 0;
+                    CorruptionChanged?.Invoke(MagicClass.Ice, IceCorruption);
+                }
+                else
+                    CorruptionChanged?.Invoke(MagicClass.Ice, IceCorruption);
                 break;
             case MagicClass.Lightning:
                 LightningCorruption += valueToAdd;
-                CorruptionChanged?.Invoke(MagicClass.Lightning, LightningCorruption);
+                if (IsFullCorruption(MagicClass.Lightning))
+                {
+                    CorruptionMaxed?.Invoke(MagicClass.Lightning);
+                    LightningCorruption = 0;
+                    CorruptionChanged?.Invoke(MagicClass.Lightning, LightningCorruption);
+                }
+                else
+                    CorruptionChanged?.Invoke(MagicClass.Lightning, LightningCorruption);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(magicClass), magicClass, null);
@@ -162,6 +184,18 @@ public sealed class GameManager
     public bool IsInPauseState()
     {
         return State is GameState.Paused or GameState.GameOver or GameState.IntroCutscene;
+    }
+
+    public bool IsFullCorruption(MagicClass magicClass)
+    {
+        return magicClass switch
+        {
+            MagicClass.Base => false,
+            MagicClass.Fire => FireCorruption >= 100,
+            MagicClass.Ice => IceCorruption >= 100,
+            MagicClass.Lightning => LightningCorruption >= 100,
+            _ => throw new ArgumentOutOfRangeException(nameof(magicClass), magicClass, null)
+        };
     }
 
 
