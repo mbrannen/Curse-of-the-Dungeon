@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b7mhrtmw1bpu7"]
+[gd_scene load_steps=35 format=3 uid="uid://b7mhrtmw1bpu7"]
 
 [ext_resource type="Texture2D" uid="uid://d13qop4lljufr" path="res://Levels/Art/sprite-sheets/sprite-sheet-environment-stone.png" id="1_1yyn2"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_cn5fg"]
@@ -338,6 +338,11 @@ scale_min = 0.1
 scale_max = 0.2
 scale_curve = SubResource("CurveTexture_bs4ja")
 
+[sub_resource type="Gradient" id="Gradient_vvql6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ok883"]
+gradient = SubResource("Gradient_vvql6")
+
 [node name="Level1" type="Node2D"]
 position = Vector2(4, -8)
 script = ExtResource("1_cn5fg")
@@ -469,3 +474,18 @@ texture = ExtResource("13_edixu")
 position = Vector2(-347.64, 359)
 scale = Vector2(0.202, 0.2405)
 texture = ExtResource("13_edixu")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(1, 1, 1, 0.490196)
+blend_mode = 1
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+max_distance = 9994.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1397, 185.034)
+rotation = 1.57079
+scale = Vector2(10.194, -117.682)
+energy = 0.75
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_ok883")
