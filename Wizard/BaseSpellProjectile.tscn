@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://3gmlsm78p7jx"]
+[gd_scene load_steps=3 format=3 uid="uid://61kj1y5gnjdi"]
 
 [ext_resource type="Script" path="res://Wizard/BaseSpellProjectile.cs" id="1_7ww7r"]
 
-[node name="BaseSpellProjectile" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8f34a"]
+size = Vector2(10, 10)
+
+[node name="BaseSpellProjectile" type="Node2D" groups=["lightning"]]
 script = ExtResource("1_7ww7r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -12,3 +15,10 @@ offset_left = -5.0
 offset_top = -5.0
 offset_right = 5.0
 offset_bottom = 5.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_8f34a")
