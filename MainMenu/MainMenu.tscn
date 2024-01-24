@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=13 format=3 uid="uid://b2vhhetl6w0ip"]
-
+[gd_scene load_steps=14 format=3 uid="uid://b2vhhetl6w0ip"]
 
 [ext_resource type="Script" path="res://MainMenu/MainMenu.cs" id="1_0qxbf"]
 [ext_resource type="Texture2D" uid="uid://b5tsdrrhuwa32" path="res://MainMenu/BG.png" id="1_1orda"]
@@ -9,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://dp2p5chmqvhdp" path="res://Roboto-Regular.ttf" id="4_6ogdn"]
 [ext_resource type="PackedScene" uid="uid://bgfdtj2ry60c5" path="res://MainMenu/Credits.tscn" id="4_u7cr8"]
 [ext_resource type="PackedScene" uid="uid://dhwgxa1uyk1mp" path="res://MainMenu/Options.tscn" id="5_v8wv2"]
+[ext_resource type="Texture2D" uid="uid://b8jgilyr7fsgw" path="res://Levels/Art/Title_500x500px_placeholder.png" id="7_iwrpq"]
 [ext_resource type="PackedScene" uid="uid://bl2fesc7epab1" path="res://UI/IntroCutscene.tscn" id="8_jam5c"]
 [ext_resource type="PackedScene" uid="uid://b7mhrtmw1bpu7" path="res://Levels/Level1.tscn" id="9_xi5so"]
 [ext_resource type="PackedScene" uid="uid://7llvmmihkn65" path="res://RuneTree/RuneTree.tscn" id="12_fcwdn"]
@@ -97,6 +96,72 @@ theme = ExtResource("2_5tobs")
 text = "Credits"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MainMenuPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameOverMenuPanel" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 0.368627, 0.117647, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -135.0
+offset_right = 160.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="GameOverMenuPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.0
+anchor_top = -0.5
+anchor_right = 2.0
+anchor_bottom = 1.5
+offset_bottom = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1orda")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverMenuPanel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 131.0
+offset_right = 272.0
+offset_bottom = 371.0
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="GameOverTitle" type="Sprite2D" parent="GameOverMenuPanel/VBoxContainer"]
+position = Vector2(105, -97)
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("7_iwrpq")
+
+[node name="RestartGameButton" type="Button" parent="GameOverMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tobs")
+text = "Restart Game"
+
+[node name="Options" type="Button" parent="GameOverMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tobs")
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="GameOverMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tobs")
+text = "Credits"
+
+[node name="ExitGameButton" type="Button" parent="GameOverMenuPanel/VBoxContainer"]
+layout_mode = 2
+text = "Exit Game"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GameOverMenuPanel"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0

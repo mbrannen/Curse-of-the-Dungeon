@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7mhrtmw1bpu7"]
+[gd_scene load_steps=13 format=3 uid="uid://b7mhrtmw1bpu7"]
 
 [ext_resource type="Texture2D" uid="uid://d13qop4lljufr" path="res://Levels/Art/sprite-sheets/sprite-sheet-environment-stone.png" id="1_1yyn2"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_cn5fg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://uafpxpuu3w01" path="res://Levels/Art/levelzerolayout.png" id="3_l87kb"]
 [ext_resource type="PackedScene" uid="uid://b3coc670j5u0y" path="res://Wizard/Wizard.tscn" id="4_6aqcm"]
 [ext_resource type="Texture2D" uid="uid://n2bgxif4x0qw" path="res://RuneTree/art/runes/rune-lightning-main.png" id="5_icpvd"]
+[ext_resource type="Script" path="res://Levels/DeathZone.cs" id="7_y6y72"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fqkrr"]
 texture = ExtResource("1_1yyn2")
@@ -238,6 +239,9 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.1
 scale_max = 0.2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fauj5"]
+size = Vector2(448, 161)
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_cn5fg")
 
@@ -264,3 +268,12 @@ texture = ExtResource("5_icpvd")
 speed_scale = 0.6
 randomness = 0.59
 fixed_fps = 5
+
+[node name="WaterZone" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("7_y6y72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterZone"]
+position = Vector2(-284, 614.5)
+shape = SubResource("RectangleShape2D_fauj5")
