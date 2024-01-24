@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bq3lwsnvmy8mc"]
+[gd_scene load_steps=11 format=3 uid="uid://bq3lwsnvmy8mc"]
 
 [ext_resource type="Texture2D" uid="uid://bowp64xxh05wk" path="res://Levels/Art/background-cavewall.png" id="1_ajlgu"]
 [ext_resource type="Texture2D" uid="uid://b2t3doe8807vw" path="res://Levels/Art/sprite-sheets/sprite-sheet-environment-special.png" id="2_i1avu"]
 [ext_resource type="Texture2D" uid="uid://d13qop4lljufr" path="res://Levels/Art/sprite-sheets/sprite-sheet-environment-stone.png" id="3_iuu4p"]
 [ext_resource type="Script" path="res://Levels/DeathZone.cs" id="4_11ke4"]
-[ext_resource type="PackedScene" uid="uid://b3coc670j5u0y" path="res://Wizard/Wizard.tscn" id="5_qhry6"]
+[ext_resource type="Texture2D" uid="uid://bscnyljrwynrp" path="res://Levels/Art/sprite-sheets/sprite-sheet-columns-extra.png" id="4_pa3s4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ddq67"]
 texture = ExtResource("2_i1avu")
@@ -210,10 +210,14 @@ margins = Vector2i(5, 5)
 5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:0/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nme84"]
+texture = ExtResource("4_pa3s4")
+
 [sub_resource type="TileSet" id="TileSet_m2ivx"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ddq67")
 sources/1 = SubResource("TileSetAtlasSource_bwjxb")
+sources/2 = SubResource("TileSetAtlasSource_nme84")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ycvh"]
 size = Vector2(3138, 332)
@@ -247,6 +251,3 @@ script = ExtResource("4_11ke4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterZone"]
 position = Vector2(-680, 912)
 shape = SubResource("RectangleShape2D_1ycvh")
-
-[node name="Wizard" parent="." instance=ExtResource("5_qhry6")]
-position = Vector2(68, 441)
