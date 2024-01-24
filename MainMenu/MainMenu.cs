@@ -87,6 +87,7 @@ public partial class MainMenu : Control
 		if(Input.IsActionJustPressed("Talents") || Input.IsActionJustReleased("Talents"))
 		{
 			RuneTree.Visible = !RuneTree.Visible;
+			GameManager.Instance.IsTalentsOpen = !GameManager.Instance.IsTalentsOpen;
 		}
         
         if(Input.IsActionJustPressed("Spell Select Right"))

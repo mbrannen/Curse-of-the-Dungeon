@@ -38,6 +38,8 @@ public sealed class GameManager
     public int SelectedSpellIndex = 0;
     public IRuneNode SelectedSpell;
 
+    public bool IsTalentsOpen;
+
     #endregion
     private GameManager()
     {
@@ -88,6 +90,7 @@ public sealed class GameManager
         switch (LastLevel)
         {
             case GameState.Level1:
+                State = GameState.Level1;
                 LevelOneStart?.Invoke();
                 break;
             case GameState.Level2:
@@ -154,6 +157,11 @@ public sealed class GameManager
     public IRuneNode GetSelectedSpell()
     {
         return SelectedSpell;
+    }
+
+    public bool IsInPauseState()
+    {
+        return State is GameState.Paused or GameState.GameOver or GameState.IntroCutscene;
     }
 
 

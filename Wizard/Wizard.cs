@@ -1,5 +1,7 @@
 using Godot;
 using System;
+using GameJam2024.GameManagement;
+using GameJam2024.RuneTree;
 
 public partial class Wizard : CharacterBody2D
 {
@@ -10,34 +12,32 @@ public partial class Wizard : CharacterBody2D
 	[Export] private float FallSpeed { get; set; }
 	[Export] private float JumpStrength { get; set; }
 
-	[Export] PackedScene Projectile { get; set; }
-
-	Marker2D SpellOrigin;
+	[Export] Marker2D SpellOrigin;
+	private SpellManager SpellManager;
 
 	public override void _Ready()
 	{
-		//Assign nodes to variables.
-		SpellOrigin = GetNode<Marker2D>("Marker2D");
+		SpellManager = SpellOrigin as SpellManager;
 	}
 
 	//Non-Physics related calls should go here. Called every frame.
 	public override void _Process(double delta)
 	{
-		//Call Animation Handler
-		GetNode<Node2D>("Marker2D").Rotation = GetLocalMousePosition().Angle();
-
-		//Call Gravity Handler
+		SpellOrigin.Rotation = (GetLocalMousePosition()-SpellOrigin.Position).Angle();
+		
 		GravityHandler(delta);
 
-		//Call Velocity Handler
-		VeloctiyHandler(delta);
-		
-		//Call Jump Handler
-		JumpHandler();
+		if(!GameManager.Instance.IsInPauseState())
+			VeloctiyHandler(delta);
+		if(!GameManager.Instance.IsInPauseState())
+			JumpHandler();
 
 		CameraHandler();
 
-		if (Input.IsActionJustPressed("Cast"))
+		if (Input.IsActionJustPressed("Cast") 
+		    && !GameManager.Instance.IsTalentsOpen 
+		    && (GameManager.Instance.GetSelectedSpell() is not null
+					&& GameManager.Instance.GetSelectedSpell()?.RuneType != Rune.Base ))
 		{
 			CastSpell();
 		}
@@ -122,10 +122,11 @@ public partial class Wizard : CharacterBody2D
 
 	void CastSpell()
 	{
-		var Fireball = Projectile.Instantiate() as Node2D;
-		Fireball.Rotation = SpellOrigin.Rotation;
-		Fireball.GlobalPosition = SpellOrigin.GlobalPosition;
-		GetTree().CurrentScene.AddChild(Fireball);
+		var mouseCoords = GetViewport().GetMousePosition();
+		var spell = SpellManager.GetSpell().Instantiate() as Spell;
+		spell.Rotation = SpellOrigin.Rotation;
+		spell.GlobalPosition = SpellOrigin.GlobalPosition;
+		GetTree().CurrentScene.AddChild(spell);
 	}
 
 	void AnimationHandler()

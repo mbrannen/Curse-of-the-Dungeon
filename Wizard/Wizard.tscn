@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3coc670j5u0y"]
+[gd_scene load_steps=7 format=3 uid="uid://b3coc670j5u0y"]
 
 [ext_resource type="Script" path="res://Wizard/Wizard.cs" id="1_j82hd"]
-[ext_resource type="PackedScene" path="res://Wizard/BaseSpellProjectile.tscn" id="2_6u321"]
+[ext_resource type="PackedScene" uid="uid://cvu6ofg1r3jan" path="res://Spells/Lightning.tscn" id="2_8byeu"]
+[ext_resource type="PackedScene" uid="uid://dwulyrxfxtxg0" path="res://Spells/Fireball.tscn" id="2_a5fuu"]
 [ext_resource type="Texture2D" uid="uid://bijr4lcyff6cn" path="res://testing/wizardtestsprite.png" id="2_had2t"]
+[ext_resource type="Script" path="res://Wizard/SpellManager.cs" id="4_ew43q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_slh5g"]
 radius = 5.0
 height = 36.0
 
-[node name="Wizard" type="CharacterBody2D" groups=["player"]]
+[node name="Wizard" type="CharacterBody2D" node_paths=PackedStringArray("SpellOrigin") groups=["player"]]
 collision_layer = 6
 collision_mask = 7
 script = ExtResource("1_j82hd")
@@ -18,7 +20,7 @@ Acceleration = 500.0
 Friction = 1000.0
 FallSpeed = 1000.0
 JumpStrength = -600.0
-Projectile = ExtResource("2_6u321")
+SpellOrigin = NodePath("SpellManager")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.84217e-14, -71)
@@ -34,10 +36,13 @@ shape = SubResource("CapsuleShape2D_slh5g")
 position = Vector2(0, 1)
 polygon = PackedVector2Array(-16, -11, -10, -18, -6, -34, -3, -83, -1, -86, 2, -86, 4, -84, 9, -34, 12, -18, 17, -11)
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="SpellManager" type="Marker2D" parent="."]
 position = Vector2(0, -121)
+script = ExtResource("4_ew43q")
+Fireball = ExtResource("2_a5fuu")
+Lightning = ExtResource("2_8byeu")
 
-[node name="ColorRect" type="ColorRect" parent="Marker2D"]
+[node name="ColorRect" type="ColorRect" parent="SpellManager"]
 offset_left = -10.0
 offset_top = -10.0
 offset_right = 10.0
