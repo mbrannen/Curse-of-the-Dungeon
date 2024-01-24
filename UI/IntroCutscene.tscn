@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bl2fesc7epab1"]
+[gd_scene load_steps=18 format=3 uid="uid://bl2fesc7epab1"]
 
 [ext_resource type="Theme" uid="uid://clwjpsq8eh1ds" path="res://gamejame_2024_theme.tres" id="1_2rmv5"]
 [ext_resource type="Script" path="res://UI/IntroCutscene.cs" id="1_ugev4"]
@@ -10,6 +10,42 @@
 [ext_resource type="Texture2D" uid="uid://du5g7ctrx7ahr" path="res://Levels/Art/intro-slide-06.png" id="8_4jebh"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_hsced"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gvfqb"]
+font_size = 24
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.572549)
+shadow_offset = Vector2(1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ysxbm"]
+font_size = 24
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.572549)
+shadow_offset = Vector2(1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iq1ej"]
+font_size = 24
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.572549)
+shadow_offset = Vector2(1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3n06"]
+font_size = 24
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.572549)
+shadow_offset = Vector2(1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fntlr"]
+font_size = 24
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.572549)
+shadow_offset = Vector2(1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4n0n7"]
+font_size = 24
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.572549)
+shadow_offset = Vector2(1, 0)
 
 [sub_resource type="Animation" id="Animation_k33s8"]
 resource_name = "IntroPlay"
@@ -145,6 +181,7 @@ offset_top = -83.0
 offset_right = 284.04
 offset_bottom = -20.0
 text = "On your Wizardly journeys you finally found the cave you've been looking for..."
+label_settings = SubResource("LabelSettings_gvfqb")
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -179,6 +216,7 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "...you fought your way through, slaying all inhabitants that stood in your way..."
+label_settings = SubResource("LabelSettings_ysxbm")
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -213,6 +251,7 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "...and you spared no one and showed no mercy..."
+label_settings = SubResource("LabelSettings_iq1ej")
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -248,6 +287,7 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "...the protector of the artifact you 
 sought posed no challenge..."
+label_settings = SubResource("LabelSettings_x3n06")
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -282,11 +322,11 @@ offset_bottom = -53.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "...at last! You possessed the the most powerful of artifacts...but all was not what it seemed..."
+label_settings = SubResource("LabelSettings_fntlr")
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Panel6" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0)
 self_modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(960, 540)
 layout_mode = 1
@@ -316,6 +356,7 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "...it's energy coursed through your veins, corrupting your knowledge!  You feel this is a test, can you make it out ALIVE?"
+label_settings = SubResource("LabelSettings_4n0n7")
 horizontal_alignment = 1
 autowrap_mode = 2
 
