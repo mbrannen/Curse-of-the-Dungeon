@@ -1,9 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl2fesc7epab1"]
+[gd_scene load_steps=18 format=3 uid="uid://bl2fesc7epab1"]
 
 [ext_resource type="Theme" uid="uid://clwjpsq8eh1ds" path="res://gamejame_2024_theme.tres" id="1_2rmv5"]
 [ext_resource type="Script" path="res://UI/IntroCutscene.cs" id="1_ugev4"]
+[ext_resource type="Texture2D" uid="uid://co67qtdgb6umx" path="res://Levels/Art/intro-slide-01.png" id="3_weq36"]
+[ext_resource type="Texture2D" uid="uid://celfy1mnsd3sp" path="res://Levels/Art/intro-slide-02.png" id="4_3w8mm"]
+[ext_resource type="Texture2D" uid="uid://bsvncqhfsdyqk" path="res://Levels/Art/intro-slide-03.png" id="5_let2o"]
+[ext_resource type="Texture2D" uid="uid://c0rfgoap1ydvg" path="res://Levels/Art/intro-slide-04.png" id="6_xo5qn"]
+[ext_resource type="Texture2D" uid="uid://broonaas28g72" path="res://Levels/Art/intro-slide-05.png" id="7_3kxlc"]
+[ext_resource type="Texture2D" uid="uid://du5g7ctrx7ahr" path="res://Levels/Art/intro-slide-06.png" id="8_4jebh"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_hsced"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gvfqb"]
+font_size = 24
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.572549)
+shadow_offset = Vector2(1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ysxbm"]
+font_size = 24
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.572549)
+shadow_offset = Vector2(1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iq1ej"]
+font_size = 24
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.572549)
+shadow_offset = Vector2(1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3n06"]
+font_size = 24
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.572549)
+shadow_offset = Vector2(1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fntlr"]
+font_size = 24
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.572549)
+shadow_offset = Vector2(1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4n0n7"]
+font_size = 24
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.572549)
+shadow_offset = Vector2(1, 0)
 
 [sub_resource type="Animation" id="Animation_k33s8"]
 resource_name = "IntroPlay"
@@ -121,7 +163,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CanvasTexture_hsced")
+
+[node name="IntroScene1" type="Sprite2D" parent="Panel1"]
+position = Vector2(480.55, 267)
+scale = Vector2(1.095, 1.095)
+texture = ExtResource("3_weq36")
 
 [node name="Panel1_text" type="Label" parent="Panel1"]
 layout_mode = 1
@@ -135,6 +181,7 @@ offset_top = -83.0
 offset_right = 284.04
 offset_bottom = -20.0
 text = "On your Wizardly journeys you finally found the cave you've been looking for..."
+label_settings = SubResource("LabelSettings_gvfqb")
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -150,6 +197,11 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_hsced")
 
+[node name="IntroScene2" type="Sprite2D" parent="Panel2"]
+position = Vector2(480.55, 267)
+scale = Vector2(1.095, 1.095)
+texture = ExtResource("4_3w8mm")
+
 [node name="Panel2_text" type="Label" parent="Panel2"]
 layout_mode = 1
 anchors_preset = -1
@@ -164,6 +216,7 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "...you fought your way through, slaying all inhabitants that stood in your way..."
+label_settings = SubResource("LabelSettings_ysxbm")
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -179,6 +232,11 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_hsced")
 
+[node name="IntroScene3" type="Sprite2D" parent="Panel3"]
+position = Vector2(480.55, 267)
+scale = Vector2(1.095, 1.095)
+texture = ExtResource("5_let2o")
+
 [node name="Panel3_text" type="Label" parent="Panel3"]
 layout_mode = 1
 anchors_preset = 7
@@ -193,6 +251,7 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "...and you spared no one and showed no mercy..."
+label_settings = SubResource("LabelSettings_iq1ej")
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -207,6 +266,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_hsced")
+
+[node name="IntroScene4" type="Sprite2D" parent="Panel4"]
+position = Vector2(480.55, 267)
+scale = Vector2(1.095, 1.095)
+texture = ExtResource("6_xo5qn")
 
 [node name="Panel4_text" type="Label" parent="Panel4"]
 layout_mode = 1
@@ -223,6 +287,7 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "...the protector of the artifact you 
 sought posed no challenge..."
+label_settings = SubResource("LabelSettings_x3n06")
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -238,6 +303,11 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_hsced")
 
+[node name="IntroScene5" type="Sprite2D" parent="Panel5"]
+position = Vector2(480.55, 267)
+scale = Vector2(1.095, 1.095)
+texture = ExtResource("7_3kxlc")
+
 [node name="Panel5_text" type="Label" parent="Panel5"]
 layout_mode = 1
 anchors_preset = 7
@@ -252,11 +322,11 @@ offset_bottom = -53.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "...at last! You possessed the the most powerful of artifacts...but all was not what it seemed..."
+label_settings = SubResource("LabelSettings_fntlr")
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Panel6" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0)
 self_modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(960, 540)
 layout_mode = 1
@@ -266,6 +336,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_hsced")
+
+[node name="IntroScene6" type="Sprite2D" parent="Panel6"]
+position = Vector2(480.55, 267)
+scale = Vector2(1.095, 1.095)
+texture = ExtResource("8_4jebh")
 
 [node name="Panel5_text" type="Label" parent="Panel6"]
 layout_mode = 1
@@ -281,6 +356,7 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "...it's energy coursed through your veins, corrupting your knowledge!  You feel this is a test, can you make it out ALIVE?"
+label_settings = SubResource("LabelSettings_4n0n7")
 horizontal_alignment = 1
 autowrap_mode = 2
 
