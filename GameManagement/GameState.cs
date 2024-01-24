@@ -7,5 +7,6 @@ public enum GameState
     Paused,
     Level1,
     Level2,
-    Level3
+    Level3,
+    GameOver
 }
