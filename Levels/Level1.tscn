@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b7mhrtmw1bpu7"]
+[gd_scene load_steps=33 format=3 uid="uid://b7mhrtmw1bpu7"]
 
 [ext_resource type="Texture2D" uid="uid://d13qop4lljufr" path="res://Levels/Art/sprite-sheets/sprite-sheet-environment-stone.png" id="1_1yyn2"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_cn5fg"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://8cpryrojjifp" path="res://Levels/Art/tholos.png" id="8_i2afw"]
 [ext_resource type="Texture2D" uid="uid://d16eg5s6ilh5h" path="res://Levels/Art/boss-weapon.png" id="10_a1pjp"]
 [ext_resource type="Script" path="res://Levels/LightningRod.cs" id="11_xjhn5"]
+[ext_resource type="Texture2D" uid="uid://cd7i58o15xm6g" path="res://Levels/Art/extendedPlatform.png" id="13_edixu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fqkrr"]
 texture = ExtResource("1_1yyn2")
@@ -271,6 +272,41 @@ sources/0 = SubResource("TileSetAtlasSource_fqkrr")
 sources/1 = SubResource("TileSetAtlasSource_kl2um")
 sources/2 = SubResource("TileSetAtlasSource_cl6kw")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fauj5"]
+size = Vector2(381, 161)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuqe5"]
+size = Vector2(449, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnehe"]
+size = Vector2(41, 95.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kj6mq"]
+size = Vector2(48.5, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odqid"]
+size = Vector2(44.5, 75.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ewo"]
+size = Vector2(177, 35.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhcjg"]
+size = Vector2(97, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_auk0h"]
+size = Vector2(131.5, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efsuv"]
+size = Vector2(28, 100)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b0aio"]
+radius = 12.0
+height = 134.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bpfou"]
+radius = 11.0
+height = 132.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k0k4f"]
 shader = ExtResource("7_mxyqr")
 shader_parameter/color = Color(0.811765, 0.647059, 0, 0.745098)
@@ -302,33 +338,6 @@ scale_min = 0.1
 scale_max = 0.2
 scale_curve = SubResource("CurveTexture_bs4ja")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fauj5"]
-size = Vector2(381, 161)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuqe5"]
-size = Vector2(449, 50)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnehe"]
-size = Vector2(41, 95.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kj6mq"]
-size = Vector2(48.5, 176)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_odqid"]
-size = Vector2(44.5, 75.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ewo"]
-size = Vector2(177, 35.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhcjg"]
-size = Vector2(97, 41)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_auk0h"]
-size = Vector2(131.5, 36)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_efsuv"]
-size = Vector2(28, 100)
-
 [node name="Level1" type="Node2D"]
 position = Vector2(4, -8)
 script = ExtResource("1_cn5fg")
@@ -347,17 +356,6 @@ layer_0/tile_data = PackedInt32Array(327683, 1310720, 8, 393215, 1310720, 8, 393
 
 [node name="Wizard" parent="." instance=ExtResource("4_6aqcm")]
 position = Vector2(16, 495)
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-modulate = Color(0.717647, 0.529412, 0.392157, 0.670588)
-material = SubResource("ShaderMaterial_k0k4f")
-position = Vector2(-475, 418)
-process_material = SubResource("ParticleProcessMaterial_8u4at")
-texture = ExtResource("5_icpvd")
-lifetime = 2.0
-speed_scale = 0.6
-randomness = 0.59
-fixed_fps = 5
 
 [node name="WaterZone" type="Area2D" parent="."]
 position = Vector2(-3, -2)
@@ -413,11 +411,61 @@ shape = SubResource("RectangleShape2D_vhcjg")
 position = Vector2(-1772.75, 26)
 shape = SubResource("RectangleShape2D_auk0h")
 
-[node name="LightningRod" type="Area2D" parent="."]
+[node name="FirstLightningRod" type="Area2D" parent="." node_paths=PackedStringArray("TriggerPlatform")]
 collision_layer = 8
 collision_mask = 16
 script = ExtResource("11_xjhn5")
+TriggerPlatform = NodePath("../LightningRodPuzzle")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LightningRod"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FirstLightningRod"]
 position = Vector2(-475, 456)
 shape = SubResource("RectangleShape2D_efsuv")
+
+[node name="LightningRodPuzzle" type="StaticBody2D" parent="."]
+disable_mode = 2
+collision_layer = 128
+collision_mask = 128
+
+[node name="TriggerPlatform1" type="CollisionShape2D" parent="LightningRodPuzzle"]
+position = Vector2(-122, 406)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_b0aio")
+
+[node name="TriggerPlatform2" type="CollisionShape2D" parent="LightningRodPuzzle"]
+position = Vector2(-316, 359)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bpfou")
+
+[node name="Node2D" type="Node2D" parent="LightningRodPuzzle"]
+visible = false
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="LightningRodPuzzle/Node2D"]
+modulate = Color(0.717647, 0.529412, 0.392157, 0.670588)
+material = SubResource("ShaderMaterial_k0k4f")
+position = Vector2(-475, 418)
+process_material = SubResource("ParticleProcessMaterial_8u4at")
+texture = ExtResource("5_icpvd")
+lifetime = 2.0
+speed_scale = 0.6
+randomness = 0.59
+fixed_fps = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="LightningRodPuzzle/Node2D"]
+position = Vector2(-89.5, 406)
+scale = Vector2(0.197222, 0.2405)
+texture = ExtResource("13_edixu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="LightningRodPuzzle/Node2D"]
+position = Vector2(-154, 407)
+scale = Vector2(0.185333, 0.2405)
+texture = ExtResource("13_edixu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="LightningRodPuzzle/Node2D"]
+position = Vector2(-283.14, 358)
+scale = Vector2(0.188111, 0.2405)
+texture = ExtResource("13_edixu")
+
+[node name="Sprite2D4" type="Sprite2D" parent="LightningRodPuzzle/Node2D"]
+position = Vector2(-347.64, 359)
+scale = Vector2(0.202, 0.2405)
+texture = ExtResource("13_edixu")
