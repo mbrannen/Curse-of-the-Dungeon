@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://diyqoi5qwqrwr"]
+[gd_scene load_steps=32 format=3 uid="uid://diyqoi5qwqrwr"]
 
 [ext_resource type="Script" path="res://Enemies/Goblin/Goblin.cs" id="1_hny3b"]
 [ext_resource type="Texture2D" uid="uid://drnmn0g7w6m0i" path="res://Enemies/Goblin/goblin-animation-frames/ghost-move/gho-move-f1.png" id="2_7ky7f"]
+[ext_resource type="PackedScene" uid="uid://s4s1q3mjpb5m" path="res://Enemies/Goblin/Axe.tscn" id="2_30bsa"]
 [ext_resource type="Texture2D" uid="uid://rk6gmu137qdl" path="res://Enemies/Goblin/goblin-animation-frames/ghost-move/gho-move-f2.png" id="3_vlvmd"]
 [ext_resource type="Texture2D" uid="uid://crdca4qffabp4" path="res://Enemies/Goblin/goblin-animation-frames/ghost-move/gho-move-f3.png" id="4_mifn8"]
 [ext_resource type="Texture2D" uid="uid://dvv0fderj0ynx" path="res://Enemies/Goblin/goblin-animation-frames/ghost-move/gho-move-f4.png" id="5_pf6xl"]
@@ -25,9 +26,10 @@
 [ext_resource type="Texture2D" uid="uid://2i0nnsut1pbw" path="res://Enemies/Goblin/goblin-animation-frames/walk/gob-walk-f2.png" id="23_ft715"]
 [ext_resource type="Texture2D" uid="uid://dwwta3o6aqd3s" path="res://Enemies/Goblin/goblin-animation-frames/walk/gob-walk-f3.png" id="24_4272u"]
 [ext_resource type="Texture2D" uid="uid://bvrnr8ma42bpq" path="res://Enemies/Goblin/goblin-animation-frames/walk/gob-walk-f4.png" id="25_gjo2i"]
+[ext_resource type="Script" path="res://Enemies/Goblin/GoblinDetectionBox.cs" id="26_fwero"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_551eb"]
-size = Vector2(37.5, 45)
+size = Vector2(39, 40.75)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jpx1v"]
 animations = [{
@@ -60,15 +62,7 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("9_rcvu1")
-}],
-"loop": true,
-"name": &"posession",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cvnvq"]
-animations = [{
-"frames": [{
+}, {
 "duration": 1.0,
 "texture": ExtResource("10_vegbc")
 }, {
@@ -81,11 +75,28 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_784xi")
 }],
+"loop": false,
+"name": &"possession",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cvnvq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_ft715")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_4272u")
+}],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_rrrxf")
+}, {
 "duration": 1.0,
 "texture": ExtResource("14_osan6")
 }, {
@@ -94,11 +105,8 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("16_gv1ll")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_rrrxf")
 }],
-"loop": true,
+"loop": false,
 "name": &"second death",
 "speed": 5.0
 }, {
@@ -115,7 +123,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("21_p0knk")
 }],
-"loop": true,
+"loop": false,
 "name": &"throw",
 "speed": 5.0
 }, {
@@ -132,49 +140,52 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("25_gjo2i")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6udj8"]
-radius = 147.085
+radius = 288.085
 
-[node name="Goblin" type="CharacterBody2D" groups=["enemy"]]
+[node name="Goblin" type="CharacterBody2D" node_paths=PackedStringArray("GhostFormSpriteAnimated", "UndeadFormSpriteAnimated", "GoblinDetectionBox") groups=["enemy"]]
 position = Vector2(5, -2)
 collision_layer = 6
 collision_mask = 7
 script = ExtResource("1_hny3b")
 Gravity = 1500.0
 Speed = 250.0
-Acceleration = 500.0
+Acceleration = 250.0
 Friction = 1000.0
 FallSpeed = 1000.0
+GhostFormSpriteAnimated = NodePath("GhostForm")
+UndeadFormSpriteAnimated = NodePath("UndeadForm")
+GoblinDetectionBox = NodePath("GoblinDetectionBox")
+Axe = ExtResource("2_30bsa")
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
-position = Vector2(308, 104)
+position = Vector2(-1.5, -19.625)
 shape = SubResource("RectangleShape2D_551eb")
 
 [node name="GhostForm" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(-2, -71)
+position = Vector2(-4, -33)
 sprite_frames = SubResource("SpriteFrames_jpx1v")
+animation = &"possession"
+autoplay = "default"
 
 [node name="UndeadForm" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(2, -32)
+position = Vector2(-5, -33)
 sprite_frames = SubResource("SpriteFrames_cvnvq")
+animation = &"idle"
 
-[node name="DetectionBox" type="Area2D" parent="."]
-visible = false
+[node name="GoblinDetectionBox" type="Area2D" parent="." node_paths=PackedStringArray("GhostFormSpriteAnimated", "UndeadFormSpriteAnimated")]
 collision_layer = 6
 collision_mask = 6
+script = ExtResource("26_fwero")
+GhostFormSpriteAnimated = NodePath("../GhostForm")
+UndeadFormSpriteAnimated = NodePath("../UndeadForm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionBox"]
-visible = false
-position = Vector2(-2, -23)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoblinDetectionBox"]
+position = Vector2(-6, -20)
 shape = SubResource("CircleShape2D_6udj8")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(306, 97)
-texture = ExtResource("2_7ky7f")

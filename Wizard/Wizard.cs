@@ -58,7 +58,6 @@ public partial class Wizard : CharacterBody2D
 
 	void GravityHandler(double delta)
 	{
-        GD.Print(IsOnFloor());
         //Return out of the function if already on the floor.
         if (IsOnFloor()) return;
 
@@ -67,8 +66,6 @@ public partial class Wizard : CharacterBody2D
 			Velocity.X,
 			Mathf.MoveToward(Velocity.Y, FallSpeed, Gravity * (float)delta)
 		).Floor();
-        GD.Print(Velocity);
-
     }
 
     float InputHandler()

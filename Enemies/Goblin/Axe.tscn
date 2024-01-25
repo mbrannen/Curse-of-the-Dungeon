@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://s4s1q3mjpb5m"]
+
+[ext_resource type="Script" path="res://Enemies/Goblin/Axe.cs" id="1_foual"]
+[ext_resource type="Texture2D" uid="uid://b37lfvdxe6gcc" path="res://Enemies/Goblin/goblin-animation-frames/goblin-axe.png" id="2_r6lw4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dbpvs"]
+radius = 5.08195
+height = 21.4303
+
+[node name="Axe" type="RigidBody2D"]
+script = ExtResource("1_foual")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+rotation = 0.279253
+shape = SubResource("CapsuleShape2D_dbpvs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_r6lw4")
