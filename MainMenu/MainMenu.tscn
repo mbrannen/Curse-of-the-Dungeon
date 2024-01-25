@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b2vhhetl6w0ip"]
+[gd_scene load_steps=16 format=3 uid="uid://b2vhhetl6w0ip"]
 
 [ext_resource type="Script" path="res://MainMenu/MainMenu.cs" id="1_0qxbf"]
 [ext_resource type="Texture2D" uid="uid://b5tsdrrhuwa32" path="res://MainMenu/BG.png" id="1_1orda"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://dp2p5chmqvhdp" path="res://Roboto-Regular.ttf" id="4_6ogdn"]
 [ext_resource type="PackedScene" uid="uid://bgfdtj2ry60c5" path="res://MainMenu/Credits.tscn" id="4_u7cr8"]
 [ext_resource type="PackedScene" uid="uid://dhwgxa1uyk1mp" path="res://MainMenu/Options.tscn" id="5_v8wv2"]
+[ext_resource type="PackedScene" uid="uid://bq3lwsnvmy8mc" path="res://Levels/Level2.tscn" id="6_480qi"]
 [ext_resource type="Texture2D" uid="uid://b8jgilyr7fsgw" path="res://Levels/Art/Title_500x500px_placeholder.png" id="7_iwrpq"]
 [ext_resource type="PackedScene" uid="uid://bl2fesc7epab1" path="res://UI/IntroCutscene.tscn" id="8_jam5c"]
 [ext_resource type="PackedScene" uid="uid://b7mhrtmw1bpu7" path="res://Levels/Level1.tscn" id="9_xi5so"]
@@ -43,6 +44,7 @@ IntroCutscene = NodePath("IntroCutscene")
 GameUI = NodePath("CanvasLayer/UI")
 RuneTree = NodePath("CanvasLayer/UI/RuneTree")
 Level1 = ExtResource("9_xi5so")
+Level2 = ExtResource("6_480qi")
 metadata/_edit_horizontal_guides_ = [270.0]
 metadata/_edit_vertical_guides_ = [480.0]
 

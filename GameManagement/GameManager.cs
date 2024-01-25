@@ -16,6 +16,7 @@ public sealed class GameManager
     public delegate void StateChangedDelegate();
     public event StateChangedDelegate PlayIntroCutscene;
     public event StateChangedDelegate LevelOneStart;
+    public event StateChangedDelegate LevelTwoStart;
     public event StateChangedDelegate GameOverNotify;
     public event StateChangedDelegate LevelRestart;
 
@@ -73,6 +74,7 @@ public sealed class GameManager
                 LevelOneStart?.Invoke();
                 break;
             case GameState.Level2:
+                LevelTwoStart?.Invoke();
                 break;
             case GameState.Level3:
                 break;

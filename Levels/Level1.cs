@@ -27,4 +27,10 @@ public partial class Level1 : Node2D
             Wizard.Visible = !Wizard.Visible;
         }
     }
+
+    public void Destroy()
+    {
+        GameManager.Instance.LevelRestart -= OnLevelRestart;
+        QueueFree();
+    }
 }

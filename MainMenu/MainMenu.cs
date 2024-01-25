@@ -33,6 +33,10 @@ public partial class MainMenu : Control
 	[Export] public Control RuneTree;
 	[ExportGroup("Levels")]
 	[Export] public PackedScene Level1;
+	private Level1  _level1;
+	private Level2 _level2;
+
+	[Export] public PackedScene Level2;
 
 	public override void _EnterTree()
 	{
@@ -42,6 +46,7 @@ public partial class MainMenu : Control
 		MainMenuManager.Instance.OptionsBackButtonPressed += OnOptionsBackButtonPressed;
 		
 		GameManager.Instance.LevelOneStart += OnLevelOneStart;
+		GameManager.Instance.LevelTwoStart += OnLevelTwoStart;
 		GameManager.Instance.GameOverNotify += OnGameOverNotify;
 		
 		StartButton.Pressed += StartButtonOnPressed;
@@ -103,11 +108,21 @@ public partial class MainMenu : Control
 		IntroCutscene.Visible = false;
 		GameUI.Visible = true;
 
-		var level1 = Level1.Instantiate() as Level1;
-		AddChild(level1);
+		_level1 = Level1.Instantiate() as Level1;
+		AddChild(_level1);
 
 		GetNode("Wwise/SceneLevelOne").Call("set_state");
 		GetNode("Wwise/EventCaveSFX").Call("post_event");
+	}
+	
+	private void OnLevelTwoStart()
+	{
+		MainMenuPanel.Visible = false;
+		GameOverPanel.Visible = false;
+		IntroCutscene.Visible = false;
+		_level1.Destroy();
+		var level2 = Level2.Instantiate() as Level2;
+		AddChild(level2);
 	}
 	
 	private void OnGameOverNotify()
