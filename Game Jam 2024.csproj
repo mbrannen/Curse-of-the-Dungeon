@@ -6,4 +6,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>GameJam2024</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Enemies\" />
+  </ItemGroup>
 </Project>

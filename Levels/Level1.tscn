@@ -508,6 +508,8 @@ scale = Vector2(0.202, 0.2405)
 texture = ExtResource("13_edixu")
 
 [node name="NextLevelDoor" type="Area2D" parent="." node_paths=PackedStringArray("LightningRod", "IceRod", "FireRod")]
+collision_layer = 6
+collision_mask = 7
 script = ExtResource("15_ujisy")
 LightningRod = NodePath("../Level1LightningRod")
 IceRod = NodePath("../Leve1IceRod")
