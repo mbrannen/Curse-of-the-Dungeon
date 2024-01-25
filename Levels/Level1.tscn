@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b7mhrtmw1bpu7"]
+[gd_scene load_steps=45 format=3 uid="uid://b7mhrtmw1bpu7"]
 
 [ext_resource type="Texture2D" uid="uid://d13qop4lljufr" path="res://Levels/Art/sprite-sheets/sprite-sheet-environment-stone.png" id="1_1yyn2"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_cn5fg"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Levels/FireRod.cs" id="15_u0v11"]
 [ext_resource type="Script" path="res://Levels/NextLevelDoor.cs" id="15_ujisy"]
 [ext_resource type="Script" path="res://Levels/IceRod.cs" id="16_gseih"]
+[ext_resource type="PackedScene" uid="uid://diyqoi5qwqrwr" path="res://Enemies/Goblin/Goblin.tscn" id="18_5xm1h"]
 
 [sub_resource type="Gradient" id="Gradient_vvql6"]
 
@@ -398,7 +399,7 @@ position = Vector2(-732, -63)
 texture = ExtResource("10_a1pjp")
 
 [node name="Wizard" parent="." instance=ExtResource("4_6aqcm")]
-position = Vector2(-3118, 160)
+position = Vector2(-3855, 486)
 
 [node name="WaterZone" type="Area2D" parent="."]
 position = Vector2(-3, -2)
@@ -559,3 +560,6 @@ visible = false
 modulate = Color(1, 1, 1, 0)
 light_mask = 2
 occluder = SubResource("OccluderPolygon2D_dl0e7")
+
+[node name="Goblin" parent="." instance=ExtResource("18_5xm1h")]
+position = Vector2(-4259, 436)

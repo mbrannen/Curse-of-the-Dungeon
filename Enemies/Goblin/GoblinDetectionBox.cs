@@ -45,6 +45,8 @@ public partial class GoblinDetectionBox : Area2D
         if (UndeadFormSpriteAnimated.Visible)
         {
             DetectedPlayer = false;
+            UndeadFormSpriteAnimated.Play("idle");
+
             GD.Print($"Player Detection: {DetectedPlayer}");
         }
     }

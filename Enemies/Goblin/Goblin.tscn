@@ -148,7 +148,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_6udj8"]
 radius = 288.085
 
-[node name="Goblin" type="CharacterBody2D" node_paths=PackedStringArray("GhostFormSpriteAnimated", "UndeadFormSpriteAnimated", "GoblinDetectionBox") groups=["enemy"]]
+[node name="Goblin" type="CharacterBody2D" node_paths=PackedStringArray("GhostFormSpriteAnimated", "UndeadFormSpriteAnimated", "GoblinDetectionBox", "P1", "ThrowTimer") groups=["enemy"]]
 position = Vector2(5, -2)
 collision_layer = 6
 collision_mask = 7
@@ -162,6 +162,8 @@ GhostFormSpriteAnimated = NodePath("GhostForm")
 UndeadFormSpriteAnimated = NodePath("UndeadForm")
 GoblinDetectionBox = NodePath("GoblinDetectionBox")
 Axe = ExtResource("2_30bsa")
+P1 = NodePath("P1")
+ThrowTimer = NodePath("Timer")
 
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, -19.625)
@@ -177,7 +179,7 @@ autoplay = "default"
 visible = false
 position = Vector2(-5, -33)
 sprite_frames = SubResource("SpriteFrames_cvnvq")
-animation = &"idle"
+animation = &"walk"
 
 [node name="GoblinDetectionBox" type="Area2D" parent="." node_paths=PackedStringArray("GhostFormSpriteAnimated", "UndeadFormSpriteAnimated")]
 collision_layer = 6
@@ -189,3 +191,8 @@ UndeadFormSpriteAnimated = NodePath("../UndeadForm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoblinDetectionBox"]
 position = Vector2(-6, -20)
 shape = SubResource("CircleShape2D_6udj8")
+
+[node name="P1" type="Node2D" parent="."]
+position = Vector2(146, -156)
+
+[node name="Timer" type="Timer" parent="."]
