@@ -1,4 +1,8 @@
+
 [gd_scene load_steps=41 format=3 uid="uid://b7mhrtmw1bpu7"]
+
+[gd_scene load_steps=36 format=3 uid="uid://b7mhrtmw1bpu7"]
+
 
 [ext_resource type="Texture2D" uid="uid://d13qop4lljufr" path="res://Levels/Art/sprite-sheets/sprite-sheet-environment-stone.png" id="1_1yyn2"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_cn5fg"]
@@ -342,6 +346,7 @@ scale_min = 0.1
 scale_max = 0.2
 scale_curve = SubResource("CurveTexture_bs4ja")
 
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkw0p"]
 size = Vector2(39, 131)
 
@@ -353,6 +358,15 @@ size = Vector2(25, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1piol"]
 size = Vector2(29, 96)
+
+[sub_resource type="Gradient" id="Gradient_vvql6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ok883"]
+gradient = SubResource("Gradient_vvql6")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dl0e7"]
+polygon = PackedVector2Array(-2617, 509, -2618, 480, -2600, 480, -2602, 461, -2581, 461, -2581, 443, -2551, 444, -2552, 417, -2537, 417, -2538, 397, -2516, 398, -2518, 378, -545, 377, -545, 398, -524, 398, -524, 416, -510, 417, -510, 513)
+
 
 [node name="Level1" type="Node2D"]
 position = Vector2(4, -8)
@@ -488,6 +502,7 @@ position = Vector2(-412.64, 359)
 scale = Vector2(0.202, 0.2405)
 texture = ExtResource("13_edixu")
 
+
 [node name="NextLevelDoor" type="Area2D" parent="." node_paths=PackedStringArray("LightningRod", "IceRod", "FireRod")]
 script = ExtResource("15_ujisy")
 LightningRod = NodePath("../Level1LightningRod")
@@ -524,3 +539,25 @@ script = ExtResource("16_gseih")
 [node name="IceRod" type="CollisionShape2D" parent="Leve1IceRod"]
 position = Vector2(-2635.5, 214)
 shape = SubResource("RectangleShape2D_1piol")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(1, 1, 1, 0.490196)
+blend_mode = 1
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_item_cull_mask = 2
+max_distance = 9994.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1759.33, 327.493)
+rotation = 1.57079
+scale = Vector2(5.86224, -85.2933)
+energy = 0.75
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_ok883")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+light_mask = 2
+occluder = SubResource("OccluderPolygon2D_dl0e7")
+

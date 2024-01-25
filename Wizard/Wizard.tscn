@@ -1,12 +1,58 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3coc670j5u0y"]
+[gd_scene load_steps=18 format=3 uid="uid://b3coc670j5u0y"]
+
 
 [ext_resource type="Script" path="res://Wizard/Wizard.cs" id="1_j82hd"]
 [ext_resource type="PackedScene" uid="uid://cvu6ofg1r3jan" path="res://Spells/Lightning.tscn" id="2_8byeu"]
 [ext_resource type="PackedScene" uid="uid://dwulyrxfxtxg0" path="res://Spells/Fireball.tscn" id="2_a5fuu"]
 [ext_resource type="Texture2D" uid="uid://bijr4lcyff6cn" path="res://testing/wizardtestsprite.png" id="2_had2t"]
+[ext_resource type="Texture2D" uid="uid://cn2405ethoe6k" path="res://Wizard/art/idle/wiz-idle-f1.png" id="3_fj6ua"]
+[ext_resource type="Texture2D" uid="uid://b51gthmwodxtp" path="res://Wizard/art/idle/wiz-idle-f2.png" id="4_dswyf"]
 [ext_resource type="Script" path="res://Wizard/SpellManager.cs" id="4_ew43q"]
+[ext_resource type="Texture2D" uid="uid://vfik4021fkei" path="res://Wizard/art/idle/wiz-idle-f3.png" id="5_y6n7k"]
 [ext_resource type="PackedScene" uid="uid://bfrlmgim0p2so" path="res://Spells/IceShard.tscn" id="6_fgkfi"]
+[ext_resource type="Texture2D" uid="uid://b5qk6tn5ufx7c" path="res://Wizard/art/idle/wiz-idle-f4.png" id="6_o7tjv"]
+[ext_resource type="Texture2D" uid="uid://dkq5d4e3vijx4" path="res://Wizard/art/walk/wiz-walk-f1.png" id="7_7iqt1"]
 [ext_resource type="PackedScene" uid="uid://dfcu17x0kr6wh" path="res://Spells/IceBridge.tscn" id="7_fy076"]
+[ext_resource type="Texture2D" uid="uid://blhij3v2e8gt7" path="res://Wizard/art/walk/wiz-walk-f2.png" id="8_7ntgv"]
+[ext_resource type="Texture2D" uid="uid://bc1tipnlfkedk" path="res://Wizard/art/walk/wiz-walk-f3.png" id="9_3v47k"]
+[ext_resource type="Texture2D" uid="uid://qpexpovv4xuk" path="res://Wizard/art/walk/wiz-walk-f4.png" id="10_vuslg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jttyt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fj6ua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dswyf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y6n7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_o7tjv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_7iqt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7ntgv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3v47k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vuslg")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_slh5g"]
 radius = 5.0
@@ -28,9 +74,17 @@ JumpStrength = -600.0
 SpellOrigin = NodePath("SpellManager")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(2.84217e-14, -71)
 scale = Vector2(0.0504948, 0.0504948)
 texture = ExtResource("2_had2t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -66)
+sprite_frames = SubResource("SpriteFrames_jttyt")
+animation = &"idle"
+frame = 3
+frame_progress = 0.442391
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
