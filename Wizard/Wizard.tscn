@@ -112,6 +112,7 @@ scale = Vector2(0.0504948, 0.0504948)
 texture = ExtResource("2_had2t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.843137)
 position = Vector2(-1, -66)
 sprite_frames = SubResource("SpriteFrames_jttyt")
 animation = &"walk"
@@ -158,7 +159,7 @@ position = Vector2(-0.5, -69)
 shape = SubResource("RectangleShape2D_r5xk5")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-9, -116)
+position = Vector2(2, -56)
 scale = Vector2(3.8125, 3.8125)
 energy = 2.5
 shadow_enabled = true
