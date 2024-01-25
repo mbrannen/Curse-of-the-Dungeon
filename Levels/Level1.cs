@@ -4,10 +4,12 @@ using GameJam2024.GameManagement;
 
 public partial class Level1 : Node2D
 {
-	public override void _Ready()
-	{
-		GameManager.Instance.LevelRestart += OnLevelRestart;
-	}
+    [Export] public TileMap Map;
+    [Export] public CharacterBody2D Wizard;
+    public override void _Ready()
+    {
+        GameManager.Instance.LevelRestart += OnLevelRestart;
+    }
 
 	private void OnLevelRestart()
 	{
@@ -17,11 +19,12 @@ public partial class Level1 : Node2D
 		QueueFree();
 	}
 
-	public override void _Process(double delta)
-	{
-		if (Input.IsActionJustPressed("Talents") || Input.IsActionJustReleased("Talents"))
-		{
-			Visible = !Visible;
-		}
-	}
+    public override void _Process(double delta)
+    {
+        if (Input.IsActionJustPressed("Talents") || Input.IsActionJustReleased("Talents"))
+        {
+            Map.Visible = !Map.Visible;
+            Wizard.Visible = !Wizard.Visible;
+        }
+    }
 }

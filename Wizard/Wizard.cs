@@ -12,6 +12,8 @@ public partial class Wizard : CharacterBody2D
 	[Export] private float FallSpeed { get; set; }
 	[Export] private float JumpStrength { get; set; }
 
+	[Export] public AnimatedSprite2D Animation;
+
 	[Export] Marker2D SpellOrigin;
 	private SpellManager SpellManager;
 
@@ -31,7 +33,7 @@ public partial class Wizard : CharacterBody2D
 			VeloctiyHandler(delta);
 		if(!GameManager.Instance.IsInPauseState())
 			JumpHandler();
-
+		AnimationHandler();
 		CameraHandler();
 
 		if (Input.IsActionJustPressed("Cast"))
@@ -55,19 +57,20 @@ public partial class Wizard : CharacterBody2D
 	}
 
 	//Function to handle gravity and apply downwards force when not on the floor.
+
 	void GravityHandler(double delta)
 	{
-		//Return out of the function if already on the floor.
-		if (IsOnFloor()) return;
+        //Return out of the function if already on the floor.
+        if (IsOnFloor()) return;
 
 		//Set velocity to the current X velocity, and move Y velocity towards fallspeed (terminal velocity)
 		Velocity = new Vector2(
 			Velocity.X,
 			Mathf.MoveToward(Velocity.Y, FallSpeed, Gravity * (float)delta)
 		).Floor();
-	}
+    }
 
-	float InputHandler()
+    float InputHandler()
 	{
 		if ((Input.IsActionPressed("MoveLeft") && Input.IsActionPressed("MoveRight")) || (!Input.IsActionPressed("MoveLeft") && !Input.IsActionPressed("MoveRight")))
 		{
@@ -165,7 +168,22 @@ public partial class Wizard : CharacterBody2D
 
 	void AnimationHandler()
 	{
-		
+		if (Velocity.X > 0)
+		{
+			Animation.FlipH = true;
+			Animation.Play("walk");
+		}
+
+		if (Velocity.X < 0)
+		{
+			Animation.FlipH = false;
+			Animation.Play("walk");
+		}
+		if (Velocity.X == 0)
+		{
+			Animation.Play("idle");
+		}
+			
 	}
 
 }

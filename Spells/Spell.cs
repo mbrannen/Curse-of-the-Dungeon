@@ -7,13 +7,20 @@ public partial class Spell : Node2D
 {
 	[Export] public float Speed = 500;
 
-	[Export] public Rune RuneType;
+    [Export] public Rune RuneType;
+    [Export] public Area2D Collider;
 
-	public IRuneNode Rune;
-	public override void _Ready()
-	{
-		
-	}
+    public IRuneNode Rune;
+    public override void _Ready()
+    {
+        Collider.BodyEntered += ColliderOnBodyEntered;
+    }
+
+    private void ColliderOnBodyEntered(Node2D body)
+    {
+        GD.Print("Collided with something!");
+        QueueFree();
+    }
 
 	public override void _Process(double delta)
 	{
