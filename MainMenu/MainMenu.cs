@@ -5,6 +5,11 @@ using GameJam2024.MainMenu;
 
 public partial class MainMenu : Control
 {
+	[ExportGroup("MouseIcons")] 
+	[Export] private Resource NormalCursor;
+	[Export] private Resource Grab;
+	[Export] private Resource Error;
+	
 	[ExportGroup("MainMenu")]
 	[Export] public Button StartButton;
 	[Export] public Button OptionsButton;
@@ -17,6 +22,7 @@ public partial class MainMenu : Control
 	[Export] public Button CreditsButton_GOM;
 	[Export] public Button ExitGameButton_GOM;
 	[Export] public Panel GameOverPanel;
+	[Export] public AnimationPlayer GameOverAnimator;
 	
 
 	[ExportGroup("MenuScenes")]
@@ -63,6 +69,15 @@ public partial class MainMenu : Control
 		
 		
 		GetNode("Wwise/SceneMainMenu").Call("set_state");
+	}
+
+	public override void _Ready()
+	{
+		Input.SetCustomMouseCursor(NormalCursor, Input.CursorShape.Arrow);
+		Input.SetCustomMouseCursor(Grab, Input.CursorShape.Drag);
+		Input.SetCustomMouseCursor(Grab, Input.CursorShape.Move);
+		Input.SetCustomMouseCursor(Error, Input.CursorShape.Forbidden);
+		Input.SetCustomMouseCursor(Grab, Input.CursorShape.CanDrop);
 	}
 
 	private void CreditsButton_GOMOnPressed()
@@ -127,6 +142,7 @@ public partial class MainMenu : Control
 	
 	private void OnGameOverNotify()
 	{
+		GameOverAnimator.Play("fadein");
 		GameUI.Visible = false;
 		MainMenuPanel.Visible = false;
 		GameOverPanel.Visible = true;

@@ -7,6 +7,7 @@ public partial class GoblinDetectionBox : Area2D
 
     [Export] AnimatedSprite2D GhostFormSpriteAnimated;
     [Export] AnimatedSprite2D UndeadFormSpriteAnimated;
+    [Export] private Sprite2D FormerBody;
 
     bool IsRessurrected;
     public bool DetectedPlayer { get; set; }
@@ -52,5 +53,7 @@ public partial class GoblinDetectionBox : Area2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
 	{
+        if(GhostFormSpriteAnimated.Frame == 4)
+            FormerBody.Visible = false;
     }
 }

@@ -163,6 +163,10 @@ UndeadFormSpriteAnimated = NodePath("UndeadForm")
 GoblinDetectionBox = NodePath("GoblinDetectionBox")
 Axe = ExtResource("2_30bsa")
 
+[node name="Gob-death-f4" type="Sprite2D" parent="."]
+position = Vector2(-4, -33)
+texture = ExtResource("16_gv1ll")
+
 [node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, -19.625)
 shape = SubResource("RectangleShape2D_551eb")
@@ -170,7 +174,6 @@ shape = SubResource("RectangleShape2D_551eb")
 [node name="GhostForm" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4, -33)
 sprite_frames = SubResource("SpriteFrames_jpx1v")
-animation = &"possession"
 autoplay = "default"
 
 [node name="UndeadForm" type="AnimatedSprite2D" parent="."]
@@ -179,12 +182,13 @@ position = Vector2(-5, -33)
 sprite_frames = SubResource("SpriteFrames_cvnvq")
 animation = &"idle"
 
-[node name="GoblinDetectionBox" type="Area2D" parent="." node_paths=PackedStringArray("GhostFormSpriteAnimated", "UndeadFormSpriteAnimated")]
+[node name="GoblinDetectionBox" type="Area2D" parent="." node_paths=PackedStringArray("GhostFormSpriteAnimated", "UndeadFormSpriteAnimated", "FormerBody")]
 collision_layer = 6
 collision_mask = 6
 script = ExtResource("26_fwero")
 GhostFormSpriteAnimated = NodePath("../GhostForm")
 UndeadFormSpriteAnimated = NodePath("../UndeadForm")
+FormerBody = NodePath("../Gob-death-f4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoblinDetectionBox"]
 position = Vector2(-6, -20)

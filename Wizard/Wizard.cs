@@ -20,6 +20,17 @@ public partial class Wizard : CharacterBody2D
 	public override void _Ready()
 	{
 		SpellManager = SpellOrigin as SpellManager;
+		GameManager.Instance.GameOverNotify += OnGameOverNotify;
+	}
+
+	public override void _ExitTree()
+	{
+		GameManager.Instance.GameOverNotify -= OnGameOverNotify;
+	}
+
+	private void OnGameOverNotify()
+	{
+		Animation.Play("death");
 	}
 
 	//Non-Physics related calls should go here. Called every frame.
@@ -29,8 +40,7 @@ public partial class Wizard : CharacterBody2D
 		
 		GravityHandler(delta);
 
-		if(!GameManager.Instance.IsInPauseState())
-			VeloctiyHandler(delta);
+		VeloctiyHandler(delta);
 		if(!GameManager.Instance.IsInPauseState())
 			JumpHandler();
 		AnimationHandler();
@@ -103,6 +113,12 @@ public partial class Wizard : CharacterBody2D
 				Velocity.Y
 			).Floor();
 		}
+		//ovveride to a 0 x velocity if player died
+		if (GameManager.Instance.GetState() == GameState.GameOver)
+			Velocity = new Vector2(
+				0,
+				Velocity.Y
+			);
 	}
 
 	void JumpHandler()
@@ -168,21 +184,25 @@ public partial class Wizard : CharacterBody2D
 
 	void AnimationHandler()
 	{
-		if (Velocity.X > 0)
+		if (GameManager.Instance.GetState() != GameState.GameOver)
 		{
-			Animation.FlipH = true;
-			Animation.Play("walk");
+			if (Velocity.X > 0)
+			{
+				Animation.FlipH = true;
+				Animation.Play("walk");
+			}
+
+			if (Velocity.X < 0)
+			{
+				Animation.FlipH = false;
+				Animation.Play("walk");
+			}
+			if (Velocity.X == 0)
+			{
+				Animation.Play("idle");
+			}
 		}
 
-		if (Velocity.X < 0)
-		{
-			Animation.FlipH = false;
-			Animation.Play("walk");
-		}
-		if (Velocity.X == 0)
-		{
-			Animation.Play("idle");
-		}
 			
 	}
 
