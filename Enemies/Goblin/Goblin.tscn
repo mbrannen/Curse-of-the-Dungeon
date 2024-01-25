@@ -1,0 +1,180 @@
+[gd_scene load_steps=30 format=3 uid="uid://diyqoi5qwqrwr"]
+
+[ext_resource type="Script" path="res://Enemies/Goblin/Goblin.cs" id="1_hny3b"]
+[ext_resource type="Texture2D" uid="uid://drnmn0g7w6m0i" path="res://Enemies/Goblin/goblin-animation-frames/ghost-move/gho-move-f1.png" id="2_7ky7f"]
+[ext_resource type="Texture2D" uid="uid://rk6gmu137qdl" path="res://Enemies/Goblin/goblin-animation-frames/ghost-move/gho-move-f2.png" id="3_vlvmd"]
+[ext_resource type="Texture2D" uid="uid://crdca4qffabp4" path="res://Enemies/Goblin/goblin-animation-frames/ghost-move/gho-move-f3.png" id="4_mifn8"]
+[ext_resource type="Texture2D" uid="uid://dvv0fderj0ynx" path="res://Enemies/Goblin/goblin-animation-frames/ghost-move/gho-move-f4.png" id="5_pf6xl"]
+[ext_resource type="Texture2D" uid="uid://dxca8t385gq2n" path="res://Enemies/Goblin/goblin-animation-frames/ghost-possess/gho-posess-f1.png" id="6_2uw3l"]
+[ext_resource type="Texture2D" uid="uid://dakvk4qfcas1t" path="res://Enemies/Goblin/goblin-animation-frames/ghost-possess/gho-posess-f2.png" id="7_7vdvp"]
+[ext_resource type="Texture2D" uid="uid://ba66dp2mg1mxm" path="res://Enemies/Goblin/goblin-animation-frames/ghost-possess/gho-posess-f3.png" id="8_orwa4"]
+[ext_resource type="Texture2D" uid="uid://d0va0vktcwen0" path="res://Enemies/Goblin/goblin-animation-frames/ghost-possess/gho-posess-f4.png" id="9_rcvu1"]
+[ext_resource type="Texture2D" uid="uid://dhwhxnjhermxf" path="res://Enemies/Goblin/goblin-animation-frames/death-and-undeath/undeath/gob-undeath-f1.png" id="10_vegbc"]
+[ext_resource type="Texture2D" uid="uid://b6s2dpxujyhbn" path="res://Enemies/Goblin/goblin-animation-frames/death-and-undeath/undeath/gob-undeath-f2.png" id="11_r8nda"]
+[ext_resource type="Texture2D" uid="uid://0rduhsswasay" path="res://Enemies/Goblin/goblin-animation-frames/death-and-undeath/undeath/gob-undeath-f3.png" id="12_g7akv"]
+[ext_resource type="Texture2D" uid="uid://botrej3jbsln3" path="res://Enemies/Goblin/goblin-animation-frames/death-and-undeath/undeath/gob-undeath-f4.png" id="13_784xi"]
+[ext_resource type="Texture2D" uid="uid://dbk00jbuytlxt" path="res://Enemies/Goblin/goblin-animation-frames/death-and-undeath/gob-death-f2.png" id="14_osan6"]
+[ext_resource type="Texture2D" uid="uid://b8c5rsmkjlns8" path="res://Enemies/Goblin/goblin-animation-frames/death-and-undeath/gob-death-f3.png" id="15_davqf"]
+[ext_resource type="Texture2D" uid="uid://b7gcdmpkn7x7q" path="res://Enemies/Goblin/goblin-animation-frames/death-and-undeath/gob-death-f4.png" id="16_gv1ll"]
+[ext_resource type="Texture2D" uid="uid://dha16nv0xiga0" path="res://Enemies/Goblin/goblin-animation-frames/death-and-undeath/gob-death-f1.png" id="17_rrrxf"]
+[ext_resource type="Texture2D" uid="uid://cltjvnu5yqwwm" path="res://Enemies/Goblin/goblin-animation-frames/throw/gob-throw-f1.png" id="18_ymq2e"]
+[ext_resource type="Texture2D" uid="uid://dg1idjrhl8lfc" path="res://Enemies/Goblin/goblin-animation-frames/throw/gob-throw-f2.png" id="19_db3dk"]
+[ext_resource type="Texture2D" uid="uid://dhikjxo1vmyyl" path="res://Enemies/Goblin/goblin-animation-frames/throw/gob-throw-f3.png" id="20_0m2ys"]
+[ext_resource type="Texture2D" uid="uid://ca3u1que3nxro" path="res://Enemies/Goblin/goblin-animation-frames/throw/gob-throw-f4.png" id="21_p0knk"]
+[ext_resource type="Texture2D" uid="uid://dqim1p0uo1pq2" path="res://Enemies/Goblin/goblin-animation-frames/walk/gob-walk-f1.png" id="22_53mpl"]
+[ext_resource type="Texture2D" uid="uid://2i0nnsut1pbw" path="res://Enemies/Goblin/goblin-animation-frames/walk/gob-walk-f2.png" id="23_ft715"]
+[ext_resource type="Texture2D" uid="uid://dwwta3o6aqd3s" path="res://Enemies/Goblin/goblin-animation-frames/walk/gob-walk-f3.png" id="24_4272u"]
+[ext_resource type="Texture2D" uid="uid://bvrnr8ma42bpq" path="res://Enemies/Goblin/goblin-animation-frames/walk/gob-walk-f4.png" id="25_gjo2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_551eb"]
+size = Vector2(37.5, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jpx1v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7ky7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vlvmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mifn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pf6xl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_2uw3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7vdvp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_orwa4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rcvu1")
+}],
+"loop": true,
+"name": &"posession",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cvnvq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_vegbc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_r8nda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_g7akv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_784xi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_osan6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_davqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_gv1ll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_rrrxf")
+}],
+"loop": true,
+"name": &"second death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_ymq2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_db3dk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_0m2ys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_p0knk")
+}],
+"loop": true,
+"name": &"throw",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_53mpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ft715")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_4272u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_gjo2i")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6udj8"]
+radius = 147.085
+
+[node name="Goblin" type="CharacterBody2D" groups=["enemy"]]
+position = Vector2(5, -2)
+collision_layer = 6
+collision_mask = 7
+script = ExtResource("1_hny3b")
+Gravity = 1500.0
+Speed = 250.0
+Acceleration = 500.0
+Friction = 1000.0
+FallSpeed = 1000.0
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(308, 104)
+shape = SubResource("RectangleShape2D_551eb")
+
+[node name="GhostForm" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-2, -71)
+sprite_frames = SubResource("SpriteFrames_jpx1v")
+
+[node name="UndeadForm" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(2, -32)
+sprite_frames = SubResource("SpriteFrames_cvnvq")
+
+[node name="DetectionBox" type="Area2D" parent="."]
+visible = false
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionBox"]
+visible = false
+position = Vector2(-2, -23)
+shape = SubResource("CircleShape2D_6udj8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(306, 97)
+texture = ExtResource("2_7ky7f")

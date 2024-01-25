@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b7mhrtmw1bpu7"]
+[gd_scene load_steps=42 format=3 uid="uid://b7mhrtmw1bpu7"]
 
 [ext_resource type="Texture2D" uid="uid://d13qop4lljufr" path="res://Levels/Art/sprite-sheets/sprite-sheet-environment-stone.png" id="1_1yyn2"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_cn5fg"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Levels/FireRod.cs" id="15_u0v11"]
 [ext_resource type="Script" path="res://Levels/NextLevelDoor.cs" id="15_ujisy"]
 [ext_resource type="Script" path="res://Levels/IceRod.cs" id="16_gseih"]
+[ext_resource type="PackedScene" uid="uid://diyqoi5qwqrwr" path="res://Enemies/Goblin/Goblin.tscn" id="18_1w471"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fqkrr"]
 texture = ExtResource("1_1yyn2")
@@ -524,3 +525,6 @@ script = ExtResource("16_gseih")
 [node name="IceRod" type="CollisionShape2D" parent="Leve1IceRod"]
 position = Vector2(-2635.5, 214)
 shape = SubResource("RectangleShape2D_1piol")
+
+[node name="Goblin" parent="." instance=ExtResource("18_1w471")]
+position = Vector2(-3363, 91)
