@@ -11,13 +11,13 @@ public partial class Level1 : Node2D
         GameManager.Instance.LevelRestart += OnLevelRestart;
     }
 
-    private void OnLevelRestart()
-    {
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //THIS UNSUBSCRIBE IS SO IMPORTANT I CAN'T EVEN ****BANGS HEAD ON KEYBOARD EVEN MORE THAN I DID FIGURING THIS OUT****
-        GameManager.Instance.LevelRestart -= OnLevelRestart;
-        QueueFree();
-    }
+	private void OnLevelRestart()
+	{
+		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//THIS UNSUBSCRIBE IS SO IMPORTANT I CAN'T EVEN ****BANGS HEAD ON KEYBOARD EVEN MORE THAN I DID FIGURING THIS OUT****
+		GameManager.Instance.LevelRestart -= OnLevelRestart;
+		QueueFree();
+	}
 
     public override void _Process(double delta)
     {

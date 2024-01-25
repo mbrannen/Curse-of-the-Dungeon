@@ -309,3 +309,10 @@ event = {
 "name": "UI_Error"
 }
 position = Vector2(377, 483)
+
+[node name="EventCorruptionImpact" type="AkEvent2D" parent="Wwise"]
+event = {
+"id": 1738147771,
+"name": "Corruption_Impact"
+}
+position = Vector2(377, 483)

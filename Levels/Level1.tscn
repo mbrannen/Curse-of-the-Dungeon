@@ -398,7 +398,7 @@ position = Vector2(-732, -63)
 texture = ExtResource("10_a1pjp")
 
 [node name="Wizard" parent="." instance=ExtResource("4_6aqcm")]
-position = Vector2(-3118, 160)
+position = Vector2(252.76, 375.643)
 
 [node name="WaterZone" type="Area2D" parent="."]
 position = Vector2(-3, -2)
@@ -507,6 +507,13 @@ position = Vector2(-412.64, 359)
 scale = Vector2(0.202, 0.2405)
 texture = ExtResource("13_edixu")
 
+[node name="PlatformEvent" type="AkEvent2D" parent="PlatformAppears"]
+event = {
+"id": 1398573350,
+"name": "Stone_Platform_Emerge"
+}
+position = Vector2(-190.5, 405.5)
+
 [node name="NextLevelDoor" type="Area2D" parent="." node_paths=PackedStringArray("LightningRod", "IceRod", "FireRod")]
 collision_layer = 6
 collision_mask = 7
@@ -519,6 +526,20 @@ FireRod = NodePath("../Level1FireRod")
 position = Vector2(-4457.5, 439.5)
 shape = SubResource("RectangleShape2D_rkw0p")
 
+[node name="DoorOpenEvent" type="AkEvent2D" parent="NextLevelDoor"]
+event = {
+"id": 2589897592,
+"name": "Door_Opening"
+}
+position = Vector2(-4461.62, 440.4)
+
+[node name="DoorLockedEvent" type="AkEvent2D" parent="NextLevelDoor"]
+event = {
+"id": 3333554874,
+"name": "Door_Locked"
+}
+position = Vector2(-4461.62, 440.4)
+
 [node name="Level1LightningRod" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 16
@@ -527,6 +548,12 @@ script = ExtResource("11_xjhn5")
 [node name="LightningRod" type="CollisionShape2D" parent="Level1LightningRod"]
 position = Vector2(-4426.5, -169)
 shape = SubResource("RectangleShape2D_fwo5y")
+
+[node name="RodChargeEvent" type="AkEvent2D" parent="Level1LightningRod/LightningRod"]
+event = {
+"id": 1470625830,
+"name": "Pylon_Charge"
+}
 
 [node name="Level1FireRod" type="Area2D" parent="."]
 collision_layer = 8
@@ -537,6 +564,12 @@ script = ExtResource("15_u0v11")
 position = Vector2(-2826.5, -433)
 shape = SubResource("RectangleShape2D_nrkdb")
 
+[node name="RodChargeEvent" type="AkEvent2D" parent="Level1FireRod/FireRod"]
+event = {
+"id": 1470625830,
+"name": "Pylon_Charge"
+}
+
 [node name="Leve1IceRod" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 16
@@ -545,6 +578,12 @@ script = ExtResource("16_gseih")
 [node name="IceRod" type="CollisionShape2D" parent="Leve1IceRod"]
 position = Vector2(-2635.5, 214)
 shape = SubResource("RectangleShape2D_1piol")
+
+[node name="RodChargeEvent" type="AkEvent2D" parent="Leve1IceRod/IceRod"]
+event = {
+"id": 1470625830,
+"name": "Pylon_Charge"
+}
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(1, 1, 1, 0.490196)

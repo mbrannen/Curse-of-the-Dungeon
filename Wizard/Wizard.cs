@@ -123,9 +123,9 @@ public partial class Wizard : CharacterBody2D
 	void CastSpell()
 	{
 		if (!GameManager.Instance.IsTalentsOpen
-		    && GameManager.Instance.GetSelectedSpell() is not null
-		    && GameManager.Instance.GetSelectedSpell()?.RuneType != Rune.Base
-		    && SpellManager.CanCast())
+			&& GameManager.Instance.GetSelectedSpell() is not null
+			&& GameManager.Instance.GetSelectedSpell()?.RuneType != Rune.Base
+			&& SpellManager.CanCast())
 		{
 			var mouseCoords = GetGlobalMousePosition();
 			var spell = SpellManager.GetSpell().Instantiate() as Spell;
@@ -136,11 +136,34 @@ public partial class Wizard : CharacterBody2D
 				spell.GlobalPosition = mouseCoords;
 			else
 				spell.GlobalPosition = SpellOrigin.GlobalPosition;
+			
+			ChangeSpellAudioState(spell.Rune.RuneType);
 			GetTree().CurrentScene.AddChild(spell);
 			
 			GameManager.Instance.ChangeCorruptionValue(spell.Rune.MagicClass, spell.Rune.CorruptionCost);
 		}
 
+	}
+
+	void ChangeSpellAudioState(Rune rune)
+	{
+		switch(rune) {
+				case Rune.Fireball:
+				case Rune.Fireblast:
+				case Rune.Firewall:
+					GetNode("Wwise/FireSpellState").Call("set_state");
+					break;
+				case Rune.LightningRune:
+					GetNode("Wwise/LightningSpellState").Call("set_state");
+					break;
+				case Rune.IceBlock:
+				case Rune.IcePatch:
+				case Rune.IceBridge:
+				case Rune.IceShard:
+				case Rune.IceRune:
+					GetNode("Wwise/IceSpellState").Call("set_state");
+					break;
+			}
 	}
 
 	void AnimationHandler()

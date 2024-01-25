@@ -10,8 +10,8 @@ public partial class SpellSlot : PanelContainer
 	[Export] public Texture2D Icon;
 	[Export] public Rune SpellName;
 	[Export] public TextureProgressBar Corruption;
-    [Export] public int SpellIndex = 0;
-    [Export] public TextureRect Outline;
+	[Export] public int SpellIndex = 0;
+	[Export] public TextureRect Outline;
 
 	public IRuneNode Rune;
 
@@ -29,18 +29,18 @@ public partial class SpellSlot : PanelContainer
         
     }
 
-    private void OnSpellIndexChanged(int index)
-    {
-        if (index == SpellIndex)
-        {
-            Outline.Modulate = new Color(1, 1, 1, 1);
-            GameManager.Instance.SetSelectedSpell(Rune);
-        }
-        else
-        {
-            Outline.Modulate = new Color(1, 1, 1, 0.5f);
-        }
-    }
+	private void OnSpellIndexChanged(int index)
+	{
+		if (index == SpellIndex)
+		{
+			Outline.Modulate = new Color(1, 1, 1, 1);
+			GameManager.Instance.SetSelectedSpell(Rune);
+		}
+		else
+		{
+			Outline.Modulate = new Color(1, 1, 1, 0.5f);
+		}
+	}
 
 	private void OnCorruptionChanged(MagicClass magicclass, int value)
 	{
@@ -93,8 +93,8 @@ public partial class SpellSlot : PanelContainer
 	private void UpdateTooltip()
 	{
 		TooltipText =  $"{Rune.Name.ToUpper()}\n" +
-		               $"Corruption Cost: {Rune.CorruptionCost}\n" +
-		               $"'{Rune.Description}'";
+					   $"Corruption Cost: {Rune.CorruptionCost}\n" +
+					   $"'{Rune.Description}'";
 	}
 	
 }

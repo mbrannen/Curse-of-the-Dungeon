@@ -169,3 +169,35 @@ libraries = {
 "": SubResource("AnimationLibrary_n6y67")
 }
 autoplay = "light_flicker"
+
+[node name="Wwise" type="Node" parent="."]
+
+[node name="FireSpellState" type="AkState" parent="Wwise"]
+state_group = {
+"id": 3830273964,
+"name": "Spell_Type"
+}
+state_value = {
+"id": 2678880713,
+"name": "Fire"
+}
+
+[node name="IceSpellState" type="AkState" parent="Wwise"]
+state_group = {
+"id": 3830273964,
+"name": "Spell_Type"
+}
+state_value = {
+"id": 344481046,
+"name": "Ice"
+}
+
+[node name="LightningSpellState" type="AkState" parent="Wwise"]
+state_group = {
+"id": 3830273964,
+"name": "Spell_Type"
+}
+state_value = {
+"id": 3334464137,
+"name": "Lightning"
+}

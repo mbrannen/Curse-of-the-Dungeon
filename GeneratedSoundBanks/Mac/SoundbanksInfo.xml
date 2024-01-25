@@ -38,6 +38,7 @@
 					<States>
 						<State Id="748895195" Name="None"/>
 						<State Id="749373321" Name="Caves"/>
+						<State Id="1182958561" Name="Cutscene"/>
 						<State Id="3604647259" Name="MainMenu"/>
 					</States>
 				</StateGroup>
@@ -187,14 +188,10 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{89DF6E74-23FC-E859-74D0-9624FA71A3E1}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{F8DBCD0D-5288-2060-89B2-10E2CB75D309}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
-				<File Id="7115842" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>untitled.wav</ShortName>
-					<CachePath>SFX/untitled_FBC78EF0.wem</CachePath>
-				</File>
 				<File Id="18980383" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SpellPickup.wav</ShortName>
 					<CachePath>SFX/SpellPickup_8735131D.wem</CachePath>
@@ -213,7 +210,11 @@
 				</File>
 				<File Id="113926128" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Bridge_Creaking.wav</ShortName>
-					<CachePath>SFX/Bridge_Creaking_27A3B9EB.wem</CachePath>
+					<CachePath>SFX/Bridge_Creaking_0156F7B3.wem</CachePath>
+				</File>
+				<File Id="124476507" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Batch 4\PylonCharge.wav</ShortName>
+					<CachePath>SFX/Batch 4/PylonCharge_1A05E5C2.wem</CachePath>
 				</File>
 				<File Id="130218539" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX_Done\Fire_Spell_Charge.wav</ShortName>
@@ -233,11 +234,11 @@
 				</File>
 				<File Id="182154221" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Ghost_Ambience.wav</ShortName>
-					<CachePath>SFX/Ghost_Ambience_1358296D.wem</CachePath>
+					<CachePath>SFX/Ghost_Ambience_6D37B058.wem</CachePath>
 				</File>
 				<File Id="191518466" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Ghost_Scream.wav</ShortName>
-					<CachePath>SFX/Ghost_Scream_AEE53731.wem</CachePath>
+					<CachePath>SFX/Ghost_Scream_4DEB3658.wem</CachePath>
 				</File>
 				<File Id="215882423" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX_Done\Electricity.wav</ShortName>
@@ -250,6 +251,10 @@
 				<File Id="240409872" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX_Done\Stone_Impact.wav</ShortName>
 					<CachePath>SFX/SFX_Done/Stone_Impact_C3EFB5A7.wem</CachePath>
+				</File>
+				<File Id="274512341" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Batch 4\LockedDoor.wav</ShortName>
+					<CachePath>SFX/Batch 4/LockedDoor_54FB9286.wem</CachePath>
 				</File>
 				<File Id="320303137" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CorruptionImpact.wav</ShortName>
@@ -271,9 +276,17 @@
 					<ShortName>SFX_Done\Freezing.wav</ShortName>
 					<CachePath>SFX/SFX_Done/Freezing_818F3B66.wem</CachePath>
 				</File>
+				<File Id="433236730" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>MainMenu.wav</ShortName>
+					<CachePath>SFX/MainMenu_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="464612256" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>FootstepIce3.wav</ShortName>
 					<CachePath>SFX/FootstepIce3_4E24367E.wem</CachePath>
+				</File>
+				<File Id="501159738" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Batch 4\DoorOpening.wav</ShortName>
+					<CachePath>SFX/Batch 4/DoorOpening_C64F5601.wem</CachePath>
 				</File>
 				<File Id="510063564" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX_Done\Fire_Spell_Impact.wav</ShortName>
@@ -335,6 +348,10 @@
 					<ShortName>SpellDrop.wav</ShortName>
 					<CachePath>SFX/SpellDrop_87B165C4.wem</CachePath>
 				</File>
+				<File Id="1038208827" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Cutscene.wav</ShortName>
+					<CachePath>SFX/Cutscene_FBC78EF0.wem</CachePath>
+				</File>
 			</Media>
 			<Plugins>
 				<Custom>
@@ -377,6 +394,16 @@
 				<Event Id="2166756653" Name="Corruption_Soft">
 					<MediaRefs>
 						<MediaRef Id="568315850"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3333554874" Name="Door_Locked">
+					<MediaRefs>
+						<MediaRef Id="274512341"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2589897592" Name="Door_Opening">
+					<MediaRefs>
+						<MediaRef Id="501159738"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="2917121896" Name="Electricity">
@@ -462,7 +489,13 @@
 						<SwitchContainer>
 							<SwitchValue GroupType="State" GroupId="1926883983" Id="3604647259"/>
 							<MediaRefs>
-								<MediaRef Id="7115842"/>
+								<MediaRef Id="433236730"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1926883983" Id="1182958561"/>
+							<MediaRefs>
+								<MediaRef Id="1038208827"/>
 							</MediaRefs>
 						</SwitchContainer>
 					</SwitchContainers>
@@ -516,6 +549,11 @@
 						<ActionPostEventEntry Id="2258820276" Name="Player_Charge_Stop"/>
 					</ActionPostEvent>
 				</Event>
+				<Event Id="1470625830" Name="Pylon_Charge">
+					<MediaRefs>
+						<MediaRef Id="124476507"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3655901332" Name="Stone_Explosion">
 					<MediaRefs>
 						<MediaRef Id="670321208"/>
@@ -552,6 +590,7 @@
 					<States>
 						<State Id="748895195" Name="None"/>
 						<State Id="749373321" Name="Caves"/>
+						<State Id="1182958561" Name="Cutscene"/>
 						<State Id="3604647259" Name="MainMenu"/>
 					</States>
 				</StateGroup>
@@ -574,5 +613,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{5A0BF1FE-E17A-8A1D-CE7F-9547EE8CEA5B}</FileHash>
+	<FileHash>{E6B9D2AB-6902-6AB4-2AFE-1A7BD6DA39DA}</FileHash>
 </SoundBanksInfo>
