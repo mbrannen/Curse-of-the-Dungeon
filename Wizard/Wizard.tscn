@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3coc670j5u0y"]
+[gd_scene load_steps=10 format=3 uid="uid://b3coc670j5u0y"]
 
 [ext_resource type="Script" path="res://Wizard/Wizard.cs" id="1_j82hd"]
 [ext_resource type="PackedScene" uid="uid://cvu6ofg1r3jan" path="res://Spells/Lightning.tscn" id="2_8byeu"]
@@ -11,6 +11,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_slh5g"]
 radius = 5.0
 height = 36.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5xk5"]
+size = Vector2(99, 140)
 
 [node name="Wizard" type="CharacterBody2D" node_paths=PackedStringArray("SpellOrigin") groups=["player"]]
 collision_layer = 6
@@ -58,3 +61,9 @@ offset_bottom = 10.0
 one_shot = true
 
 [node name="WwiseListener" type="AkListener2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -69)
+shape = SubResource("RectangleShape2D_r5xk5")
