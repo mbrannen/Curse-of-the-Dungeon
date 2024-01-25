@@ -27,7 +27,7 @@ public partial class RuneNode : PanelContainer
 		IconRect.Texture = Icon;
 		
 		TooltipText =  $"{Rune.Name.ToUpper()}\n" +
-		               $"Corruption Cost: {Rune.CorruptionCost}\n" +
+					   $"Corruption Cost: {Rune.CorruptionCost}\n" +
 					   $"'{Rune.Description}'";
 	}
 

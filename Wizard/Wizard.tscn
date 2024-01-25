@@ -1,5 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b3coc670j5u0y"]
-
+[gd_scene load_steps=19 format=3 uid="uid://b3coc670j5u0y"]
 
 [ext_resource type="Script" path="res://Wizard/Wizard.cs" id="1_j82hd"]
 [ext_resource type="PackedScene" uid="uid://cvu6ofg1r3jan" path="res://Spells/Lightning.tscn" id="2_8byeu"]
@@ -121,3 +120,35 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.5, -69)
 shape = SubResource("RectangleShape2D_r5xk5")
+
+[node name="Wwise" type="Node" parent="."]
+
+[node name="FireSpellState" type="AkState" parent="Wwise"]
+state_group = {
+"id": 3830273964,
+"name": "Spell_Type"
+}
+state_value = {
+"id": 2678880713,
+"name": "Fire"
+}
+
+[node name="IceSpellState" type="AkState" parent="Wwise"]
+state_group = {
+"id": 3830273964,
+"name": "Spell_Type"
+}
+state_value = {
+"id": 344481046,
+"name": "Ice"
+}
+
+[node name="LightningSpellState" type="AkState" parent="Wwise"]
+state_group = {
+"id": 3830273964,
+"name": "Spell_Type"
+}
+state_value = {
+"id": 3334464137,
+"name": "Lightning"
+}

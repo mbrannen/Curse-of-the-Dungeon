@@ -86,3 +86,10 @@ libraries = {
 "": SubResource("AnimationLibrary_uok0p")
 }
 autoplay = "Rotate"
+
+[node name="SpellShootEvent" type="AkEvent2D" parent="."]
+event = {
+"id": 3599838629,
+"name": "Player_Spell_Shoot"
+}
+trigger_on = 2

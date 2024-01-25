@@ -89,12 +89,12 @@ public partial class MainMenu : Control
 			RuneTree.Visible = !RuneTree.Visible;
 			GameManager.Instance.IsTalentsOpen = !GameManager.Instance.IsTalentsOpen;
 		}
-        
-        if(Input.IsActionJustPressed("Spell Select Right"))
-            GameManager.Instance.IncreaseSpellIndex();
-        if(Input.IsActionJustPressed("Spell Select Left"))
-            GameManager.Instance.DecreaseSpellIndex();
-    }
+		
+		if(Input.IsActionJustPressed("Spell Select Right"))
+			GameManager.Instance.IncreaseSpellIndex();
+		if(Input.IsActionJustPressed("Spell Select Left"))
+			GameManager.Instance.DecreaseSpellIndex();
+	}
 
 	private void OnLevelOneStart()
 	{

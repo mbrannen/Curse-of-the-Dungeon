@@ -1,3 +1,4 @@
+using GameJam2024.GameManagement;
 using Godot;
 
 namespace GameJam2024.RuneTree;
@@ -57,6 +58,10 @@ public partial class TalentHUDManager : Control
 	{
 		//honestly i hate this.  plz help.
 		//maybe nodes need to be there own scenes and we can dynamically instance them and find them by name?
+		if (GameManager.Instance.GetState() != GameState.MainMenu)
+		{
+			GetNode("Wwise/EventCorruptionImpact").Call("post_event");
+		}
 		switch (name)
 		{
 			case SpellNames.FIRE_RUNE:
