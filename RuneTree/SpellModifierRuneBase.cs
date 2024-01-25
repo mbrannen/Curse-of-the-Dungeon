@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GameJam2024.RuneTree;
 
@@ -17,6 +18,37 @@ public abstract class SpellModifierRuneBase : IRuneNode
     {
         Corrupted = true;
         NodeBecameCorrupted?.Invoke(this);
+    }
+
+    public void CorruptNextNode()
+    {
+        if (Corrupted)
+            return;
+        //first see if children are corrupted
+        var ChildrenCorruptedCount = 0;
+        foreach (var child in Children)
+        {
+            if (child.Corrupted)
+            {
+                ChildrenCorruptedCount++; //if any are not then this will be false
+            }
+        }
+
+        if (ChildrenCorruptedCount == Children.Count)
+        {
+            CorruptNode(); //corrupt self
+            return;
+        }
+            
+        //if no children are corrupted then move further through the tree
+        //select a random child and go down that tree
+        var random = new Godot.RandomNumberGenerator();
+        var childCount = Children.Count;
+        if (childCount != 0)
+        {
+            var filteredChildred = Children.Where(c => !c.Corrupted).ToList(); 
+            filteredChildred[random.RandiRange(0,filteredChildred.Count-1)].CorruptNextNode();
+        }
     }
 
     public abstract string Name { get; }

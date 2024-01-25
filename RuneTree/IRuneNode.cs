@@ -30,4 +30,5 @@ public interface IRuneNode
     public delegate void NodeBecameCorruptedDelegate(IRuneNode node);
     public event NodeBecameCorruptedDelegate NodeBecameCorrupted;
     public void CorruptNode();
+    public void CorruptNextNode();
 }

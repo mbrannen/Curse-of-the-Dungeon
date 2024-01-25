@@ -1,5 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b3coc670j5u0y"]
-
+[gd_scene load_steps=24 format=3 uid="uid://b3coc670j5u0y"]
 
 [ext_resource type="Script" path="res://Wizard/Wizard.cs" id="1_j82hd"]
 [ext_resource type="PackedScene" uid="uid://cvu6ofg1r3jan" path="res://Spells/Lightning.tscn" id="2_8byeu"]
@@ -16,15 +15,16 @@
 [ext_resource type="Texture2D" uid="uid://blhij3v2e8gt7" path="res://Wizard/art/walk/wiz-walk-f2.png" id="8_7ntgv"]
 [ext_resource type="Texture2D" uid="uid://bc1tipnlfkedk" path="res://Wizard/art/walk/wiz-walk-f3.png" id="9_3v47k"]
 [ext_resource type="Texture2D" uid="uid://qpexpovv4xuk" path="res://Wizard/art/walk/wiz-walk-f4.png" id="10_vuslg"]
+[ext_resource type="PackedScene" uid="uid://cvymjc8twa0ch" path="res://Spells/FireWall.tscn" id="13_ry74x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jttyt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_fj6ua")
+"texture": ExtResource("4_dswyf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_dswyf")
+"texture": ExtResource("3_fj6ua")
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_y6n7k")
@@ -34,7 +34,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -51,7 +51,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_slh5g"]
@@ -61,7 +61,38 @@ height = 36.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5xk5"]
 size = Vector2(99, 140)
 
-[node name="Wizard" type="CharacterBody2D" node_paths=PackedStringArray("SpellOrigin") groups=["player"]]
+[sub_resource type="Gradient" id="Gradient_1pa4d"]
+offsets = PackedFloat32Array(0, 0.405556, 1)
+colors = PackedColorArray(0.819608, 0.768627, 0.745098, 1, 0.425741, 0.399259, 0.387037, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ymm1r"]
+gradient = SubResource("Gradient_1pa4d")
+fill = 1
+fill_from = Vector2(0.495726, 0.508547)
+fill_to = Vector2(0.84188, 0.162393)
+
+[sub_resource type="Animation" id="Animation_4yq0p"]
+resource_name = "light_flicker"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [2.5, 2.8, 2.2, 2.5, 2.6, 1.8, 2.5, 2.1, 2.9, 2.1, 2.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n6y67"]
+_data = {
+"light_flicker": SubResource("Animation_4yq0p")
+}
+
+[node name="Wizard" type="CharacterBody2D" node_paths=PackedStringArray("Animation", "SpellOrigin") groups=["player"]]
 collision_layer = 6
 collision_mask = 7
 script = ExtResource("1_j82hd")
@@ -71,6 +102,7 @@ Acceleration = 500.0
 Friction = 1000.0
 FallSpeed = 1000.0
 JumpStrength = -600.0
+Animation = NodePath("AnimatedSprite2D")
 SpellOrigin = NodePath("SpellManager")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -82,9 +114,9 @@ texture = ExtResource("2_had2t")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -66)
 sprite_frames = SubResource("SpriteFrames_jttyt")
-animation = &"idle"
-frame = 3
-frame_progress = 0.442391
+animation = &"walk"
+autoplay = "idle"
+frame_progress = 0.4587
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
@@ -99,6 +131,7 @@ polygon = PackedVector2Array(-16, -11, -10, -18, -6, -34, -3, -83, -1, -86, 2, -
 position = Vector2(0, -121)
 script = ExtResource("4_ew43q")
 Fireball = ExtResource("2_a5fuu")
+Firewall = ExtResource("13_ry74x")
 Lightning = ExtResource("2_8byeu")
 IceShard = ExtResource("6_fgkfi")
 IceBridge = ExtResource("7_fy076")
@@ -121,3 +154,16 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.5, -69)
 shape = SubResource("RectangleShape2D_r5xk5")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-9, -116)
+scale = Vector2(3.8125, 3.8125)
+energy = 2.5
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_ymm1r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n6y67")
+}
+autoplay = "light_flicker"

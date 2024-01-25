@@ -27,6 +27,10 @@ public sealed class GameManager
     public delegate void SpellIndexChangedDelegate(int index);
 
     public event SpellIndexChangedDelegate SpellIndexChanged;
+
+    public delegate void NotifySpellCorruptedDelegate(string name);
+
+    public event NotifySpellCorruptedDelegate NotifySpellCorrupted;
     
     #endregion
 
@@ -43,6 +47,11 @@ public sealed class GameManager
 
     #endregion
     private GameManager()
+    {
+        
+    }
+
+    private void OnNotifyHUDOfCorruption(string name)
     {
         
     }
@@ -183,7 +192,7 @@ public sealed class GameManager
 
     public bool IsInPauseState()
     {
-        return State is GameState.Paused or GameState.GameOver or GameState.IntroCutscene;
+        return State is GameState.Paused or GameState.GameOver or GameState.IntroCutscene or GameState.CorruptTalent;
     }
 
     public bool IsFullCorruption(MagicClass magicClass)

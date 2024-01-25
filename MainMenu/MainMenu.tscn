@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b2vhhetl6w0ip"]
+[gd_scene load_steps=15 format=3 uid="uid://b2vhhetl6w0ip"]
 
 [ext_resource type="Script" path="res://MainMenu/MainMenu.cs" id="1_0qxbf"]
 [ext_resource type="Texture2D" uid="uid://b5tsdrrhuwa32" path="res://MainMenu/BG.png" id="1_1orda"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b8jgilyr7fsgw" path="res://Levels/Art/Title_500x500px_placeholder.png" id="7_iwrpq"]
 [ext_resource type="PackedScene" uid="uid://bl2fesc7epab1" path="res://UI/IntroCutscene.tscn" id="8_jam5c"]
 [ext_resource type="PackedScene" uid="uid://b7mhrtmw1bpu7" path="res://Levels/Level1.tscn" id="9_xi5so"]
+[ext_resource type="Texture2D" uid="uid://dsp4h6ywq62ny" path="res://MainMenu/menu-screen-bkg.png" id="11_c26br"]
 [ext_resource type="PackedScene" uid="uid://7llvmmihkn65" path="res://RuneTree/RuneTree.tscn" id="12_fcwdn"]
 [ext_resource type="PackedScene" uid="uid://c48hoql70qq01" path="res://UI/SpellslotContainer.tscn" id="13_com5w"]
 
@@ -55,41 +56,58 @@ layout_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UI" type="Control" parent="CanvasLayer"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="MainMenuPanel" type="Panel" parent="CanvasLayer"]
+self_modulate = Color(1, 0.368627, 0.117647, 0)
+anchors_preset = -1
+anchor_top = 0.25
+anchor_bottom = 0.25
+offset_left = 320.0
+offset_right = 640.0
+offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RuneTree" parent="CanvasLayer/UI" instance=ExtResource("12_fcwdn")]
-visible = false
-layout_mode = 1
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI"]
-self_modulate = Color(0.313726, 0.235294, 0.2, 1)
+[node name="BG" type="TextureRect" parent="CanvasLayer/MainMenuPanel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 381.0
-offset_top = -86.0
-offset_right = -381.0
-offset_bottom = -22.0
-texture = SubResource("CanvasTexture_wkmvc")
+anchor_left = -1.0
+anchor_top = -0.5
+anchor_right = 2.0
+anchor_bottom = 1.5
+offset_bottom = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_c26br")
 
-[node name="SpellslotContainer" parent="CanvasLayer/UI" instance=ExtResource("13_com5w")]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenuPanel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0
-anchor_right = 1.0
-offset_left = 376.0
-offset_top = -86.0
-offset_right = -378.0
-offset_bottom = -22.0
+anchor_left = -1.0
+anchor_top = -0.5
+anchor_right = 2.0
+anchor_bottom = 1.5
+offset_left = 368.0
+offset_top = 152.0
+offset_right = -368.0
+offset_bottom = -148.0
+theme_override_constants/separation = 12
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StartButton" type="Button" parent="CanvasLayer/MainMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tobs")
+text = "Start"
+
+[node name="Options" type="Button" parent="CanvasLayer/MainMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tobs")
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="CanvasLayer/MainMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tobs")
+text = "Credits"
 
 [node name="GameOverMenuPanel" type="Panel" parent="CanvasLayer"]
 visible = false
@@ -160,58 +178,41 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="MainMenuPanel" type="Panel" parent="CanvasLayer"]
-self_modulate = Color(1, 0.368627, 0.117647, 0)
-anchors_preset = -1
-anchor_top = 0.25
-anchor_bottom = 0.25
-offset_left = 320.0
-offset_right = 640.0
-offset_bottom = 270.0
+[node name="UI" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BG" type="TextureRect" parent="CanvasLayer/MainMenuPanel"]
+[node name="RuneTree" parent="CanvasLayer/UI" instance=ExtResource("12_fcwdn")]
+visible = false
+layout_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI"]
+self_modulate = Color(0.313726, 0.235294, 0.2, 1)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -1.0
-anchor_top = -0.5
-anchor_right = 2.0
-anchor_bottom = 1.5
-offset_bottom = -3.05176e-05
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_1orda")
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 381.0
+offset_top = -86.0
+offset_right = -381.0
+offset_bottom = -22.0
+texture = SubResource("CanvasTexture_wkmvc")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenuPanel"]
+[node name="SpellslotContainer" parent="CanvasLayer/UI" instance=ExtResource("13_com5w")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -1.0
-anchor_top = -0.5
-anchor_right = 2.0
-anchor_bottom = 1.5
-offset_left = 368.0
-offset_top = 152.0
-offset_right = -368.0
-offset_bottom = -148.0
-theme_override_constants/separation = 12
-alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="StartButton" type="Button" parent="CanvasLayer/MainMenuPanel/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_5tobs")
-text = "Start"
-
-[node name="Options" type="Button" parent="CanvasLayer/MainMenuPanel/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_5tobs")
-text = "Options"
-
-[node name="CreditsButton" type="Button" parent="CanvasLayer/MainMenuPanel/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_5tobs")
-text = "Credits"
+anchor_left = 0.0
+anchor_right = 1.0
+offset_left = 376.0
+offset_top = -86.0
+offset_right = -378.0
+offset_bottom = -22.0
 
 [node name="Options" parent="CanvasLayer" instance=ExtResource("5_v8wv2")]
 visible = false

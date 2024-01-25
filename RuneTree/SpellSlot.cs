@@ -25,6 +25,8 @@ public partial class SpellSlot : PanelContainer
 		Rune = TalentManager.Instance.GetSpell(SpellName);
 		GameManager.Instance.CorruptionChanged += OnCorruptionChanged;
         GameManager.Instance.SpellIndexChanged += OnSpellIndexChanged;
+        OnSpellIndexChanged(0);
+        
     }
 
     private void OnSpellIndexChanged(int index)
@@ -42,7 +44,7 @@ public partial class SpellSlot : PanelContainer
 
 	private void OnCorruptionChanged(MagicClass magicclass, int value)
 	{
-		if (magicclass == Rune.MagicClass)
+		if (Rune is not null && magicclass == Rune.MagicClass)
 		{
 			Corruption.Value = value;
 		}
@@ -50,7 +52,16 @@ public partial class SpellSlot : PanelContainer
 
 	public override void _Process(double delta)
 	{
+		if (Rune is { Corrupted: true })
+			ClearSpellSlot();
+	}
 
+	private void ClearSpellSlot()
+	{
+		Rune = null;
+		Corruption.Value = 0;
+		IconRect.Texture = null;
+		GameManager.Instance.SetSelectedSpell(null);
 	}
 
 	public override bool _CanDropData(Vector2 atPosition, Variant data)
@@ -69,6 +80,9 @@ public partial class SpellSlot : PanelContainer
 	public override void _DropData(Vector2 atPosition, Variant data)
 	{
 		Rune = TalentManager.Instance.GetSpellDragged();
+		if(GameManager.Instance.SelectedSpellIndex == SpellIndex)
+			GameManager.Instance.SetSelectedSpell(Rune);
+			
 		Corruption.Value = GameManager.Instance.GetTreeCorruptionValue(Rune.MagicClass);
 		IconRect.Texture = data.Obj as Texture2D;
 		
