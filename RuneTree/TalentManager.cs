@@ -1,4 +1,5 @@
 using System;
+using GameJam2024.GameManagement;
 using GameJam2024.RuneTree.FireRunes;
 using GameJam2024.RuneTree.IceRunes;
 using GameJam2024.RuneTree.LightningRunes;
@@ -110,9 +111,28 @@ public sealed class TalentManager
         
         //now that the tree is set up, subscribe to all the various events
         SubscribeToAllTalentTreeEvents(TalentTree);
+        GameManager.Instance.CorruptionMaxed += OnCorruptionMaxed;
         
     }
-    
+
+    private void OnCorruptionMaxed(MagicClass magicclass)
+    {
+        switch (magicclass)
+        {
+            case MagicClass.Fire:
+                FireTree.CorruptNextNode();
+                break;
+            case MagicClass.Ice:
+                IceTree.CorruptNextNode();
+                break;
+            case MagicClass.Lightning:
+                LightningTree.CorruptNextNode();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(magicclass), magicclass, null);
+        }
+    }
+
 
     //this function listens to the NodeBecameCorrupted event on nodes
     private void OnNodeBecameCorrupted(IRuneNode node)

@@ -12,6 +12,8 @@ public partial class Wizard : CharacterBody2D
 	[Export] private float FallSpeed { get; set; }
 	[Export] private float JumpStrength { get; set; }
 
+	[Export] public AnimatedSprite2D Animation;
+
 	[Export] Marker2D SpellOrigin;
 	private SpellManager SpellManager;
 
@@ -31,7 +33,7 @@ public partial class Wizard : CharacterBody2D
 			VeloctiyHandler(delta);
 		if(!GameManager.Instance.IsInPauseState())
 			JumpHandler();
-
+		AnimationHandler();
 		CameraHandler();
 
 		if (Input.IsActionJustPressed("Cast"))
@@ -142,7 +144,22 @@ public partial class Wizard : CharacterBody2D
 
 	void AnimationHandler()
 	{
-		
+		if (Velocity.X > 0)
+		{
+			Animation.FlipH = true;
+			Animation.Play("walk");
+		}
+
+		if (Velocity.X < 0)
+		{
+			Animation.FlipH = false;
+			Animation.Play("walk");
+		}
+		if (Velocity.X == 0)
+		{
+			Animation.Play("idle");
+		}
+			
 	}
 
 }
