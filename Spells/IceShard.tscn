@@ -105,11 +105,12 @@ _data = {
 "Rotate": SubResource("Animation_27x7w")
 }
 
-[node name="IceShard" type="Node2D" groups=["ice"]]
+[node name="IceShard" type="Node2D" node_paths=PackedStringArray("Collider") groups=["ice"]]
 rotation = 6.28319
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_uamwo")
 RuneType = 16
+Collider = NodePath("Area2D")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(3.41341, -2.10496)
@@ -131,7 +132,6 @@ texture = ExtResource("3_v278n")
 [node name="Area2D" type="Area2D" parent="." groups=["ice"]]
 position = Vector2(73.3333, -0.000327535)
 collision_layer = 16
-collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_jlynl")

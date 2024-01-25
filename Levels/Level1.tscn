@@ -18,6 +18,11 @@
 [ext_resource type="Script" path="res://Levels/NextLevelDoor.cs" id="15_ujisy"]
 [ext_resource type="Script" path="res://Levels/IceRod.cs" id="16_gseih"]
 
+[sub_resource type="Gradient" id="Gradient_vvql6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ok883"]
+gradient = SubResource("Gradient_vvql6")
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fqkrr"]
 texture = ExtResource("1_1yyn2")
 margins = Vector2i(5, 5)
@@ -354,11 +359,6 @@ size = Vector2(25, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1piol"]
 size = Vector2(29, 96)
 
-[sub_resource type="Gradient" id="Gradient_vvql6"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ok883"]
-gradient = SubResource("Gradient_vvql6")
-
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dl0e7"]
 polygon = PackedVector2Array(-2617, 509, -2618, 480, -2600, 480, -2602, 461, -2581, 461, -2581, 443, -2551, 444, -2552, 417, -2537, 417, -2538, 397, -2516, 398, -2518, 378, -545, 377, -545, 398, -524, 398, -524, 416, -510, 417, -510, 513)
 
@@ -373,6 +373,14 @@ modulate = Color(1, 1, 1, 0.686275)
 position = Vector2(-1804, -151)
 scale = Vector2(3.38854, 2.93889)
 texture = ExtResource("2_25gou")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1759.33, 327.493)
+rotation = 1.57079
+scale = Vector2(5.86224, -85.2933)
+energy = 0.75
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_ok883")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(877, 447)
@@ -404,6 +412,7 @@ shape = SubResource("RectangleShape2D_fauj5")
 
 [node name="ColumnObstacles" type="StaticBody2D" parent="."]
 position = Vector2(-565, 329)
+collision_mask = 17
 
 [node name="ColumnSide1" type="CollisionShape2D" parent="ColumnObstacles"]
 position = Vector2(-277.5, 26)
@@ -542,14 +551,6 @@ shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 shadow_item_cull_mask = 2
 max_distance = 9994.0
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-1759.33, 327.493)
-rotation = 1.57079
-scale = Vector2(5.86224, -85.2933)
-energy = 0.75
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_ok883")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 visible = false

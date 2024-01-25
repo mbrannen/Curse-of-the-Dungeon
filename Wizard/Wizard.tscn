@@ -114,9 +114,9 @@ texture = ExtResource("2_had2t")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -66)
 sprite_frames = SubResource("SpriteFrames_jttyt")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.14376
+frame_progress = 0.4587
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
