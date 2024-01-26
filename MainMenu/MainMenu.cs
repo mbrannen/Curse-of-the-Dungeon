@@ -174,7 +174,14 @@ public partial class MainMenu : Control
 		MainMenuPanel.Visible = false;
 		GameOverPanel.Visible = false;
 		IntroCutscene.Visible = false;
-		_level1.Destroy();
+		try
+		{
+			_level1.Destroy();
+		}
+		catch
+		{
+			
+		}
 		_level2 = Level2.Instantiate() as Level2;
 		AddChild(_level2);
 	}
@@ -184,7 +191,15 @@ public partial class MainMenu : Control
 		MainMenuPanel.Visible = false;
 		GameOverPanel.Visible = false;
 		IntroCutscene.Visible = false;
-		_level2.Destroy();
+		try
+		{
+			_level2.Destroy();
+		}
+		catch
+		{
+			
+		}
+		
 		_level3 = Level3.Instantiate() as Level3;
 		AddChild(_level3);
 	}

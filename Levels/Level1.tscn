@@ -391,7 +391,7 @@ position = Vector2(-732, -63)
 texture = ExtResource("10_a1pjp")
 
 [node name="Wizard" parent="." instance=ExtResource("4_6aqcm")]
-position = Vector2(233, 500)
+position = Vector2(84, 497)
 
 [node name="WaterZone" type="Area2D" parent="."]
 position = Vector2(-3, -2)
@@ -591,3 +591,5 @@ event = {
 "name": "Pylon_Charge"
 }
 position = Vector2(-4461.62, 440.4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
