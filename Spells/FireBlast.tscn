@@ -1,0 +1,177 @@
+[gd_scene load_steps=13 format=3 uid="uid://c6md46mkq308i"]
+
+[ext_resource type="Script" path="res://Spells/Spell.cs" id="1_jaho1"]
+[ext_resource type="Shader" path="res://RuneTree/spell_slot_outline.gdshader" id="2_bmnrt"]
+[ext_resource type="Texture2D" uid="uid://dciuqhbsmhmmo" path="res://Spells/art/spell-sprites/spell-fire-blast.png" id="3_afxuj"]
+
+[sub_resource type="Gradient" id="Gradient_8kjse"]
+offsets = PackedFloat32Array(0.0111111, 0.75)
+colors = PackedColorArray(0.576471, 0.247059, 0.133333, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t61db"]
+gradient = SubResource("Gradient_8kjse")
+fill = 1
+fill_from = Vector2(0.487179, 0.478632)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k5l2r"]
+shader = ExtResource("2_bmnrt")
+shader_parameter/color = Color(0.313726, 0.0313726, 0.00392157, 1)
+shader_parameter/width = 1.5
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wr5hb"]
+shader = ExtResource("2_bmnrt")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 4.0
+shader_parameter/pattern = 1
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ndeq"]
+size = Vector2(145.001, 156.666)
+
+[sub_resource type="Animation" id="Animation_27x7w"]
+resource_name = "Rotate"
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_majg8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-105, 0.00046897)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_woyl3"]
+resource_name = "blastout"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-105, 0.00046897), Vector2(-600, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uok0p"]
+_data = {
+"RESET": SubResource("Animation_majg8"),
+"Rotate": SubResource("Animation_27x7w"),
+"blastout": SubResource("Animation_woyl3")
+}
+
+[node name="Fireball" type="Node2D" node_paths=PackedStringArray("Collider", "Animation") groups=["fire"]]
+rotation = 6.28319
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_jaho1")
+RuneType = 4
+Collider = NodePath("Node2D/Area2D")
+Animation = NodePath("AnimationPlayer")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(4, 4)
+energy = 2.0
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_t61db")
+
+[node name="Node2D" type="Node2D" parent="."]
+material = SubResource("ShaderMaterial_k5l2r")
+position = Vector2(-105, 0.00046897)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+material = SubResource("ShaderMaterial_wr5hb")
+use_parent_material = true
+rotation = -1.5708
+texture = ExtResource("3_afxuj")
+
+[node name="Area2D" type="Area2D" parent="Node2D" groups=["attack_spell", "fire"]]
+collision_layer = 16
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(5.83327, 0.000138455)
+shape = SubResource("RectangleShape2D_2ndeq")
+debug_color = Color(0.992157, 0, 0.27451, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uok0p")
+}
+autoplay = "blastout"
+
+[node name="SpellShootEvent" type="AkEvent2D" parent="."]
+event = {
+"id": 3599838629,
+"name": "Player_Spell_Shoot"
+}
+trigger_on = 2
+
+[node name="SpellCollideEvent" type="AkEvent2D" parent="."]
+event = {
+"id": 3520695494,
+"name": "Impact_Fire"
+}
+trigger_on = 3

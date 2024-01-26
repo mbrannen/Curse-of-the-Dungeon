@@ -7,6 +7,6 @@ public class Fireblast : SpellRuneBase
     public override int CorruptionCost { get; } = 50;
     public override string Name => SpellNames.FIREBLAST;
     public override string Description => "A concentrated jet of flames emits forward in a straight line.";
-    public override bool MovesWhenCast { get; } = true;
-    public override bool IsPlaceable { get; } = false;
+    public override bool MovesWhenCast { get; } = false;
+    public override bool IsPlaceable { get; } = true;
 }

@@ -149,7 +149,12 @@ public partial class Wizard : CharacterBody2D
 			if(spell.Rune.MovesWhenCast)
 				spell.Rotation = SpellOrigin.Rotation;
 			if (spell.Rune.IsPlaceable)
+			{
 				spell.GlobalPosition = mouseCoords;
+				if (spell.GlobalPosition.X > 480)
+					spell.Rotation = Mathf.DegToRad(180);
+			}
+				
 			else
 				spell.GlobalPosition = SpellOrigin.GlobalPosition;
 			

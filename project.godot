@@ -42,6 +42,7 @@ enabled=PackedStringArray("res://addons/Wwise/plugin.cfg")
 [gui]
 
 theme/custom="res://gamejame_2024_theme.tres"
+timers/tooltip_delay_sec=0.1
 
 [input]
 

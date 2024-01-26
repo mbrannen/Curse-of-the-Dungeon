@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b3coc670j5u0y"]
+[gd_scene load_steps=35 format=3 uid="uid://b3coc670j5u0y"]
 
 [ext_resource type="Script" path="res://Wizard/Wizard.cs" id="1_j82hd"]
 [ext_resource type="PackedScene" uid="uid://cvu6ofg1r3jan" path="res://Spells/Lightning.tscn" id="2_8byeu"]
@@ -24,6 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://cvymjc8twa0ch" path="res://Spells/FireWall.tscn" id="13_ry74x"]
 [ext_resource type="Texture2D" uid="uid://1b0107wweeqf" path="res://Wizard/art/jump/wiz-jump-f4.png" id="14_3v3qe"]
 [ext_resource type="Script" path="res://Wizard/WizardAreaCollision.cs" id="17_4pby5"]
+[ext_resource type="PackedScene" uid="uid://c6md46mkq308i" path="res://Spells/FireBlast.tscn" id="20_12yof"]
+[ext_resource type="PackedScene" uid="uid://dgs3ch0m4371p" path="res://Spells/IceBlock.tscn" id="24_20s38"]
+[ext_resource type="PackedScene" uid="uid://btgsej3fy4a4i" path="res://Spells/IcePatch.tscn" id="24_41v0n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jttyt"]
 animations = [{
@@ -170,9 +173,12 @@ metadata/_edit_lock_ = true
 position = Vector2(0, -121)
 script = ExtResource("4_ew43q")
 Fireball = ExtResource("2_a5fuu")
+Fireblast = ExtResource("20_12yof")
 Firewall = ExtResource("13_ry74x")
 Lightning = ExtResource("2_8byeu")
 IceShard = ExtResource("6_fgkfi")
+IceBlock = ExtResource("24_20s38")
+IcePatch = ExtResource("24_41v0n")
 IceBridge = ExtResource("7_fy076")
 CastTimer = NodePath("Timer")
 metadata/_edit_lock_ = true
