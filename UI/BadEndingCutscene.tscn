@@ -1,0 +1,209 @@
+[gd_scene load_steps=12 format=3 uid="uid://q0tta873bgnk"]
+
+[ext_resource type="Theme" uid="uid://clwjpsq8eh1ds" path="res://gamejame_2024_theme.tres" id="1_c8rn6"]
+[ext_resource type="Script" path="res://UI/IntroCutscene.cs" id="2_s15ku"]
+[ext_resource type="Texture2D" uid="uid://butufluwoi3kc" path="res://MainMenu/EndingScenes/cutscene-ending-bad-f1.png" id="3_c8rps"]
+[ext_resource type="Texture2D" uid="uid://dmteugfbbagnp" path="res://MainMenu/EndingScenes/cutscene-ending-bad-f2.png" id="4_uc7b5"]
+[ext_resource type="Texture2D" uid="uid://8tygtox5obae" path="res://MainMenu/EndingScenes/cutscene-ending-bad-f3.png" id="5_vv75q"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hsced"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gvfqb"]
+font_size = 24
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.572549)
+shadow_offset = Vector2(1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ysxbm"]
+font_size = 24
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.572549)
+shadow_offset = Vector2(1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iq1ej"]
+font_size = 24
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.572549)
+shadow_offset = Vector2(1, 0)
+
+[sub_resource type="Animation" id="Animation_k33s8"]
+resource_name = "IntroPlay"
+length = 10.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 3, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4, 5, 7, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1nyna"]
+_data = {
+"IntroPlay": SubResource("Animation_k33s8")
+}
+
+[node name="IntroCutscene" type="Panel" node_paths=PackedStringArray("AnimationPlayer", "SkipButton")]
+custom_minimum_size = Vector2(960, 540)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c8rn6")
+script = ExtResource("2_s15ku")
+AnimationPlayer = NodePath("AnimationPlayer")
+SkipButton = NodePath("")
+
+[node name="Panel7" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 0)
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_hsced")
+expand_mode = 2
+
+[node name="Panel1" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IntroScene1" type="Sprite2D" parent="Panel1"]
+position = Vector2(480, 270)
+texture = ExtResource("3_c8rps")
+
+[node name="Panel1_text" type="Label" parent="Panel1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.501
+anchor_top = 1.0
+anchor_right = 0.501
+anchor_bottom = 1.0
+offset_left = -284.96
+offset_top = -83.0
+offset_right = 284.04
+offset_bottom = -20.0
+label_settings = SubResource("LabelSettings_gvfqb")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Panel2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_hsced")
+
+[node name="IntroScene2" type="Sprite2D" parent="Panel2"]
+position = Vector2(480, 270)
+texture = ExtResource("4_uc7b5")
+
+[node name="Panel2_text" type="Label" parent="Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.499
+anchor_top = 1.0
+anchor_right = 0.499
+anchor_bottom = 1.0
+offset_left = -212.04
+offset_top = -83.0
+offset_right = 212.96
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_ysxbm")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Panel3" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_hsced")
+
+[node name="IntroScene3" type="Sprite2D" parent="Panel3"]
+position = Vector2(480, 270)
+texture = ExtResource("5_vv75q")
+
+[node name="Panel3_text" type="Label" parent="Panel3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -284.0
+offset_top = -83.0
+offset_right = 285.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_iq1ej")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1nyna")
+}
+autoplay = "IntroPlay"
+
+[node name="CutsceneScene" type="AkState" parent="."]
+state_group = {
+"id": 1926883983,
+"name": "Scene"
+}
+state_value = {
+"id": 1182958561,
+"name": "Cutscene"
+}

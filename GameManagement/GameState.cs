@@ -9,5 +9,8 @@ public enum GameState
 	Level2,
 	Level3,
 	GameOver,
-	CorruptTalent
+    CorruptTalent,
+    GoodEnding,
+    BadEnding
+
 }

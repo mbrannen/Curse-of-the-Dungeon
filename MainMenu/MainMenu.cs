@@ -47,6 +47,13 @@ public partial class MainMenu : Control
 	private Level2 _level2;
 	private Level3 _level3;
 
+	private Node _cutscene;
+
+	[ExportGroup("EndingScenes")] 
+	[Export] public PackedScene BadEndingScene;
+	[Export] public PackedScene GoodEndingScene;
+	
+
 	public override void _EnterTree()
 	{
 		MainMenuManager.Instance.InitState();
@@ -54,10 +61,13 @@ public partial class MainMenu : Control
 		MainMenuManager.Instance.CreditsBackButtonPressed += OnCreditsBackButtonPressed;
 		MainMenuManager.Instance.OptionsBackButtonPressed += OnOptionsBackButtonPressed;
 		
+		GameManager.Instance.MainMenu += OnMainMenu;
 		GameManager.Instance.LevelOneStart += OnLevelOneStart;
 		GameManager.Instance.LevelTwoStart += OnLevelTwoStart;
 		GameManager.Instance.LevelThreeStart += OnLevelThreeStart;
 		GameManager.Instance.GameOverNotify += OnGameOverNotify;
+		GameManager.Instance.BadEndingStart += OnBadEndingStart;
+		GameManager.Instance.GoodEndingStart += OnGoodEndingStart;
 		
 		StartButton.Pressed += StartButtonOnPressed;
 		StartButton.MouseEntered += ButtonOnMouseover;
@@ -73,6 +83,18 @@ public partial class MainMenu : Control
 		
 		
 		GetNode("Wwise/SceneMainMenu").Call("set_state");
+	}
+
+	private void OnMainMenu()
+	{
+		MainMenuPanel.Visible = true;
+		GameOverPanel.Visible = true;
+		IntroCutscene.Visible = true;
+		GameUI.Visible = false;
+		_level1?.Destroy();
+		_level2?.Destroy();
+		_level3?.Destroy();
+		_cutscene.QueueFree();
 	}
 
 	public override void _Ready()
@@ -152,6 +174,28 @@ public partial class MainMenu : Control
 		_level2.Destroy();
 		_level3 = Level3.Instantiate() as Level3;
 		AddChild(_level3);
+	}
+	
+	private void OnBadEndingStart()
+	{
+		MainMenuPanel.Visible = false;
+		GameOverPanel.Visible = false;
+		IntroCutscene.Visible = false;
+		GameUI.Visible = false;
+		_level3.Destroy();
+		_cutscene = BadEndingScene.Instantiate();
+		GetNode<CanvasLayer>("CanvasLayer").AddChild(_cutscene);
+	}
+	
+	private void OnGoodEndingStart()
+	{
+		MainMenuPanel.Visible = false;
+		GameOverPanel.Visible = false;
+		IntroCutscene.Visible = false;
+		GameUI.Visible = false;
+		_level3.Destroy();
+		_cutscene = GoodEndingScene.Instantiate();
+		GetNode<CanvasLayer>("CanvasLayer").AddChild(_cutscene);
 	}
 	
 	private void OnGameOverNotify()

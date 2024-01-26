@@ -14,17 +14,26 @@ public partial class Spell : Node2D
 	public override void _Ready()
 	{
 		Collider.BodyEntered += ColliderOnBodyEntered;
+
 		Collider.AreaEntered += ColliderOnAreaEntered;
 	}
 
 	private void ColliderOnAreaEntered(Area2D area)
 	{
 		QueueFree();
+
 	}
+
+    private void ColliderOnAreaEntered(Area2D area)
+    {
+	    QueueFree();
+    }
 
 	private void ColliderOnBodyEntered(Node2D body)
 	{
-		GD.Print("Collided with something!");
+
+        GD.Print("Collided with body!");
+
 		QueueFree();
 	}
 
