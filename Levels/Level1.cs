@@ -17,6 +17,7 @@ public partial class Level1 : Node2D
 		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		//THIS UNSUBSCRIBE IS SO IMPORTANT I CAN'T EVEN ****BANGS HEAD ON KEYBOARD EVEN MORE THAN I DID FIGURING THIS OUT****
 		GameManager.Instance.LevelRestart -= OnLevelRestart;
+		GetNode("WaterZone/CollisionShape2D/WaterEvent").Call("stop_event");
 		QueueFree();
 	}
 
