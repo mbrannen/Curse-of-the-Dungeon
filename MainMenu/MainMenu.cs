@@ -159,6 +159,7 @@ public partial class MainMenu : Control
 
 		GetNode("Wwise/SceneLevelOne").Call("set_state");
 		GetNode("Wwise/EventCaveSFX").Call("post_event");
+		GameManager.Instance.SetGoblinsEngaged(0);
 	}
 	
 	private void OnLevelTwoStart()
@@ -176,6 +177,7 @@ public partial class MainMenu : Control
 		}
 		_level2 = Level2.Instantiate() as Level2;
 		AddChild(_level2);
+		GameManager.Instance.SetGoblinsEngaged(0);
 	}
 	
 	private void OnLevelThreeStart()
@@ -194,6 +196,7 @@ public partial class MainMenu : Control
 		
 		_level3 = Level3.Instantiate() as Level3;
 		AddChild(_level3);
+		GameManager.Instance.SetGoblinsEngaged(0);
 	}
 	
 	private void OnBadEndingStart()
