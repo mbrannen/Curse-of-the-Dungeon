@@ -329,3 +329,16 @@ event = {
 "id": 4158285989,
 "name": "GameOver"
 }
+
+[node name="EventEnemyPercussionStart" type="AkEvent2D" parent="Wwise"]
+event = {
+"id": 46712509,
+"name": "Enemy_Percussion"
+}
+
+[node name="EventEnemyPercussionStop" type="AkEvent2D" parent="Wwise"]
+event = {
+"id": 1249632016,
+"name": "Enemy_Percussion_Stop"
+}
+stop_fade_time = 5

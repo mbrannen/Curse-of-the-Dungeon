@@ -190,7 +190,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{EE1C94E4-09DC-285D-F12E-152F2475BE7B}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{5B070272-5B32-CC25-CC6C-C8A9321F6E4B}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -472,6 +472,11 @@
 					<MediaRefs>
 						<MediaRef Id="85672698"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2849147824"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="1249632016" Name="Enemy_Percussion_Stop"/>
 				<Event Id="1804917506" Name="Enemy_Throw">
@@ -745,5 +750,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{671A7FF7-3FD6-DF10-44C6-69FC6ADFB8E3}</FileHash>
+	<FileHash>{2C3C584D-58FA-7161-ABD0-67C4CF4E4156}</FileHash>
 </SoundBanksInfo>
