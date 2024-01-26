@@ -4,6 +4,7 @@ using System.Xml.Linq;
 
 public partial class IceRod : Area2D
 {
+	[Export] public Node2D EnergizedParticles;
 	public bool IsTriggered { get; set; }
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -19,6 +20,7 @@ public partial class IceRod : Area2D
 		{
 			GD.Print("Ice Rod activated");
 			IsTriggered = true;
+			EnergizedParticles.Visible = true;
 			GetNode("IceRod/RodChargeEvent").Call("post_event");
 			GetNode("IceRod/FreezeEvent").Call("post_event");
 		}
