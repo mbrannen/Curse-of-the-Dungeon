@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b2vhhetl6w0ip"]
+[gd_scene load_steps=26 format=3 uid="uid://b2vhhetl6w0ip"]
 
 [ext_resource type="Script" path="res://MainMenu/MainMenu.cs" id="1_0qxbf"]
 [ext_resource type="Texture2D" uid="uid://b5tsdrrhuwa32" path="res://MainMenu/BG.png" id="1_1orda"]
@@ -14,18 +14,43 @@
 [ext_resource type="PackedScene" uid="uid://bl2fesc7epab1" path="res://UI/IntroCutscene.tscn" id="8_jam5c"]
 [ext_resource type="PackedScene" uid="uid://b7mhrtmw1bpu7" path="res://Levels/Level1.tscn" id="9_xi5so"]
 [ext_resource type="PackedScene" uid="uid://b4f0j0gpgn2u1" path="res://Levels/Level3.tscn" id="10_c2f34"]
-
-[ext_resource type="Texture2D" uid="uid://dq3t4sq8jq510" path="res://UI/logo.png" id="10_yfhvl"]
 [ext_resource type="PackedScene" uid="uid://q0tta873bgnk" path="res://UI/BadEndingCutscene.tscn" id="11_72l1d"]
-
 [ext_resource type="Texture2D" uid="uid://dsp4h6ywq62ny" path="res://MainMenu/menu-screen-bkg.png" id="11_c26br"]
-
 [ext_resource type="PackedScene" uid="uid://c2hb4t8d0amlf" path="res://UI/GoodEndingCutscene.tscn" id="12_f1hjp"]
-
-
 [ext_resource type="PackedScene" uid="uid://chjnygh1fsr2c" path="res://UI/Credits.tscn" id="13_g6q4f"]
 [ext_resource type="Texture2D" uid="uid://csr4c2ull1dra" path="res://UI/death-screen-v2.png" id="17_hl6gn"]
 
+[sub_resource type="Gradient" id="Gradient_1pa4d"]
+offsets = PackedFloat32Array(0, 0.405556, 1)
+colors = PackedColorArray(0.819608, 0.768627, 0.745098, 1, 0.425741, 0.399259, 0.387037, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gxlcn"]
+gradient = SubResource("Gradient_1pa4d")
+fill = 1
+fill_from = Vector2(0.495726, 0.508547)
+fill_to = Vector2(0.84188, 0.162393)
+
+[sub_resource type="Animation" id="Animation_58gax"]
+resource_name = "light flicker"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuLight:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9, 1.5, 1.9, 2.3, 3, 3.4, 4, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 3.73213, 0.392292, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.98, 2.1, 1.59, 1.1, 2.1, 1.59, 2.5, 2.12, 1.6925, 1.9, 0.98]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qvufe"]
+_data = {
+"light flicker": SubResource("Animation_58gax")
+}
 
 [sub_resource type="Animation" id="Animation_goft0"]
 resource_name = "fadein"
@@ -48,7 +73,7 @@ _data = {
 "fadein": SubResource("Animation_goft0")
 }
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "MainMenuPanel", "RestartButton", "OptionsButton_GOM", "CreditsButton_GOM", "ExitGameButton_GOM", "GameOverPanel", "GameOverAnimator", "CreditsScene", "OptionsScene", "IntroCutscene", "GameUI", "RuneTree")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "MainMenuPanel", "RestartButton", "OptionsButton_GOM", "CreditsButton_GOM", "ExitGameButton_GOM", "GameOverPanel", "GameOverAnimator", "CreditsScene", "OptionsScene", "IntroCutscene")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,8 +101,6 @@ Theme = ExtResource("2_5tobs")
 DefaultFont = ExtResource("3_fvpl3")
 AccessbilityFont = ExtResource("4_6ogdn")
 IntroCutscene = NodePath("IntroCutscene")
-GameUI = NodePath("")
-RuneTree = NodePath("")
 Level1 = ExtResource("9_xi5so")
 Level2 = ExtResource("6_480qi")
 Level3 = ExtResource("10_c2f34")
@@ -149,6 +172,24 @@ text = "Options"
 layout_mode = 2
 theme = ExtResource("2_5tobs")
 text = "Credits"
+
+[node name="MenuLight" type="PointLight2D" parent="CanvasLayer/MainMenuPanel"]
+position = Vector2(-144, -36)
+scale = Vector2(13.7252, 11.3142)
+energy = 2.35757
+range_layer_max = 1
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_gxlcn")
+texture_scale = 1.95
+
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer/MainMenuPanel"]
+color = Color(0.0235294, 0.0235294, 0.0235294, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/MainMenuPanel"]
+libraries = {
+"": SubResource("AnimationLibrary_qvufe")
+}
+autoplay = "light flicker"
 
 [node name="GameOverMenuPanel" type="Panel" parent="CanvasLayer"]
 visible = false
