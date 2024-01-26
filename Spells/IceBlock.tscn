@@ -94,7 +94,7 @@ fill = 1
 fill_from = Vector2(0.487179, 0.478632)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ipaw"]
-size = Vector2(348.333, 20)
+size = Vector2(365.833, 46.667)
 
 [sub_resource type="Animation" id="Animation_27x7w"]
 resource_name = "Rotate"
@@ -122,31 +122,36 @@ texture = ExtResource("3_yfnux")
 
 [node name="PointLight2D" type="PointLight2D" parent="Node2D"]
 position = Vector2(2.97638, -5.95277)
-scale = Vector2(6.42864, 4.51673)
+scale = Vector2(13.8066, 9.70047)
 energy = 2.0
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 texture = SubResource("GradientTexture2D_t61db")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
-position = Vector2(1.66588, -176.667)
+position = Vector2(1.66588, -163.334)
 shape = SubResource("RectangleShape2D_7ipaw")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
-position = Vector2(10.0008, 175)
+position = Vector2(0.000715017, 160)
 shape = SubResource("RectangleShape2D_7ipaw")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
-position = Vector2(175, 9.99922)
+position = Vector2(161.667, 1.66594)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_7ipaw")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
-position = Vector2(-173.333, 9.16744)
+position = Vector2(-161.667, -0.416022)
 rotation = -1.5708
 shape = SubResource("RectangleShape2D_7ipaw")
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
