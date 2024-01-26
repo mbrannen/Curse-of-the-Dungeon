@@ -11,6 +11,6 @@ public enum GameState
 	GameOver,
     CorruptTalent,
     GoodEnding,
-    BadEnding
-
+    BadEnding,
+    Credits
 }

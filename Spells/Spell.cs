@@ -13,8 +13,12 @@ public partial class Spell : Node2D
 	public IRuneNode Rune;
 	public override void _Ready()
 	{
-		Collider.BodyEntered += ColliderOnBodyEntered;
-		Collider.AreaEntered += ColliderOnAreaEntered;
+		if (Collider is not null)
+		{
+			Collider.BodyEntered += ColliderOnBodyEntered;
+			Collider.AreaEntered += ColliderOnAreaEntered;
+		}
+
 	}
 
 	private void ColliderOnAreaEntered(Area2D area)

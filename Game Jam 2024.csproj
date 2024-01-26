@@ -9,4 +9,8 @@
   <ItemGroup>
     <Folder Include="Enemies\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scroll.tscn" />
+    <Content Include="UI\Credits.tscn" />
+  </ItemGroup>
 </Project>

@@ -48,10 +48,12 @@ public partial class MainMenu : Control
 	private Level3 _level3;
 
 	private Node _cutscene;
+	private Node _credits;
 
 	[ExportGroup("EndingScenes")] 
 	[Export] public PackedScene BadEndingScene;
 	[Export] public PackedScene GoodEndingScene;
+	[Export] public PackedScene Credits;
 	
 
 	public override void _EnterTree()
@@ -68,7 +70,7 @@ public partial class MainMenu : Control
 		GameManager.Instance.GameOverNotify += OnGameOverNotify;
 		GameManager.Instance.BadEndingStart += OnBadEndingStart;
 		GameManager.Instance.GoodEndingStart += OnGoodEndingStart;
-		GameManager.Instance.GoblinsEngagedChanged += OnGoblinsEngagedChanged;
+		GameManager.Instance.CreditsStart += OnCreditsStart;
 		
 		StartButton.Pressed += StartButtonOnPressed;
 		StartButton.MouseEntered += ButtonOnMouseover;
@@ -84,18 +86,6 @@ public partial class MainMenu : Control
 		
 		
 		GetNode("Wwise/SceneMainMenu").Call("set_state");
-	}
-
-	private void OnMainMenu()
-	{
-		MainMenuPanel.Visible = true;
-		GameOverPanel.Visible = true;
-		IntroCutscene.Visible = true;
-		GameUI.Visible = false;
-		_level1?.Destroy();
-		_level2?.Destroy();
-		_level3?.Destroy();
-		_cutscene.QueueFree();
 	}
 
 	public override void _Ready()
@@ -141,6 +131,18 @@ public partial class MainMenu : Control
 			GameManager.Instance.IncreaseSpellIndex();
 		if(Input.IsActionJustPressed("Spell Select Left"))
 			GameManager.Instance.DecreaseSpellIndex();
+	}
+	
+	private void OnMainMenu()
+	{
+		MainMenuPanel.Visible = true;
+		GameOverPanel.Visible = true;
+		IntroCutscene.Visible = true;
+		GameUI.Visible = false;
+		_level1?.Destroy();
+		_level2?.Destroy();
+		_level3?.Destroy();
+		_cutscene.QueueFree();
 	}
 
 	private void OnLevelOneStart()
@@ -197,6 +199,17 @@ public partial class MainMenu : Control
 		_level3.Destroy();
 		_cutscene = GoodEndingScene.Instantiate();
 		GetNode<CanvasLayer>("CanvasLayer").AddChild(_cutscene);
+	}
+	
+	private void OnCreditsStart()
+	{
+		MainMenuPanel.Visible = false;
+		GameOverPanel.Visible = false;
+		IntroCutscene.Visible = false;
+		GameUI.Visible = false;
+		_cutscene.QueueFree();
+		_credits = Credits.Instantiate();
+		GetNode<CanvasLayer>("CanvasLayer").AddChild(_credits);
 	}
 	
 	private void OnGameOverNotify()
@@ -269,13 +282,5 @@ public partial class MainMenu : Control
 	private void ButtonOnMouseover()
 	{
 		GetNode("Wwise/EventButtonMouseover").Call("post_event");
-	}
-
-	private void OnGoblinsEngagedChanged(int value)
-	{
-		if (value > 0)
-			GetNode("Wwise/EventEnemyPercussionStart").Call("post_event");
-		else
-			GetNode("Wwise/EventEnemyPercussionStop").Call("post_event");
 	}
 }
