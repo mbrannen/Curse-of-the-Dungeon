@@ -28,7 +28,7 @@ shadow_offset = Vector2(1, 0)
 
 [sub_resource type="Animation" id="Animation_k33s8"]
 resource_name = "IntroPlay"
-length = 10.0
+length = 11.0
 step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -49,7 +49,7 @@ tracks/1/path = NodePath("Panel2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2, 3, 5),
+"times": PackedFloat32Array(0, 2, 3.5, 6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
@@ -61,7 +61,7 @@ tracks/2/path = NodePath("Panel3:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 4, 5, 7, 10),
+"times": PackedFloat32Array(0, 5, 6, 8, 11),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
@@ -72,7 +72,7 @@ _data = {
 "IntroPlay": SubResource("Animation_k33s8")
 }
 
-[node name="IntroCutscene" type="Panel" node_paths=PackedStringArray("AnimationPlayer", "SkipButton")]
+[node name="IntroCutscene" type="Panel" node_paths=PackedStringArray("AnimationPlayer")]
 custom_minimum_size = Vector2(960, 540)
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,7 +82,6 @@ grow_vertical = 2
 theme = ExtResource("1_enpju")
 script = ExtResource("2_pjri3")
 AnimationPlayer = NodePath("AnimationPlayer")
-SkipButton = NodePath("")
 
 [node name="Panel7" type="TextureRect" parent="."]
 self_modulate = Color(0, 0, 0, 0)
@@ -97,7 +96,6 @@ texture = SubResource("CanvasTexture_hsced")
 expand_mode = 2
 
 [node name="Panel1" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0)
 self_modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(960, 540)
 layout_mode = 1
@@ -127,7 +125,6 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Panel2" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0)
 self_modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(960, 540)
 layout_mode = 1
@@ -160,7 +157,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Panel3" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(960, 540)
 layout_mode = 1
