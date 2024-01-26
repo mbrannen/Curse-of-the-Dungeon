@@ -65,7 +65,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	18980383	SpellPickup	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\SpellPickup_8735131D.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\SpellPickup		123088
 	71207881	FootstepStone3	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\FootstepStone3_D3E4F0C7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Footstep\Stone\FootstepStone3		109420
 	80780820	Ice_Spell_Impact	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\SFX_Done\Ice_Spell_Impact_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Magic\Ice_Spell_Impact		151296
-	85672698	EnemyPercussion	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\EnemyPercussion_63963DF9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\EnemyPercussion		1489468
+	85672698	EnemyPercussion	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\EnemyPercussion_506EFB10.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\EnemyPercussion		1489468
 	100698467	Cave_Ambience	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\Cave_Ambience_25A71BB2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Cave_Ambience		14817744
 	113926128	Bridge_Creaking	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\Bridge_Creaking_0156F7B3.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Bridge_Creaking		5632296
 	114076707	BadEnd	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\BadEnd_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music\BadEnd\BadEnd\BadEnd		7159860
@@ -78,10 +78,10 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	191518466	Ghost_Scream	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\Ghost_Scream_4DEB3658.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Ghost_Scream		414920
 	215882423	Electricity	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\SFX_Done\Electricity_825D8407.wem		\Actor-Mixer Hierarchy\Default Work Unit\Magic\Electricity		542940
 	227094282	Ambient_Music_1	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\Ambient_Music_1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Caves\Ambient_Music_1\Ambient_Music_1		21852944
-	229361948	GameOver	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\GameOver_F0313F9B.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\GameOver		599384
+	229361948	GameOver	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\GameOver_D0B5F0E7.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\GameOver		599384
 	240409872	Stone_Impact	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\SFX_Done\Stone_Impact_C3EFB5A7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Stone_Impact		94056
 	274512341	LockedDoor	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\Batch 4\LockedDoor_DA3465B5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\LockedDoor		99496
-	320303137	CorruptionImpact	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\CorruptionImpact_01DC1286.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\CorruptionImpact		647772
+	320303137	CorruptionImpact	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\CorruptionImpact_A8E030F9.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\CorruptionImpact		647772
 	329631798	ButtonMouseover	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\ButtonMouseover_929F40C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\ButtonMouseover		66616
 	365846925	Fire_Spell_Shoot	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\SFX_Done\Fire_Spell_Shoot_B7FBAB51.wem		\Actor-Mixer Hierarchy\Default Work Unit\Magic\Player_Spell_Shoot\Fire_Spell_Shoot		148320
 	367365418	FootstepStone2	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\FootstepStone2_323794BA.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Footstep\Stone\FootstepStone2		74532
@@ -98,7 +98,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	650914056	FootstepStone1	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\FootstepStone1_15BEF8DD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Footstep\Stone\FootstepStone1		73492
 	670321208	Stone_Explosion	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\SFX_Done\Stone_Explosion_E2C2D701.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Stone_Explosion		453696
 	710562661	Ice_Spell_Shoot	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\SFX_Done\Ice_Spell_Shoot_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\Magic\Player_Spell_Shoot\Ice_Spell_Shoot		151296
-	730282360	DoorEnter	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\DoorEnter_E6A9F5EB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\DoorEnter		256820
+	730282360	DoorEnter	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\DoorEnter_10F98A98.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\DoorEnter		256820
 	735000539	GoodEnd	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\GoodEnd_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music\GoodEnd\GoodEnd\GoodEnd		7533412
 	737637567	Throw	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\Throw_E40BDD54.wem		\Actor-Mixer Hierarchy\Default Work Unit\Enemies\Throw		84660
 	781790722	UIError	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\UIError_E510E728.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UIError		68504
@@ -107,5 +107,5 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	921613012	Ice_Spell_Charge	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\SFX_Done\Ice_Spell_Charge_C4085A1D.wem		\Actor-Mixer Hierarchy\Default Work Unit\Magic\Player_Charge\Ice_Spell_Charge		820564
 	944632407	SpellDrop	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\SpellDrop_87B165C4.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\SpellDrop		163424
 	1038208827	Cutscene	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\Cutscene_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\Music\Cutscene\Cutscene\Cutscene		10056972
-	1057366701	Water	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\Water_0C577657.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Water		1074296
+	1057366701	Water	D:\GameDev\Jan2024GameJam\Wwise\Jan2024GameJam\.cache\Mac\SFX\Water_DCC6AB40.wem		\Actor-Mixer Hierarchy\Default Work Unit\Environment\Water		1074296
 

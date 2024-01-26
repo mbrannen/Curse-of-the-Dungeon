@@ -190,7 +190,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{5B070272-5B32-CC25-CC6C-C8A9321F6E4B}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{0D686B9A-F208-7EF0-1539-482AA6A5B9F9}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -208,7 +208,7 @@
 				</File>
 				<File Id="85672698" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>EnemyPercussion.wav</ShortName>
-					<CachePath>SFX/EnemyPercussion_63963DF9.wem</CachePath>
+					<CachePath>SFX/EnemyPercussion_506EFB10.wem</CachePath>
 				</File>
 				<File Id="100698467" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cave_Ambience.wav</ShortName>
@@ -260,7 +260,7 @@
 				</File>
 				<File Id="229361948" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>GameOver.wav</ShortName>
-					<CachePath>SFX/GameOver_F0313F9B.wem</CachePath>
+					<CachePath>SFX/GameOver_D0B5F0E7.wem</CachePath>
 				</File>
 				<File Id="240409872" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX_Done\Stone_Impact.wav</ShortName>
@@ -272,7 +272,7 @@
 				</File>
 				<File Id="320303137" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CorruptionImpact.wav</ShortName>
-					<CachePath>SFX/CorruptionImpact_01DC1286.wem</CachePath>
+					<CachePath>SFX/CorruptionImpact_A8E030F9.wem</CachePath>
 				</File>
 				<File Id="329631798" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ButtonMouseover.wav</ShortName>
@@ -340,7 +340,7 @@
 				</File>
 				<File Id="730282360" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>DoorEnter.wav</ShortName>
-					<CachePath>SFX/DoorEnter_E6A9F5EB.wem</CachePath>
+					<CachePath>SFX/DoorEnter_10F98A98.wem</CachePath>
 				</File>
 				<File Id="735000539" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>GoodEnd.wav</ShortName>
@@ -376,7 +376,7 @@
 				</File>
 				<File Id="1057366701" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Water.wav</ShortName>
-					<CachePath>SFX/Water_0C577657.wem</CachePath>
+					<CachePath>SFX/Water_DCC6AB40.wem</CachePath>
 				</File>
 			</Media>
 			<Plugins>
@@ -750,5 +750,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{12566647-B7AE-8416-9621-AD55EB65FFAA}</FileHash>
+	<FileHash>{678BBE2B-55C2-05F8-6FAF-E054CF55896C}</FileHash>
 </SoundBanksInfo>
