@@ -1,3 +1,4 @@
+using GameJam2024.GameManagement;
 using Godot;
 using System;
 
@@ -7,14 +8,15 @@ public partial class WizardAreaCollision : Area2D
 	public override void _Ready()
 	{
 		AreaEntered += WizardArea2DBodyEntered;
-	}
+    }
 
 	private void WizardArea2DBodyEntered(Area2D body)
 	{
 		GD.Print($"Got hit with: {body.Name}");
 		if (body.IsInGroup("axe"))
 		{
-			GD.Print($"Axe hit");
+            GD.Print($"Axe hit");
+            GameManager.Instance.SetState(GameState.GameOver); //uncomment to debug and not die.
 		}
 	}
 

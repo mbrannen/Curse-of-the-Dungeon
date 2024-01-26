@@ -15,12 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://b7mhrtmw1bpu7" path="res://Levels/Level1.tscn" id="9_xi5so"]
 [ext_resource type="PackedScene" uid="uid://b4f0j0gpgn2u1" path="res://Levels/Level3.tscn" id="10_c2f34"]
 [ext_resource type="Texture2D" uid="uid://dq3t4sq8jq510" path="res://UI/logo.png" id="10_yfhvl"]
-[ext_resource type="PackedScene" uid="uid://q0tta873bgnk" path="res://UI/BadEndingCutscene.tscn" id="11_2ucg7"]
+[ext_resource type="PackedScene" uid="uid://q0tta873bgnk" path="res://UI/BadEndingCutscene.tscn" id="11_72l1d"]
 [ext_resource type="Texture2D" uid="uid://dsp4h6ywq62ny" path="res://MainMenu/menu-screen-bkg.png" id="11_c26br"]
-[ext_resource type="PackedScene" uid="uid://c2hb4t8d0amlf" path="res://UI/GoodEndingCutscene.tscn" id="12_f1hjp"]
 [ext_resource type="PackedScene" uid="uid://7llvmmihkn65" path="res://RuneTree/RuneTree.tscn" id="12_fcwdn"]
+[ext_resource type="PackedScene" uid="uid://c2hb4t8d0amlf" path="res://UI/GoodEndingCutscene.tscn" id="12_ygl8h"]
 [ext_resource type="PackedScene" uid="uid://c48hoql70qq01" path="res://UI/SpellslotContainer.tscn" id="13_com5w"]
-[ext_resource type="PackedScene" uid="uid://chjnygh1fsr2c" path="res://UI/Credits.tscn" id="13_g6q4f"]
+[ext_resource type="PackedScene" uid="uid://chjnygh1fsr2c" path="res://UI/Credits.tscn" id="13_icels"]
 
 [sub_resource type="Animation" id="Animation_goft0"]
 resource_name = "fadein"
@@ -78,9 +78,9 @@ RuneTree = NodePath("CanvasLayer/UI/RuneTree")
 Level1 = ExtResource("9_xi5so")
 Level2 = ExtResource("6_480qi")
 Level3 = ExtResource("10_c2f34")
-BadEndingScene = ExtResource("11_2ucg7")
-GoodEndingScene = ExtResource("12_f1hjp")
-Credits = ExtResource("13_g6q4f")
+BadEndingScene = ExtResource("11_72l1d")
+GoodEndingScene = ExtResource("12_ygl8h")
+Credits = ExtResource("13_icels")
 metadata/_edit_horizontal_guides_ = [270.0]
 metadata/_edit_vertical_guides_ = [480.0]
 

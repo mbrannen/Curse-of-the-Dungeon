@@ -93,7 +93,7 @@ public partial class Goblin : CharacterBody2D
 		//GD.Print(GlobalPosition.DistanceTo((Player as Wizard).GlobalPosition));
 		if (GlobalPosition.DistanceTo((Player as Wizard).GlobalPosition) <= 250)
 		{
-			if (!IsThrowing)
+			if (!IsThrowing && GameManager.Instance.GetState() != GameState.GameOver)
 			{
 				GD.Print("Throw Axe");
 				ThrowAxe((Player as Wizard));
