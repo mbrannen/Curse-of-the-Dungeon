@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3s1hoyji2emu"]
+[gd_scene load_steps=8 format=3 uid="uid://c3s1hoyji2emu"]
 
 [ext_resource type="PackedScene" uid="uid://7llvmmihkn65" path="res://RuneTree/RuneTree.tscn" id="1_4nj2e"]
 [ext_resource type="Script" path="res://UI/GameUI.cs" id="1_ei4qd"]
 [ext_resource type="PackedScene" uid="uid://c48hoql70qq01" path="res://UI/SpellslotContainer.tscn" id="2_frjxq"]
+[ext_resource type="Texture2D" uid="uid://udh8s6sk57s" path="res://Spells/art/spell-sprites/spell-ice-block.png" id="3_01say"]
 [ext_resource type="PackedScene" uid="uid://t3fby7b6f3fg" path="res://UI/Artifact.tscn" id="4_x7xwn"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_wkmvc"]
 
-[node name="UI" type="Control" node_paths=PackedStringArray("RuneTree")]
+[sub_resource type="CanvasTexture" id="CanvasTexture_sonnw"]
+
+[node name="UI" type="Control" node_paths=PackedStringArray("RuneTree", "CorruptionTimer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ei4qd")
 RuneTree = NodePath("RuneTree")
+CorruptionTimer = NodePath("CorruptionTimer")
 
 [node name="RuneTree" parent="." instance=ExtResource("1_4nj2e")]
 visible = false
@@ -35,18 +39,28 @@ offset_bottom = -22.0
 texture = SubResource("CanvasTexture_wkmvc")
 
 [node name="TextureRect2" type="TextureRect" parent="TextureRect"]
-self_modulate = Color(0.313726, 0.235294, 0.2, 1)
+self_modulate = Color(0.717647, 0.529412, 0.392157, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 66.0
+offset_left = 68.0
 offset_top = -64.0
-offset_right = -131.0
+offset_right = -66.0
+offset_bottom = 3202.0
 rotation = -1.57079
-scale = Vector2(53.4647, 1)
-texture = SubResource("CanvasTexture_wkmvc")
+scale = Vector2(1, 0.019)
+texture = ExtResource("3_01say")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/TextureRect2"]
+self_modulate = Color(0.313726, 0.235294, 0.2, 1)
+show_behind_parent = true
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 3260.0
+texture = SubResource("CanvasTexture_sonnw")
 
 [node name="SpellslotContainer" parent="." instance=ExtResource("2_frjxq")]
 layout_mode = 1
@@ -59,3 +73,8 @@ offset_right = -378.0
 offset_bottom = -22.0
 
 [node name="Artifact-big" parent="." instance=ExtResource("4_x7xwn")]
+position = Vector2(479, 422)
+
+[node name="CorruptionTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true

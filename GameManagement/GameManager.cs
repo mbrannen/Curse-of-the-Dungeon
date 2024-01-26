@@ -185,7 +185,7 @@ public sealed class GameManager
 				if (IsFullCorruption(MagicClass.Fire))
 				{
 					CorruptionMaxed?.Invoke(MagicClass.Fire);
-					FireCorruption = 0;
+					FireCorruption -= 100;
 					CorruptionChanged?.Invoke(MagicClass.Fire, FireCorruption);
 				}
 				else
@@ -196,7 +196,7 @@ public sealed class GameManager
 				if (IsFullCorruption(MagicClass.Ice))
 				{
 					CorruptionMaxed?.Invoke(MagicClass.Ice);
-					IceCorruption = 0;
+					IceCorruption -= 100;
 					CorruptionChanged?.Invoke(MagicClass.Ice, IceCorruption);
 				}
 				else
@@ -207,7 +207,7 @@ public sealed class GameManager
 				if (IsFullCorruption(MagicClass.Lightning))
 				{
 					CorruptionMaxed?.Invoke(MagicClass.Lightning);
-					LightningCorruption = 0;
+					LightningCorruption -= 100;
 					CorruptionChanged?.Invoke(MagicClass.Lightning, LightningCorruption);
 				}
 				else
