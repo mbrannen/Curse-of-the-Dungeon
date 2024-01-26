@@ -33,16 +33,19 @@ public partial class MainMenu : Control
 	[Export] public Theme Theme;
 	[Export] public Font DefaultFont;
 	[Export] public Font AccessbilityFont;
-	
 	[Export] public Control IntroCutscene;
+	
 	[Export] public Control GameUI;
 	[Export] public Control RuneTree;
+	
 	[ExportGroup("Levels")]
 	[Export] public PackedScene Level1;
+	[Export] public PackedScene Level2;
+	[Export] public PackedScene Level3;
+	
 	private Level1  _level1;
 	private Level2 _level2;
-
-	[Export] public PackedScene Level2;
+	private Level3 _level3;
 
 	public override void _EnterTree()
 	{
@@ -53,6 +56,7 @@ public partial class MainMenu : Control
 		
 		GameManager.Instance.LevelOneStart += OnLevelOneStart;
 		GameManager.Instance.LevelTwoStart += OnLevelTwoStart;
+		GameManager.Instance.LevelThreeStart += OnLevelThreeStart;
 		GameManager.Instance.GameOverNotify += OnGameOverNotify;
 		
 		StartButton.Pressed += StartButtonOnPressed;
@@ -136,8 +140,18 @@ public partial class MainMenu : Control
 		GameOverPanel.Visible = false;
 		IntroCutscene.Visible = false;
 		_level1.Destroy();
-		var level2 = Level2.Instantiate() as Level2;
-		AddChild(level2);
+		_level2 = Level2.Instantiate() as Level2;
+		AddChild(_level2);
+	}
+	
+	private void OnLevelThreeStart()
+	{
+		MainMenuPanel.Visible = false;
+		GameOverPanel.Visible = false;
+		IntroCutscene.Visible = false;
+		_level2.Destroy();
+		_level3 = Level3.Instantiate() as Level3;
+		AddChild(_level3);
 	}
 	
 	private void OnGameOverNotify()
