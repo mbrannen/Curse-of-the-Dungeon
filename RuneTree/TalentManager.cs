@@ -112,7 +112,7 @@ public sealed class TalentManager
 		//now that the tree is set up, subscribe to all the various events
 		SubscribeToAllTalentTreeEvents(TalentTree);
 		GameManager.Instance.CorruptionMaxed += OnCorruptionMaxed;
-		//GameManager.Instance.LevelRestart += OnLevelRestart;
+		GameManager.Instance.LevelRestart += OnLevelRestart;
 		
 	}
 

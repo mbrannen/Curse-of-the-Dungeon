@@ -122,12 +122,6 @@ public partial class MainMenu : Control
 
 	public override void _Process(double delta)
 	{
-		if(Input.IsActionJustPressed("Talents") || Input.IsActionJustReleased("Talents"))
-		{
-			RuneTree.Visible = !RuneTree.Visible;
-			GameManager.Instance.IsTalentsOpen = !GameManager.Instance.IsTalentsOpen;
-		}
-		
 		if(Input.IsActionJustPressed("Spell Select Right"))
 			GameManager.Instance.IncreaseSpellIndex();
 		if(Input.IsActionJustPressed("Spell Select Left"))
@@ -139,7 +133,6 @@ public partial class MainMenu : Control
 		MainMenuPanel.Visible = true;
 		GameOverPanel.Visible = false;
 		IntroCutscene.Visible = false;
-		GameUI.Visible = false;
 		try
 		{
 			_level1?.Destroy();
@@ -160,7 +153,6 @@ public partial class MainMenu : Control
 		MainMenuPanel.Visible = false;
 		GameOverPanel.Visible = false;
 		IntroCutscene.Visible = false;
-		GameUI.Visible = true;
 
 		_level1 = Level1.Instantiate() as Level1;
 		AddChild(_level1);
@@ -209,7 +201,6 @@ public partial class MainMenu : Control
 		MainMenuPanel.Visible = false;
 		GameOverPanel.Visible = false;
 		IntroCutscene.Visible = false;
-		GameUI.Visible = false;
 		_level3.Destroy();
 		_cutscene = BadEndingScene.Instantiate();
 		GetNode<CanvasLayer>("CanvasLayer").AddChild(_cutscene);
@@ -220,7 +211,6 @@ public partial class MainMenu : Control
 		MainMenuPanel.Visible = false;
 		GameOverPanel.Visible = false;
 		IntroCutscene.Visible = false;
-		GameUI.Visible = false;
 		_level3.Destroy();
 		_cutscene = GoodEndingScene.Instantiate();
 		GetNode<CanvasLayer>("CanvasLayer").AddChild(_cutscene);
@@ -231,7 +221,6 @@ public partial class MainMenu : Control
 		MainMenuPanel.Visible = false;
 		GameOverPanel.Visible = false;
 		IntroCutscene.Visible = false;
-		GameUI.Visible = false;
 		_cutscene.QueueFree();
 		_credits = Credits.Instantiate();
 		GetNode<CanvasLayer>("CanvasLayer").AddChild(_credits);
@@ -241,7 +230,6 @@ public partial class MainMenu : Control
 	{
 		GetNode("Wwise/EventGameOver").Call("post_event");
 		GameOverAnimator.Play("fadein");
-		GameUI.Visible = false;
 		MainMenuPanel.Visible = false;
 		GameOverPanel.Visible = true;
 	}

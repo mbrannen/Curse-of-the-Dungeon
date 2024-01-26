@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b7mhrtmw1bpu7"]
+[gd_scene load_steps=38 format=3 uid="uid://b7mhrtmw1bpu7"]
 
 [ext_resource type="Texture2D" uid="uid://d13qop4lljufr" path="res://Levels/Art/sprite-sheets/sprite-sheet-environment-stone.png" id="1_1yyn2"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_cn5fg"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://Levels/NextLevelDoor.cs" id="15_ujisy"]
 [ext_resource type="PackedScene" uid="uid://v3d7umaw4c51" path="res://Environment/FireRod.tscn" id="17_0vac7"]
 [ext_resource type="PackedScene" uid="uid://diyqoi5qwqrwr" path="res://Enemies/Goblin/Goblin.tscn" id="18_mmbro"]
+[ext_resource type="PackedScene" uid="uid://c3s1hoyji2emu" path="res://UI/GameUI.tscn" id="18_p06pb"]
 [ext_resource type="Texture2D" uid="uid://b4mk2y488kcg2" path="res://Environment/tiki-dark-13.svg" id="20_vp548"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gj0l8"]
@@ -391,7 +392,7 @@ position = Vector2(-732, -63)
 texture = ExtResource("10_a1pjp")
 
 [node name="Wizard" parent="." instance=ExtResource("4_6aqcm")]
-position = Vector2(84, 497)
+position = Vector2(-3961, -61)
 
 [node name="WaterZone" type="Area2D" parent="."]
 position = Vector2(-3, -2)
@@ -593,3 +594,6 @@ event = {
 position = Vector2(-4461.62, 440.4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("18_p06pb")]
+visible = true

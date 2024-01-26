@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bq3lwsnvmy8mc"]
+[gd_scene load_steps=19 format=3 uid="uid://bq3lwsnvmy8mc"]
 
 [ext_resource type="Texture2D" uid="uid://bowp64xxh05wk" path="res://Levels/Art/background-cavewall.png" id="1_ajlgu"]
 [ext_resource type="Script" path="res://Levels/Level2.cs" id="1_p34p7"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b3coc670j5u0y" path="res://Wizard/Wizard.tscn" id="7_wkuuk"]
 [ext_resource type="Script" path="res://Levels/NextLevel2Door.cs" id="8_brp0r"]
 [ext_resource type="PackedScene" uid="uid://diyqoi5qwqrwr" path="res://Enemies/Goblin/Goblin.tscn" id="9_cjbg4"]
+[ext_resource type="PackedScene" uid="uid://c3s1hoyji2emu" path="res://UI/GameUI.tscn" id="10_ufhce"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ddq67"]
 texture = ExtResource("2_i1avu")
@@ -318,3 +319,7 @@ position = Vector2(-279, 535)
 
 [node name="Goblin3" parent="." instance=ExtResource("9_cjbg4")]
 position = Vector2(-1135, 537)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("10_ufhce")]
