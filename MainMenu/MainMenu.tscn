@@ -82,8 +82,8 @@ Level1 = ExtResource("9_xi5so")
 Level2 = ExtResource("6_480qi")
 Level3 = ExtResource("10_c2f34")
 BadEndingScene = ExtResource("11_72l1d")
-GoodEndingScene = ExtResource("12_ygl8h")
-Credits = ExtResource("13_icels")
+GoodEndingScene = ExtResource("12_f1hjp")
+Credits = ExtResource("13_g6q4f")
 metadata/_edit_horizontal_guides_ = [270.0]
 metadata/_edit_vertical_guides_ = [480.0]
 
