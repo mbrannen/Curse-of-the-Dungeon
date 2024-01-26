@@ -16,7 +16,8 @@ public partial class BadEndingZone : Area2D
         if (body.IsInGroup("player"))
         {
             var iceBridgeCorrupted = TalentManager.Instance.GetSpell(Rune.IceBridge).Corrupted;
-            if(iceBridgeCorrupted)
+            var iceBlockCorrupted = TalentManager.Instance.GetSpell(Rune.IceBlock).Corrupted;
+            if(iceBridgeCorrupted && iceBlockCorrupted)
                 GameManager.Instance.SetState(GameState.BadEnding);
         }
         

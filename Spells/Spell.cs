@@ -9,6 +9,7 @@ public partial class Spell : Node2D
 
 	[Export] public Rune RuneType;
 	[Export] public Area2D Collider;
+	[Export] public AnimationPlayer Animation;
 
 	public IRuneNode Rune;
 	public override void _Ready()
@@ -18,18 +19,25 @@ public partial class Spell : Node2D
 			Collider.BodyEntered += ColliderOnBodyEntered;
 			Collider.AreaEntered += ColliderOnAreaEntered;
 		}
+		if(Rune.RuneType == GameJam2024.RuneTree.Rune.Fireblast)
+			Animation.AnimationFinished += OnAnimationFinished;
 
+	}
+
+	private void OnAnimationFinished(StringName animname)
+	{
+		QueueFree();
 	}
 
 	private void ColliderOnAreaEntered(Area2D area)
 	{
-		if(!area.IsInGroup("axe"))
+		if(!area.IsInGroup("axe") && Rune.RuneType != GameJam2024.RuneTree.Rune.Fireblast )
 			QueueFree();
 	}
 	
 	private void ColliderOnBodyEntered(Node2D body)
 	{
-		if(!body.IsInGroup("axe"))
+		if(!body.IsInGroup("axe") && Rune.RuneType != GameJam2024.RuneTree.Rune.Fireblast)
 			QueueFree();
 	}
 
