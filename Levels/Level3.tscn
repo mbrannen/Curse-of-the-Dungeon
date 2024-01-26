@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b4f0j0gpgn2u1"]
+[gd_scene load_steps=18 format=3 uid="uid://b4f0j0gpgn2u1"]
 
 [ext_resource type="Texture2D" uid="uid://bowp64xxh05wk" path="res://Levels/Art/background-cavewall.png" id="1_di270"]
 [ext_resource type="Script" path="res://Levels/Level3.cs" id="1_ft0lk"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://b02dflpwoiaqh" path="res://Environment/pillarglow.tres" id="5_70q26"]
 [ext_resource type="Script" path="res://Levels/DeathZone.cs" id="5_wxjjh"]
 [ext_resource type="PackedScene" uid="uid://b3coc670j5u0y" path="res://Wizard/Wizard.tscn" id="6_0n68w"]
+[ext_resource type="Script" path="res://Levels/BadEndingZone.cs" id="8_tkgqd"]
+[ext_resource type="Script" path="res://Levels/GoodEndingZone.cs" id="9_mqinl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_88r65"]
 texture = ExtResource("2_42c8m")
@@ -305,6 +307,8 @@ blend_mode = 1
 texture = SubResource("GradientTexture2D_3278d")
 
 [node name="BadEndingZone" type="Area2D" parent="."]
+collision_mask = 7
+script = ExtResource("8_tkgqd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BadEndingZone"]
 position = Vector2(-3501, 591)
@@ -313,6 +317,8 @@ shape = SubResource("RectangleShape2D_ypsbm")
 [node name="BadEndingTimer" type="Timer" parent="BadEndingZone"]
 
 [node name="GoodEndingZone" type="Area2D" parent="."]
+collision_mask = 7
+script = ExtResource("9_mqinl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoodEndingZone"]
 position = Vector2(-4442, 592)

@@ -14,11 +14,15 @@ public sealed class GameManager
 
     #region STATE MANAGEMENT EVENTS
     public delegate void StateChangedDelegate();
+
+    public event StateChangedDelegate MainMenu;
     public event StateChangedDelegate PlayIntroCutscene;
     public event StateChangedDelegate LevelOneStart;
     public event StateChangedDelegate LevelTwoStart;
     public event StateChangedDelegate LevelThreeStart;
     public event StateChangedDelegate GameOverNotify;
+    public event StateChangedDelegate BadEndingStart;
+    public event StateChangedDelegate GoodEndingStart;
     public event StateChangedDelegate LevelRestart;
 
     public delegate void CorruptionChangedDelegate(MagicClass magicClass, int value);
@@ -64,6 +68,7 @@ public sealed class GameManager
         switch (state)
         {
             case GameState.MainMenu:
+                MainMenu?.Invoke();
                 break;
             case GameState.IntroCutscene:
                 PlayIntroCutscene?.Invoke();
@@ -82,6 +87,12 @@ public sealed class GameManager
                 break;
             case GameState.GameOver:
                 GameOverNotify?.Invoke();
+                break;
+            case GameState.BadEnding:
+                BadEndingStart?.Invoke();
+                break;
+            case GameState.GoodEnding:
+                GoodEndingStart?.Invoke();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
