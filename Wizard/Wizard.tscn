@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b3coc670j5u0y"]
+[gd_scene load_steps=25 format=3 uid="uid://b3coc670j5u0y"]
 
 [ext_resource type="Script" path="res://Wizard/Wizard.cs" id="1_j82hd"]
 [ext_resource type="PackedScene" uid="uid://cvu6ofg1r3jan" path="res://Spells/Lightning.tscn" id="2_8byeu"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bc1tipnlfkedk" path="res://Wizard/art/walk/wiz-walk-f3.png" id="9_3v47k"]
 [ext_resource type="Texture2D" uid="uid://qpexpovv4xuk" path="res://Wizard/art/walk/wiz-walk-f4.png" id="10_vuslg"]
 [ext_resource type="PackedScene" uid="uid://cvymjc8twa0ch" path="res://Spells/FireWall.tscn" id="13_ry74x"]
+[ext_resource type="Script" path="res://Wizard/WizardAreaCollision.cs" id="17_4pby5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jttyt"]
 animations = [{
@@ -94,7 +95,7 @@ _data = {
 
 [node name="Wizard" type="CharacterBody2D" node_paths=PackedStringArray("Animation", "SpellOrigin") groups=["player"]]
 collision_layer = 6
-collision_mask = 7
+collision_mask = 15
 script = ExtResource("1_j82hd")
 Gravity = 1500.0
 Speed = 250.0
@@ -151,7 +152,8 @@ one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6
-collision_mask = 7
+collision_mask = 15
+script = ExtResource("17_4pby5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.5, -69)

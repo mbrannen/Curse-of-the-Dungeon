@@ -37,7 +37,10 @@ public partial class GoblinDetectionBox : Area2D
             IsRessurrected = true;
         }
         DetectedPlayer = true;
+        if (area.IsInGroup("goblin_wall")) {
+            GD.Print($"Detected Wall:{area.Name}");
 
+        }
     }
     private void PlayerDetectedOnAreaExit(Area2D area)
     {

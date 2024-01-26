@@ -14,15 +14,18 @@ public partial class Goblin : CharacterBody2D
     [Export] AnimatedSprite2D GhostFormSpriteAnimated;
     [Export] AnimatedSprite2D UndeadFormSpriteAnimated;
     [Export] Area2D GoblinDetectionBox;
+    [Export] Area2D GoblinHurtBox;
     [Export] PackedScene Axe;
     [Export] Node2D P1;
     [Export] public Timer ThrowTimer;
+    [Export] public float LaunchPower { get; set; } = 30000f;
 
     private bool IsThrowing;
     private double time = 0;
     private Axe _axe;
     private bool facingRight = true;
-    
+    private Vector2 _aimDirection;
+    private CharacterBody2D player;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -40,10 +43,16 @@ public partial class Goblin : CharacterBody2D
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
+        //_aimDirection = GlobalPosition.DirectionTo();
+            //(P1.GlobalPosition - GlobalPosition).Angle();
+
         GravityHandler(delta);
         if ((GoblinDetectionBox as GoblinDetectionBox).DetectedPlayer && UndeadFormSpriteAnimated.Visible)
         {
             CalculateRange();
+        }
+        if ((GoblinHurtBox as GoblinHurtBox).IsKilled) {
+            UndeadFormSpriteAnimated.Play("second_death");
         }
     }
 
@@ -75,9 +84,9 @@ public partial class Goblin : CharacterBody2D
 
     void CalculateRange()
     {
-        GD.Print("Searching");
+        //GD.Print("Searching");
         var Player = GetNode<CharacterBody2D>("../Wizard");
-        GD.Print(GlobalPosition.DistanceTo((Player as Wizard).GlobalPosition));
+        //GD.Print(GlobalPosition.DistanceTo((Player as Wizard).GlobalPosition));
         if (GlobalPosition.DistanceTo((Player as Wizard).GlobalPosition) <= 250)
         {
             if (!IsThrowing)
@@ -90,19 +99,19 @@ public partial class Goblin : CharacterBody2D
 
         if (GlobalPosition.DistanceTo((Player as Wizard).GlobalPosition) > 250 & GlobalPosition.DistanceTo((Player as Wizard).GlobalPosition) <= 350)
         {
-            GD.Print("move closer");
+            //GD.Print("move closer");
             UndeadFormSpriteAnimated.Play("walk");
             ////GD.Print($"Goblin X position: {GlobalPosition.X}");
             //GD.Print($"Player X position: {(Player as Wizard).Position.X}");
             //GD.Print($"GlobalPosition X position: {(Player as Wizard).Position.X}");
             if (GlobalPosition.X > (Player as Wizard).GlobalPosition.X) //Goblin moves left
             {
-                GD.Print("Moving Left");
+                //GD.Print("Moving Left");
                 UndeadFormSpriteAnimated.FlipH = true;
             }
             else //Goblin moves right
             {
-                GD.Print("Moving right");
+                //GD.Print("Moving right");
                 UndeadFormSpriteAnimated.FlipH = false;
             }
             Position += ((Player as Wizard).Position - Position) / Speed;
@@ -115,8 +124,12 @@ public partial class Goblin : CharacterBody2D
         GD.Print($"Throwing Axe: {ThrowTimer.TimeLeft}");
         _axe = Axe.Instantiate() as Axe;
         //axe.GlobalPosition = BezierCurve((float) time, player);
-        _axe.GlobalPosition = GlobalPosition;
+        _axe.GlobalPosition = new Vector2(GlobalPosition.X, GlobalPosition.Y-50);
         UndeadFormSpriteAnimated.Play("throw");
+        _aimDirection = GlobalPosition.DirectionTo(player.GlobalPosition);
+        Vector2 launchVector = _aimDirection * LaunchPower;
+        _axe.ApplyForce(launchVector);
+
         GetTree().CurrentScene.AddChild(_axe);
     }
     //Vector2 BezierCurve(float time, Wizard player)

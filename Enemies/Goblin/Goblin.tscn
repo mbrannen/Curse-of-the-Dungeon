@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://diyqoi5qwqrwr"]
+[gd_scene load_steps=34 format=3 uid="uid://diyqoi5qwqrwr"]
 
 [ext_resource type="Script" path="res://Enemies/Goblin/Goblin.cs" id="1_hny3b"]
 [ext_resource type="Texture2D" uid="uid://drnmn0g7w6m0i" path="res://Enemies/Goblin/goblin-animation-frames/ghost-move/gho-move-f1.png" id="2_7ky7f"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dwwta3o6aqd3s" path="res://Enemies/Goblin/goblin-animation-frames/walk/gob-walk-f3.png" id="24_4272u"]
 [ext_resource type="Texture2D" uid="uid://bvrnr8ma42bpq" path="res://Enemies/Goblin/goblin-animation-frames/walk/gob-walk-f4.png" id="25_gjo2i"]
 [ext_resource type="Script" path="res://Enemies/Goblin/GoblinDetectionBox.cs" id="26_fwero"]
+[ext_resource type="Script" path="res://Enemies/Goblin/GoblinHurtBox.cs" id="28_ssx7s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_551eb"]
 size = Vector2(39, 40.75)
@@ -107,7 +108,7 @@ animations = [{
 "texture": ExtResource("16_gv1ll")
 }],
 "loop": false,
-"name": &"second death",
+"name": &"second_death",
 "speed": 5.0
 }, {
 "frames": [{
@@ -148,10 +149,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_6udj8"]
 radius = 288.085
 
-[node name="Goblin" type="CharacterBody2D" node_paths=PackedStringArray("GhostFormSpriteAnimated", "UndeadFormSpriteAnimated", "GoblinDetectionBox", "P1", "ThrowTimer") groups=["enemy"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7rj1"]
+size = Vector2(35, 49)
+
+[node name="Goblin" type="CharacterBody2D" node_paths=PackedStringArray("GhostFormSpriteAnimated", "UndeadFormSpriteAnimated", "GoblinDetectionBox", "GoblinHurtBox", "P1", "ThrowTimer") groups=["enemy"]]
 position = Vector2(5, -2)
-collision_layer = 6
-collision_mask = 7
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_hny3b")
 Gravity = 1500.0
 Speed = 250.0
@@ -161,6 +165,7 @@ FallSpeed = 1000.0
 GhostFormSpriteAnimated = NodePath("GhostForm")
 UndeadFormSpriteAnimated = NodePath("UndeadForm")
 GoblinDetectionBox = NodePath("GoblinDetectionBox")
+GoblinHurtBox = NodePath("GoblinHurtBox")
 Axe = ExtResource("2_30bsa")
 P1 = NodePath("P1")
 ThrowTimer = NodePath("Timer")
@@ -179,7 +184,7 @@ autoplay = "default"
 visible = false
 position = Vector2(-5, -33)
 sprite_frames = SubResource("SpriteFrames_cvnvq")
-animation = &"walk"
+animation = &"second_death"
 
 [node name="GoblinDetectionBox" type="Area2D" parent="." node_paths=PackedStringArray("GhostFormSpriteAnimated", "UndeadFormSpriteAnimated")]
 collision_layer = 6
@@ -196,3 +201,12 @@ shape = SubResource("CircleShape2D_6udj8")
 position = Vector2(146, -156)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="GoblinHurtBox" type="Area2D" parent="." groups=["enemy"]]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("28_ssx7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoblinHurtBox"]
+position = Vector2(-3.5, -22.5)
+shape = SubResource("RectangleShape2D_i7rj1")

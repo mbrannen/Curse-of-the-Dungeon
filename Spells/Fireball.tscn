@@ -75,7 +75,7 @@ material = SubResource("ShaderMaterial_wr5hb")
 use_parent_material = true
 texture = ExtResource("3_0m31o")
 
-[node name="Area2D" type="Area2D" parent="." groups=["fire"]]
+[node name="Area2D" type="Area2D" parent="." groups=["attack_spell", "fire"]]
 collision_layer = 16
 collision_mask = 9
 
