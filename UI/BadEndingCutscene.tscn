@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://q0tta873bgnk"]
 
 [ext_resource type="Theme" uid="uid://clwjpsq8eh1ds" path="res://gamejame_2024_theme.tres" id="1_c8rn6"]
-[ext_resource type="Script" path="res://UI/IntroCutscene.cs" id="2_s15ku"]
+[ext_resource type="Script" path="res://UI/EndingCutscene.cs" id="2_tj5fr"]
 [ext_resource type="Texture2D" uid="uid://butufluwoi3kc" path="res://MainMenu/EndingScenes/cutscene-ending-bad-f1.png" id="3_c8rps"]
 [ext_resource type="Texture2D" uid="uid://dmteugfbbagnp" path="res://MainMenu/EndingScenes/cutscene-ending-bad-f2.png" id="4_uc7b5"]
 [ext_resource type="Texture2D" uid="uid://8tygtox5obae" path="res://MainMenu/EndingScenes/cutscene-ending-bad-f3.png" id="5_vv75q"]
@@ -72,7 +72,7 @@ _data = {
 "IntroPlay": SubResource("Animation_k33s8")
 }
 
-[node name="IntroCutscene" type="Panel" node_paths=PackedStringArray("AnimationPlayer")]
+[node name="BadEndingCutscene" type="Panel" node_paths=PackedStringArray("Animation")]
 custom_minimum_size = Vector2(960, 540)
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,8 +80,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_c8rn6")
-script = ExtResource("2_s15ku")
-AnimationPlayer = NodePath("AnimationPlayer")
+script = ExtResource("2_tj5fr")
+Animation = NodePath("AnimationPlayer")
 
 [node name="Panel7" type="TextureRect" parent="."]
 self_modulate = Color(0, 0, 0, 0)
@@ -179,11 +179,12 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -284.0
-offset_top = -83.0
+offset_top = -320.0
 offset_right = 285.0
-offset_bottom = -20.0
+offset_bottom = -257.0
 grow_horizontal = 2
 grow_vertical = 0
+text = "...if only you had a certain spell..."
 label_settings = SubResource("LabelSettings_iq1ej")
 horizontal_alignment = 1
 autowrap_mode = 2

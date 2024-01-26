@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://c2hb4t8d0amlf"]
 
 [ext_resource type="Theme" uid="uid://clwjpsq8eh1ds" path="res://gamejame_2024_theme.tres" id="1_enpju"]
-[ext_resource type="Script" path="res://UI/IntroCutscene.cs" id="2_pjri3"]
+[ext_resource type="Script" path="res://UI/EndingCutscene.cs" id="2_0rl3a"]
 [ext_resource type="Texture2D" uid="uid://cff01q7t8lgyi" path="res://MainMenu/EndingScenes/cutscene-ending-good-f1.png" id="3_ify3j"]
 [ext_resource type="Texture2D" uid="uid://et188c5k2qc" path="res://MainMenu/EndingScenes/cutscene-ending-good-f2.png" id="4_32yiw"]
 [ext_resource type="Texture2D" uid="uid://cwy38ecg7mkpa" path="res://MainMenu/EndingScenes/cutscene-ending-good-f3.png" id="5_o3lkx"]
@@ -72,7 +72,7 @@ _data = {
 "IntroPlay": SubResource("Animation_k33s8")
 }
 
-[node name="IntroCutscene" type="Panel" node_paths=PackedStringArray("AnimationPlayer")]
+[node name="GoodEndingCutscene" type="Panel" node_paths=PackedStringArray("Animation")]
 custom_minimum_size = Vector2(960, 540)
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,8 +80,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_enpju")
-script = ExtResource("2_pjri3")
-AnimationPlayer = NodePath("AnimationPlayer")
+script = ExtResource("2_0rl3a")
+Animation = NodePath("AnimationPlayer")
 
 [node name="Panel7" type="TextureRect" parent="."]
 self_modulate = Color(0, 0, 0, 0)

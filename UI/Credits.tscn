@@ -166,7 +166,7 @@ texture = ExtResource("1_knnqk")
 metadata/_edit_lock_ = true
 
 [node name="hands" type="Sprite2D" parent="."]
-position = Vector2(480, 680)
+position = Vector2(480, 408)
 texture = ExtResource("3_01l6u")
 
 [node name="camp" type="Sprite2D" parent="."]
@@ -179,15 +179,15 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 320.0
-offset_right = 640.0
-offset_bottom = 2350.0
+offset_right = -320.0
+offset_bottom = 1810.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_nxjw8")
 metadata/_edit_lock_ = true
 
 [node name="Logo" type="Sprite2D" parent="Scroll"]
-position = Vector2(152, 160)
+position = Vector2(160, 160)
 scale = Vector2(0.582781, 0.582782)
 texture = ExtResource("6_alfqm")
 metadata/_edit_lock_ = true
@@ -196,9 +196,9 @@ metadata/_edit_lock_ = true
 self_modulate = Color(0.313726, 0.0313726, 0.00392157, 1)
 layout_mode = 0
 offset_left = 64.0
-offset_top = 312.0
+offset_top = 320.0
 offset_right = 256.0
-offset_bottom = 2256.0
+offset_bottom = 2264.0
 theme_override_constants/line_separation = -8
 bbcode_enabled = true
 text = "[center]Pirate Software Game Jam January 2024
@@ -268,6 +268,7 @@ DevOps
 ~~~~~~
 Matthew Brannen
 
+
 Special thanks to Pirate Software for encouraging others to follow their passions and create...
 
 
@@ -277,13 +278,14 @@ Special thanks to Pirate Software for encouraging others to follow their passion
 metadata/_edit_lock_ = true
 
 [node name="thanks" type="Sprite2D" parent="Scroll"]
-position = Vector2(160, 2176)
+position = Vector2(160, 2208)
 texture = ExtResource("7_61dy1")
 
 [node name="art" type="AnimatedSprite2D" parent="."]
 position = Vector2(160, 144)
 sprite_frames = SubResource("SpriteFrames_4kixr")
 autoplay = "default"
+frame_progress = 0.60957
 
 [node name="bonk" type="AnimatedSprite2D" parent="."]
 position = Vector2(840, 408)
@@ -304,3 +306,4 @@ autoplay = "default"
 libraries = {
 "": SubResource("AnimationLibrary_3oa44")
 }
+autoplay = "credits"

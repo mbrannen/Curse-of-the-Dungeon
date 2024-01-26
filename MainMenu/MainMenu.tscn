@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b2vhhetl6w0ip"]
+[gd_scene load_steps=25 format=3 uid="uid://b2vhhetl6w0ip"]
 
 [ext_resource type="Script" path="res://MainMenu/MainMenu.cs" id="1_0qxbf"]
 [ext_resource type="Texture2D" uid="uid://b5tsdrrhuwa32" path="res://MainMenu/BG.png" id="1_1orda"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c2hb4t8d0amlf" path="res://UI/GoodEndingCutscene.tscn" id="12_f1hjp"]
 [ext_resource type="PackedScene" uid="uid://7llvmmihkn65" path="res://RuneTree/RuneTree.tscn" id="12_fcwdn"]
 [ext_resource type="PackedScene" uid="uid://c48hoql70qq01" path="res://UI/SpellslotContainer.tscn" id="13_com5w"]
+[ext_resource type="PackedScene" uid="uid://chjnygh1fsr2c" path="res://UI/Credits.tscn" id="13_g6q4f"]
 
 [sub_resource type="Animation" id="Animation_goft0"]
 resource_name = "fadein"
@@ -79,6 +80,7 @@ Level2 = ExtResource("6_480qi")
 Level3 = ExtResource("10_c2f34")
 BadEndingScene = ExtResource("11_2ucg7")
 GoodEndingScene = ExtResource("12_f1hjp")
+Credits = ExtResource("13_g6q4f")
 metadata/_edit_horizontal_guides_ = [270.0]
 metadata/_edit_vertical_guides_ = [480.0]
 
