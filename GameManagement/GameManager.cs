@@ -123,6 +123,7 @@ public sealed class GameManager
 
     public void RestartLevel()
     {
+        ResetValues();
         LevelRestart?.Invoke();
         switch (LastLevel)
         {
@@ -131,12 +132,34 @@ public sealed class GameManager
                 LevelOneStart?.Invoke();
                 break;
             case GameState.Level2:
+                State = GameState.Level2;
+                LevelTwoStart?.Invoke();
                 break;
             case GameState.Level3:
+                State = GameState.Level3;
+                LevelThreeStart?.Invoke();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    private void ResetValues()
+    {
+        FireCorruption = 0;
+        CorruptionChanged?.Invoke(MagicClass.Fire, FireCorruption);
+        
+        LightningCorruption = 0;
+        CorruptionChanged?.Invoke(MagicClass.Lightning, LightningCorruption);
+        
+        IceCorruption = 0;
+        CorruptionChanged?.Invoke(MagicClass.Ice, IceCorruption);
+
+        SelectedSpellIndex = 0;
+        SelectedSpell = null;
+        
+        SpellIndexChanged?.Invoke(SelectedSpellIndex);
+        GoblinsEngagedChanged?.Invoke(GoblinsEngaged);
     }
 
     public int GetTreeCorruptionValue(MagicClass magicClass)

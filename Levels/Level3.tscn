@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b4f0j0gpgn2u1"]
+[gd_scene load_steps=19 format=3 uid="uid://b4f0j0gpgn2u1"]
 
 [ext_resource type="Texture2D" uid="uid://bowp64xxh05wk" path="res://Levels/Art/background-cavewall.png" id="1_di270"]
 [ext_resource type="Script" path="res://Levels/Level3.cs" id="1_ft0lk"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b3coc670j5u0y" path="res://Wizard/Wizard.tscn" id="6_0n68w"]
 [ext_resource type="Script" path="res://Levels/BadEndingZone.cs" id="8_tkgqd"]
 [ext_resource type="Script" path="res://Levels/GoodEndingZone.cs" id="9_mqinl"]
+[ext_resource type="PackedScene" uid="uid://c3s1hoyji2emu" path="res://UI/GameUI.tscn" id="10_6w2ku"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_88r65"]
 texture = ExtResource("2_42c8m")
@@ -347,3 +348,7 @@ event = {
 }
 trigger_on = 2
 position = Vector2(-3820.44, 600.344)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("10_6w2ku")]

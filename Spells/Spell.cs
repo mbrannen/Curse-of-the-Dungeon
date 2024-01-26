@@ -23,13 +23,14 @@ public partial class Spell : Node2D
 
 	private void ColliderOnAreaEntered(Area2D area)
 	{
-		QueueFree();
+		if(!area.IsInGroup("axe"))
+			QueueFree();
 	}
 	
 	private void ColliderOnBodyEntered(Node2D body)
 	{
-		GD.Print("Collided with body!");
-		QueueFree();
+		if(!body.IsInGroup("axe"))
+			QueueFree();
 	}
 
 	public override void _Process(double delta)

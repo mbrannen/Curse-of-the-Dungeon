@@ -19,7 +19,13 @@ public partial class SpellSlot : PanelContainer
 	{
 		
 	}
-	
+
+	public override void _ExitTree()
+	{
+		GameManager.Instance.CorruptionChanged -= OnCorruptionChanged;
+		GameManager.Instance.SpellIndexChanged -= OnSpellIndexChanged;
+	}
+
 	public override void _Ready()
 	{
 		Rune = TalentManager.Instance.GetSpell(SpellName);

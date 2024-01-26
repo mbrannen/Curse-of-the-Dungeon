@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b2vhhetl6w0ip"]
+[gd_scene load_steps=22 format=3 uid="uid://b2vhhetl6w0ip"]
 
 [ext_resource type="Script" path="res://MainMenu/MainMenu.cs" id="1_0qxbf"]
 [ext_resource type="Texture2D" uid="uid://b5tsdrrhuwa32" path="res://MainMenu/BG.png" id="1_1orda"]
@@ -14,13 +14,18 @@
 [ext_resource type="PackedScene" uid="uid://bl2fesc7epab1" path="res://UI/IntroCutscene.tscn" id="8_jam5c"]
 [ext_resource type="PackedScene" uid="uid://b7mhrtmw1bpu7" path="res://Levels/Level1.tscn" id="9_xi5so"]
 [ext_resource type="PackedScene" uid="uid://b4f0j0gpgn2u1" path="res://Levels/Level3.tscn" id="10_c2f34"]
+
 [ext_resource type="Texture2D" uid="uid://dq3t4sq8jq510" path="res://UI/logo.png" id="10_yfhvl"]
 [ext_resource type="PackedScene" uid="uid://q0tta873bgnk" path="res://UI/BadEndingCutscene.tscn" id="11_72l1d"]
+
 [ext_resource type="Texture2D" uid="uid://dsp4h6ywq62ny" path="res://MainMenu/menu-screen-bkg.png" id="11_c26br"]
-[ext_resource type="PackedScene" uid="uid://7llvmmihkn65" path="res://RuneTree/RuneTree.tscn" id="12_fcwdn"]
-[ext_resource type="PackedScene" uid="uid://c2hb4t8d0amlf" path="res://UI/GoodEndingCutscene.tscn" id="12_ygl8h"]
-[ext_resource type="PackedScene" uid="uid://c48hoql70qq01" path="res://UI/SpellslotContainer.tscn" id="13_com5w"]
-[ext_resource type="PackedScene" uid="uid://chjnygh1fsr2c" path="res://UI/Credits.tscn" id="13_icels"]
+
+[ext_resource type="PackedScene" uid="uid://c2hb4t8d0amlf" path="res://UI/GoodEndingCutscene.tscn" id="12_f1hjp"]
+
+
+[ext_resource type="PackedScene" uid="uid://chjnygh1fsr2c" path="res://UI/Credits.tscn" id="13_g6q4f"]
+[ext_resource type="Texture2D" uid="uid://csr4c2ull1dra" path="res://UI/death-screen-v2.png" id="17_hl6gn"]
+
 
 [sub_resource type="Animation" id="Animation_goft0"]
 resource_name = "fadein"
@@ -42,8 +47,6 @@ tracks/0/keys = {
 _data = {
 "fadein": SubResource("Animation_goft0")
 }
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_wkmvc"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "MainMenuPanel", "RestartButton", "OptionsButton_GOM", "CreditsButton_GOM", "ExitGameButton_GOM", "GameOverPanel", "GameOverAnimator", "CreditsScene", "OptionsScene", "IntroCutscene", "GameUI", "RuneTree")]
 layout_mode = 3
@@ -73,8 +76,8 @@ Theme = ExtResource("2_5tobs")
 DefaultFont = ExtResource("3_fvpl3")
 AccessbilityFont = ExtResource("4_6ogdn")
 IntroCutscene = NodePath("IntroCutscene")
-GameUI = NodePath("CanvasLayer/UI")
-RuneTree = NodePath("CanvasLayer/UI/RuneTree")
+GameUI = NodePath("")
+RuneTree = NodePath("")
 Level1 = ExtResource("9_xi5so")
 Level2 = ExtResource("6_480qi")
 Level3 = ExtResource("10_c2f34")
@@ -188,9 +191,9 @@ theme_override_constants/separation = 12
 alignment = 1
 
 [node name="GameOverTitle" type="Sprite2D" parent="CanvasLayer/GameOverMenuPanel/VBoxContainer"]
-position = Vector2(112, -97)
-scale = Vector2(0.42, 0.42)
-texture = ExtResource("10_yfhvl")
+position = Vector2(112, -115)
+scale = Vector2(1.16379, 1.16379)
+texture = ExtResource("17_hl6gn")
 
 [node name="RestartGameButton" type="Button" parent="CanvasLayer/GameOverMenuPanel/VBoxContainer"]
 layout_mode = 2
@@ -220,42 +223,6 @@ offset_bottom = 40.0
 libraries = {
 "": SubResource("AnimationLibrary_xf4md")
 }
-
-[node name="UI" type="Control" parent="CanvasLayer"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="RuneTree" parent="CanvasLayer/UI" instance=ExtResource("12_fcwdn")]
-visible = false
-layout_mode = 1
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI"]
-self_modulate = Color(0.313726, 0.235294, 0.2, 1)
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 381.0
-offset_top = -86.0
-offset_right = -381.0
-offset_bottom = -22.0
-texture = SubResource("CanvasTexture_wkmvc")
-
-[node name="SpellslotContainer" parent="CanvasLayer/UI" instance=ExtResource("13_com5w")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0
-anchor_right = 1.0
-offset_left = 376.0
-offset_top = -86.0
-offset_right = -378.0
-offset_bottom = -22.0
 
 [node name="Options" parent="CanvasLayer" instance=ExtResource("5_v8wv2")]
 visible = false

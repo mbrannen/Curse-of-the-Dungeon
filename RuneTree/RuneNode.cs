@@ -45,6 +45,8 @@ public partial class RuneNode : PanelContainer
 			PlayCorruptionAnimation(delta);
 		if(Rune.Corrupted)
 			(this as Control).MouseDefaultCursorShape = CursorShape.Forbidden;
+		if (!Rune.Corrupted)
+			Corruption.Visible = false;
 	}
 
 	private void PlayCorruptionAnimation(double delta)
@@ -56,6 +58,7 @@ public partial class RuneNode : PanelContainer
 		if (_corruptionShaderOpacity >= 1)
 			_coruptionAnimationFinished = true;
 	}
+	
 	
 	
 	

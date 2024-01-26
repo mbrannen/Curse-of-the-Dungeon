@@ -39,6 +39,11 @@ public partial class TalentHUDManager : Control
 		TalentManager.Instance.NotifyHUDOfCorruption += OnNotifyHUDOfCorruption;
 	}
 
+	public override void _ExitTree()
+	{
+		TalentManager.Instance.NotifyHUDOfCorruption -= OnNotifyHUDOfCorruption;
+	}
+
 	public override void _Ready()
 	{
 		//initial corruption 

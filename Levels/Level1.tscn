@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=41 format=3 uid="uid://b7mhrtmw1bpu7"]
+
 
 [ext_resource type="Texture2D" uid="uid://d13qop4lljufr" path="res://Levels/Art/sprite-sheets/sprite-sheet-environment-stone.png" id="1_1yyn2"]
 [ext_resource type="Script" path="res://Levels/Level1.cs" id="1_cn5fg"]
@@ -16,9 +18,13 @@
 [ext_resource type="Script" path="res://Levels/NextLevelDoor.cs" id="15_ujisy"]
 [ext_resource type="PackedScene" uid="uid://v3d7umaw4c51" path="res://Environment/FireRod.tscn" id="17_0vac7"]
 [ext_resource type="PackedScene" uid="uid://diyqoi5qwqrwr" path="res://Enemies/Goblin/Goblin.tscn" id="18_mmbro"]
+
 [ext_resource type="Texture2D" uid="uid://cjhtkksm847dp" path="res://Levels/Art/control-tutorial-move-keyboard.png" id="18_niqph"]
 [ext_resource type="Texture2D" uid="uid://cpdpo1qyfof6n" path="res://Levels/Art/control-tutorial-spells-tabs.png" id="19_qgwcg"]
 [ext_resource type="Texture2D" uid="uid://2ysyc8osgna5" path="res://Levels/Art/control-tutorial-spells-mousewheel.png" id="20_3k2ar"]
+
+[ext_resource type="PackedScene" uid="uid://c3s1hoyji2emu" path="res://UI/GameUI.tscn" id="18_p06pb"]
+
 [ext_resource type="Texture2D" uid="uid://b4mk2y488kcg2" path="res://Environment/tiki-dark-13.svg" id="20_vp548"]
 [ext_resource type="Texture2D" uid="uid://ce71dy7nk6vsp" path="res://Levels/Art/control-tutorial-spells-mouse-clicks.png" id="21_ucpn1"]
 
@@ -395,7 +401,9 @@ position = Vector2(-732, -63)
 texture = ExtResource("10_a1pjp")
 
 [node name="Wizard" parent="." instance=ExtResource("4_6aqcm")]
+
 position = Vector2(192, 498)
+
 
 [node name="WaterZone" type="Area2D" parent="."]
 position = Vector2(-3, -2)
@@ -596,6 +604,7 @@ event = {
 }
 position = Vector2(-4461.62, 440.4)
 
+
 [node name="Control-tutorial-move-keyboard" type="Sprite2D" parent="."]
 position = Vector2(409, 438)
 texture = ExtResource("18_niqph")
@@ -611,3 +620,9 @@ texture = ExtResource("20_3k2ar")
 [node name="Control-tutorial-spells-mouse-clicks" type="Sprite2D" parent="."]
 position = Vector2(-41, 379)
 texture = ExtResource("21_ucpn1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("18_p06pb")]
+visible = true
+
