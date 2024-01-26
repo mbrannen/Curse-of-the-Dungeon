@@ -14,25 +14,45 @@ public partial class Goblin : CharacterBody2D
     [Export] AnimatedSprite2D GhostFormSpriteAnimated;
     [Export] AnimatedSprite2D UndeadFormSpriteAnimated;
     [Export] Area2D GoblinDetectionBox;
+    [Export] Area2D GoblinHurtBox;
     [Export] PackedScene Axe;
+    [Export] Node2D P1;
+    [Export] public Timer ThrowTimer;
+    [Export] public float LaunchPower { get; set; } = 30000f;
 
-
-
+    private bool IsThrowing;
+    private double time = 0;
+    private Axe _axe;
+    private bool facingRight = true;
+    private Vector2 _aimDirection;
+    private CharacterBody2D player;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         GhostFormSpriteAnimated.Play();
+        UndeadFormSpriteAnimated.AnimationFinished += UndeadFormSpriteAnimatedAnimationFinished;
+        IsThrowing = false;
+    }
 
+    private void UndeadFormSpriteAnimatedAnimationFinished()
+    {
+        IsThrowing = false;
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
+        //_aimDirection = GlobalPosition.DirectionTo();
+            //(P1.GlobalPosition - GlobalPosition).Angle();
+
         GravityHandler(delta);
         if ((GoblinDetectionBox as GoblinDetectionBox).DetectedPlayer && UndeadFormSpriteAnimated.Visible)
         {
-            CalculateRange(delta);
+            CalculateRange();
+        }
+        if ((GoblinHurtBox as GoblinHurtBox).IsKilled) {
+            UndeadFormSpriteAnimated.Play("second_death");
         }
     }
 
@@ -41,6 +61,13 @@ public partial class Goblin : CharacterBody2D
     {
         //Call Move and Slide.
         MoveAndSlide();
+        //var player = GetNode<CharacterBody2D>("../Wizard");
+        //_axe.GlobalPosition = BezierCurve((float) time, player as Wizard);
+        //time += delta;
+        //if(time >= 1)
+        //{
+        //    time = 0;
+        //}
     }
 
     void GravityHandler(double delta)
@@ -55,26 +82,73 @@ public partial class Goblin : CharacterBody2D
         ).Floor();
     }
 
-    void CalculateRange(double delta) {
-        GD.Print("Searching");
+    void CalculateRange()
+    {
+        //GD.Print("Searching");
         var Player = GetNode<CharacterBody2D>("../Wizard");
-        if (GlobalPosition.DistanceTo((Player as Wizard).Position) <= 250){
-            GD.Print("Throw Axe");
-            var axe = Axe.Instantiate() as Axe;
-            axe.GlobalPosition = GlobalPosition;
-            GetTree().CurrentScene.AddChild(axe);
+        //GD.Print(GlobalPosition.DistanceTo((Player as Wizard).GlobalPosition));
+        if (GlobalPosition.DistanceTo((Player as Wizard).GlobalPosition) <= 250)
+        {
+            if (!IsThrowing)
+            {
+                GD.Print("Throw Axe");
+                ThrowAxe((Player as Wizard));
+                IsThrowing = true;
+            }
         }
-        else{
-            GD.Print("move closer");
-            GD.Print($"Goblin X position: { GlobalPosition.X}");
-            if (GlobalPosition.X > (Player as Wizard).Position.X)
+
+        if (GlobalPosition.DistanceTo((Player as Wizard).GlobalPosition) > 250 & GlobalPosition.DistanceTo((Player as Wizard).GlobalPosition) <= 350)
+        {
+            //GD.Print("move closer");
+            UndeadFormSpriteAnimated.Play("walk");
+            ////GD.Print($"Goblin X position: {GlobalPosition.X}");
+            //GD.Print($"Player X position: {(Player as Wizard).Position.X}");
+            //GD.Print($"GlobalPosition X position: {(Player as Wizard).Position.X}");
+            if (GlobalPosition.X > (Player as Wizard).GlobalPosition.X) //Goblin moves left
             {
-                Velocity = new Vector2(Mathf.MoveToward(Velocity.X, -1 * Speed, Acceleration * (float)delta),Velocity.Y).Floor();
+                //GD.Print("Moving Left");
+                UndeadFormSpriteAnimated.FlipH = true;
             }
-            else
+            else //Goblin moves right
             {
-                Velocity = new Vector2(Mathf.MoveToward(Velocity.X, 1 * Speed, Acceleration * (float)delta), Velocity.Y).Floor();
+                //GD.Print("Moving right");
+                UndeadFormSpriteAnimated.FlipH = false;
             }
+            Position += ((Player as Wizard).Position - Position) / Speed;
+
+            //Velocity = new Vector2(Mathf.MoveToward(Velocity.X, Speed, (float)delta), Velocity.Y).Floor();
         }
     }
+    void ThrowAxe(Wizard player)
+    {
+        GD.Print($"Throwing Axe: {ThrowTimer.TimeLeft}");
+        _axe = Axe.Instantiate() as Axe;
+        //axe.GlobalPosition = BezierCurve((float) time, player);
+        _axe.GlobalPosition = new Vector2(GlobalPosition.X, GlobalPosition.Y-50);
+        UndeadFormSpriteAnimated.Play("throw");
+        _aimDirection = GlobalPosition.DirectionTo(player.GlobalPosition);
+        Vector2 launchVector = _aimDirection * LaunchPower;
+        _axe.ApplyForce(launchVector);
+
+        GetTree().CurrentScene.AddChild(_axe);
+    }
+    //Vector2 BezierCurve(float time, Wizard player)
+    //{
+    //    GD.Print($"Bezier Curve: {time}");
+    //    var q0 = GlobalPosition.Lerp(P1.GlobalPosition,  time);
+    //    var q1 = P1.GlobalPosition.Lerp(player.GlobalPosition,  time);
+    //    var r = q0.Lerp(q1, time);
+    //    return r;
+    //}
+    //public bool CanThrow()
+    //{
+    //    GD.Print($"ThrowTimer.TimeLeft: {ThrowTimer.TimeLeft}");
+    //    if (ThrowTimer.TimeLeft == 0)
+    //    {
+    //        ThrowTimer.Start();
+    //        return true;
+    //    }
+
+    //    return false;
+    //}
 }

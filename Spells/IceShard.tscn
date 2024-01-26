@@ -129,7 +129,7 @@ use_parent_material = true
 rotation = 3.14159
 texture = ExtResource("3_v278n")
 
-[node name="Area2D" type="Area2D" parent="." groups=["ice"]]
+[node name="Area2D" type="Area2D" parent="." groups=["attack_spell", "ice"]]
 position = Vector2(73.3333, -0.000327535)
 collision_layer = 16
 
