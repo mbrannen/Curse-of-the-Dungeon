@@ -1,0 +1,306 @@
+[gd_scene load_steps=27 format=3 uid="uid://chjnygh1fsr2c"]
+
+[ext_resource type="Texture2D" uid="uid://bowp64xxh05wk" path="res://Levels/Art/background-cavewall.png" id="1_knnqk"]
+[ext_resource type="Script" path="res://UI/Credits.cs" id="1_ot3ki"]
+[ext_resource type="Texture2D" uid="uid://cc6m5yyd58ns0" path="res://UI/cute-credits-stuff/handprints.png" id="3_01l6u"]
+[ext_resource type="Texture2D" uid="uid://ue6lkikljnra" path="res://UI/cute-credits-stuff/team-campfire.png" id="4_05fe3"]
+[ext_resource type="Texture2D" uid="uid://b434mdaofft6d" path="res://UI/cute-credits-stuff/credits-scroll.png" id="5_nxjw8"]
+[ext_resource type="Texture2D" uid="uid://dq3t4sq8jq510" path="res://UI/logo.png" id="6_alfqm"]
+[ext_resource type="Texture2D" uid="uid://m17hy4bjvgsi" path="res://UI/cute-credits-stuff/thanks-for-playing.png" id="7_61dy1"]
+[ext_resource type="Texture2D" uid="uid://pl54r1w5s666" path="res://UI/cute-credits-stuff/credits-art-f1.png" id="8_6i6ii"]
+[ext_resource type="Texture2D" uid="uid://du6e84s1pt55a" path="res://UI/cute-credits-stuff/credits-art-f2.png" id="9_7oyci"]
+[ext_resource type="Texture2D" uid="uid://c03ytk8e4qtpo" path="res://UI/cute-credits-stuff/credits-art-f3.png" id="10_cjm8f"]
+[ext_resource type="Texture2D" uid="uid://caxdamtnlb1xh" path="res://UI/cute-credits-stuff/credits-bonk-f1.png" id="11_wxvrh"]
+[ext_resource type="Texture2D" uid="uid://7wdbb82pkgh1" path="res://UI/cute-credits-stuff/credits-bonk-f2.png" id="12_fxldl"]
+[ext_resource type="Texture2D" uid="uid://2x1gd8228can" path="res://UI/cute-credits-stuff/credits-bonk-f3.png" id="13_s47t0"]
+[ext_resource type="Texture2D" uid="uid://dg0yi75mo3tc5" path="res://UI/cute-credits-stuff/credits-fire-f1.png" id="14_c4iam"]
+[ext_resource type="Texture2D" uid="uid://cx1gyjn30vrh3" path="res://UI/cute-credits-stuff/credits-fire-f2.png" id="15_noj5b"]
+[ext_resource type="Texture2D" uid="uid://dcomnd3gktr18" path="res://UI/cute-credits-stuff/credits-fire-f3.png" id="16_bs02a"]
+[ext_resource type="Texture2D" uid="uid://cwsa8c20gyisb" path="res://UI/cute-credits-stuff/credits-music-f1.png" id="17_rurdl"]
+[ext_resource type="Texture2D" uid="uid://d015txy7tqvwq" path="res://UI/cute-credits-stuff/credits-music-f2.png" id="18_e7wy3"]
+[ext_resource type="Texture2D" uid="uid://c4o3f3wmh0xv0" path="res://UI/cute-credits-stuff/credits-music-f3.png" id="19_h31hv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4kixr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_6i6ii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7oyci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cjm8f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.75
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flaug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_wxvrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fxldl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_s47t0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.75
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dyhoh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_c4iam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_noj5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_bs02a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.75
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pos4j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_rurdl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_e7wy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_h31hv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.75
+}]
+
+[sub_resource type="Animation" id="Animation_wq56y"]
+resource_name = "credits"
+length = 45.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scroll:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 44.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(320, 0), Vector2(320, -2500)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(43, 45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hgo0e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scroll:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(320, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3oa44"]
+_data = {
+"RESET": SubResource("Animation_hgo0e"),
+"credits": SubResource("Animation_wq56y")
+}
+
+[node name="Credits" type="Control" node_paths=PackedStringArray("Animation")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ot3ki")
+Animation = NodePath("AnimationPlayer")
+metadata/_edit_vertical_guides_ = [480.0]
+
+[node name="Background-cavewall" type="Sprite2D" parent="."]
+position = Vector2(496, 280)
+texture = ExtResource("1_knnqk")
+metadata/_edit_lock_ = true
+
+[node name="hands" type="Sprite2D" parent="."]
+position = Vector2(480, 680)
+texture = ExtResource("3_01l6u")
+
+[node name="camp" type="Sprite2D" parent="."]
+position = Vector2(480, 168)
+texture = ExtResource("4_05fe3")
+
+[node name="Scroll" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_right = -320.0
+offset_bottom = 1810.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_nxjw8")
+metadata/_edit_lock_ = true
+
+[node name="Logo" type="Sprite2D" parent="Scroll"]
+position = Vector2(152, 160)
+scale = Vector2(0.582781, 0.582782)
+texture = ExtResource("6_alfqm")
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Scroll"]
+self_modulate = Color(0.313726, 0.0313726, 0.00392157, 1)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 312.0
+offset_right = 256.0
+offset_bottom = 2256.0
+theme_override_constants/line_separation = -8
+bbcode_enabled = true
+text = "[center]Pirate Software Game Jam January 2024
+
+
+Game Design
+~~~~~~
+Catherine Ghodsee
+Charles Lee
+Matthew Brannen
+Jeremy Morris
+Xander Hansen
+
+
+Art Director
+~~~~~~
+Catherine Ghodsee
+
+
+Sound Design
+~~~~~~
+Jeremy Morris
+
+
+Music
+~~~~~~
+Jeremy Morris
+
+
+Level Design
+~~~~~~
+Charles Lee
+
+Developers
+~~~~~~
+Matthew Brannen
+Charles Lee
+Xander Hansen
+
+
+Systems
+~~~~~~
+Matthew Brannen
+
+
+Goblin AI
+~~~~~~
+Charles Lee
+
+
+Character Controller
+~~~~~~
+Xander Hansen
+
+
+Character Art & Animations
+~~~~~~
+Catherine Ghodsee
+
+
+UI
+~~~~~~
+Matthew Brannen
+
+
+DevOps
+~~~~~~
+Matthew Brannen
+
+Special thanks to Pirate Software for encouraging others to follow their passions and create...
+
+
+
+[/center]
+"
+metadata/_edit_lock_ = true
+
+[node name="thanks" type="Sprite2D" parent="Scroll"]
+position = Vector2(160, 2176)
+texture = ExtResource("7_61dy1")
+
+[node name="art" type="AnimatedSprite2D" parent="."]
+position = Vector2(160, 144)
+sprite_frames = SubResource("SpriteFrames_4kixr")
+autoplay = "default"
+
+[node name="bonk" type="AnimatedSprite2D" parent="."]
+position = Vector2(840, 408)
+sprite_frames = SubResource("SpriteFrames_flaug")
+autoplay = "default"
+
+[node name="fire" type="AnimatedSprite2D" parent="."]
+position = Vector2(136, 416)
+sprite_frames = SubResource("SpriteFrames_dyhoh")
+autoplay = "default"
+
+[node name="music" type="AnimatedSprite2D" parent="."]
+position = Vector2(718, 128)
+sprite_frames = SubResource("SpriteFrames_pos4j")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3oa44")
+}
