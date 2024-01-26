@@ -24,9 +24,6 @@ polygon = PackedVector2Array(-58, 505, -58, 575.183, -58, 693, -14, 692, -17, 50
 
 [sub_resource type="Gradient" id="Gradient_nxgrx"]
 
-[ext_resource type="PackedScene" uid="uid://diyqoi5qwqrwr" path="res://Enemies/Goblin/Goblin.tscn" id="18_5xm1h"]
-
-
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ok883"]
 gradient = SubResource("Gradient_nxgrx")
 
@@ -552,5 +549,3 @@ position = Vector2(-488, 405)
 [node name="Firerod" parent="." instance=ExtResource("17_0vac7")]
 position = Vector2(-2841, -491)
 
-[node name="Goblin" parent="." instance=ExtResource("18_5xm1h")]
-position = Vector2(-3693, 386)
