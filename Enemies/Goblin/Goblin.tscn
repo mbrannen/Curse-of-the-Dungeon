@@ -214,3 +214,26 @@ script = ExtResource("28_ssx7s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoblinHurtBox"]
 position = Vector2(-3.5, -22.5)
 shape = SubResource("RectangleShape2D_i7rj1")
+
+[node name="GhostScreamEvent" type="AkEvent2D" parent="."]
+event = {
+"id": 1536175086,
+"name": "Ghost_Scream"
+}
+position = Vector2(-4, -20)
+
+[node name="EnemyPercussionEvent" type="AkEvent2D" parent="."]
+event = {
+"id": 46712509,
+"name": "Enemy_Percussion"
+}
+stop_on = 3
+position = Vector2(-4, -20)
+
+[node name="GhostAmbienceEvent" type="AkEvent2D" parent="."]
+event = {
+"id": 429240274,
+"name": "Ghost_Ambience_Play"
+}
+stop_on = 3
+position = Vector2(-4, -20)

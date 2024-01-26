@@ -307,3 +307,10 @@ event = {
 "name": "Door_Locked"
 }
 position = Vector2(11, 40)
+
+[node name="DoorEnterEvent" type="AkEvent2D" parent="NextLevelDoor"]
+event = {
+"id": 2363335697,
+"name": "DoorEnter"
+}
+position = Vector2(11, 40)

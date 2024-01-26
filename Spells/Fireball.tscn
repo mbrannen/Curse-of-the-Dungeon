@@ -95,3 +95,10 @@ event = {
 "name": "Player_Spell_Shoot"
 }
 trigger_on = 2
+
+[node name="SpellCollideEvent" type="AkEvent2D" parent="."]
+event = {
+"id": 3520695494,
+"name": "Impact_Fire"
+}
+trigger_on = 3

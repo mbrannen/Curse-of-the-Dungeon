@@ -21,8 +21,7 @@ public partial class IceRod : Area2D
 			GD.Print("Ice Rod activated");
 			IsTriggered = true;
 			EnergizedParticles.Visible = true;
-			GetNode("IceRod/RodChargeEvent").Call("post_event");
-			GetNode("IceRod/FreezeEvent").Call("post_event");
+			GetNode("RodChargeEvent").Call("post_event");
 		}
 	}
 }

@@ -20,6 +20,7 @@ public partial class IntroCutscene : Control
 	{
 		AnimationPlayer.Seek(56,true);
 		SkipButton.Disabled = true;
+		GetNode("../Wwise/EventButtonPress").Call("post_event");
 	}
 
 	private void OnAnimationFinished(StringName animname)

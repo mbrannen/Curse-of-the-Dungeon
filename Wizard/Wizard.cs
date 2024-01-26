@@ -70,17 +70,17 @@ public partial class Wizard : CharacterBody2D
 
 	void GravityHandler(double delta)
 	{
-        //Return out of the function if already on the floor.
-        if (IsOnFloor()) return;
+		//Return out of the function if already on the floor.
+		if (IsOnFloor()) return;
 
 		//Set velocity to the current X velocity, and move Y velocity towards fallspeed (terminal velocity)
 		Velocity = new Vector2(
 			Velocity.X,
 			Mathf.MoveToward(Velocity.Y, FallSpeed, Gravity * (float)delta)
 		).Floor();
-    }
+	}
 
-    float InputHandler()
+	float InputHandler()
 	{
 		if ((Input.IsActionPressed("MoveLeft") && Input.IsActionPressed("MoveRight")) || (!Input.IsActionPressed("MoveLeft") && !Input.IsActionPressed("MoveRight")))
 		{

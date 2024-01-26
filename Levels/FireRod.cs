@@ -24,7 +24,7 @@ public partial class FireRod : Area2D
 			GD.Print("Fire Rod activated");
 			EnergizedParticles.Visible = true;
 			IsTriggered = true;
-			GetNode("FireRod/RodChargeEvent").Call("post_event");
+			GetNode("RodChargeEvent").Call("post_event");
 		}
 	}
 }

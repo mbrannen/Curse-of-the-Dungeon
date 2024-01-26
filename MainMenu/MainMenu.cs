@@ -156,6 +156,7 @@ public partial class MainMenu : Control
 	
 	private void OnGameOverNotify()
 	{
+		GetNode("Wwise/EventGameOver").Call("post_event");
 		GameOverAnimator.Play("fadein");
 		GameUI.Visible = false;
 		MainMenuPanel.Visible = false;

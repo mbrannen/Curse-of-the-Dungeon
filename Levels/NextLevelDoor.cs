@@ -25,6 +25,7 @@ public partial class NextLevelDoor : Area2D
 		{
 			//Goes to the next level
 			GD.Print("player goes to next level");
+			GetNode("DoorEnterEvent").Call("post_event");
 			GameManager.Instance.SetState(GameState.Level2);
 
 		}
