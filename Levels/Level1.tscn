@@ -402,6 +402,26 @@ texture = ExtResource("8_i2afw")
 position = Vector2(-732, -63)
 texture = ExtResource("10_a1pjp")
 
+[node name="Control-tutorial-move-keyboard" type="Sprite2D" parent="."]
+position = Vector2(407, 357)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("18_niqph")
+
+[node name="Control-tutorial-spells-tabs" type="Sprite2D" parent="."]
+position = Vector2(94.875, 240)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("19_3aj5r")
+
+[node name="Control-tutorial-spells-mousewheel" type="Sprite2D" parent="."]
+position = Vector2(66.735, 330.25)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("20_7c4ju")
+
+[node name="Control-tutorial-spells-mouse-clicks" type="Sprite2D" parent="."]
+position = Vector2(-165, 293)
+scale = Vector2(1.75, 1.6)
+texture = ExtResource("21_h2s5a")
+
 [node name="Wizard" parent="." instance=ExtResource("4_6aqcm")]
 position = Vector2(192, 498)
 
@@ -605,26 +625,6 @@ event = {
 "name": "Pylon_Charge"
 }
 position = Vector2(-4461.62, 440.4)
-
-[node name="Control-tutorial-move-keyboard" type="Sprite2D" parent="."]
-position = Vector2(407, 357)
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("18_niqph")
-
-[node name="Control-tutorial-spells-tabs" type="Sprite2D" parent="."]
-position = Vector2(94.875, 240)
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("19_3aj5r")
-
-[node name="Control-tutorial-spells-mousewheel" type="Sprite2D" parent="."]
-position = Vector2(66.735, 330.25)
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("20_7c4ju")
-
-[node name="Control-tutorial-spells-mouse-clicks" type="Sprite2D" parent="."]
-position = Vector2(-165, 293)
-scale = Vector2(1.75, 1.6)
-texture = ExtResource("21_h2s5a")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
