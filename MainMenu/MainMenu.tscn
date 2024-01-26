@@ -319,3 +319,9 @@ event = {
 "name": "Music_Play"
 }
 trigger_on = 2
+
+[node name="EventGameOver" type="AkEvent2D" parent="Wwise"]
+event = {
+"id": 4158285989,
+"name": "GameOver"
+}

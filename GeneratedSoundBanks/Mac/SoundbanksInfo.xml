@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{C030B95B-7451-30C0-D170-61EA591E64A0}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F86EF1EC-87A1-E7FB-1E98-9A65C9C35098}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -39,7 +39,9 @@
 						<State Id="748895195" Name="None"/>
 						<State Id="749373321" Name="Caves"/>
 						<State Id="1182958561" Name="Cutscene"/>
+						<State Id="1592699765" Name="BadEnd"/>
 						<State Id="3604647259" Name="MainMenu"/>
+						<State Id="4284004457" Name="GoodEnd"/>
 					</States>
 				</StateGroup>
 				<StateGroup Id="2817994306" Name="Step_Type">
@@ -188,7 +190,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{F8DBCD0D-5288-2060-89B2-10E2CB75D309}">
+		<SoundBank Id="3161908922" Type="User" Language="SFX" Hash="{74685506-FC35-42AA-E91F-192ED05DA1CA}">
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
 			<Media>
@@ -204,6 +206,10 @@
 					<ShortName>SFX_Done\Ice_Spell_Impact.wav</ShortName>
 					<CachePath>SFX/SFX_Done/Ice_Spell_Impact_818F3B66.wem</CachePath>
 				</File>
+				<File Id="85672698" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>EnemyPercussion.wav</ShortName>
+					<CachePath>SFX/EnemyPercussion_63963DF9.wem</CachePath>
+				</File>
 				<File Id="100698467" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Cave_Ambience.wav</ShortName>
 					<CachePath>SFX/Cave_Ambience_25A71BB2.wem</CachePath>
@@ -212,9 +218,13 @@
 					<ShortName>Bridge_Creaking.wav</ShortName>
 					<CachePath>SFX/Bridge_Creaking_0156F7B3.wem</CachePath>
 				</File>
+				<File Id="114076707" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>BadEnd.wav</ShortName>
+					<CachePath>SFX/BadEnd_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="124476507" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Batch 4\PylonCharge.wav</ShortName>
-					<CachePath>SFX/Batch 4/PylonCharge_1A05E5C2.wem</CachePath>
+					<CachePath>SFX/Batch 4/PylonCharge_2B45CB7C.wem</CachePath>
 				</File>
 				<File Id="130218539" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX_Done\Fire_Spell_Charge.wav</ShortName>
@@ -248,17 +258,21 @@
 					<ShortName>Ambient_Music_1.wav</ShortName>
 					<CachePath>SFX/Ambient_Music_1_FBC78EF0.wem</CachePath>
 				</File>
+				<File Id="229361948" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>GameOver.wav</ShortName>
+					<CachePath>SFX/GameOver_F0313F9B.wem</CachePath>
+				</File>
 				<File Id="240409872" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX_Done\Stone_Impact.wav</ShortName>
 					<CachePath>SFX/SFX_Done/Stone_Impact_C3EFB5A7.wem</CachePath>
 				</File>
 				<File Id="274512341" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Batch 4\LockedDoor.wav</ShortName>
-					<CachePath>SFX/Batch 4/LockedDoor_54FB9286.wem</CachePath>
+					<CachePath>SFX/Batch 4/LockedDoor_DA3465B5.wem</CachePath>
 				</File>
 				<File Id="320303137" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CorruptionImpact.wav</ShortName>
-					<CachePath>SFX/CorruptionImpact_AFD423B4.wem</CachePath>
+					<CachePath>SFX/CorruptionImpact_01DC1286.wem</CachePath>
 				</File>
 				<File Id="329631798" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>ButtonMouseover.wav</ShortName>
@@ -286,7 +300,7 @@
 				</File>
 				<File Id="501159738" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Batch 4\DoorOpening.wav</ShortName>
-					<CachePath>SFX/Batch 4/DoorOpening_C64F5601.wem</CachePath>
+					<CachePath>SFX/Batch 4/DoorOpening_3D0E60F2.wem</CachePath>
 				</File>
 				<File Id="510063564" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX_Done\Fire_Spell_Impact.wav</ShortName>
@@ -324,6 +338,14 @@
 					<ShortName>SFX_Done\Ice_Spell_Shoot.wav</ShortName>
 					<CachePath>SFX/SFX_Done/Ice_Spell_Shoot_818F3B66.wem</CachePath>
 				</File>
+				<File Id="730282360" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>DoorEnter.wav</ShortName>
+					<CachePath>SFX/DoorEnter_E6A9F5EB.wem</CachePath>
+				</File>
+				<File Id="735000539" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>GoodEnd.wav</ShortName>
+					<CachePath>SFX/GoodEnd_FBC78EF0.wem</CachePath>
+				</File>
 				<File Id="737637567" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Throw.wav</ShortName>
 					<CachePath>SFX/Throw_E40BDD54.wem</CachePath>
@@ -352,11 +374,18 @@
 					<ShortName>Cutscene.wav</ShortName>
 					<CachePath>SFX/Cutscene_FBC78EF0.wem</CachePath>
 				</File>
+				<File Id="1057366701" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Water.wav</ShortName>
+					<CachePath>SFX/Water_0C577657.wem</CachePath>
+				</File>
 			</Media>
 			<Plugins>
 				<Custom>
 					<Plugin Id="423557383" Name="Gain (Custom)" LibName="Wwise Gain" LibId="9109507"/>
 				</Custom>
+				<ShareSets>
+					<Plugin Id="2849147824" Name="Medium" LibName="Wwise RoomVerb" LibId="7733251"/>
+				</ShareSets>
 			</Plugins>
 			<Events>
 				<Event Id="2210022288" Name="Ambient_SFX_Play">
@@ -373,6 +402,9 @@
 						<Custom>
 							<PluginRef Id="423557383"/>
 						</Custom>
+						<ShareSets>
+							<PluginRef Id="2849147824"/>
+						</ShareSets>
 					</PluginRefs>
 				</Event>
 				<Event Id="1049176448" Name="Bridge_Creaking_Stop"/>
@@ -400,21 +432,57 @@
 					<MediaRefs>
 						<MediaRef Id="274512341"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2849147824"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="2589897592" Name="Door_Opening">
 					<MediaRefs>
 						<MediaRef Id="501159738"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2849147824"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="2363335697" Name="DoorEnter">
+					<MediaRefs>
+						<MediaRef Id="730282360"/>
+					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2849147824"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="2917121896" Name="Electricity">
 					<MediaRefs>
 						<MediaRef Id="215882423"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2849147824"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
+				<Event Id="46712509" Name="Enemy_Percussion">
+					<MediaRefs>
+						<MediaRef Id="85672698"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1249632016" Name="Enemy_Percussion_Stop"/>
 				<Event Id="1804917506" Name="Enemy_Throw">
 					<MediaRefs>
 						<MediaRef Id="737637567"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2849147824"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="1866025847" Name="Footstep">
 					<SwitchContainers>
@@ -456,6 +524,16 @@
 					<MediaRefs>
 						<MediaRef Id="385111629"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2849147824"/>
+						</ShareSets>
+					</PluginRefs>
+				</Event>
+				<Event Id="4158285989" Name="GameOver">
+					<MediaRefs>
+						<MediaRef Id="229361948"/>
+					</MediaRefs>
 				</Event>
 				<Event Id="429240274" Name="Ghost_Ambience_Play">
 					<MediaRefs>
@@ -467,16 +545,31 @@
 					<MediaRefs>
 						<MediaRef Id="191518466"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2849147824"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="3520695494" Name="Impact_Fire">
 					<MediaRefs>
 						<MediaRef Id="510063564"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2849147824"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="744817815" Name="Impact_Ice">
 					<MediaRefs>
 						<MediaRef Id="80780820"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2849147824"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="202194903" Name="Music_Play">
 					<SwitchContainers>
@@ -496,6 +589,18 @@
 							<SwitchValue GroupType="State" GroupId="1926883983" Id="1182958561"/>
 							<MediaRefs>
 								<MediaRef Id="1038208827"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1926883983" Id="1592699765"/>
+							<MediaRefs>
+								<MediaRef Id="114076707"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="1926883983" Id="4284004457"/>
+							<MediaRefs>
+								<MediaRef Id="735000539"/>
 							</MediaRefs>
 						</SwitchContainer>
 					</SwitchContainers>
@@ -531,18 +636,33 @@
 							<MediaRefs>
 								<MediaRef Id="614305136"/>
 							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="2849147824"/>
+								</ShareSets>
+							</PluginRefs>
 						</SwitchContainer>
 						<SwitchContainer>
 							<SwitchValue GroupType="State" GroupId="3830273964" Id="2678880713"/>
 							<MediaRefs>
 								<MediaRef Id="365846925"/>
 							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="2849147824"/>
+								</ShareSets>
+							</PluginRefs>
 						</SwitchContainer>
 						<SwitchContainer>
 							<SwitchValue GroupType="State" GroupId="3830273964" Id="344481046"/>
 							<MediaRefs>
 								<MediaRef Id="710562661"/>
 							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="2849147824"/>
+								</ShareSets>
+							</PluginRefs>
 						</SwitchContainer>
 					</SwitchContainers>
 					<ActionPostEvent>
@@ -568,6 +688,11 @@
 					<MediaRefs>
 						<MediaRef Id="574476303"/>
 					</MediaRefs>
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2849147824"/>
+						</ShareSets>
+					</PluginRefs>
 				</Event>
 				<Event Id="1009189048" Name="UI_Error">
 					<MediaRefs>
@@ -584,6 +709,11 @@
 						<MediaRef Id="18980383"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2041589099" Name="Water_Start">
+					<MediaRefs>
+						<MediaRef Id="1057366701"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 			<StateGroups>
 				<StateGroup Id="1926883983" Name="Scene">
@@ -591,7 +721,9 @@
 						<State Id="748895195" Name="None"/>
 						<State Id="749373321" Name="Caves"/>
 						<State Id="1182958561" Name="Cutscene"/>
+						<State Id="1592699765" Name="BadEnd"/>
 						<State Id="3604647259" Name="MainMenu"/>
+						<State Id="4284004457" Name="GoodEnd"/>
 					</States>
 				</StateGroup>
 				<StateGroup Id="2817994306" Name="Step_Type">
@@ -613,5 +745,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{E6B9D2AB-6902-6AB4-2AFE-1A7BD6DA39DA}</FileHash>
+	<FileHash>{29707C9B-EE52-3D4F-7670-F85066E91E5D}</FileHash>
 </SoundBanksInfo>

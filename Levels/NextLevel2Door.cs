@@ -19,6 +19,7 @@ public partial class NextLevel2Door : Area2D
 	{
 		GD.Print($"Door collided:{area.Name}");
 		//Goes to the next level
+		GetNode("DoorEnterEvent").Call("post_event");
 		GD.Print("player goes to next level");
 		GameManager.Instance.SetState(GameState.Level3);
 			

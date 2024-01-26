@@ -319,3 +319,11 @@ position = Vector2(-4442, 592)
 shape = SubResource("RectangleShape2D_ypsbm")
 
 [node name="GoodEndingTimer" type="Timer" parent="GoodEndingZone"]
+
+[node name="BridgeCreaking" type="AkEvent2D" parent="."]
+event = {
+"id": 52860350,
+"name": "Bridge_Creaking_Play"
+}
+trigger_on = 2
+position = Vector2(-3820.44, 600.344)

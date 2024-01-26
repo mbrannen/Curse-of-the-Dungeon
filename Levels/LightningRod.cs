@@ -22,7 +22,7 @@ public partial class LightningRod : Area2D
 			EnergizedParticles.Visible = true;
 			IsTriggered = true;
 			GD.Print("Lightning Rod activated");
-			GetNode("LightningRod/RodChargeEvent").Call("post_event");
+			GetNode("RodChargeEvent").Call("post_event");
 		}
 	}
 }

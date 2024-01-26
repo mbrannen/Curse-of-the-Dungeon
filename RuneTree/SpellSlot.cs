@@ -24,10 +24,10 @@ public partial class SpellSlot : PanelContainer
 	{
 		Rune = TalentManager.Instance.GetSpell(SpellName);
 		GameManager.Instance.CorruptionChanged += OnCorruptionChanged;
-        GameManager.Instance.SpellIndexChanged += OnSpellIndexChanged;
-        OnSpellIndexChanged(0);
-        
-    }
+		GameManager.Instance.SpellIndexChanged += OnSpellIndexChanged;
+		OnSpellIndexChanged(0);
+		
+	}
 
 	private void OnSpellIndexChanged(int index)
 	{

@@ -132,6 +132,7 @@ texture = ExtResource("3_v278n")
 [node name="Area2D" type="Area2D" parent="." groups=["attack_spell", "ice"]]
 position = Vector2(73.3333, -0.000327535)
 collision_layer = 16
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_jlynl")
@@ -149,3 +150,10 @@ event = {
 "name": "Player_Spell_Shoot"
 }
 trigger_on = 2
+
+[node name="SpellCollideEvent" type="AkEvent2D" parent="."]
+event = {
+"id": 744817815,
+"name": "Impact_Ice"
+}
+trigger_on = 3

@@ -6,7 +6,10 @@ State Group	ID	Name			Wwise Object Path	Notes
 State	ID	Name	State Group			Notes
 	748895195	None	Scene			
 	749373321	Caves	Scene			
+	1182958561	Cutscene	Scene			
+	1592699765	BadEnd	Scene			
 	3604647259	MainMenu	Scene			
+	4284004457	GoodEnd	Scene			
 	344481046	Ice	Step_Type			
 	748895195	None	Step_Type			
 	1216965916	Stone	Step_Type			

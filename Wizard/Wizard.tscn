@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b3coc670j5u0y"]
+[gd_scene load_steps=33 format=3 uid="uid://b3coc670j5u0y"]
 
 [ext_resource type="Script" path="res://Wizard/Wizard.cs" id="1_j82hd"]
 [ext_resource type="PackedScene" uid="uid://cvu6ofg1r3jan" path="res://Spells/Lightning.tscn" id="2_8byeu"]
@@ -23,11 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://dl7cvpxjhh171" path="res://Wizard/art/jump/wiz-jump-f2.png" id="12_0iyq8"]
 [ext_resource type="Texture2D" uid="uid://jc4dcaqsbhki" path="res://Wizard/art/jump/wiz-jump-f3.png" id="13_53sac"]
 [ext_resource type="PackedScene" uid="uid://cvymjc8twa0ch" path="res://Spells/FireWall.tscn" id="13_ry74x"]
-
 [ext_resource type="Texture2D" uid="uid://1b0107wweeqf" path="res://Wizard/art/jump/wiz-jump-f4.png" id="14_3v3qe"]
-
 [ext_resource type="Script" path="res://Wizard/WizardAreaCollision.cs" id="17_4pby5"]
-
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jttyt"]
 animations = [{
@@ -161,7 +158,7 @@ texture = ExtResource("2_had2t")
 self_modulate = Color(1, 1, 1, 0.843137)
 position = Vector2(-1, -66)
 sprite_frames = SubResource("SpriteFrames_jttyt")
-animation = &"death"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
