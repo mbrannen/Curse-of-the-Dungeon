@@ -33,9 +33,6 @@ public partial class NextLevelDoor : Area2D
 		{
 			GetNode("DoorLockedEvent").Call("post_event");
 		}
-		
-		//TOREMOVE
-		GameManager.Instance.SetState(GameState.Level2);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
