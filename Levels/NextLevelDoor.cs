@@ -7,8 +7,11 @@ public partial class NextLevelDoor : Area2D
 	[Export] Area2D LightningRod;
 	[Export] Area2D IceRod;
 	[Export] Area2D FireRod;
+	[Export] Sprite2D DoorOpenSprite;
+    [Export] Sprite2D DoorLockedSprite;
 
-	private bool playDoorOpenSFXOnce;
+
+    private bool playDoorOpenSFXOnce;
 	private bool DoorLocked;
 
 	// Called when the node enters the scene tree for the first time.
@@ -16,16 +19,18 @@ public partial class NextLevelDoor : Area2D
 	{
 		AreaEntered += NextLevelDoorAreaEntered; ;
 		playDoorOpenSFXOnce = false;
-	}
+        DoorOpenSprite.Visible = false;
+        DoorLockedSprite.Visible = true;
+    }
 
-	private void NextLevelDoorAreaEntered(Area2D area)
+    private void NextLevelDoorAreaEntered(Area2D area)
 	{
 		GD.Print($"Door collided:{area.Name}");
 		if ((LightningRod as LightningRod).IsTriggered && (FireRod as FireRod).IsTriggered && (IceRod as IceRod).IsTriggered)
 		{
 			//Goes to the next level
 			GD.Print("player goes to next level");
-			GetNode("DoorEnterEvent").Call("post_event");
+            GetNode("DoorEnterEvent").Call("post_event");
 			GameManager.Instance.SetState(GameState.Level2);
 
 		}
@@ -34,8 +39,8 @@ public partial class NextLevelDoor : Area2D
 			GetNode("DoorLockedEvent").Call("post_event");
 		}
 		
-		//TOREMOVE
-		GameManager.Instance.SetState(GameState.Level2);
+		////TOREMOVE
+		//GameManager.Instance.SetState(GameState.Level2);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,7 +49,9 @@ public partial class NextLevelDoor : Area2D
 		if ((LightningRod as LightningRod).IsTriggered && (FireRod as FireRod).IsTriggered && (IceRod as IceRod).IsTriggered && !playDoorOpenSFXOnce)
 		{
 			GetNode("DoorOpenEvent").Call("post_event");
-			playDoorOpenSFXOnce = true;
+            DoorOpenSprite.Visible = true;
+            DoorLockedSprite.Visible = true;
+            playDoorOpenSFXOnce = true;
 		}
 	}
 }
