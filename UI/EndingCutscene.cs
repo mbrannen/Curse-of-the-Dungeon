@@ -9,7 +9,7 @@ public partial class EndingCutscene : Panel
     public override void _Ready()
     {
         Animation.AnimationFinished += OnAnimationFinished;
-        GetNode("CutsceneScene").Call("post_event");
+        GetNode("CutsceneScene").Call("set_state");
     }
 
     private void OnAnimationFinished(StringName animname)
