@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bq3lwsnvmy8mc"]
+[gd_scene load_steps=18 format=3 uid="uid://bq3lwsnvmy8mc"]
 
 [ext_resource type="Texture2D" uid="uid://bowp64xxh05wk" path="res://Levels/Art/background-cavewall.png" id="1_ajlgu"]
 [ext_resource type="Script" path="res://Levels/Level2.cs" id="1_p34p7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bscnyljrwynrp" path="res://Levels/Art/sprite-sheets/sprite-sheet-columns-extra.png" id="4_pa3s4"]
 [ext_resource type="PackedScene" uid="uid://b3coc670j5u0y" path="res://Wizard/Wizard.tscn" id="7_wkuuk"]
 [ext_resource type="Script" path="res://Levels/NextLevel2Door.cs" id="8_brp0r"]
+[ext_resource type="PackedScene" uid="uid://diyqoi5qwqrwr" path="res://Enemies/Goblin/Goblin.tscn" id="9_cjbg4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ddq67"]
 texture = ExtResource("2_i1avu")
@@ -233,16 +234,10 @@ gradient = SubResource("Gradient_vvql6")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3ast"]
 size = Vector2(20, 117)
 
-[node name="Level2" type="Node2D"]
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("Map", "Wizard")]
 script = ExtResource("1_p34p7")
-
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_left = 414.0
-offset_top = 240.0
-offset_right = 489.0
-offset_bottom = 270.0
-text = "Level 2 "
+Map = NodePath("TileMap")
+Wizard = NodePath("Wizard")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.686275)
@@ -314,3 +309,12 @@ event = {
 "name": "DoorEnter"
 }
 position = Vector2(11, 40)
+
+[node name="Goblin" parent="." instance=ExtResource("9_cjbg4")]
+position = Vector2(-518, 535)
+
+[node name="Goblin2" parent="." instance=ExtResource("9_cjbg4")]
+position = Vector2(-279, 535)
+
+[node name="Goblin3" parent="." instance=ExtResource("9_cjbg4")]
+position = Vector2(-1135, 537)

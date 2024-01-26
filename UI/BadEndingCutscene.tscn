@@ -96,6 +96,7 @@ texture = SubResource("CanvasTexture_hsced")
 expand_mode = 2
 
 [node name="Panel1" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
 self_modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(960, 540)
 layout_mode = 1
@@ -125,6 +126,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Panel2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
 self_modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(960, 540)
 layout_mode = 1
@@ -157,6 +159,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Panel3" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
 self_modulate = Color(0, 0, 0, 1)
 custom_minimum_size = Vector2(960, 540)
 layout_mode = 1

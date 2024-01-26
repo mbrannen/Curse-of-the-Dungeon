@@ -137,13 +137,22 @@ public partial class MainMenu : Control
 	private void OnMainMenu()
 	{
 		MainMenuPanel.Visible = true;
-		GameOverPanel.Visible = true;
-		IntroCutscene.Visible = true;
+		GameOverPanel.Visible = false;
+		IntroCutscene.Visible = false;
 		GameUI.Visible = false;
-		_level1?.Destroy();
-		_level2?.Destroy();
-		_level3?.Destroy();
-		_cutscene.QueueFree();
+		try
+		{
+			_level1?.Destroy();
+			_level2?.Destroy();
+			_level3?.Destroy();
+			_cutscene.QueueFree();
+		}
+		catch
+		{
+			//lol no errors here folks
+		}
+		_credits.QueueFree();
+		
 	}
 
 	private void OnLevelOneStart()
