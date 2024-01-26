@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using GameJam2024.GameManagement;
 
 public partial class GoblinDetectionBox : Area2D
 {
@@ -35,12 +36,12 @@ public partial class GoblinDetectionBox : Area2D
 		if (!IsRessurrected)
 		{
 			GetNode("../GhostScreamEvent").Call("post_event");
-			GetNode("../EnemyPercussionEvent").Call("post_event");
 			GetNode("../GhostAmbienceEvent").Call("post_event");
 			GhostFormSpriteAnimated.Play("possession");
 			IsRessurrected = true;
 		}
 		DetectedPlayer = true;
+		GameManager.Instance.IncreaseGoblinsEngaged();
 		if (area.IsInGroup("goblin_wall")) {
 			GD.Print($"Detected Wall:{area.Name}");
 
@@ -53,7 +54,7 @@ public partial class GoblinDetectionBox : Area2D
 		{ 
 			DetectedPlayer = false;
 			UndeadFormSpriteAnimated.Play("idle");
-
+			GameManager.Instance.DecreaseGoblinsEngaged();
 			GD.Print($"Player Detection: {DetectedPlayer}");
 		}
 	}
