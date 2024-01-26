@@ -287,9 +287,9 @@ public partial class MainMenu : Control
 	
 	private void OnGoblinsEngagedChanged(int value)
 	{
-		if (value > 0)
+		if (value == 1)
 			GetNode("Wwise/EventEnemyPercussionStart").Call("post_event");
-		else
+		else if (value == 0)
 			GetNode("Wwise/EventEnemyPercussionStop").Call("post_event");
 	}
 }
