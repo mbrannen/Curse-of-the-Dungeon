@@ -82,7 +82,7 @@ public abstract class SpellRuneBase : IRuneNode
 
         if (ChildrenCorruptedCount == Children.Count)
         {
-            CorruptNode(); //corrupt self
+            CorruptNode(true); //corrupt self
             return;
         }
             
@@ -97,9 +97,9 @@ public abstract class SpellRuneBase : IRuneNode
         }
     }
 
-    public void CorruptNode()
+    public void CorruptNode(bool fireSound)
     {
         Corrupted = true;
-        NodeBecameCorrupted?.Invoke(this);
+        NodeBecameCorrupted?.Invoke(this, fireSound);
     }
 }

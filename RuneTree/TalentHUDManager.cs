@@ -47,25 +47,35 @@ public partial class TalentHUDManager : Control
 	public override void _Ready()
 	{
 		//initial corruption 
-		TalentManager.Instance.CorruptSpecificNode(SpellNames.FIREBALL_SIZE);
-		TalentManager.Instance.CorruptSpecificNode(SpellNames.FIREWALL_LENGTH);
+		CorruptNode(SpellNames.FIREBALL_SIZE, false);
+		CorruptNode(SpellNames.FIREWALL_LENGTH, false);
 		
-		TalentManager.Instance.CorruptSpecificNode(SpellNames.ICE_SHARD_SIZE);
-		TalentManager.Instance.CorruptSpecificNode(SpellNames.ICE_PATCH_SIZE);
-		TalentManager.Instance.CorruptSpecificNode(SpellNames.ICE_BLOCK_DURATION);
-		TalentManager.Instance.CorruptSpecificNode(SpellNames.ICE_BRIDGE_DURATION);
+		CorruptNode(SpellNames.ICE_SHARD_SIZE, false);
+		CorruptNode(SpellNames.ICE_PATCH_SIZE, false);
+		CorruptNode(SpellNames.ICE_BLOCK_DURATION, false);
+		CorruptNode(SpellNames.ICE_BRIDGE_DURATION, false);
 		
-		TalentManager.Instance.CorruptSpecificNode(SpellNames.LIGHTNING_AOE);
+		CorruptNode(SpellNames.LIGHTNING_AOE, true);
 		
 	}
 
-	private void OnNotifyHUDOfCorruption(string name)
+	public void CorruptNode(string name, bool fireSound)
+	{
+		if (!TalentManager.Instance.IsNodeCorrupted(name))
+		{
+			TalentManager.Instance.CorruptSpecificNode(name, fireSound);
+		}
+	}
+	
+
+	private void OnNotifyHUDOfCorruption(string name, bool fireSound)
 	{
 		//honestly i hate this.  plz help.
 		//maybe nodes need to be there own scenes and we can dynamically instance them and find them by name?
 		if (GameManager.Instance.GetState() != GameState.MainMenu)
 		{
-			GetNode("Wwise/EventCorruptionImpact").Call("post_event");
+			if(fireSound)
+				GetNode("Wwise/EventCorruptionImpact").Call("post_event");
 		}
 		switch (name)
 		{

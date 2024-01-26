@@ -19,7 +19,7 @@ public sealed class TalentManager
 
 	public IRuneNode LightningTree;
 
-	public delegate void NotifyHUDOfCorruptionDelegate(string name);
+	public delegate void NotifyHUDOfCorruptionDelegate(string name, bool fireSound);
 
 	public event NotifyHUDOfCorruptionDelegate NotifyHUDOfCorruption;
 	
@@ -224,15 +224,20 @@ public sealed class TalentManager
 
 
 	//this function listens to the NodeBecameCorrupted event on nodes
-	private void OnNodeBecameCorrupted(IRuneNode node)
+	private void OnNodeBecameCorrupted(IRuneNode node, bool fireSound)
 	{
-		NotifyHUDOfCorruption?.Invoke(node.Name);
+		NotifyHUDOfCorruption?.Invoke(node.Name, fireSound);
 	}
 	
 	//function does as it says, will find a node and corrupt it
-	public void CorruptSpecificNode(string name)
+	public void CorruptSpecificNode(string name, bool fireSound)
 	{
-		TalentTree.GetSpecificNode(name).CorruptNode();
+		TalentTree.GetSpecificNode(name).CorruptNode(fireSound);
+	}
+
+	public bool IsNodeCorrupted(string name)
+	{
+		return TalentTree.GetSpecificNode(name).Corrupted;
 	}
 	
 	//This is a recursive function to traverse the entire talent tree and subscribe to the events on each node

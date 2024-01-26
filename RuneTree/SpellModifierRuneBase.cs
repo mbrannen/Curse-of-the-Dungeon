@@ -14,10 +14,10 @@ public abstract class SpellModifierRuneBase : IRuneNode
     public bool Corrupted { get; set; }
     public int CorruptionCost { get; }
     public event IRuneNode.NodeBecameCorruptedDelegate NodeBecameCorrupted;
-    public void CorruptNode()
+    public void CorruptNode(bool fireSound)
     {
         Corrupted = true;
-        NodeBecameCorrupted?.Invoke(this);
+        NodeBecameCorrupted?.Invoke(this, fireSound);
     }
 
     public void CorruptNextNode()
@@ -36,7 +36,7 @@ public abstract class SpellModifierRuneBase : IRuneNode
 
         if (ChildrenCorruptedCount == Children.Count)
         {
-            CorruptNode(); //corrupt self
+            CorruptNode(true); //corrupt self
             return;
         }
             

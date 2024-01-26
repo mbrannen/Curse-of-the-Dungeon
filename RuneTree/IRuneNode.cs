@@ -27,8 +27,8 @@ public interface IRuneNode
     
     public bool Corrupted { get; set; }
     public int CorruptionCost { get; }
-    public delegate void NodeBecameCorruptedDelegate(IRuneNode node);
+    public delegate void NodeBecameCorruptedDelegate(IRuneNode node, bool fireSound);
     public event NodeBecameCorruptedDelegate NodeBecameCorrupted;
-    public void CorruptNode();
+    public void CorruptNode(bool fireSound);
     public void CorruptNextNode();
 }
