@@ -159,7 +159,7 @@ public partial class Wizard : CharacterBody2D
 				spell.GlobalPosition = SpellOrigin.GlobalPosition;
 			
 			ChangeSpellAudioState(spell.Rune.RuneType);
-			GetTree().CurrentScene.AddChild(spell);
+			GetNode<Node2D>("../SpellHolder").AddChild(spell);
 			
 			GameManager.Instance.ChangeCorruptionValue(spell.Rune.MagicClass, spell.Rune.CorruptionCost);
 		}

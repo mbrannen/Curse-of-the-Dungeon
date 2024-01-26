@@ -352,3 +352,5 @@ position = Vector2(-3820.44, 600.344)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("10_6w2ku")]
+
+[node name="SpellHolder" type="Node2D" parent="."]

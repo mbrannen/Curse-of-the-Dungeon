@@ -629,9 +629,10 @@ texture = ExtResource("21_h2s5a")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("18_p06pb")]
-visible = true
 
 [node name="Door-open" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-4426, 439)
 texture = ExtResource("24_od01k")
+
+[node name="SpellHolder" type="Node2D" parent="."]
