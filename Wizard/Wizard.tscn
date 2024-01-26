@@ -1,9 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://b3coc670j5u0y"]
+[gd_scene load_steps=32 format=3 uid="uid://b3coc670j5u0y"]
 
 [ext_resource type="Script" path="res://Wizard/Wizard.cs" id="1_j82hd"]
 [ext_resource type="PackedScene" uid="uid://cvu6ofg1r3jan" path="res://Spells/Lightning.tscn" id="2_8byeu"]
 [ext_resource type="PackedScene" uid="uid://dwulyrxfxtxg0" path="res://Spells/Fireball.tscn" id="2_a5fuu"]
-[ext_resource type="Texture2D" uid="uid://bijr4lcyff6cn" path="res://testing/wizardtestsprite.png" id="2_had2t"]
 [ext_resource type="Texture2D" uid="uid://cmifflw5ldd6q" path="res://Wizard/art/death/wiz-death-f1.png" id="3_6fw16"]
 [ext_resource type="Texture2D" uid="uid://cn2405ethoe6k" path="res://Wizard/art/idle/wiz-idle-f1.png" id="3_fj6ua"]
 [ext_resource type="Texture2D" uid="uid://b2ddxp4mc8wnb" path="res://Wizard/art/death/wiz-death-f2.png" id="4_7v8wo"]
@@ -148,27 +147,24 @@ JumpStrength = -600.0
 Animation = NodePath("AnimatedSprite2D")
 SpellOrigin = NodePath("SpellManager")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(2.84217e-14, -71)
-scale = Vector2(0.0504948, 0.0504948)
-texture = ExtResource("2_had2t")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.843137)
 position = Vector2(-1, -66)
 sprite_frames = SubResource("SpriteFrames_jttyt")
 animation = &"idle"
 autoplay = "idle"
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_slh5g")
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 1)
 polygon = PackedVector2Array(-16, -11, -10, -18, -6, -34, -3, -83, -1, -86, 2, -86, 4, -84, 9, -34, 12, -18, 17, -11)
+metadata/_edit_lock_ = true
 
 [node name="SpellManager" type="Marker2D" parent="." node_paths=PackedStringArray("CastTimer")]
 position = Vector2(0, -121)
@@ -179,6 +175,7 @@ Lightning = ExtResource("2_8byeu")
 IceShard = ExtResource("6_fgkfi")
 IceBridge = ExtResource("7_fy076")
 CastTimer = NodePath("Timer")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="SpellManager"]
 visible = false
@@ -191,15 +188,18 @@ offset_bottom = 10.0
 one_shot = true
 
 [node name="WwiseListener" type="AkListener2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 collision_layer = 6
 collision_mask = 15
 script = ExtResource("17_4pby5")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.5, -69)
 shape = SubResource("RectangleShape2D_r5xk5")
+metadata/_edit_lock_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(2, -56)
@@ -207,6 +207,7 @@ scale = Vector2(3.8125, 3.8125)
 energy = 2.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_ymm1r")
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
