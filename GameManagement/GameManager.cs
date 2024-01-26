@@ -39,6 +39,12 @@ public sealed class GameManager
 
     public event NotifySpellCorruptedDelegate NotifySpellCorrupted;
     
+    public delegate void GoblinsEngagedChangedDelegate(int value);
+
+    public event GoblinsEngagedChangedDelegate GoblinsEngagedChanged;
+    
+    
+    
     #endregion
 
     #region VARIABLES
@@ -49,6 +55,8 @@ public sealed class GameManager
 
     public int SelectedSpellIndex = 0;
     public IRuneNode SelectedSpell;
+    
+    public int GoblinsEngaged = 0;
 
     public bool IsTalentsOpen;
 
@@ -224,6 +232,18 @@ public sealed class GameManager
             MagicClass.Lightning => LightningCorruption >= 100,
             _ => throw new ArgumentOutOfRangeException(nameof(magicClass), magicClass, null)
         };
+    }
+    
+    public void IncreaseGoblinsEngaged()
+    {
+        GoblinsEngaged++;
+        GoblinsEngagedChanged?.Invoke(GoblinsEngaged);
+    }
+
+    public void DecreaseGoblinsEngaged()
+    {
+        GoblinsEngaged--;
+        GoblinsEngagedChanged?.Invoke(GoblinsEngaged);
     }
 
 

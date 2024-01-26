@@ -9,13 +9,6 @@ public partial class BadEndingZone : Area2D
     public override void _Ready()
     {
         BodyEntered += OnBodyEntered;
-        Animation = GetNode<AnimationPlayer>("AnimationPlayer");
-        Animation.AnimationFinished += OnAnimationFinished;
-    }
-    
-    private void OnAnimationFinished(StringName animname)
-    {
-        GameManager.Instance.SetState(GameState.MainMenu);
     }
 
     private void OnBodyEntered(Node2D body)

@@ -71,6 +71,7 @@ public partial class MainMenu : Control
 		GameManager.Instance.BadEndingStart += OnBadEndingStart;
 		GameManager.Instance.GoodEndingStart += OnGoodEndingStart;
 		GameManager.Instance.CreditsStart += OnCreditsStart;
+		GameManager.Instance.GoblinsEngagedChanged += OnGoblinsEngagedChanged;
 		
 		StartButton.Pressed += StartButtonOnPressed;
 		StartButton.MouseEntered += ButtonOnMouseover;
@@ -282,5 +283,13 @@ public partial class MainMenu : Control
 	private void ButtonOnMouseover()
 	{
 		GetNode("Wwise/EventButtonMouseover").Call("post_event");
+	}
+	
+	private void OnGoblinsEngagedChanged(int value)
+	{
+		if (value > 0)
+			GetNode("Wwise/EventEnemyPercussionStart").Call("post_event");
+		else
+			GetNode("Wwise/EventEnemyPercussionStop").Call("post_event");
 	}
 }
