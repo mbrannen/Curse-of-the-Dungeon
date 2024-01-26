@@ -38,6 +38,10 @@ public partial class Goblin : CharacterBody2D
     private void UndeadFormSpriteAnimatedAnimationFinished()
     {
         IsThrowing = false;
+        if((GoblinHurtBox as GoblinHurtBox).IsKilled)
+        {
+            QueueFree();
+        }
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -99,11 +103,7 @@ public partial class Goblin : CharacterBody2D
 
         if (GlobalPosition.DistanceTo((Player as Wizard).GlobalPosition) > 250 & GlobalPosition.DistanceTo((Player as Wizard).GlobalPosition) <= 350)
         {
-            //GD.Print("move closer");
             UndeadFormSpriteAnimated.Play("walk");
-            ////GD.Print($"Goblin X position: {GlobalPosition.X}");
-            //GD.Print($"Player X position: {(Player as Wizard).Position.X}");
-            //GD.Print($"GlobalPosition X position: {(Player as Wizard).Position.X}");
             if (GlobalPosition.X > (Player as Wizard).GlobalPosition.X) //Goblin moves left
             {
                 //GD.Print("Moving Left");
@@ -115,8 +115,6 @@ public partial class Goblin : CharacterBody2D
                 UndeadFormSpriteAnimated.FlipH = false;
             }
             Position += ((Player as Wizard).Position - Position) / Speed;
-
-            //Velocity = new Vector2(Mathf.MoveToward(Velocity.X, Speed, (float)delta), Velocity.Y).Floor();
         }
     }
     void ThrowAxe(Wizard player)
@@ -132,23 +130,4 @@ public partial class Goblin : CharacterBody2D
 
         GetTree().CurrentScene.AddChild(_axe);
     }
-    //Vector2 BezierCurve(float time, Wizard player)
-    //{
-    //    GD.Print($"Bezier Curve: {time}");
-    //    var q0 = GlobalPosition.Lerp(P1.GlobalPosition,  time);
-    //    var q1 = P1.GlobalPosition.Lerp(player.GlobalPosition,  time);
-    //    var r = q0.Lerp(q1, time);
-    //    return r;
-    //}
-    //public bool CanThrow()
-    //{
-    //    GD.Print($"ThrowTimer.TimeLeft: {ThrowTimer.TimeLeft}");
-    //    if (ThrowTimer.TimeLeft == 0)
-    //    {
-    //        ThrowTimer.Start();
-    //        return true;
-    //    }
-
-    //    return false;
-    //}
 }

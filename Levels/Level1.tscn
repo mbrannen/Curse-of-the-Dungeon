@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://cd7i58o15xm6g" path="res://Levels/Art/extendedPlatform.png" id="13_edixu"]
 [ext_resource type="PackedScene" uid="uid://cknclt5k0w3r1" path="res://Environment/Leve1IceRod.tscn" id="15_sxa87"]
 [ext_resource type="Script" path="res://Levels/NextLevelDoor.cs" id="15_ujisy"]
-
 [ext_resource type="PackedScene" uid="uid://v3d7umaw4c51" path="res://Environment/FireRod.tscn" id="17_0vac7"]
 [ext_resource type="PackedScene" uid="uid://diyqoi5qwqrwr" path="res://Enemies/Goblin/Goblin.tscn" id="18_mmbro"]
 [ext_resource type="Texture2D" uid="uid://b4mk2y488kcg2" path="res://Environment/tiki-dark-13.svg" id="20_vp548"]
@@ -322,8 +321,8 @@ polygon = PackedVector2Array(-250, 402, -250, 413, -122, 412, -123, 402)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkw0p"]
 size = Vector2(39, 131)
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("Map", "Wizard")]
 
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("Map", "Wizard")]
 position = Vector2(4, -8)
 script = ExtResource("1_cn5fg")
 Map = NodePath("TileMap")
@@ -548,4 +547,3 @@ position = Vector2(-488, 405)
 
 [node name="Firerod" parent="." instance=ExtResource("17_0vac7")]
 position = Vector2(-2841, -491)
-
