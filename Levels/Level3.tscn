@@ -316,6 +316,16 @@ shape = SubResource("RectangleShape2D_ypsbm")
 
 [node name="BadEndingTimer" type="Timer" parent="BadEndingZone"]
 
+[node name="BadEndingState" type="AkState" parent="BadEndingZone"]
+state_group = {
+"id": 1926883983,
+"name": "Scene"
+}
+state_value = {
+"id": 1592699765,
+"name": "BadEnd"
+}
+
 [node name="GoodEndingZone" type="Area2D" parent="."]
 collision_mask = 7
 script = ExtResource("9_mqinl")
@@ -325,6 +335,16 @@ position = Vector2(-4442, 592)
 shape = SubResource("RectangleShape2D_ypsbm")
 
 [node name="GoodEndingTimer" type="Timer" parent="GoodEndingZone"]
+
+[node name="GoodEndingState" type="AkState" parent="GoodEndingZone"]
+state_group = {
+"id": 1926883983,
+"name": "Scene"
+}
+state_value = {
+"id": 4284004457,
+"name": "GoodEnd"
+}
 
 [node name="BridgeCreaking" type="AkEvent2D" parent="."]
 event = {
