@@ -180,11 +180,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 320.0
 offset_right = -320.0
-offset_bottom = 1810.0
+offset_bottom = 1825.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_nxjw8")
-metadata/_edit_lock_ = true
 
 [node name="Logo" type="Sprite2D" parent="Scroll"]
 position = Vector2(160, 160)
@@ -307,3 +306,14 @@ libraries = {
 "": SubResource("AnimationLibrary_3oa44")
 }
 autoplay = "credits"
+
+[node name="CutsceneScene" type="AkState" parent="."]
+state_group = {
+"id": 1926883983,
+"name": "Scene"
+}
+state_value = {
+"id": 1182958561,
+"name": "Cutscene"
+}
+trigger_on = 2

@@ -270,8 +270,13 @@ public partial class MainMenu : Control
 	private void CreditsButtonOnPressed()
 	{
 		GetNode("Wwise/EventButtonPress").Call("post_event");
-		CreditsScene.Visible = true;
+		
 		MainMenuPanel.Visible = false;
+		GameOverPanel.Visible = false;
+		IntroCutscene.Visible = false;
+		GameUI.Visible = false;
+		_credits = Credits.Instantiate();
+		GetNode<CanvasLayer>("CanvasLayer").AddChild(_credits);
 	}
 
 	private void OptionsButtonOnPressed()
