@@ -1,23 +1,48 @@
-[gd_scene load_steps=16 format=3 uid="uid://b2vhhetl6w0ip"]
+[gd_scene load_steps=22 format=3 uid="uid://b2vhhetl6w0ip"]
 
 [ext_resource type="Script" path="res://MainMenu/MainMenu.cs" id="1_0qxbf"]
 [ext_resource type="Texture2D" uid="uid://b5tsdrrhuwa32" path="res://MainMenu/BG.png" id="1_1orda"]
 [ext_resource type="Theme" uid="uid://clwjpsq8eh1ds" path="res://gamejame_2024_theme.tres" id="2_5tobs"]
+[ext_resource type="Texture2D" uid="uid://brlifje46cflk" path="res://UI/mouse.png" id="3_3tef8"]
 [ext_resource type="FontFile" uid="uid://bayopgm4cvg2o" path="res://Macondo-Regular.ttf" id="3_fvpl3"]
 [ext_resource type="FontFile" uid="uid://dp2p5chmqvhdp" path="res://Roboto-Regular.ttf" id="4_6ogdn"]
 [ext_resource type="PackedScene" uid="uid://bgfdtj2ry60c5" path="res://MainMenu/Credits.tscn" id="4_u7cr8"]
+[ext_resource type="Texture2D" uid="uid://d2k3atr6yx3ij" path="res://UI/mouse-hover.png" id="4_xf6o3"]
+[ext_resource type="Texture2D" uid="uid://dwm2ymxwc28hm" path="res://UI/mouse-deny.png" id="5_b2ey4"]
 [ext_resource type="PackedScene" uid="uid://dhwgxa1uyk1mp" path="res://MainMenu/Options.tscn" id="5_v8wv2"]
 [ext_resource type="PackedScene" uid="uid://bq3lwsnvmy8mc" path="res://Levels/Level2.tscn" id="6_480qi"]
-[ext_resource type="Texture2D" uid="uid://b8jgilyr7fsgw" path="res://Levels/Art/Title_500x500px_placeholder.png" id="7_iwrpq"]
 [ext_resource type="PackedScene" uid="uid://bl2fesc7epab1" path="res://UI/IntroCutscene.tscn" id="8_jam5c"]
 [ext_resource type="PackedScene" uid="uid://b7mhrtmw1bpu7" path="res://Levels/Level1.tscn" id="9_xi5so"]
+[ext_resource type="PackedScene" uid="uid://b4f0j0gpgn2u1" path="res://Levels/Level3.tscn" id="10_c2f34"]
+[ext_resource type="Texture2D" uid="uid://dq3t4sq8jq510" path="res://UI/logo.png" id="10_yfhvl"]
 [ext_resource type="Texture2D" uid="uid://dsp4h6ywq62ny" path="res://MainMenu/menu-screen-bkg.png" id="11_c26br"]
 [ext_resource type="PackedScene" uid="uid://7llvmmihkn65" path="res://RuneTree/RuneTree.tscn" id="12_fcwdn"]
 [ext_resource type="PackedScene" uid="uid://c48hoql70qq01" path="res://UI/SpellslotContainer.tscn" id="13_com5w"]
 
+[sub_resource type="Animation" id="Animation_goft0"]
+resource_name = "fadein"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xf4md"]
+_data = {
+"fadein": SubResource("Animation_goft0")
+}
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_wkmvc"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "MainMenuPanel", "RestartButton", "OptionsButton_GOM", "CreditsButton_GOM", "ExitGameButton_GOM", "GameOverPanel", "CreditsScene", "OptionsScene", "IntroCutscene", "GameUI", "RuneTree")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "MainMenuPanel", "RestartButton", "OptionsButton_GOM", "CreditsButton_GOM", "ExitGameButton_GOM", "GameOverPanel", "GameOverAnimator", "CreditsScene", "OptionsScene", "IntroCutscene", "GameUI", "RuneTree")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,6 +51,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_5tobs")
 script = ExtResource("1_0qxbf")
+NormalCursor = ExtResource("3_3tef8")
+Grab = ExtResource("4_xf6o3")
+Error = ExtResource("5_b2ey4")
 StartButton = NodePath("CanvasLayer/MainMenuPanel/VBoxContainer/StartButton")
 OptionsButton = NodePath("CanvasLayer/MainMenuPanel/VBoxContainer/Options")
 CreditsButton = NodePath("CanvasLayer/MainMenuPanel/VBoxContainer/CreditsButton")
@@ -35,6 +63,7 @@ OptionsButton_GOM = NodePath("CanvasLayer/GameOverMenuPanel/VBoxContainer/Option
 CreditsButton_GOM = NodePath("CanvasLayer/GameOverMenuPanel/VBoxContainer/CreditsButton")
 ExitGameButton_GOM = NodePath("CanvasLayer/GameOverMenuPanel/VBoxContainer/ExitGameButton")
 GameOverPanel = NodePath("CanvasLayer/GameOverMenuPanel")
+GameOverAnimator = NodePath("CanvasLayer/GameOverMenuPanel/AnimationPlayer")
 CreditsScene = NodePath("CanvasLayer/Credits")
 OptionsScene = NodePath("CanvasLayer/Options")
 Theme = ExtResource("2_5tobs")
@@ -45,6 +74,7 @@ GameUI = NodePath("CanvasLayer/UI")
 RuneTree = NodePath("CanvasLayer/UI/RuneTree")
 Level1 = ExtResource("9_xi5so")
 Level2 = ExtResource("6_480qi")
+Level3 = ExtResource("10_c2f34")
 metadata/_edit_horizontal_guides_ = [270.0]
 metadata/_edit_vertical_guides_ = [480.0]
 
@@ -152,9 +182,9 @@ theme_override_constants/separation = 12
 alignment = 1
 
 [node name="GameOverTitle" type="Sprite2D" parent="CanvasLayer/GameOverMenuPanel/VBoxContainer"]
-position = Vector2(105, -97)
+position = Vector2(112, -97)
 scale = Vector2(0.42, 0.42)
-texture = ExtResource("7_iwrpq")
+texture = ExtResource("10_yfhvl")
 
 [node name="RestartGameButton" type="Button" parent="CanvasLayer/GameOverMenuPanel/VBoxContainer"]
 layout_mode = 2
@@ -179,6 +209,11 @@ text = "Exit Game"
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/GameOverMenuPanel"]
+libraries = {
+"": SubResource("AnimationLibrary_xf4md")
+}
 
 [node name="UI" type="Control" parent="CanvasLayer"]
 visible = false

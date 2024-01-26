@@ -23,6 +23,14 @@ public partial class RuneNode : PanelContainer
 	public override void _Ready()
 	{
 		Rune = TalentManager.Instance.GetSpell(SpellName);
+
+		if (Rune.IsDraggable)
+			(this as Control).MouseDefaultCursorShape = CursorShape.Move;
+		else
+		{
+			(this as Control).MouseDefaultCursorShape = CursorShape.Forbidden;
+		}
+		
 		Corruption.Visible = false;
 		IconRect.Texture = Icon;
 		
@@ -35,6 +43,8 @@ public partial class RuneNode : PanelContainer
 	{
 		if (Rune.Corrupted && !_coruptionAnimationFinished)
 			PlayCorruptionAnimation(delta);
+		if(Rune.Corrupted)
+			(this as Control).MouseDefaultCursorShape = CursorShape.Forbidden;
 	}
 
 	private void PlayCorruptionAnimation(double delta)
@@ -46,6 +56,8 @@ public partial class RuneNode : PanelContainer
 		if (_corruptionShaderOpacity >= 1)
 			_coruptionAnimationFinished = true;
 	}
+	
+	
 	
 	public override Variant _GetDragData(Vector2 atPosition)
 	{

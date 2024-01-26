@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bq3lwsnvmy8mc"]
+[gd_scene load_steps=17 format=3 uid="uid://bq3lwsnvmy8mc"]
 
 [ext_resource type="Texture2D" uid="uid://bowp64xxh05wk" path="res://Levels/Art/background-cavewall.png" id="1_ajlgu"]
 [ext_resource type="Script" path="res://Levels/Level2.cs" id="1_p34p7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Levels/DeathZone.cs" id="4_11ke4"]
 [ext_resource type="Texture2D" uid="uid://bscnyljrwynrp" path="res://Levels/Art/sprite-sheets/sprite-sheet-columns-extra.png" id="4_pa3s4"]
 [ext_resource type="PackedScene" uid="uid://b3coc670j5u0y" path="res://Wizard/Wizard.tscn" id="7_wkuuk"]
+[ext_resource type="Script" path="res://Levels/NextLevel2Door.cs" id="8_brp0r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ddq67"]
 texture = ExtResource("2_i1avu")
@@ -229,6 +230,9 @@ size = Vector2(3138, 332)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ou0lo"]
 gradient = SubResource("Gradient_vvql6")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3ast"]
+size = Vector2(20, 117)
+
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_p34p7")
 
@@ -279,3 +283,27 @@ color = Color(0.321569, 0.133333, 0.227451, 1)
 energy = 5.0
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_ou0lo")
+
+[node name="NextLevelDoor" type="Area2D" parent="."]
+position = Vector2(-2230, 450)
+collision_layer = 6
+collision_mask = 7
+script = ExtResource("8_brp0r")
+
+[node name="Door" type="CollisionShape2D" parent="NextLevelDoor"]
+position = Vector2(-2, 41.5)
+shape = SubResource("RectangleShape2D_y3ast")
+
+[node name="DoorOpenEvent" type="AkEvent2D" parent="NextLevelDoor"]
+event = {
+"id": 2589897592,
+"name": "Door_Opening"
+}
+position = Vector2(12, 41)
+
+[node name="DoorLockedEvent" type="AkEvent2D" parent="NextLevelDoor"]
+event = {
+"id": 3333554874,
+"name": "Door_Locked"
+}
+position = Vector2(11, 40)

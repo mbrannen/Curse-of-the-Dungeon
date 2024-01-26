@@ -6,6 +6,7 @@ public partial class Level1 : Node2D
 {
     [Export] public TileMap Map;
     [Export] public CharacterBody2D Wizard;
+
     public override void _Ready()
     {
         GameManager.Instance.LevelRestart += OnLevelRestart;

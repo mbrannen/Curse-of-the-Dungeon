@@ -6,6 +6,9 @@ public partial class FireRod : Area2D
 {
 	public bool IsTriggered { get; set; }
 
+	[Export]
+	public Node2D EnergizedParticles;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -19,6 +22,7 @@ public partial class FireRod : Area2D
 		if (area.IsInGroup("fire") && !IsTriggered)
 		{
 			GD.Print("Fire Rod activated");
+			EnergizedParticles.Visible = true;
 			IsTriggered = true;
 			GetNode("FireRod/RodChargeEvent").Call("post_event");
 		}
