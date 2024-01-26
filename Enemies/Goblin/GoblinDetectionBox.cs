@@ -33,19 +33,18 @@ public partial class GoblinDetectionBox : Area2D
 	private void PlayerDetectedOnAreaEntered(Area2D area)
 	{
 		GD.Print($"Player Detected:{area.Name}");
-		if (!IsRessurrected)
+		if (area.IsInGroup("player"))
 		{
-			GetNode("../GhostScreamEvent").Call("post_event");
-			GetNode("../GhostAmbienceEvent").Call("post_event");
-			GhostFormSpriteAnimated.Play("possession");
-			IsRessurrected = true;
-		}
-		DetectedPlayer = true;
-		GameManager.Instance.IncreaseGoblinsEngaged();
-		if (area.IsInGroup("goblin_wall")) {
-			GD.Print($"Detected Wall:{area.Name}");
-
-		}
+            if (!IsRessurrected)
+            {
+                GetNode("../GhostScreamEvent").Call("post_event");
+                GetNode("../GhostAmbienceEvent").Call("post_event");
+                GhostFormSpriteAnimated.Play("possession");
+                IsRessurrected = true;
+            }
+            DetectedPlayer = true;
+            GameManager.Instance.IncreaseGoblinsEngaged();
+        }
 	}
 	private void PlayerDetectedOnAreaExit(Area2D area)
 	{
