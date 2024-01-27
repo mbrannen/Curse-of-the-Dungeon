@@ -306,7 +306,6 @@ public partial class MainMenu : Control
 		MainMenuPanel.Visible = false;
 		GameOverPanel.Visible = false;
 		IntroCutscene.Visible = false;
-		GameUI.Visible = false;
 		_credits = Credits.Instantiate();
 		GetNode<CanvasLayer>("CanvasLayer").AddChild(_credits);
 	}

@@ -125,10 +125,10 @@ tracks/0/path = NodePath("Scroll:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 44.9),
+"times": PackedFloat32Array(0, 44),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(320, 0), Vector2(320, -2500)]
+"values": [Vector2(320, 0), Vector2(320, -2750)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -180,7 +180,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 320.0
 offset_right = -320.0
-offset_bottom = 1812.0
+offset_bottom = 2180.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_nxjw8")
@@ -197,11 +197,9 @@ layout_mode = 0
 offset_left = 64.0
 offset_top = 320.0
 offset_right = 256.0
-offset_bottom = 2264.0
-theme_override_constants/line_separation = -8
+offset_bottom = 2320.0
 bbcode_enabled = true
 text = "[center]Pirate Software Game Jam January 2024
-
 
 Game Design
 ~~~~~~
@@ -211,21 +209,17 @@ Matthew Brannen
 Jeremy Morris
 Xander Hansen
 
-
 Art Director
 ~~~~~~
 Catherine Ghodsee
-
 
 Sound Design
 ~~~~~~
 Jeremy Morris
 
-
 Music
 ~~~~~~
 Jeremy Morris
-
 
 Level Design
 ~~~~~~
@@ -237,47 +231,37 @@ Matthew Brannen
 Charles Lee
 Xander Hansen
 
-
 Systems
 ~~~~~~
 Matthew Brannen
-
 
 Goblin AI
 ~~~~~~
 Charles Lee
 
-
 Character Controller
 ~~~~~~
 Xander Hansen
-
 
 Character Art & Animations
 ~~~~~~
 Catherine Ghodsee
 
-
 UI
 ~~~~~~
 Matthew Brannen
-
 
 DevOps
 ~~~~~~
 Matthew Brannen
 
-
 Special thanks to Pirate Software for encouraging others to follow their passions and create...
-
-
-
 [/center]
 "
-metadata/_edit_lock_ = true
+scroll_active = false
 
 [node name="thanks" type="Sprite2D" parent="Scroll"]
-position = Vector2(160, 2208)
+position = Vector2(160, 2490)
 texture = ExtResource("7_61dy1")
 
 [node name="art" type="AnimatedSprite2D" parent="."]

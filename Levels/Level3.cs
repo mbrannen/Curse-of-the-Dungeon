@@ -27,7 +27,13 @@ public partial class Level3 : Node2D
     }
     public void Destroy()
     {
-        //GameManager.Instance.LevelRestart -= OnLevelRestart;
+        try
+        {
+            GetNode("BridgeCreaking").Call("stop_event");
+        }
+        catch{}
+        
+        GameManager.Instance.LevelRestart -= OnLevelRestart;
         QueueFree();
     }
 }

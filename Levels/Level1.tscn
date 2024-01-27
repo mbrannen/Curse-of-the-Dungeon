@@ -422,8 +422,13 @@ position = Vector2(-165, 293)
 scale = Vector2(1.75, 1.6)
 texture = ExtResource("21_h2s5a")
 
+[node name="Door-open" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-4426, 439)
+texture = ExtResource("24_od01k")
+
 [node name="Wizard" parent="." instance=ExtResource("4_6aqcm")]
-position = Vector2(192, 498)
+position = Vector2(439, 504)
 
 [node name="WaterZone" type="Area2D" parent="."]
 position = Vector2(-3, -2)
@@ -629,10 +634,7 @@ position = Vector2(-4461.62, 440.4)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("18_p06pb")]
-
-[node name="Door-open" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-4426, 439)
-texture = ExtResource("24_od01k")
+metadata/_edit_lock_ = true
 
 [node name="SpellHolder" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
