@@ -139,6 +139,7 @@ public partial class Wizard : CharacterBody2D
 	void CastSpell()
 	{
 		if (!GameManager.Instance.IsTalentsOpen
+		    && !GameManager.Instance.IsInPauseState()
 			&& GameManager.Instance.GetSelectedSpell() is not null
 			&& GameManager.Instance.GetSelectedSpell()?.RuneType != Rune.Base
 			&& SpellManager.CanCast())

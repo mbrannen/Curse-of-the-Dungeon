@@ -34,6 +34,7 @@ public partial class Level1 : Node2D
 	public void Destroy()
 	{
 		GameManager.Instance.LevelRestart -= OnLevelRestart;
+		GetNode("WaterZone/CollisionShape2D/WaterEvent").Call("stop_event");
 		QueueFree();
 	}
 }

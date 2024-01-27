@@ -11,16 +11,21 @@ public partial class IntroCutscene : Control
 	public override void _Ready()
 	{
 		GameManager.Instance.PlayIntroCutscene += OnPlayIntroCutscene;
+		GameManager.Instance.MainMenu += OnMainMenu;
 		
 		AnimationPlayer.AnimationFinished += OnAnimationFinished;
 		SkipButton.Pressed += SkipButtonOnPressed;
+	}
+
+	private void OnMainMenu()
+	{
+		SkipButton.Disabled = false;
 	}
 
 	private void SkipButtonOnPressed()
 	{
 		AnimationPlayer.Seek(56,true);
 		SkipButton.Disabled = true;
-		GetNode("../Wwise/EventButtonPress").Call("post_event");
 	}
 
 	private void OnAnimationFinished(StringName animname)

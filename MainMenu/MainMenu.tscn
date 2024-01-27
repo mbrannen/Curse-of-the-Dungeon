@@ -73,7 +73,7 @@ _data = {
 "fadein": SubResource("Animation_goft0")
 }
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "ExitGame", "MainMenuPanel", "RestartButton", "OptionsButton_GOM", "CreditsButton_GOM", "ExitGameButton_GOM", "GameOverPanel", "GameOverAnimator", "CreditsScene", "OptionsScene", "IntroCutscene")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "ExitGame", "MainMenuPanel", "RestartButton", "OptionsButton_GOM", "CreditsButton_GOM", "MainMenuButton_GOM", "GameOverPanel", "GameOverAnimator", "CreditsScene", "OptionsScene", "IntroCutscene")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,8 +92,8 @@ ExitGame = NodePath("CanvasLayer/MainMenuPanel/VBoxContainer/ExitGame")
 MainMenuPanel = NodePath("CanvasLayer/MainMenuPanel")
 RestartButton = NodePath("CanvasLayer/GameOverMenuPanel/VBoxContainer/RestartGameButton")
 OptionsButton_GOM = NodePath("CanvasLayer/GameOverMenuPanel/VBoxContainer/Options")
-CreditsButton_GOM = NodePath("CanvasLayer/GameOverMenuPanel/VBoxContainer/CreditsButton")
-ExitGameButton_GOM = NodePath("CanvasLayer/GameOverMenuPanel/VBoxContainer/ExitGameButton")
+CreditsButton_GOM = NodePath("")
+MainMenuButton_GOM = NodePath("CanvasLayer/GameOverMenuPanel/VBoxContainer/MainMenuButton")
 GameOverPanel = NodePath("CanvasLayer/GameOverMenuPanel")
 GameOverAnimator = NodePath("CanvasLayer/GameOverMenuPanel/AnimationPlayer")
 CreditsScene = NodePath("CanvasLayer/Credits")
@@ -101,7 +101,7 @@ OptionsScene = NodePath("CanvasLayer/Options")
 Theme = ExtResource("2_5tobs")
 DefaultFont = ExtResource("3_fvpl3")
 AccessbilityFont = ExtResource("4_6ogdn")
-IntroCutscene = NodePath("IntroCutscene")
+IntroCutscene = NodePath("CanvasLayer/IntroCutscene")
 Level1 = ExtResource("9_xi5so")
 Level2 = ExtResource("6_480qi")
 Level3 = ExtResource("10_c2f34")
@@ -115,11 +115,10 @@ metadata/_edit_vertical_guides_ = [480.0]
 position = Vector2(480, 270)
 position_smoothing_enabled = true
 
-[node name="IntroCutscene" parent="." instance=ExtResource("8_jam5c")]
-visible = false
-layout_mode = 1
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="IntroCutscene" parent="CanvasLayer" instance=ExtResource("8_jam5c")]
+visible = false
 
 [node name="MainMenuPanel" type="Panel" parent="CanvasLayer"]
 self_modulate = Color(1, 0.368627, 0.117647, 0)
@@ -251,14 +250,9 @@ layout_mode = 2
 theme = ExtResource("2_5tobs")
 text = "Options"
 
-[node name="CreditsButton" type="Button" parent="CanvasLayer/GameOverMenuPanel/VBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/GameOverMenuPanel/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_5tobs")
-text = "Credits"
-
-[node name="ExitGameButton" type="Button" parent="CanvasLayer/GameOverMenuPanel/VBoxContainer"]
-layout_mode = 2
-text = "Exit Game"
+text = "Main Menu"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/GameOverMenuPanel"]
 layout_mode = 0

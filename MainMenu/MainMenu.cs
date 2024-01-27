@@ -21,7 +21,7 @@ public partial class MainMenu : Control
 	[Export] public Button RestartButton;
 	[Export] public Button OptionsButton_GOM;
 	[Export] public Button CreditsButton_GOM;
-	[Export] public Button ExitGameButton_GOM;
+	[Export] public Button MainMenuButton_GOM;
 	[Export] public Panel GameOverPanel;
 	[Export] public AnimationPlayer GameOverAnimator;
 	
@@ -84,9 +84,11 @@ public partial class MainMenu : Control
 		ExitGame.MouseEntered += ButtonOnMouseover;
 		
 		RestartButton.Pressed += RestartButtonOnPressed;
+		RestartButton.MouseEntered += ButtonOnMouseover;
 		OptionsButton_GOM.Pressed += OptionsButton_GOMOnPressed;
-		CreditsButton_GOM.Pressed += CreditsButton_GOMOnPressed;
-		ExitGameButton_GOM.Pressed += ExitGameButton_GOMOnPressed;
+		OptionsButton_GOM.MouseEntered += ButtonOnMouseover;
+		MainMenuButton_GOM.Pressed += MainMenuButtonGomOnPressed;
+		MainMenuButton_GOM.MouseEntered += ButtonOnMouseover;
 		
 		
 		GetNode("Wwise/SceneMainMenu").Call("set_state");
@@ -118,9 +120,9 @@ public partial class MainMenu : Control
 		GameManager.Instance.RestartLevel();
 	}
 
-	private void ExitGameButton_GOMOnPressed()
+	private void MainMenuButtonGomOnPressed()
 	{
-		GetTree().Quit();
+		GameManager.Instance.SetState(GameState.MainMenu);
 	}
 
 	public override void _Process(double delta)
@@ -139,15 +141,36 @@ public partial class MainMenu : Control
 		try
 		{
 			_level1?.Destroy();
-			_level2?.Destroy();
-			_level3?.Destroy();
-			_cutscene.QueueFree();
 		}
 		catch
 		{
 			//lol no errors here folks
 		}
-		_credits.QueueFree();
+
+		try
+		{
+			_level2?.Destroy();
+		}
+		catch{}
+
+		try
+		{
+			_level3?.Destroy();
+		}
+		catch {}
+
+		try
+		{
+			_credits.QueueFree();
+		}
+		catch
+		{
+			
+		}
+		
+		GetNode("Wwise/SceneMainMenu").Call("set_state");
+		GetNode("Wwise/EventCaveSFX").Call("stop_event");
+		GetNode("Wwise/EventEnemyPercussionStart").Call("stop_event");
 		
 	}
 
