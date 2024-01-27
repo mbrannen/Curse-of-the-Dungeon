@@ -73,7 +73,7 @@ _data = {
 "fadein": SubResource("Animation_goft0")
 }
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "MainMenuPanel", "RestartButton", "OptionsButton_GOM", "CreditsButton_GOM", "ExitGameButton_GOM", "GameOverPanel", "GameOverAnimator", "CreditsScene", "OptionsScene", "IntroCutscene")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("StartButton", "OptionsButton", "CreditsButton", "ExitGame", "MainMenuPanel", "RestartButton", "OptionsButton_GOM", "CreditsButton_GOM", "ExitGameButton_GOM", "GameOverPanel", "GameOverAnimator", "CreditsScene", "OptionsScene", "IntroCutscene")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,6 +88,7 @@ Error = ExtResource("5_b2ey4")
 StartButton = NodePath("CanvasLayer/MainMenuPanel/VBoxContainer/StartButton")
 OptionsButton = NodePath("CanvasLayer/MainMenuPanel/VBoxContainer/Options")
 CreditsButton = NodePath("CanvasLayer/MainMenuPanel/VBoxContainer/CreditsButton")
+ExitGame = NodePath("CanvasLayer/MainMenuPanel/VBoxContainer/ExitGame")
 MainMenuPanel = NodePath("CanvasLayer/MainMenuPanel")
 RestartButton = NodePath("CanvasLayer/GameOverMenuPanel/VBoxContainer/RestartGameButton")
 OptionsButton_GOM = NodePath("CanvasLayer/GameOverMenuPanel/VBoxContainer/Options")
@@ -172,6 +173,10 @@ text = "Options"
 layout_mode = 2
 theme = ExtResource("2_5tobs")
 text = "Credits"
+
+[node name="ExitGame" type="Button" parent="CanvasLayer/MainMenuPanel/VBoxContainer"]
+layout_mode = 2
+text = "Exit Game"
 
 [node name="MenuLight" type="PointLight2D" parent="CanvasLayer/MainMenuPanel"]
 position = Vector2(-144, -36)

@@ -14,6 +14,7 @@ public partial class MainMenu : Control
 	[Export] public Button StartButton;
 	[Export] public Button OptionsButton;
 	[Export] public Button CreditsButton;
+	[Export] public Button ExitGame;
 	[Export] public Panel MainMenuPanel;
 	
 	[ExportGroup("GameOverMenu")]
@@ -79,6 +80,8 @@ public partial class MainMenu : Control
 		OptionsButton.MouseEntered += ButtonOnMouseover;
 		CreditsButton.Pressed += CreditsButtonOnPressed;
 		CreditsButton.MouseEntered += ButtonOnMouseover;
+		ExitGame.Pressed += ExitGameOnPressed;
+		ExitGame.MouseEntered += ButtonOnMouseover;
 		
 		RestartButton.Pressed += RestartButtonOnPressed;
 		OptionsButton_GOM.Pressed += OptionsButton_GOMOnPressed;
@@ -283,6 +286,11 @@ public partial class MainMenu : Control
 		GameUI.Visible = false;
 		_credits = Credits.Instantiate();
 		GetNode<CanvasLayer>("CanvasLayer").AddChild(_credits);
+	}
+	
+	private void ExitGameOnPressed()
+	{
+		GetTree().Quit();
 	}
 
 	private void OptionsButtonOnPressed()
