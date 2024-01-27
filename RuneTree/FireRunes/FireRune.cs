@@ -6,7 +6,7 @@ public class FireRune : SpellRuneBase
     public override Rune RuneType => Rune.FireRune;
     public override int CorruptionCost { get; } = 50;
     public override string Name => SpellNames.FIRE_RUNE;
-    public override string Description => "The rune from which Hubarus draws essence for all of his Fire abilities.  " +
+    public override string Description => "The rune from which Hubarus draws essence\n for all of his Fire abilities.  " +
                                           "Offers but a small flame.";
 
     public override bool MovesWhenCast { get; } = true;

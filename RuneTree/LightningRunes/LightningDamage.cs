@@ -6,5 +6,5 @@ public class LightningDamage : SpellModifierRuneBase
     public override Rune RuneType { get; } = Rune.LightningDamage;
     public override string Name => SpellNames.LIGHTNING_DAMAGE;
     
-    public override string Description => "Some flavor text";
+    public override string Description => "Might do something in the future...";
 }
